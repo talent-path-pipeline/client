@@ -1,3 +1,12 @@
+### Naming conventions:
+
+- **Classes/Components**: Pascal case (e.g. `HomePage.js`)
+- **Variables**: Underscores (e.g. `my_awesome_variable = 5`)
+- **Folders**: Kebab case (e.g. `i-am-a-folder`)
+- **Functions**: Camel Case (e.g. `doSomethingPlease(input)`)
+
+------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
