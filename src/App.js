@@ -1,24 +1,11 @@
 import React from 'react';
 import './css/main.css';
+// import { LessonInfo } from './components';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="/images/logo.png" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /* Insert app stuff here */
+    <h1>I am an app!</h1>
   );
 }
 
