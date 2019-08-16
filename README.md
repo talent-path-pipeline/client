@@ -1,7 +1,8 @@
 ### Naming conventions:
 
 - **Classes/Components**: Pascal case (e.g. `HomePage.js`)
-- **Variables**: Underscores (e.g. `my_awesome_variable = 5`)
+- **Variables**: Snake case (e.g. `my_awesome_variable = 5`)
+- **Constants**: Caps case (e.g. `const GLOBAL_VARIABLE = 'a global string`)
 - **Folders**: Kebab case (e.g. `i-am-a-folder`)
 - **Functions**: Camel Case (e.g. `doSomethingPlease(input)`)
 
