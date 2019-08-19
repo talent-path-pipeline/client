@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import '../css/style-variables.css';
+/* =========================== RESETS =========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================== MAIN =========================== */
+
+body {
+  margin-top: var(--nav-height);
+  background-color: var(--darkgrey);
+  font-family: var(--fontfamily);
+  font-size: 20px;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    margin-top: 30px;
+  }
+}
