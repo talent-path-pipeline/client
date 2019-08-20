@@ -5,27 +5,36 @@ img#main-splash {
   height: 600px;
 }
 
-#company-info {
-  display: grid;
-  margin: 20px auto;
-  height: 500px;
-  width: 600px;
-  grid-template-columns: 300px 300px;
-  grid-row: auto auto;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+#company-information {
+  background-color: dodgerblue;
+  height: 600px;
+  
+  
+  #company-grid {
+    height: 500px;
+    width: 600px;
+    display: grid;
+    margin: 20px auto;
+    grid-template-columns: 300px 300px;
+    grid-row: auto auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  
+    .company-box {
+      background-color: white;
+      padding:20px;
+      border-radius:10px;
+      color: black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+    }
+
+  }
+
 }
 
-.company-box {
-  background-color:#333;
-  padding:20px;
-  border-radius:10px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-}
 
 #start-path {
   padding-top: 40px;
@@ -45,4 +54,37 @@ img#main-splash {
   font-size:30px;
   height: 200px;
   width: 200px;
+}
+
+#testimonials {
+  background-color: orange;
+  color: white;
+  text-align: center;
+
+  h2 {
+    padding-top: 20px;
+  }
+
+  p {
+    max-width: 900px;
+    margin: 2em auto;
+  }
+
+  .testimonial-author-container {
+    padding-bottom: 20px;
+  }
+
+  .glide__arrow.glide__arrow--left {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  .glide__arrow.glide__arrow--right {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+  }
 }

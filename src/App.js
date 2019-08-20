@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './css/main.scss';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { NavBar, HomePage } from './components';
+import { NavBar, HomePage, PathInfo, CatalogPage, SupportPage, DashboardPage  } from './components';
 // import { LessonInfo } from './components';
 
 function App() {
@@ -9,11 +10,13 @@ function App() {
   /* Insert app stuff here */
     <div id="start-page">
       <NavBar />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/path" component={PathInfo} />
+        <Route exact path="/catalog" component={CatalogPage} />
+        <Route exact path="/support" component={SupportPage} />
+        <Route exact path="/dashboard" component={DashboardPage} />
+      </Switch>
     </div>
   );
 }
