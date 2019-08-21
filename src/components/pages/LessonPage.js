@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class LessonVideo extends Component {
+export default class LessonPage extends Component {
   render() {
     return (
       <div />
