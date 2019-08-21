@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './css/main.scss';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import { NavBar, HomePage, PathInfo, CatalogPage, SupportPage, DashboardPage  } from './components';
 // import { LessonInfo } from './components';
 

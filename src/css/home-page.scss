@@ -6,19 +6,21 @@ img#main-splash {
 }
 
 #company-information {
-  background-color: dodgerblue;
-  height: 600px;
+  background-color: var(--blue);
+  height: 100%;
   
   
   #company-grid {
     height: 500px;
     width: 600px;
     display: grid;
-    margin: 20px auto;
+    // margin: 2em auto;
+    margin: auto;
     grid-template-columns: 300px 300px;
     grid-row: auto auto;
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+    padding: 30px;
   
     .company-box {
       background-color: white;
@@ -57,7 +59,7 @@ img#main-splash {
 }
 
 #testimonials {
-  background-color: orange;
+  background-color: var(--orange);
   color: white;
   text-align: center;
 
