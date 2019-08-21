@@ -1,9 +1,15 @@
 ### Naming conventions:
 
 - **Classes/Components**: Pascal case (e.g. `HomePage.js`)
-- **Variables**: Underscores (e.g. `my_awesome_variable = 5`)
+- **Variables**: Snake case (e.g. `my_awesome_variable = 5`)
+- **Constants**: Caps case (e.g. `const GLOBAL_VARIABLE = 'a global string`)
 - **Folders**: Kebab case (e.g. `i-am-a-folder`)
 - **Functions**: Camel Case (e.g. `doSomethingPlease(input)`)
+- **Git Branches**: Kebab case with a descriptive name and prefaced by a 'c' the number of the issue it deals with (e.g. for `client issue #15: "AaC, I should be able to see a tree of paths I can take.` the branch should be named something like `c15-path-tree`).
+
+### Style consistency
+
+We are using VSCode for development with the ESLint and Prettier extensions for consistency. Configuration files for both extensions are included in the root of this repository. If contributing, please either install those extensions or read through them and ensure your code complies with the rules listed.
 
 ------------------------------
 
