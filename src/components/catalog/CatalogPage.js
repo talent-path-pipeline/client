@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CatalogList from './CatalogList';
+import CatalogFilter from './CatalogFilter';
 import '../../css/catalog/CatalogPage.css';
 
 export default class CatalogPage extends Component {
@@ -74,6 +75,7 @@ export default class CatalogPage extends Component {
           courses={courses}
           clickCourse={this.clickCourse}
         />
+        <CatalogFilter/>
       </div>
     );
   }

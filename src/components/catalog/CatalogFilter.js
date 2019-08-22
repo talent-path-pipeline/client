@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import '../../css/catalog/CatalogFilters.css';
+
+export default class CatalogFilters extends Component {
+  constructor(props) {
+    super(props);
+
+    this.modalContainer = React.createRef();
+
+    this.state = {
+      filters: ['JavaScript', 'CSS', 'HTML', 'React', 'MongoDB', 'Express', 'Node']
+    }
+  }
+
+  // ===============================================================
+  // Handlers
+    /**
+     * TODO: Handle when filter is clicked
+     * @param {Object} selectedCourse the object containing the data for the course to be displayed
+     */
+  selectFilter = event => {
+    console.log(event);
+  };
+  
+
+  // ===============================================================
+  // Render
+
+  render() {
+    return (
+      <div id="filter-item">
+        {this.state.filters.map(filter => (
+          <p className={filter}>
+            {filter}
+          </p>
+        ))}
+      </div>
+    );
+  }
+}
