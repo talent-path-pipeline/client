@@ -31,9 +31,8 @@ export default class CatalogCard extends Component {
   clickCourse = selectedCourse => {
     console.log(selectedCourse);
   };
+  
   componentDidMount(){
-    console.log('Component did mount');
-    console.log(this.props.course);
     this.setState({
       course: {
         title: this.props.course.title,
