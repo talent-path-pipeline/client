@@ -40,12 +40,12 @@ export default class CatalogPage extends Component {
         title: 'Intro to MongoDB and Express',
         completedCourses: 27,
         totalCourses: 27,
-        img: '',
+        img: 'https://cacm.acm.org/system/assets/0002/7119/042117_Theodo_MongoDB.large.jpg?1492791427&1492791427',
       },{
         title: 'The MERN Stack',
         completedCourses: 0,
         totalCourses: 5,
-        img: '',
+        img: 'https://banner2.kisspng.com/20180410/dbq/kisspng-react-javascript-responsive-web-design-github-angu-github-5accac24ced243.4761515415233628528472.jpg',
       }],
     };
   }

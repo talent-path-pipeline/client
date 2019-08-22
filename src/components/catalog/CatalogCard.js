@@ -11,7 +11,8 @@ export default class CatalogCard extends Component {
     this.state = {
       course: {
         title: '',
-        progress: '',
+        completedCourses: '',
+        totalCourses: '',
         img: '',
       },
     };
@@ -31,10 +32,13 @@ export default class CatalogCard extends Component {
     console.log(selectedCourse);
   };
   componentDidMount(){
+    console.log('Component did mount');
+    console.log(this.props.course);
     this.setState({
       course: {
         title: this.props.course.title,
-        progress: this.props.course.progress,
+        completedCourses: this.props.course.completedCourses,
+        totalCourses: this.props.course.totalCourses,
         img: this.props.course.img,
       },
     });
@@ -47,20 +51,20 @@ export default class CatalogCard extends Component {
     const { course, clickCourse } = this.props;
 
     return (
-      <div className='catalog-card'>
-        <div
-          id="course-item"
-          key={this.state.course.title}
-          role="button"
-          tabIndex={0}
-          onClick={() => clickCourse(this.state.course.title)}
-          onKeyPress={e => {
-            if (e.key === 'Enter') clickCourse(this.state.course.title);
-          }}
-        >
-          <div className="img-fluid">{this.state.course.title}</div>
-        </div>
+      <div
+        id="course-item"
+        key={this.state.course.title}
+        role="button"
+        tabIndex={0}
+        onClick={() => clickCourse(this.state.course.title)}
+        onKeyPress={e => {
+          if (e.key === 'Enter') clickCourse(this.state.course.title);
+        }}
+      >
 
+        <img className="course-image" src={this.state.course.img} alt='courseImage'/>
+        <p className="course-title">{this.state.course.title}</p>
+        <p className="course-progress">{this.state.course.completedCourses} of {this.state.course.totalCourses} lessons completed</p>
       </div>
     );
   }
