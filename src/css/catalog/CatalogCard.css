@@ -7,6 +7,7 @@
 #course-item {
   display: grid;
   justify-content: space-evenly;
+  grid-template-columns: 90%;
   padding: 14px;
   outline: none;
   width: 275px; 
