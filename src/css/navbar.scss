@@ -9,7 +9,7 @@
 
 #nav-image {
   height: 60px;
-  margin-top: 1%;
+  margin-top: 5%;
   margin-left: 20px;
 }
 
@@ -18,9 +18,19 @@
   list-style: none;
   margin-right: 0;
   margin-top: 1%;
+  
+  li {
+    padding: 10px;
+  }
+
+  a {
+    color: #454545;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--orange);
+  }
 }
 
-#nav-list li {
-  
-  padding: 10px;
-}
+
