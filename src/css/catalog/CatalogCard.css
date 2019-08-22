@@ -22,9 +22,9 @@
   filter: brightness(75%);
 }
 
-#course-item:hover {
+/* #course-item:hover {
   cursor: pointer;
-}
+} */
 
 
 #list-all-courses {
@@ -52,10 +52,6 @@
   width: 100%;
 }
 
-.course-image:hover{
-  border: none !important;
-  display: block;
-}
 
 .loader {
   text-align: center;

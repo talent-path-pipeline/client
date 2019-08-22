@@ -18,12 +18,9 @@
 
 #course-item:hover {
   cursor: pointer;
-}
-
-#course-item:hover img,
-#course-item:focus img {
   box-shadow: 0px 0px 2px 2px var(--purple);
 }
+
 
 #list-all-courses {
   display: flex;
