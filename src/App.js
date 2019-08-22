@@ -1,9 +1,10 @@
 import React from 'react';
 import './css/main.css';
-import { LessonInfo } from './components';
+import { PathPage } from './components';
+import DUMMY_PATH from './DUMMY_DATA';
 
 function App() {
-  return <LessonInfo />;
+  return <PathPage path_data={DUMMY_PATH} />;
 }
 
 export default App;
