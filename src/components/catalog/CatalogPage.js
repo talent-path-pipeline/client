@@ -30,12 +30,12 @@ export default class CatalogPage extends Component {
         title: 'Intro to Node',
         completedCourses: 2,
         totalCourses: 8,
-        img: 'https://ih1.redbubble.net/image.109336634.1604/mp,840x830,matte,f8f8f8,t-pad,750x1000,f8f8f8.u1.jpg',
+        img: 'http://pluspng.com/img-png/nodejs-logo-png-nice-images-collection-node-js-desktop-wallpapers-370.png',
       },{
         title: 'Intermediate JS',
         completedCourses: 2,
         totalCourses: 7,
-        img: 'https://www.burlingtoncodeacademy.com/wp-content/uploads/2019/03/js-1024x942.png',
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhbGmrvzeMAaR1rHzBx8pezeEZUbX-6T-Po9er1v4TTC69MRbi',
       },{
         title: 'Intro to MongoDB and Express',
         completedCourses: 27,
@@ -45,7 +45,7 @@ export default class CatalogPage extends Component {
         title: 'The MERN Stack',
         completedCourses: 0,
         totalCourses: 5,
-        img: 'https://banner2.kisspng.com/20180410/dbq/kisspng-react-javascript-responsive-web-design-github-angu-github-5accac24ced243.4761515415233628528472.jpg',
+        img: 'https://cdn.worldvectorlogo.com/logos/react.svg',
       }],
     };
   }
