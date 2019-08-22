@@ -4,7 +4,8 @@ export { default as CourseInfo } from './course/CourseInfo';
 
 // ========================================
 // lesson
-export { default as LessonInfo } from './lesson/LessonInfo';
+// export { default as LessonPage } from './lesson/LessonInfo';
+export { default as LessonsPane } from './lesson/LessonsPane'
 
 // ========================================
 // pages
