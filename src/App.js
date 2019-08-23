@@ -1,9 +1,9 @@
 import React from 'react';
 import './css/main.css';
-import { LessonInfo } from './components';
+import HomePage from './components/pages/HomePage';
 
 function App() {
-  return <LessonInfo />;
+  return <HomePage />;
 }
 
 export default App;
