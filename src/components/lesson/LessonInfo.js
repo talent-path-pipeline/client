@@ -1,9 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class LessonInfo extends Component {
-  render() {
-    return (
-      <div />
-    )
-  }
-}
+const LessonInfo = ({ title, desc}) => <div className="lesson-info"><h3>{title || 'Lesson'}</h3><p>{desc || 'No description provided'}</p></div>
+
+export default LessonInfo;

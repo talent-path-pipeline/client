@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LessonVideo = ({title, src, time = 0}) => <div>
+const LessonVideo = ({title, src, time = 0}) => <div>
   {/* <video controls>
     <track kind="captions" />
     <source src={src} currentTime={time} />
@@ -8,3 +8,4 @@ export const LessonVideo = ({title, src, time = 0}) => <div>
   <iframe title={title} allowFullScreen="" frameBorder="0" height="315" src={ `${src}?start=${time}`|| `http://www.youtube.com/embed/UkWd0azv3fQ`} width="420" />
 </div>
 
+export default LessonVideo;
