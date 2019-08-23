@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CourseCard } from '..';
+import '../../css/path/PathTree.scss';
 
 const PathTree = ({ courses }) => (
   // TODO: sort courses by order
   <div className="path-tree">
     {courses.map(course => (
-      <CourseCard course={course} />
+      <CourseCard course={course} key={course.order} />
     ))}
   </div>
 );

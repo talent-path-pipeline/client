@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/path/PathInfo.scss';
 
 const PathInfo = ({ title, description, image_link }) => (
   <div className="path-info">

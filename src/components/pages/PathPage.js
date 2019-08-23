@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PathInfo, PathTree } from '..';
+import '../../css/pages/PathPage.scss';
 
 const PathPage = ({ path_data }) => (
   <div className="path-page">
