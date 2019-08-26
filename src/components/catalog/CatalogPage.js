@@ -71,11 +71,16 @@ export default class CatalogPage extends Component {
 
     return (
       <div className="catalog-page">
-        <CatalogList
-          courses={courses}
-          clickCourse={this.clickCourse}
-        />
-        <CatalogFilter/>
+        <section className="column1">
+          <CatalogList
+            courses={courses}
+            clickCourse={this.clickCourse}
+          />
+        </section>
+        <section className="column2">
+          <h2 className="filterHeader">Find Course</h2>
+          <CatalogFilter/>
+        </section>
       </div>
     );
   }
