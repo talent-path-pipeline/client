@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import LessonVideo from './LessonVideo';
 import LessonInfo from './LessonInfo';
-import LessonsPane from './LessonsPane';
+import { LessonVideo, LessonInfo, LessonsPane } from '..';
 import '../../css/lesson/lesson.scss';
 
 export default class Lesson extends Component {
