@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LessonLink from './LessonLink';
+import { LessonLink } from '..';
 
 export default class LessonsPane extends Component {
   constructor(props) {
