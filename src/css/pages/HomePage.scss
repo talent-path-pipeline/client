@@ -1,13 +1,72 @@
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
-#main-splash {
-  background-color: #454545;
-  width: 100%;
-  // height: 600px;
+#splash-container {
+  background-color: var(--black);
+  position: relative;
+  height: auto;
+
+  #call-to-action {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    h3 {
+      font-size: calc(2vw + 1rem);
+      color: var(--white);
+      text-shadow: 2px 2px 4px var(--blue);
+      text-align: center;
+    }
+
+    button {
+      width: 120px;
+      background-color: var(--red);
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      font-family: var(--font-family);
+      margin-top: 20px;
+      color: var(--white);
+    }
+
+    #clipPolygon {
+      z-index: 3;
+      background-color: var(--blue);
+    }
+  }
+
+  .splash-image {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+  }
+}
+
+#company-name {
+  padding: 0px 0px;
+  height: auto;
+  min-height: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(black, var(--red));
+  color: var(--white);
+  font-size: 4vw;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 #company-information {
-  background-color: var(--blue);
+  background-color: var(--red);
   height: 100%;
   
   
@@ -16,19 +75,17 @@
     width: auto;
     margin: auto;
     display: grid; 
-    // grid-template-columns: repeat(4, 1fr); 
-    // grid-template-rows: 1fr; 
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-column-gap: 15px;
     grid-row-gap: 10px; 
     padding: 30px;
   
     .company-box {
-      background-color: white;
+      background-color: var(--grey);
       padding:20px;
       max-height: 500px;
       border-radius:10px;
-      color: black;
+      color: var(--white);
       display:flex;
       flex-direction: column;
       align-items:center;
@@ -45,57 +102,7 @@
 
 }
 
-
-#start-path {
-  padding: 40px 0px;
-  height: 400px;
-  width: 600px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-img#path-image {
-  width: 250px;
-  height: 250px;
-  padding:20px;
-  border-radius:30px;
-  color:#fff;;
-  font-size:30px;
-}
-
 #testimonials {
-  background-color: var(--orange);
-  color: white;
-  text-align: center;
-
-  h2 {
-    padding-top: 20px;
-  }
-
-  p {
-    max-width: 900px;
-    margin: 2em auto;
-  }
-
-  .testimonial-author-container {
-    padding-bottom: 20px;
-  }
-
-  .glide__arrow.glide__arrow--left {
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
-  }
-
-  .glide__arrow.glide__arrow--right {
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
-  }
+  height: 400px;
+  background-color: var(--red);
 }
