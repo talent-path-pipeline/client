@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../../css/catalog/CatalogCard.css';
+import '../../css/catalog/CatalogCard.scss';
 
 export default class CatalogCard extends Component {
+  static propTypes = {
+    course: PropTypes.object.isRequired,
+    clickCourse: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
 
@@ -17,54 +22,51 @@ export default class CatalogCard extends Component {
       },
     };
   }
-  static propTypes = {
-    course: PropTypes.object.isRequired,
-    clickCourse: PropTypes.func.isRequired,
-  };
 
   // ===============================================================
   // Handlers
-    /**
-     * TODO: Handle route when course is clicked
-     * @param {Object} selectedCourse the object containing the data for the course to be displayed
-     */
-  clickCourse = selectedCourse => {
-    console.log(selectedCourse);
-  };
-  
   componentDidMount(){
+    const { course } = this.state;
     this.setState({
       course: {
-        title: this.props.course.title,
-        completedCourses: this.props.course.completedCourses,
-        totalCourses: this.props.course.totalCourses,
-        img: this.props.course.img,
+        title: course.title,
+        completedCourses: course.completedCourses,
+        totalCourses: course.totalCourses,
+        img: course.img,
       },
     });
   }
 
-  // ===============================================================
-  // Render
+  /**
+     * TODO: Handle route when course is clicked
+     * @param {Object} selectedCourse the object containing the data for the course to be displayed
+     */
+    clickCourse = selectedCourse => {
+      console.log(selectedCourse);
+    };
 
-  render() {
-    const { course, clickCourse } = this.props;
+    // ===============================================================
+    // Render
 
-    return (
-      <div
-        id="course-item"
-        key={this.state.course.title}
-        role="button"
-        tabIndex={0}
-        onClick={() => clickCourse(this.state.course.title)}
-        onKeyPress={e => {
-          if (e.key === 'Enter') clickCourse(this.state.course.title);
-        }}
-      >
+    render() {
+      const { course, clickCourse } = this.props;
 
-        <img className="course-image" src={this.state.course.img} alt='courseImage'/>
-        <p className="course-title">{this.state.course.title}</p>
-        <p className="course-progress">{this.state.course.completedCourses} of {this.state.course.totalCourses} lessons completed</p>
-      </div>
-    );
-  }
+      return (
+        <div
+          id="course-card"
+          key={course.title}
+          role="button"
+          tabIndex={0}
+          onClick={() => clickCourse(course.title)}
+          onKeyPress={e => {
+            if (e.key === 'Enter') clickCourse(course.title);
+          }}
+        >
+
+          <img className="course-image" src={course.img} alt='courseImage'/>
+          <p className="course-title">{course.title}</p>
+          <p className="course-progress">{course.completedCourses} of {course.totalCourses} lessons completed</p>
+        </div>
+      );
+    }
 }

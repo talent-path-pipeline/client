@@ -7,6 +7,12 @@ export { default as CourseInfo } from './course/CourseInfo';
 export { default as LessonInfo } from './lesson/LessonInfo';
 
 // ========================================
+// catalog
+export { default as CatalogList } from './catalog/CatalogList';
+export { default as CatalogFilter } from './catalog/CatalogFilter';
+export { default as CatalogCard } from './catalog/CatalogCard';
+
+// ========================================
 // pages
 export { default as CatalogPage } from './pages/CatalogPage';
 export { default as DashboardPage } from './pages/DashboardPage';

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import dataIsotope from 'isotope-layout';
 // Components
 import CatalogCard from './CatalogCard';
-import '../../css/catalog/CatalogList.css';
+import '../../css/catalog/CatalogList.scss';
 
 export default class CatalogList extends Component {
   static propTypes = {
@@ -16,9 +16,8 @@ export default class CatalogList extends Component {
   // Render
 
   render() {
-    const { courses, clickCourse, } = this.props;
+    const { courses, clickCourse } = this.props;
     // TODO: Add picture title progress
-
 
     return (
       <div id="list-all-courses" data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'>
@@ -31,9 +30,7 @@ export default class CatalogList extends Component {
               clickCourse={clickCourse}
             />
           )
-        }
-
-        )}
+        })}
       </div>
     );
   }
