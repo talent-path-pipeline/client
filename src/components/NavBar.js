@@ -8,7 +8,8 @@ const links = {
   home: '/',
   paths: '/path',
   catalog: '/catalog',
-  support: '/login',
+  support: '/support',
+  login: '/login',
   about: '/about',
   dashboard: '/dashboard',
 };
