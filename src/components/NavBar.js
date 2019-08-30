@@ -12,6 +12,7 @@ const links = {
   login: '/login',
   about: '/about',
   dashboard: '/dashboard',
+  lesson: '/lesson',
 };
 
 class NavBar extends React.Component {
@@ -51,6 +52,7 @@ class NavBar extends React.Component {
         <ul className="desktop-nav">
           <li><NavLink to={links.paths}>Paths</NavLink></li>
           <li><NavLink to={links.catalog}>Catalog</NavLink></li>
+          <li><NavLink to={links.lesson}>Lessons</NavLink></li>
           <li><NavLink to={links.support}>Support</NavLink></li>
           <li><NavLink to={links.about}>About</NavLink></li>
           <li><NavLink to={links.dashboard}>Dashboard</NavLink></li>

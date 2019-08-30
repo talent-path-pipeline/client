@@ -6,7 +6,11 @@ export const DUMMY_DATA = {
       title: 'Lesson 1: D&D 101',
       src: 'https://www.youtube.com/embed/MFCzwiqlnCE',
       length: 3603,
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ',
+      desc: `Welcome to a new series where I'll be talking about various topics to help you start DMing/GMing your own Tabletop RPGs.
+
+      This episode focuses on the basics; What is a Dungeon Master. What things should you know? What can you do to prepare for your first session?
+      
+      This is an ongoing series that will cover a load of topics as we go!`,
     },
     {
       id: 2,
