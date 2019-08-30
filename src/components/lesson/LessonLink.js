@@ -3,20 +3,16 @@ import PropTypes from 'prop-types';
 
 const LessonLink = ({ title, src, length, active }) => (
   <div className='lesson-link'>
-    <div className="link" >
-      <p>{title}</p>
-      <p>{length}</p>
-    </div>
     {
       active
-        ?        <div className="active-video">
+        ?        (<div className="active-video">
           {title}
           <p>{length}</p>
-        </div>
-        :        <div className="link">
+        </div>)
+        :        (<div className="link">
           <a href={src}>{title}</a>
           <p>{length}</p>
-        </div>
+        </div>)
     }
   </div>
 );

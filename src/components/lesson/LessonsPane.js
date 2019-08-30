@@ -14,12 +14,12 @@ const LessonsPane = ({ links, activeId }) => (
 
 LessonsPane.propTypes = {
   activeId: PropTypes.number.isRequired,
-  links: PropTypes.shape({
+  links: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     length: PropTypes.number.isRequired,
-  }).isRequired,
+  })).isRequired,
 }
 
 export default LessonsPane;
