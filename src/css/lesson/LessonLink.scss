@@ -1,29 +1,26 @@
 
 .lesson-link {
-  padding: 25px 10px;
-  border: dotted grey 0.5px;
+  border: dotted var(--blue) 0.5px;
 }
 
 .lesson-link .link {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.lesson-link .link a {
   display: flex;
+  color: var(--white);
   justify-content: space-between;
-  color: var(--tp-blue);
   text-decoration: none;
 }
 
-.lesson-link:first-of-type {
-  background-color: var(--tp-blue) !important;
+.lesson-link .active-video {
+  padding: 1rem;
+  background-color: var(--red);
 }
 
-.lesson-link:first-of-type .link {
-  color: var(--off-white);
-}
-
-.lesson-link:hover  {
-  background-color: var(--light-blue);
+.lesson-link .link:hover  {
+  background-color: var(--blue);
   border: none;
-}
-
-.lesson-link:hover .link {
-  color: var(--off-white);
 }

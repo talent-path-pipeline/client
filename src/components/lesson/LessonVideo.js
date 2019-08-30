@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const LessonVideo = ({ title, src }) => <div className="lesson-video">
-  <iframe title={title} allowFullScreen="" frameBorder="0" height="600" width="900" src={src}  />
+  <iframe title={title} allowFullScreen="" frameBorder="0"  src={src}  />
 </div>
 
 LessonVideo.propTypes = {

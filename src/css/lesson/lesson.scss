@@ -1,27 +1,5 @@
-@import '../VARIABLES.css';
-@import './LessonVideo.scss';
-@import './LessonsPane.scss';
-@import './LessonLink.scss';
-@import './LessonInfo.scss';
-
-
-body {
-  font-family: sans-serif;
-  color: var(--off-black);
+.lesson {
+  margin: 1rem 3rem;
 }
 
-.lesson {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
-  .lesson-video { grid-area: 1 / 1 / 4 / 4; }
-  .lesson-info { grid-area: 4 / 1 / 6 / 4; }
-  .lessons-pane { grid-area: 1 / 4 / 6 / 5; }
-  margin: 1rem;
-  }
 
-  .lesson > * {
-    // border: solid 1px var(--off-black);
-  }

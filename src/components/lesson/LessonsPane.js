@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LessonLink } from '..';
 
-
 const LessonsPane = ({ links, activeId }) => (
   <div className='lessons-pane'>
+    <h2>Lessons</h2>
     {
       links.map( ({id, title, src, length}) => (
         <LessonLink id={id} title={title} src={src} length={length} key={id} active={id === activeId} />))
