@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/lesson/LessonLink.scss';
 
 const formatTime = seconds => {
   const h = Math.floor(seconds / 3600);

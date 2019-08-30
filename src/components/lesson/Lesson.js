@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LessonVideo, LessonInfo } from '..';
+import '../../css/lesson/Lesson.scss';
 
 const Lesson = ({ title, src, desc, id }) => (
   <div className='lesson' key={id}>

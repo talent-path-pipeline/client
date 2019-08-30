@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/lesson/LessonVideo.scss';
 
 const LessonVideo = ({ title, src }) => <div className="lesson-video">
   <iframe title={title} allowFullScreen="" frameBorder="0"  src={src}  />

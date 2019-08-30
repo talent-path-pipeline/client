@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/lesson/LessonInfo.scss';
 
 const LessonInfo = ({ title, desc}) => (
   <div className="lesson-info">

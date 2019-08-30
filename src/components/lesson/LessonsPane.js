@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LessonLink } from '..';
+import '../../css/lesson/LessonsPane.scss';
 
 const LessonsPane = ({ links, activeId }) => (
   <div className='lessons-pane'>
