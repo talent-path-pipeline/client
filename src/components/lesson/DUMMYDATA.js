@@ -1,5 +1,5 @@
-const DUMMY_DATA = {
-  activeId: 2,
+export const DUMMY_DATA = {
+  activeId: 1,
   lessons: [
     {
       id: 1,
@@ -38,5 +38,3 @@ const DUMMY_DATA = {
     },
   ],
 }
-
-export default DUMMY_DATA;
