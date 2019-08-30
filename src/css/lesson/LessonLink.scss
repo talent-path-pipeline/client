@@ -4,23 +4,30 @@
 }
 
 .lesson-link .link {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
   cursor: pointer;
 }
 
 .lesson-link .link a {
-  display: flex;
   color: var(--white);
-  justify-content: space-between;
   text-decoration: none;
 }
 
-.lesson-link .active-video {
-  padding: 1rem;
+.lesson-link .link:hover  {
   background-color: var(--red);
+  border: none;
 }
 
-.lesson-link .link:hover  {
-  background-color: var(--blue);
-  border: none;
+.lesson-link .active-video {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--grey);
+}
+
+
+.lesson-link .active-video p{
+display: inline;
 }

@@ -19,7 +19,7 @@ const LessonLink = ({ title, src, length, active }) => (
       active
         ?  (
           <div className="active-video">
-            {title}
+            <p>{title}</p>
             <p>{formatTime(length)}</p>
           </div>
         )
