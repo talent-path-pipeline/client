@@ -1,7 +1,7 @@
 const path_data = {
   title: 'Dungeon Master Path',
   description: 'Learn how to become a dungeon master!',
-  image_link: './images/splash-4.jpg',
+  image_link: './images/path-splash-main.jpg',
   courses: [
     {
       title: 'Rules',
