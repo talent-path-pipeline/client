@@ -1,3 +1,135 @@
 #an-id {
   outline: none;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0A090C;
+  color: white;
+  height: 100vh;
+}
+
+form {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+p {
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+h6 {
+  color: grey;
+  font-weight: 100;
+  padding-bottom: 5px;
+}
+
+
+input {
+  height: 45px;
+  width: 500px;
+  padding-left: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: 1px;
+}
+
+input:hover {
+  border-style: solid red;
+}
+
+form input.error {
+  border-color: red;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  border-radius: 25px;
+  border: 2px solid none;
+
+  background-color: #641513;
+  color: white;
+  margin-top: 15px;
+  font-size: 1.2em;
+  transition: 1s;
+  position: relative;
+  left: 34%;
+}
+
+button #comment {
+  display: none;
+}
+
+button:hover {
+  background-color: #2E284E;
+}
+
+button:hover #comment {
+  display: none;
+}
+
+button:hover #newComment {
+  display: inline;
+}
+
+button:disabled {
+  background-color: #454545;
+}
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 2%;
+  text-align: center;
+}
+
+#failedToRegister {
+  color: red;
+}
+
+@media screen and (max-width: 321px) {
+  input {
+    width: 300px;
+    padding-left: 15px;
+    margin-left: 10px;
+  }
+
+  button {
+    left: 25%;
+  }
+
+  label {
+    margin-left: 15px;
+  }
+
+  p {
+    margin-left: 15px;
+  }
+
+  h6 {
+    padding-bottom: 5px;
+    margin-left: 15px;
+  }
+}
+
+.warning {
+  padding-top: 15px;
+  color: red;
+  text-align: center;
+}
