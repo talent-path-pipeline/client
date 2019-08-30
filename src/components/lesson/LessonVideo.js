@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const LessonVideo = ({title, src, time = 0}) => <div className="lesson-video">
-  {/* <video controls>
-    <track kind="captions" />
-    <source src={src} currentTime={time} />
-  </video> */}
-  <iframe title={title} allowFullScreen="" frameBorder="0" height="600" width="900" src="https://www.youtube.com/embed/UB1O30fR-EE"  />
+const LessonVideo = ({ title, src }) => <div className="lesson-video">
+  <iframe title={title} allowFullScreen="" frameBorder="0" height="600" width="900" src={src}  />
 </div>
+
+LessonVideo.propTypes = {
+  title: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+}
 
 export default LessonVideo;
