@@ -4,7 +4,7 @@ import '../../css/path/PathInfo.scss';
 
 const PathInfo = ({ title, description, image_link }) => (
   <div className="path-info">
-    <img src={image_link} alt="Path Splash" />
+    <img src={image_link} alt="Path Splash" className="path-splash" />
     <h2 className="title">{title}</h2>
     <p className="description">{description}</p>
   </div>
