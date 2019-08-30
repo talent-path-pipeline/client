@@ -79,7 +79,7 @@ export default class CatalogPage extends Component {
     return (
       <div className="catalog-page">
         <div id="catalog-header">
-          <h2 id="filterHeader">Stonehaven Courses</h2>
+          <h2 id="filterHeader">Courses</h2>
           <input id="course-search" type="text" placeholder="Type to search!" />
         </div>
         <section className="filter-container">
