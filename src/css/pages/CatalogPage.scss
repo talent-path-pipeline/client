@@ -4,10 +4,12 @@
 .catalog-page {
   #catalog-header {
     color: #EEEEEE;
-    margin: 0.5em auto;
+    margin: 1rem auto;
     max-width: 80%;
     display: flex;
-    
+    justify-content: space-between;
+    width: 80%;
+
     input {
       align-content: flex-end;
       align-items: flex-end;
@@ -15,12 +17,10 @@
       background-color: #454545;
       border: none;
       font-size: 20px;
-
-      ::placeholder {
-        color: #EEEEEE;
-      }
-
+      color: #EEEEEE;
+      padding-left: 10px;
     }
+    
   }
 
   .course-container {

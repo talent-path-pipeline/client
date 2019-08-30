@@ -28,10 +28,12 @@ export default class CatalogFilters extends Component {
   // Render
 
   render() {
+    const { filters } = this.state;
+
     return (
       <div id="filter-nav">
         <div id="filter-item">
-          {this.state.filters.map(filter => (
+          {filters.map(filter => (
             <p className={filter}>
               {filter}
             </p>

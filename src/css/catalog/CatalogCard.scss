@@ -1,5 +1,4 @@
 #course-card {
-  // background-color: #0A090C;
   background-color: #454545;
   color: #EEEEEE;
   height: 300px;
@@ -9,37 +8,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 300px;
 }
 
 .course-image {
-  width: 150px;
+  width: 60%;
   margin: 10px;
 }
-
-/* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-  #course-item {
-    width: 50%;
-  }
-}
-
-/* Medium devices (tablets portrait, 768px and up)  */
-/* @media (min-width: 768px) {
-  #course-item {
-    width: 45%;
-  } 
-} */
-
-/* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) {
-  #course-item {
-    width: 28.333%;
-  }
-} */
-
-/* Extra large devices (large desktops, 1200px and up) */
-/* @media (min-width: 1200px) {
-  #course-item {
-    width: 23%;
-  }
-}  */
