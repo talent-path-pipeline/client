@@ -7,7 +7,8 @@ const PathPage = ({ path_data }) => (
   <div className="path-page">
     <PathInfo
       title={path_data.title}
-      description={path_data.description}
+      subtitle={path_data.subtitle}
+      subtitle2={path_data.subtitle2}
       image_link={path_data.image_link}
     />
     <PathTree courses={path_data.courses} />
