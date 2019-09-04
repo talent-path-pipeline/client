@@ -1,0 +1,43 @@
+
+@import '../VARIABLES.scss';
+
+.lesson-link {
+  border: dotted var(--blue) 0.5px;
+}
+
+.lesson-link .link {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  font-family: var(--fontfamily-alt);
+
+  p {
+    color: var(--black);
+  }
+
+}
+
+.lesson-link .link a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.lesson-link .link:hover  {
+  background-color: var(--red);
+  color: var(--black);
+  border: none;
+}
+
+.lesson-link .active-video {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--grey);
+  font-family: var(--fontfamily-alt);
+}
+
+
+.lesson-link .active-video p{
+  display: inline;
+}
