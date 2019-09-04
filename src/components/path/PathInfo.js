@@ -22,8 +22,8 @@ PathInfo.propTypes = {
 };
 
 PathInfo.defaultProps = {
-  title: 'Software Engineering Path',
-  subtitle: 'This is the Full-Stack SE path',
+  title: 'Dungeon Master Path',
+  subtitle: 'Your path to becoming a successfull DM!',
   image_link: '',
 };
 

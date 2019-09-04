@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../css/NavBar.scss';
@@ -89,6 +90,10 @@ class NavBar extends React.Component {
       </div>
     );
   }
+}
+
+NavBar.propTypes = {
+  links: PropTypes.string.isRequired,
 }
 
 export default NavBar;
