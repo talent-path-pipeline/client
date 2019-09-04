@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { Switch, Route} from 'react-router-dom';
-import { NavBar, HomePage, PathInfo, CatalogPage, SupportPage, DashboardPage  } from './components';
+import { NavBar, HomePage, PathInfo, CatalogPage, SupportPage, DashboardPage, RegistrationPage  } from './components';
 // import { LessonInfo } from './components';
 
 import './css/main.scss';
@@ -18,6 +18,7 @@ function App() {
         <Route exact path="/catalog" component={CatalogPage} />
         <Route exact path="/support" component={SupportPage} />
         <Route exact path="/dashboard" component={DashboardPage} />
+        <Route exact path="/register" component={RegistrationPage} />
       </Switch>
     </div>
   );
