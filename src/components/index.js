@@ -6,6 +6,16 @@ export { default as CourseInfo } from './course/CourseInfo';
 // ========================================
 // lesson
 export { default as LessonInfo } from './lesson/LessonInfo';
+export { default as LessonVideo } from './lesson/LessonVideo';
+export { default as LessonLink } from './lesson/LessonLink';
+export { default as LessonsPane } from './lesson/LessonsPane';
+export { default as Lesson } from './lesson/Lesson';
+
+// ========================================
+// catalog
+export { default as CatalogList } from './catalog/CatalogList';
+export { default as CatalogFilter } from './catalog/CatalogFilter';
+export { default as CatalogCard } from './catalog/CatalogCard';
 
 // ========================================
 // pages
@@ -13,6 +23,7 @@ export { default as CatalogPage } from './pages/CatalogPage';
 export { default as DashboardPage } from './pages/DashboardPage';
 export { default as HomePage } from './pages/HomePage';
 export { default as PathPage } from './pages/PathPage';
+export { default as LessonPage } from './pages/LessonPage';
 export { default as RegistrationPage } from './pages/RegistrationPage';
 export { default as SupportPage } from './pages/SupportPage';
 

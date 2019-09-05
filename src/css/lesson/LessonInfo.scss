@@ -1,3 +1,21 @@
-#an-id {
-  outline: none;
+@import '../VARIABLES.scss';
+
+.lesson-info {
+  background-color: #EEEEEE;
+  padding: 3rem;
+}
+
+.lesson-info h2 {
+  margin: 1rem 0 1.5rem 0;
+  color: var(--red);
+  text-shadow: 1px 0px var(--grey);
+}
+
+#lesson-playing {
+  color: var(--black);
+}
+
+#lesson-description {
+  font-family: var(--fontfamily-alt);
+  color: var(--black);
 }

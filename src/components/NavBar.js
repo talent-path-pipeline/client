@@ -36,6 +36,7 @@ class NavBar extends React.Component {
   render() {
     const { menuOpen } = this.state;
     const { links } = this.props;
+    // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
       <div id="nav-main">
@@ -55,14 +56,12 @@ class NavBar extends React.Component {
             <NavLink to={links.catalog}>Catalog</NavLink>
           </li>
           <li>
-            <NavLink to={links.support}>Support</NavLink>
+            <NavLink to={links.lesson}>Lessons</NavLink>
           </li>
-          <li>
-            <NavLink to={links.about}>About</NavLink>
-          </li>
-          <li>
-            <NavLink to={links.dashboard}>Dashboard</NavLink>
-          </li>
+          {/* Commented out until implemented */}
+          {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
+          {/* <li><NavLink to={links.about}>About</NavLink></li> */}
+          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -73,18 +72,21 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.home}>
               Home
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.paths}>
+            <NavLink onClick={() => this.closeMenu()} to={links.path}>
               Path
             </NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.catalog}>
               Catalog
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.about}>
+            <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
+              Lesson
+            </NavLink>
+            {/* <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
               Dashboard
-            </NavLink>
+            </NavLink> */}
           </Menu>
         </div>
       </div>
@@ -93,7 +95,9 @@ class NavBar extends React.Component {
 }
 
 NavBar.propTypes = {
-  links: PropTypes.string.isRequired,
-}
+  links: PropTypes.shape({
+    home: PropTypes.string,
+  }).isRequired,
+};
 
 export default NavBar;

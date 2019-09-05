@@ -6,9 +6,10 @@ import {
   NavBar,
   HomePage,
   PathPage,
+  LessonPage,
   CatalogPage,
-  SupportPage,
-  DashboardPage,
+  // SupportPage,
+  // DashboardPage,
 } from './components';
 
 import './css/main.scss';
@@ -16,6 +17,7 @@ import './css/main.scss';
 const links = {
   home: '/',
   path: '/path',
+  lesson: '/lesson', // remove this once the correct flow is linked/put together
   catalog: '/catalog',
   support: '/support',
   login: '/login',
@@ -24,8 +26,8 @@ const links = {
 };
 
 function App() {
+  const course1 = DUMMY_DATA.courses[0];
   return (
-    /* Insert app stuff here */
     <div id="start-page">
       <NavBar links={links} />
       <Switch>
@@ -35,9 +37,20 @@ function App() {
           path={links.path}
           render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
         />
+        <Route
+          exact
+          path={links.lesson}
+          render={props => (
+            <LessonPage
+              {...props}
+              lessons={course1.lessons}
+              curr_lesson_num={course1.curr_lesson_num}
+            />
+          )}
+        />
         <Route exact path={links.catalog} component={CatalogPage} />
-        <Route exact path={links.support} component={SupportPage} />
-        <Route exact path={links.dashboard} component={DashboardPage} />
+        {/* <Route exact path={links.support} component={SupportPage} /> */}
+        {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
       </Switch>
     </div>
   );
