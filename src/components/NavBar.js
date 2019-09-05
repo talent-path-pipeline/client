@@ -1,25 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../css/NavBar.scss';
 import '../css/BurgerMenu.scss';
 
-const links = {
-  home: '/',
-  paths: '/path',
-  catalog: '/catalog',
-  support: '/support',
-  login: '/login',
-  about: '/about',
-  dashboard: '/dashboard',
-  lesson: '/lesson',
-};
-
 class NavBar extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state ={
+    this.state = {
       menuOpen: false,
     };
   }
@@ -45,17 +35,33 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
+    const { links } = this.props;
+    // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
       <div id="nav-main">
-        <NavLink to={links.home}><h1 id="nav-title">Stonehaven Academy</h1></NavLink>
+        <NavLink to={links.home}>
+          <img
+            src="./images/StonehavenAcademy1.png"
+            alt="Stonehaven Academy Logo"
+            className="logo"
+          />
+        </NavLink>
+        {/* <NavLink to={links.home}><h1 id="nav-title">Stonehaven Academy</h1></NavLink> */}
         <ul className="desktop-nav">
-          <li><NavLink to={links.paths}>Paths</NavLink></li>
-          <li><NavLink to={links.catalog}>Catalog</NavLink></li>
-          <li><NavLink to={links.lesson}>Lessons</NavLink></li>
-          <li><NavLink to={links.support}>Support</NavLink></li>
-          <li><NavLink to={links.about}>About</NavLink></li>
-          <li><NavLink to={links.dashboard}>Dashboard</NavLink></li>
+          <li>
+            <NavLink to={links.path}>Path</NavLink>
+          </li>
+          <li>
+            <NavLink to={links.catalog}>Catalog</NavLink>
+          </li>
+          <li>
+            <NavLink to={links.lesson}>Lessons</NavLink>
+          </li>
+          {/* Commented out until implemented */}
+          {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
+          {/* <li><NavLink to={links.about}>About</NavLink></li> */}
+          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -63,16 +69,35 @@ class NavBar extends React.Component {
             isOpen={menuOpen}
             onStateChange={state => this.handleStateChange(state)}
           >
-            <NavLink onClick={() => this.closeMenu()} to={links.home}>Home</NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.paths}>Paths</NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.catalog}>Catalog</NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.about}>About</NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>Dashboard</NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.home}>
+              Home
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.path}>
+              Path
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.catalog}>
+              Catalog
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
+              Lesson
+            </NavLink>
+            {/* <NavLink onClick={() => this.closeMenu()} to={links.about}>
+              About
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
+              Dashboard
+            </NavLink> */}
           </Menu>
         </div>
       </div>
     );
   }
 }
+
+NavBar.propTypes = {
+  links: PropTypes.shape({
+    home: PropTypes.string,
+  }).isRequired,
+};
 
 export default NavBar;

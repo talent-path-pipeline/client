@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import '../../css/catalog/CatalogFilters.scss';
 
 export default class CatalogFilters extends Component {
@@ -10,19 +10,18 @@ export default class CatalogFilters extends Component {
 
     this.state = {
       filters: ['Beginner', 'Intermediate', 'Advanced'],
-    }
+    };
   }
 
   // ===============================================================
   // Handlers
   /**
-     * TODO: Handle when filter is clicked
-     * @param {Object} selectedCourse the object containing the data for the course to be displayed
-     */
+   * TODO: Handle when filter is clicked
+   * @param {Object} selectedCourse the object containing the data for the course to be displayed
+   */
   selectFilter = event => {
     console.log(event);
   };
-  
 
   // ===============================================================
   // Render
@@ -34,9 +33,7 @@ export default class CatalogFilters extends Component {
       <div id="filter-nav">
         <div id="filter-item">
           {filters.map(filter => (
-            <p className={filter}>
-              {filter}
-            </p>
+            <p className={filter}>{filter}</p>
           ))}
         </div>
       </div>
