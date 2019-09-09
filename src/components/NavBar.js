@@ -10,6 +10,7 @@ const links = {
   catalog: '/catalog',
   support: '/support',
   login: '/login',
+  signup: '/signUp',
   about: '/about',
   dashboard: '/dashboard',
 };
@@ -53,6 +54,8 @@ class NavBar extends React.Component {
           <li><NavLink to={links.catalog}>Catalog</NavLink></li>
           <li><NavLink to={links.support}>Support</NavLink></li>
           <li><NavLink to={links.about}>About</NavLink></li>
+          <li><NavLink to={links.signup}>SignUp</NavLink></li>
+          <li><NavLink to={links.login}>Login</NavLink></li>
           <li><NavLink to={links.dashboard}>Dashboard</NavLink></li>
         </ul>
         <div className="mobile-nav">
@@ -65,6 +68,8 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.paths}>Paths</NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.catalog}>Catalog</NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.about}>About</NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.signup}>SignUp</NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.login}>LogIn</NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>Dashboard</NavLink>
           </Menu>
         </div>
