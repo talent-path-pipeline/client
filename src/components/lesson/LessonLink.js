@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonLink.scss';
 
@@ -14,7 +15,7 @@ const formatTime = seconds => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, src, length, active }) => (
+const LessonLink = ({ title, src, length, order, active }) => (
   <div className="lesson-link">
     {/* TODO: this can probably be consolidated */}
     {active ? (
@@ -24,7 +25,8 @@ const LessonLink = ({ title, src, length, active }) => (
       </div>
     ) : (
       <div className="link">
-        <a href={src}>{title}</a>
+        {/* <a href={src}>{title}</a> */}
+        <Link to={`/lessons/${order}`}>{title}</Link>
         <p>{formatTime(length)}</p>
       </div>
     )}
