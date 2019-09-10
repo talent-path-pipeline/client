@@ -32,6 +32,9 @@ function App() {
       <NavBar links={links} />
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/lesson/:order"
+          render={props => <LessonPage {...props} lessons={course1.lessons} curr_lesson_num={props.match.params.order} />}
+        />
         <Route
           exact
           path={links.path}

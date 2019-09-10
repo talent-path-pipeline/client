@@ -26,7 +26,7 @@ const LessonLink = ({ title, src, length, order, active }) => (
     ) : (
       <div className="link">
         {/* <a href={src}>{title}</a> */}
-        <Link to={`/lessons/${order}`}>{title}</Link>
+        <Link to={`/lesson/${order}`}>{title}</Link>
         <p>{formatTime(length)}</p>
       </div>
     )}

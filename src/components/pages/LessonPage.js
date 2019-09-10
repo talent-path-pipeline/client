@@ -13,11 +13,11 @@ function LessonPage(props) {
     <div className="lesson-page">
       <Lesson order={order} title={title} src={src} description={description} />
       <LessonsPane lessons={lessons} curr_lesson_num={curr_lesson_num} />
-      <Router>
+      {/* <Router>
         <Route path="/lessons/:order"
           render={() => <LessonPage lessons={lessons} curr_lesson_num={props.match.params.order} />}
         />
-      </Router>
+      </Router> */}
     </div>
   );
 }
