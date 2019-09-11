@@ -42,7 +42,7 @@ function App() {
           path={links.lesson}
           render={() => <Redirect to="/lesson/0"/>}
         />
-        <Route path="/lesson/:order"
+        <Route path={`${links.lesson}/:order`}
           render={props => <LessonPage {...props} lessons={course1.lessons} curr_lesson_num={parseInt(props.match.params.order,10)} />}
         />
         <Route exact path={links.catalog} component={CatalogPage} />
