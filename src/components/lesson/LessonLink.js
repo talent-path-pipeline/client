@@ -15,7 +15,7 @@ const formatTime = seconds => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, src, length, order, active }) => (
+const LessonLink = ({ title, length, order, active }) => (
   <div className="lesson-link">
     {/* TODO: this can probably be consolidated */}
     {active ? (
@@ -25,9 +25,9 @@ const LessonLink = ({ title, src, length, order, active }) => (
       </div>
     ) : (
       <div className="link">
-        {/* <a href={src}>{title}</a> */}
-        <Link to={`/lesson/${order}`}>{title}</Link>
-        <p>{formatTime(length)}</p>
+        <Link to={`/lesson/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
+        {/* <a href={`/lesson/${order}`}>{title}</a> */}
+        {/* <p>{formatTime(length)}</p> */}
       </div>
     )}
   </div>
