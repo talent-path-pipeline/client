@@ -15,7 +15,7 @@ const formatTime = seconds => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, length, order, active }) => (
+const LessonLink = ({ title, length, order, path, active }) => (
   <div className="lesson-link">
     {/* TODO: this can probably be consolidated */}
     {active ? (
@@ -26,7 +26,7 @@ const LessonLink = ({ title, length, order, active }) => (
       </div>
     ) : (
       <div className="link">
-        <Link to={`/lesson/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
+        <Link to={`${path}/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
       </div>
     )}
   </div>
@@ -34,8 +34,9 @@ const LessonLink = ({ title, length, order, active }) => (
 
 LessonLink.propTypes = {
   title: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  order: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
+  path: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
 };
 

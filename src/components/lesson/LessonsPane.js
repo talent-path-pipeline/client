@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { LessonLink } from '..';
 import '../../css/lesson/LessonsPane.scss';
 
-const LessonsPane = ({ lessons, curr_lesson_num }) => (
+const LessonsPane = ({ lessons, curr_lesson_num, path }) => (
   <div className="lessons-pane">
     <h2>Lessons</h2>
     {lessons.map(({ order, title, src, length }) => (
@@ -13,6 +13,7 @@ const LessonsPane = ({ lessons, curr_lesson_num }) => (
         src={src}
         length={length}
         key={order}
+        path={path}
         active={order === curr_lesson_num}
       />
     ))}
@@ -29,6 +30,7 @@ LessonsPane.propTypes = {
       length: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default LessonsPane;
