@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Lesson, LessonsPane } from '..';
-import { Router, Route } from 'react-router-dom';
 import '../../css/pages/LessonPage.scss';
 
 function LessonPage(props) {
@@ -13,11 +12,6 @@ function LessonPage(props) {
     <div className="lesson-page">
       <Lesson order={order} title={title} src={src} description={description} />
       <LessonsPane lessons={lessons} curr_lesson_num={curr_lesson_num} />
-      {/* <Router>
-        <Route path="/lessons/:order"
-          render={() => <LessonPage lessons={lessons} curr_lesson_num={props.match.params.order} />}
-        />
-      </Router> */}
     </div>
   );
 }

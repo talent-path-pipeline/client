@@ -1,6 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import DUMMY_DATA from './DUMMY_DATA';
 import {
   NavBar,
@@ -32,9 +32,6 @@ function App() {
       <NavBar links={links} />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/lesson/:order"
-          render={props => <LessonPage {...props} lessons={course1.lessons} curr_lesson_num={props.match.params.order} />}
-        />
         <Route
           exact
           path={links.path}
@@ -43,13 +40,10 @@ function App() {
         <Route
           exact
           path={links.lesson}
-          render={props => (
-            <LessonPage
-              {...props}
-              lessons={course1.lessons}
-              curr_lesson_num={course1.curr_lesson_num}
-            />
-          )}
+          render={() => <Redirect to="/lesson/0"/>}
+        />
+        <Route path="/lesson/:order"
+          render={props => <LessonPage {...props} lessons={course1.lessons} curr_lesson_num={parseInt(props.match.params.order,10)} />}
         />
         <Route exact path={links.catalog} component={CatalogPage} />
         {/* <Route exact path={links.support} component={SupportPage} /> */}
@@ -58,5 +52,13 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      order: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default App;
