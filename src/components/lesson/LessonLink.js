@@ -20,14 +20,13 @@ const LessonLink = ({ title, length, order, active }) => (
     {/* TODO: this can probably be consolidated */}
     {active ? (
       <div className="active-video">
-        <p>{title}</p>
-        <p>{formatTime(length)}</p>
+        <p>{title}
+          <span className="video-length">{formatTime(length)}</span>
+        </p>
       </div>
     ) : (
       <div className="link">
         <Link to={`/lesson/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
-        {/* <a href={`/lesson/${order}`}>{title}</a> */}
-        {/* <p>{formatTime(length)}</p> */}
       </div>
     )}
   </div>
