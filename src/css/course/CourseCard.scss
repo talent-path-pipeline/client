@@ -29,6 +29,7 @@
   }
 
   a:hover {
-    // something
+    box-shadow: 5px 0 var(--white);
+    text-decoration: underline var(--red);
   }
 }
