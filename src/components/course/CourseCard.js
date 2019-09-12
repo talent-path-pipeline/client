@@ -6,7 +6,7 @@ import '../../css/course/CourseCard.scss'
 
 const CourseCard = ({ course }) => (
   <div className="course-card">
-    <Link to="/lesson">
+    <Link to={`/${course.title.toLowerCase()}`}>
       <img className="image" src={course.image_link} alt="Course Thumbnail" />
       <div className="course-info">
         <h4 className="title">{course.title}</h4>

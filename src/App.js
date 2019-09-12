@@ -26,7 +26,9 @@ const links = {
 };
 
 function App() {
-  const course1 = DUMMY_DATA.courses[0];
+  // const course1 = DUMMY_DATA.courses[0];
+  const { courses } = DUMMY_DATA;
+
   return (
     <div id="start-page">
       <NavBar links={links} />
@@ -37,13 +39,22 @@ function App() {
           path={links.path}
           render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
         />
-        <Redirect exact from={links.lesson} to={`${links.lesson}/0`} />
-        <Route path={`${links.lesson}/:order`}
-          render={props => <LessonPage {...props} lessons={course1.lessons} curr_lesson_num={parseInt(props.match.params.order,10)} base_path={links.lesson} />}
-        />
         <Route exact path={links.catalog} component={CatalogPage} />
         {/* <Route exact path={links.support} component={SupportPage} /> */}
         {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
+
+        <Redirect exact from="/:course" to="/:course/0" />
+        <Route
+          path="/:course/:order"
+          render={ props => <LessonPage {...props}
+            lessons={courses[courses.findIndex(course => course.title.toLowerCase() === props.match.params.course)].lessons
+            }
+            // lessons={course1.lessons}
+            curr_lesson_num={parseInt(props.match.params.order, 10)}
+            base_path={props.match.params.course}
+          />
+          }
+        />
       </Switch>
     </div>
   );
@@ -53,6 +64,7 @@ App.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       order: PropTypes.string,
+      course: PropTypes.string,
     }),
   }).isRequired,
 };
