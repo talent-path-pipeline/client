@@ -33,7 +33,7 @@ export default class CatalogFilters extends Component {
       <div id="filter-nav">
         <div id="filter-item">
           {filters.map(filter => (
-            <p className={filter}>{filter}</p>
+            <p className={filter} key={filter}>{filter}</p>
           ))}
         </div>
       </div>
