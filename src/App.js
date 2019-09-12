@@ -17,7 +17,7 @@ import './css/main.scss';
 const links = {
   home: '/',
   path: '/path',
-  lesson: '/lesson', // remove this once the correct flow is linked/put together
+  // lesson: '/lesson', // remove this once the correct flow is linked/put together
   catalog: '/catalog',
   support: '/support',
   login: '/login',
@@ -49,7 +49,6 @@ function App() {
           render={ props => <LessonPage {...props}
             lessons={courses[courses.findIndex(course => course.title.toLowerCase() === props.match.params.course)].lessons
             }
-            // lessons={course1.lessons}
             curr_lesson_num={parseInt(props.match.params.order, 10)}
             base_path={props.match.params.course}
           />

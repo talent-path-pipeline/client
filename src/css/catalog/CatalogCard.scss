@@ -1,14 +1,22 @@
 #course-card {
-  background-color: #454545;
-  color: #EEEEEE;
-  height: 300px;
-  border-radius: 5px;
-  box-shadow: 2px 3px 0px 1px #640D14;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
+  a {
+    background-color: #454545;
+    color: #EEEEEE;
+    height: 300px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 2px 3px 0px 1px #640D14;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+  }
+
+  a:hover {
+    background-color: var(--white);
+    color: var(--red);
+  }
 }
 
 .course-image {
