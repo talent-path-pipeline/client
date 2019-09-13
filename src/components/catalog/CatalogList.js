@@ -27,7 +27,7 @@ export default class CatalogList extends Component {
         {courses.map(course => {
           const cardClass = `course-item ${course.categories}`;
           return (
-            <CatalogCard class={cardClass} course={course} clickCourse={clickCourse} />
+            <CatalogCard class={cardClass} course={course} clickCourse={clickCourse} slug={`${course.slug || 'rules'}`} key={course.title} />
           );
         })}
       </div>

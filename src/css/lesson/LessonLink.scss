@@ -8,7 +8,7 @@
 .lesson-link .link {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  // padding: 1rem;
   cursor: pointer;
   font-family: var(--fontfamily-alt);
 
@@ -21,12 +21,18 @@
 .lesson-link .link a {
   color: var(--black);
   text-decoration: none;
+  padding: 1rem;
+  width: 100%;
 }
 
-.lesson-link .link:hover  {
+.lesson-link .link:hover a{
   background-color: var(--red);
-  color: var(--black);
+  color: var(--white);
   border: none;
+}
+
+.lesson-link .video-length {
+  float: right;
 }
 
 .lesson-link .active-video {
@@ -39,5 +45,5 @@
 
 
 .lesson-link .active-video p{
-  display: inline;
+  width: 100%;
 }

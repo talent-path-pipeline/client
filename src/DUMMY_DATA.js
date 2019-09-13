@@ -9,6 +9,7 @@ const DUMMY_DATA = {
       image_link: './images/splash-1.jpg',
       order: 0,
       curr_lesson_num: 0,
+      slug: 'rules',
       lessons: [
         {
           order: 0,
@@ -18,7 +19,7 @@ const DUMMY_DATA = {
           description: `Welcome to a new series where I'll be talking about various topics to help you start DMing/GMing your own Tabletop RPGs.
 
       This episode focuses on the basics; What is a Dungeon Master. What things should you know? What can you do to prepare for your first session?
-      
+
       This is an ongoing series that will cover a load of topics as we go!`,
         },
         {
