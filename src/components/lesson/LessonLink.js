@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonLink.scss';
 
@@ -14,18 +15,18 @@ const formatTime = seconds => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, src, length, active }) => (
+const LessonLink = ({ title, length, order, active, base_path }) => (
   <div className="lesson-link">
     {/* TODO: this can probably be consolidated */}
     {active ? (
       <div className="active-video">
-        <p>{title}</p>
-        <p>{formatTime(length)}</p>
+        <p>{title}
+          <span className="video-length">{formatTime(length)}</span>
+        </p>
       </div>
     ) : (
       <div className="link">
-        <a href={src}>{title}</a>
-        <p>{formatTime(length)}</p>
+        <Link to={`/${base_path}/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
       </div>
     )}
   </div>
@@ -33,9 +34,10 @@ const LessonLink = ({ title, src, length, active }) => (
 
 LessonLink.propTypes = {
   title: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  order: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
   active: PropTypes.bool.isRequired,
+  base_path: PropTypes.string.isRequired,
 };
 
 export default LessonLink;

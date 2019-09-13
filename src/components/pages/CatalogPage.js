@@ -18,6 +18,7 @@ export default class CatalogPage extends Component {
         completedCourses: 2,
         totalCourses: 6,
         img: './images/starter-kit.png',
+        slug: 'rules',
       },{
         title: 'HTML Basics',
         categories: 'basics html frontend',

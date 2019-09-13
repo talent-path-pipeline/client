@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../css/catalog/CatalogCard.scss';
 
@@ -6,6 +7,7 @@ export default class CatalogCard extends Component {
   static propTypes = {
     course: PropTypes.object.isRequired,
     clickCourse: PropTypes.func.isRequired,
+    slug: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -49,7 +51,7 @@ export default class CatalogCard extends Component {
     // Render
 
     render() {
-      const { course, clickCourse } = this.props;
+      const { course, clickCourse, slug } = this.props;
 
       return (
         <div
@@ -62,10 +64,13 @@ export default class CatalogCard extends Component {
             if (e.key === 'Enter') clickCourse(course.title);
           }}
         >
+          <Link to={`/${slug}`}>
+            <img className="course-image" src={course.img} alt='courseImage'/>
+            <p className="course-title">{course.title}</p>
+            <p className="course-progress">{course.completedCourses} of {course.totalCourses} lessons completed</p>
+          </Link>
 
-          <img className="course-image" src={course.img} alt='courseImage'/>
-          <p className="course-title">{course.title}</p>
-          <p className="course-progress">{course.completedCourses} of {course.totalCourses} lessons completed</p>
+
         </div>
       );
     }
