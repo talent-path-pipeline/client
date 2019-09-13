@@ -66,7 +66,7 @@ const make_rules = {
   order: 0,
   src: 'https://www.youtube.com/embed/MFCzwiqlnCE',
   length: 3603,
-  title: 'Lesson 1: You Make the Rules!',
+  title: 'You Make the Rules!',
   description: `The published D&D sourcebooks have their fair share of suggested rules... but as the DM, you have the special privilege to bend those to your will! Learn in this video how to set house rules for your campaign and your world, and begin collecting these guidelines in a Player's Guide for your party.`,
 };
 
