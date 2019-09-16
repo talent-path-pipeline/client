@@ -5,7 +5,7 @@ import '../../css/catalog/CatalogCard.scss';
 
 export default class CatalogCard extends Component {
   static propTypes = {
-    course: PropTypes.object.isRequired,
+    course: PropTypes.shape(PropTypes.object).isRequired,
     clickCourse: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
   };
@@ -27,7 +27,7 @@ export default class CatalogCard extends Component {
 
   // ===============================================================
   // Handlers
-  componentDidMount(){
+  componentDidMount() {
     const { course } = this.state;
     this.setState({
       course: {
@@ -40,38 +40,38 @@ export default class CatalogCard extends Component {
   }
 
   /**
-     * TODO: Handle route when course is clicked
-     * @param {Object} selectedCourse the object containing the data for the course to be displayed
-     */
-    clickCourse = selectedCourse => {
-      console.log(selectedCourse);
-    };
+   * TODO: Handle route when course is clicked
+   * @param {Object} selectedCourse the object containing the data for the course to be displayed
+   */
+  clickCourse = selectedCourse => {
+    console.log(selectedCourse);
+  };
 
-    // ===============================================================
-    // Render
+  // ===============================================================
+  // Render
 
-    render() {
-      const { course, clickCourse, slug } = this.props;
+  render() {
+    const { course, clickCourse, slug } = this.props;
 
-      return (
-        <div
-          id="course-card"
-          key={course.title}
-          role="button"
-          tabIndex={0}
-          onClick={() => clickCourse(course.title)}
-          onKeyPress={e => {
-            if (e.key === 'Enter') clickCourse(course.title);
-          }}
-        >
-          <Link to={`/${slug}`}>
-            <img className="course-image" src={course.img} alt='courseImage'/>
-            <p className="course-title">{course.title}</p>
-            <p className="course-progress">{course.completedCourses} of {course.totalCourses} lessons completed</p>
-          </Link>
-
-
-        </div>
-      );
-    }
+    return (
+      <div
+        id="course-card"
+        key={course.title}
+        role="button"
+        tabIndex={0}
+        onClick={() => clickCourse(course.title)}
+        onKeyPress={e => {
+          if (e.key === 'Enter') clickCourse(course.title);
+        }}
+      >
+        <Link to={`/${slug}`}>
+          <img className="course-image" src={course.img} alt="courseImage" />
+          <p className="course-title">{course.title}</p>
+          <p className="course-progress">
+            {course.completedCourses} of {course.totalCourses} lessons completed
+          </p>
+        </Link>
+      </div>
+    );
+  }
 }

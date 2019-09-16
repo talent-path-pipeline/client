@@ -28,6 +28,7 @@ const PathTree = ({ courses }) => (
 PathTree.propTypes = {
   courses: PropTypes.arrayOf(
     PropTypes.shape({
+      slug: PropTypes.number,
       title: PropTypes.string,
       description: PropTypes.string,
       image_link: PropTypes.string,

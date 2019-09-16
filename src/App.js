@@ -17,7 +17,6 @@ import './css/main.scss';
 const links = {
   home: '/',
   path: '/path',
-  // lesson: '/lesson', // remove this once the correct flow is linked/put together
   catalog: '/catalog',
   support: '/support',
   login: '/login',
@@ -26,7 +25,6 @@ const links = {
 };
 
 function App() {
-  // const course1 = DUMMY_DATA.courses[0];
   const { courses } = DUMMY_DATA;
 
   return (
@@ -46,13 +44,16 @@ function App() {
         <Redirect exact from="/:course" to="/:course/0" />
         <Route
           path="/:course/:order"
-          render={ props => <LessonPage {...props}
-            lessons={courses[courses.findIndex(course => course.title.toLowerCase() === props.match.params.course)].lessons
-            }
-            curr_lesson_num={parseInt(props.match.params.order, 10)}
-            base_path={props.match.params.course}
-          />
-          }
+          render={props => (
+            <LessonPage
+              {...props}
+              lessons={
+                courses.find(course => course.slug === props.match.params.course).lessons
+              }
+              curr_lesson_num={parseInt(props.match.params.order, 10)}
+              base_path={props.match.params.course}
+            />
+          )}
         />
       </Switch>
     </div>
