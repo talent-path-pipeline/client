@@ -26,10 +26,7 @@ export default class AboutCards extends Component {
             alt="People"
           />
           <p className="minty">
-            Everyone is <span className="bold">unique</span>.
-          </p>
-          <p className="minty">
-            People like different things and want to feel great wherever they are.
+            We teach you everything you need to know to start playing Dungeons And Dragons with your friends!
           </p>
         </section>
         <section className="mint landing">
@@ -39,10 +36,10 @@ export default class AboutCards extends Component {
             alt="Person questioning something"
           />
           <p className="minty">
-            Whether you want to study, socialize, or hold business meetings…
+            Follow our hand-crafted course to start learning!
           </p>
           <p className="minty">
-            <span className="bold">Aura</span> can get you there.
+            Join us in this journey to become the Ultimate D&D master!
           </p>
         </section>
 
@@ -53,8 +50,7 @@ export default class AboutCards extends Component {
             alt="White Jesus"
           />
           <p className="minty">
-            We'll show you where to go based on what you want to do and what
-            <span className="bold"> vibe</span> you're going for.
+          Our goal is to teach you how to setup the perfect game.
           </p>
         </section>
       </section>
