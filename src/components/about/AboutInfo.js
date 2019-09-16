@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/about/AboutInfo.scss';
+import AboutCards from './AboutCards';
 
 const AboutInfo = ({ title, subtitle, image_link }) => (
   <div className="about-info">
@@ -9,9 +10,9 @@ const AboutInfo = ({ title, subtitle, image_link }) => (
       <img src={image_link} alt="About Splash" className="about-splash" />
     </div>
     <h2 className="title">{title}</h2>
-    <img className="about-logo" src="./images/crimsond20.png" alt="Crimson D20 Dice"/>
     <p className="subtitle">{subtitle}</p>
     <hr className="line" />
+    <AboutCards/>
   </div>
 );
 
