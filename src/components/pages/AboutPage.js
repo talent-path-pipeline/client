@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import  AboutInfo from '../about/AboutInfo';
 import '../../css/pages/AboutPage.scss';
 
-const AboutPage = ({ about_data }) => (
-  <div className="about-page">
-    <AboutInfo
-      title={about_data.title}
-      subtitle={about_data.subtitle}
-      subtitle2={about_data.subtitle2}
-      image_link={about_data.image_link}
-    />
-  </div>
-);
+export default class AboutPage extends Component {
+  constructor(props) {
+    super(props);
 
-AboutPage.propTypes = {
-  about_data: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    image_link: PropTypes.string,
-  }).isRequired,
-};
+    this.state = {
+      title: 'How do we make you an expert Dungeon Master?',
+      subtitle: 'About Stonehaven Academy',
+      image_link: './images/path-image-main.jpg',
+    };
+  }
 
-export default AboutPage;
+  // ===============================================================
+  // Handlers
+
+  // ===============================================================
+  // Render
+
+  render() {
+    return (
+      <div className="about-page">
+      <AboutInfo
+        title={this.state.title}
+        subtitle={this.state.subtitle}
+        image_link={this.state.image_link}
+      />
+    </div>
+    );
+  }
+}

@@ -22,8 +22,8 @@ AboutInfo.propTypes = {
 };
 
 AboutInfo.defaultProps = {
-  title: 'Dungeon Master About',
-  subtitle: 'How we are going to make you a successfull DM!',
+  title: 'How do we make you an expert Dungeon Master?',
+  subtitle: 'About Stonehaven Academy',
   image_link: '',
 };
 
