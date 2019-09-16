@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AboutInfo } from '..';
+import  AboutInfo from '../about/AboutInfo';
 import '../../css/pages/AboutPage.scss';
 
 const AboutPage = ({ about_data }) => (
