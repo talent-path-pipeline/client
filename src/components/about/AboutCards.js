@@ -22,7 +22,7 @@ export default class AboutCards extends Component {
         <section className="mint landing">
           <img
             className="icon"
-            src="https://media.discordapp.net/attachments/540283031001235477/560874061996228628/People_White.png?width=512&height=450"
+            src="/images/dndWhite.png"
             alt="People"
           />
           <p className="minty">
@@ -32,7 +32,7 @@ export default class AboutCards extends Component {
         <section className="mint landing">
           <img
             className="icon"
-            src="https://media.discordapp.net/attachments/540283031001235477/560871549674979338/Question_Head_White.png?width=450&height=450"
+            src="/images/magicScrollWhite.png"
             alt="Person questioning something"
           />
           <p className="minty">
