@@ -18,39 +18,39 @@ export default class AboutCards extends Component {
 
   render() {
     return (
-      <section className="content">
-        <section className="mint landing">
+      <section className="cardWrapper">
+        <section className="card">
           <img
             className="icon"
             src="/images/dndWhite.png"
             alt="People"
           />
-          <p className="minty">
+          <p className="cardDescription">
             We teach you everything you need to know to start playing Dungeons And Dragons with your friends!
           </p>
         </section>
-        <section className="mint landing">
+        <section className="card">
           <img
             className="icon"
             src="/images/magicScrollWhite.png"
             alt="Person questioning something"
           />
-          <p className="minty">
-            Follow our hand-crafted course to start learning!
+          <p className="cardDescription">
+            Follow our hand-crafted courses to start learning!
           </p>
-          <p className="minty">
-            Join us in this journey to become the Ultimate D&D master!
+          <p className="cardDescription">
+            Start your journey to become the Ultimate D&D master!
           </p>
         </section>
 
-        <section className="mint landing">
+        <section className="card">
           <img
             className="icon"
             src="https://media.discordapp.net/attachments/540283031001235477/560868650899341351/WhiteJesus.png?width=450&height=450"
             alt="White Jesus"
           />
-          <p className="minty">
-          Our goal is to teach you how to setup the perfect game.
+          <p className="cardDescription">
+          Our goal is to spread the love for D&D by providing an easy-to-learn interface that educates anyone how to play!
           </p>
         </section>
       </section>
