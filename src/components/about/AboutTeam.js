@@ -17,6 +17,8 @@ class AboutTeam extends React.Component {
             img={member.src}
             fullName={member.fullName}
             character={member.character}
+            role={member.role}
+            link={member.link}
           />
         ))}
       </section>

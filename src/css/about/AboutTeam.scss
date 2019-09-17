@@ -68,19 +68,20 @@
     border-radius: 15px;
     background-color: rgba(153, 0, 0, 0.72);
 
-    .teamMemberEmailLink {
-      position: absolute;
-      bottom: 5%;
-      right: 5%;
-      color: var(--off-white);
-    }
-
     h2{
       font-size: 24px;
     }
 
     span{
       font-size: 18px;
+    }
+
+    .role{
+      position: absolute;
+      font-size: 15px;
+      bottom: 5%;
+      right: 5%;
+      color: var(--off-white);
     }
   }
 }

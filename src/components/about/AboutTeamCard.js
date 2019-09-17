@@ -37,7 +37,7 @@ class AboutTeamCard extends React.Component {
     event.stopPropagation();
   };
   render() {
-    const { img, fullName, character } = this.props;
+    const { img, fullName, character, role, link } = this.props;
     const { active } = this.state;
     return (
       <div className="teamMemberCardContainer">
@@ -55,6 +55,16 @@ class AboutTeamCard extends React.Component {
             <div className="teamMemberInfo">
               <h2>{fullName}</h2>
               <span>{character}</span>
+              {/* <p className="role">{role}</p> */}
+              <a
+                className="role"
+                href={link}
+                target="_blank"
+                // onClick={this.sendMail}
+                // onKeyDown={this.sendMail}
+              >
+                {role} &#62;
+              </a>
             </div>
           </div>
         </div>
@@ -66,8 +76,9 @@ class AboutTeamCard extends React.Component {
 AboutTeamCard.propTypes = {
   img: PropTypes.string.isRequired,
   fullName: PropTypes.string.isRequired,
+  character: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
-  mailLink: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
 };
 
 export default AboutTeamCard;
