@@ -2,7 +2,7 @@ import React from 'react';
 // components
 import TeamMember from '../components/TeamMember';
 // helpers
-import memberObj from '../data/memberInfo';
+import memberObj from '../../data/memberInfo';
 // scss
 import '../styles/AboutTeam.scss';
 
