@@ -1,10 +1,10 @@
 import React from 'react';
 // components
-import TeamMember from '../components/TeamMember';
+import AboutTeamCard from './AboutTeamCard';
 // helpers
 import memberObj from '../../data/memberInfo';
 // scss
-import '../styles/AboutTeam.scss';
+import '../../css/about/AboutTeam.scss';
 
 class AboutTeam extends React.Component {
   render() {
@@ -12,12 +12,11 @@ class AboutTeam extends React.Component {
     return (
       <section className="teamMemberGrid">
         {memberInfo.map(member => (
-          <TeamMember
+          <AboutTeamCard
             key={member.fullName}
             img={member.src}
             fullName={member.fullName}
-            role={member.role}
-            mailLink={member.mailLink}
+            character={member.character}
           />
         ))}
       </section>

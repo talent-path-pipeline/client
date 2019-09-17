@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/about/AboutInfo.scss';
 import AboutCards from './AboutCards';
+import AboutTeam from './AboutTeam';
 
 const AboutInfo = ({ title, subtitle, image_link }) => (
   <div className="about-info">
@@ -13,6 +14,9 @@ const AboutInfo = ({ title, subtitle, image_link }) => (
     <p className="subtitle">{subtitle}</p>
     <hr className="line" />
     <AboutCards/>
+    <p className="subtitle">Meet The Team</p>
+    <hr className="line" />
+    <AboutTeam/>
   </div>
 );
 

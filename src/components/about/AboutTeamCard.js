@@ -37,7 +37,7 @@ class AboutTeamCard extends React.Component {
     event.stopPropagation();
   };
   render() {
-    const { img, fullName, role, mailLink } = this.props;
+    const { img, fullName, character } = this.props;
     const { active } = this.state;
     return (
       <div className="teamMemberCardContainer">
@@ -54,15 +54,7 @@ class AboutTeamCard extends React.Component {
           <div className="side back">
             <div className="teamMemberInfo">
               <h2>{fullName}</h2>
-              <span>{role}</span>
-              <a
-                className="teamMemberEmailLink"
-                href={mailLink}
-                onClick={this.sendMail}
-                onKeyDown={this.sendMail}
-              >
-                Send Email &#62;
-              </a>
+              <span>{character}</span>
             </div>
           </div>
         </div>
