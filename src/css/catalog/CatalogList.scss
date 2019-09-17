@@ -1,12 +1,11 @@
 #list-all-courses {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   margin-top: 20px;
 }
-
 
 /* #course-list {
   flex-wrap: wrap;
@@ -44,7 +43,7 @@
 
 .img-fluid {
   /* max-width: 100%; */
-  /* width: 275px; 
+/* width: 275px; 
   height: 12rem;
   background-color: cadetblue;
   text-align: center;
