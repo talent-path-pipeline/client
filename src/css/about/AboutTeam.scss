@@ -12,8 +12,8 @@
 
 // Animation Transitions
 .teamMemberCardContainer {
-  height: 15rem;
-  width: 15rem;
+  height: 17rem;
+  width: 17rem;
   perspective: 500;
   position: relative;
 }
@@ -119,8 +119,11 @@
   }
 }
 
-@media all and (max-width: 1250px) {
-
+@media all and (max-width: 1000px) {
+  .teamMemberCardContainer {
+    height: 15rem;
+    width: 15rem;
+  }
 }
 
 /* @media all and (max-width: 493px) { */
