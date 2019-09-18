@@ -1,95 +1,99 @@
-#an-id {
-  outline: none;
-}
-
-#title {
-  padding-top: 2em;
-  padding-bottom: 1em;
-  text-align: center;
-}
-
-form {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 4em;
-}
-
-label {
-  display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  text-align: left;
-  font-size: 1.2em;
-}
-
-p {
-  padding-top: 10px;
-  font-size: 15px;
-}
-
-textarea:focus,
-input:focus {
-  outline: none;
-}
-
-h6 {
-  color: white;
-  font-weight: 100;
-  font-style: oblique;
-  padding-bottom: 5px;
-}
-
-
-input {
-  height: 45px;
-  width: 500px;
-  padding-left: 15px;
-  font-size: 20px;
+#signup-container {
+  border: 1px solid black;
   border-radius: 10px;
-  border-style: 1px;
-}
-
-input:hover {
-  border-style: solid red;
-}
-
-form input.error {
-  border-color: red;
-}
-
-button {
-  height: 50px;
-  width: 150px;
-  border-radius: 25px;
-  border: 2px solid none;
-
-  background-color: #641513;
-  color: white;
-  margin-top: 15px;
-  font-size: 1.2em;
-  transition: 1s;
-  position: relative;
-  margin-left: 7.5em;
-}
-
-
-button:hover {
-  background-color: #2E284E;
-}
-
-button:disabled {
-  background-color: #454545;
-}
-
-#failedToRegister {
-  color: red;
-}
-
-
-.warning {
-  padding-top: 15px;
-  color: red;
+  background-color: rgba($color: #0A090C, $alpha: 0.7);
+  max-width: 600px;
+  box-shadow: 3px 3px 6px rgb(37, 37, 37);
   text-align: center;
+  margin: auto;
+  position: relative;
+  top: 60px;
+
+  #signup-title {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    h3 {
+      padding: 10px;
+    }
+  }
+  
+  label {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: left;
+    font-size: 1.2em;
+  }
+  
+  p {
+    padding-top: 10px;
+    font-size: 15px;
+  }
+  
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+  
+  h6 {
+    color: white;
+    font-weight: 100;
+    font-style: oblique;
+    padding-bottom: 5px;
+  }
+  
+  
+  input {
+    height: 30px;
+    width: 400px;
+    border-radius: 5px;
+  }
+  
+  input:hover {
+    border-style: solid red;
+  }
+  
+  form input.error {
+    border-color: red;
+  }
+  
+  button {
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    background-color: rgba($color: white, $alpha: .2);
+    color: white;
+    margin: 15px;
+    font-size: 1.2em;
+    transition: 1s;
+    cursor: pointer;
+  }
+  
+  
+  button:hover {
+    background-color: orange;
+  }
+  
+  button:disabled {
+    background-color: #454545;
+  }
+  
+  #failedToRegister {
+    color: red;
+  }
+  
+  
+  .warning {
+    padding-top: 15px;
+    color: red;
+    text-align: center;
+  }
 }
