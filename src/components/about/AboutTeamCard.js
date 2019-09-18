@@ -39,8 +39,9 @@ class AboutTeamCard extends React.Component {
   render() {
     const { img, fullName, character, role, link } = this.props;
     const { active } = this.state;
+    let firstName = fullName.split(' ')[0];
     return (
-      <div className="teamMemberCardContainer">
+      <div className={`teamMemberCardContainer ${firstName}`}>
         <div
           className={`${active ? 'active ' : ''}teamMemberCard`}
           tabIndex="0"
