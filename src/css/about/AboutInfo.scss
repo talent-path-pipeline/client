@@ -53,4 +53,19 @@
   text-align: center;
 }
 
+@media all and (max-width: 1390px) {
+  .about-info .title {
+    top: 165px;
+  }
+}
+
+@media all and (max-width: 1170px) {
+  .about-info .title {
+    font-size: 37px;
+  }
+  .about-info .subtitle {
+    font-size: 40px;
+  }
+}
+
 

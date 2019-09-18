@@ -59,6 +59,12 @@
   text-align: center;
 }
 
+@media all and (max-width: 1250px) {
+  .card p {
+    font-size: 18px;
+  }
+}
+
 @media all and (max-width: 493px) {
   .card p {
     font-size: 0.5em;
@@ -67,7 +73,7 @@
 
 @media all and (max-width: 1044px) {
   .card {
-    height: 13rem;
+    height: 16rem;
   }
 }
 
