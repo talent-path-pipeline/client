@@ -1,7 +1,6 @@
 .teamMemberGrid {
   display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-template-areas: "kev sam em rob dev";
+  grid-template-columns: repeat(12, 1fr);
   justify-items: center;
   width: 100%;
   grid-gap: 2rem;
@@ -19,24 +18,16 @@
   position: relative;
 }
 
-.Sam{
-  grid-area: sam;
+.teamMemberCardContainer:nth-child(-1n + 3) {
+  grid-column: span 4;
 }
-
-.Roberto{
-  grid-area: rob;
+.teamMemberCardContainer:nth-last-child(2) {
+  grid-row-start: 2;
+  grid-column: 3 / span 4;
 }
-
-.Emily{
-  grid-area: em;
-}
-
-.Kevin{
-  grid-area: kev;
-}
-
-.Devon{
-  grid-area: dev;
+.teamMemberCardContainer:nth-last-child(1) {
+  grid-row-start: 2;
+  grid-column: 7 / span 4;
 }
 
 .teamMemberCard {
@@ -129,7 +120,7 @@
 }
 
 @media all and (max-width: 1250px) {
-  
+
 }
 
 /* @media all and (max-width: 493px) { */
