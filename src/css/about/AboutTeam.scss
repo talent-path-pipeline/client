@@ -127,11 +127,6 @@
 }
 
 @media all and (max-width: 880px) {
-  // .teamMemberGrid {
-  //   display: grid;
-  //   grid-template-areas: none;
-  //   grid-template-columns: repeat(12, 1fr);
-  // }
   .teamMemberCardContainer:nth-child(1) {
     grid-row-start: 1;
     grid-column: 2 / span 4;

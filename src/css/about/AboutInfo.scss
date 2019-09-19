@@ -77,3 +77,24 @@
   }
 }
 
+@media all and (max-width: 880px) {
+  .about-info .title {
+    max-width: 40rem;
+    top: 130px;
+    font-size: 30px;
+  }
+  .about-info .subtitle {
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .about-info .title {
+    max-width: 35rem;
+    top: 118px;
+    font-size: 27px;
+  }
+  .about-info .subtitle {
+    font-size: 28px;
+  }
+}
