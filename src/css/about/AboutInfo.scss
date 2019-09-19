@@ -98,3 +98,14 @@
     font-size: 28px;
   }
 }
+
+@media all and (max-width: 550px) {
+  .about-info .title {
+    max-width: 30rem;
+    top: 112px;
+    font-size: 22px;
+  }
+  .about-info .subtitle {
+    font-size: 25px;
+  }
+}
