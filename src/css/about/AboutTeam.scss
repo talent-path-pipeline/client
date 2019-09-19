@@ -193,7 +193,13 @@
   }
 }
 
-@media all and (max-width: 355px) {
+@media all and (max-width: 360px) {
+  .teamMemberCard .teamMemberInfo h2 {
+    font-size: 17px;
+  }
+  .teamMemberCard .teamMemberInfo span {
+    font-size: 12px;
+  }
   #title {
     font-size: 0.7rem;
   }
