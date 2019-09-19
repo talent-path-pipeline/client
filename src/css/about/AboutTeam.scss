@@ -149,6 +149,39 @@
   }
 }
 
+@media all and (max-width: 600px) {
+  .teamMemberGrid {
+    display: grid;
+    grid-template-areas: none;
+    grid-template-columns: none;
+  }
+  .teamMemberCardContainer:nth-child(1) {
+    grid-row-start: 1;
+    width: 80%;
+    grid-column: span 1;
+  }
+  .teamMemberCardContainer:nth-child(2) {
+    grid-row-start: 2;
+    width: 80%;
+    grid-column: span 1;
+  }
+  .teamMemberCardContainer:nth-child(3) {
+    grid-row-start: 3;
+    width: 80%;
+    grid-column: span 1;
+  }
+  .teamMemberCardContainer:nth-last-child(2) {
+    grid-row-start: 4;
+    width: 80%;
+    grid-column: span 1;
+  }
+  .teamMemberCardContainer:nth-last-child(1) {
+    grid-row-start: 5;
+    width: 80%;
+    grid-column: span 1;
+  }
+}
+
 /* @media all and (max-width: 493px) { */
 @media all and (max-width: 493px) {
   .teamMemberGrid {
