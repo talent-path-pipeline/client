@@ -100,12 +100,17 @@
 }
 
 @media all and (max-width: 550px) {
+  .about-info .image-container .image-overlay, .about-info .image-container .about-splash{
+    height: 9rem;
+  }
   .about-info .title {
-    max-width: 30rem;
+    max-width: 85%;
     top: 112px;
-    font-size: 22px;
+    font-size: 19px;
   }
   .about-info .subtitle {
-    font-size: 25px;
+    max-width: 85%;
+    text-align: center;
+    font-size: 22px;
   }
 }
