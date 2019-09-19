@@ -68,4 +68,12 @@
   }
 }
 
+@media all and (max-width: 1000px) {
+  .about-info .title {
+    top: 135px;
+  }
+  .about-info .subtitle {
+    font-size: 37px;
+  }
+}
 
