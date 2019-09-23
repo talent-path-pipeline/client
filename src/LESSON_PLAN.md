@@ -22,6 +22,10 @@
       - Fun, modern, AND has examples of people playing together
 - Lesson 2: Sourcing Your Books
   - Wizards of the Coast, the publishers of D&D, have a number of resources--some free online, others available for purchase as print boosk--that you can use to help craft a campaign. Learn here a brief summary of each one so you can decide which you need for your game.
+  - Videos:
+    - https://www.youtube.com/watch?v=wizuCHNGvwc ⭐️
+      - Length: 18:08
+      - Talks about Wizards of the Coast (Free resources), Starter Sets, etc...
 - Lesson 3: Sourcing Your Equipment
   - So you have your books, but what else do you need? There are DM screens, dice, play mats, dice towers, dice trays, miniatures, map tiles, spell cards, and more, but what are all of these things and which do you actually need?
 - Lesson 4: Choices, Choices...
