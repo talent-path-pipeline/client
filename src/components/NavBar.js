@@ -60,7 +60,7 @@ class NavBar extends React.Component {
           </li> */}
           {/* Commented out until implemented */}
           {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
-          {/* <li><NavLink to={links.about}>About</NavLink></li> */}
+          <li><NavLink to={links.about}>About</NavLink></li>
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
@@ -81,10 +81,10 @@ class NavBar extends React.Component {
             {/* <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
               Lesson
             </NavLink> */}
-            {/* <NavLink onClick={() => this.closeMenu()} to={links.about}>
+            <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
+            {/*<NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
               Dashboard
             </NavLink> */}
           </Menu>
