@@ -1,13 +1,31 @@
 .answer {
-  color: blue;
+  color: white;
+  padding-top: 10px;
+  border-radius: 10px;
+  transition: 2s all linear;
 }
 
-.question{
-  color: green;
+
+.question {
+  color: white;
+  padding-top: 11px;
+  font-size: 1.2em;
 }
-.QABox{
-  background-color:yellow;
+
+.QABox {
+  background-color: grey;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
-p{
-  color: red;
+
+.outerBox {
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
