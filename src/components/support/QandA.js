@@ -1,19 +1,5 @@
 import React from 'react';
-/* 
-const QandA = () => {
-  return (
-    <div>
-      <h1>Fequently Asked Questions</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, repudiandae!
-        Assumenda distinctio facere labore. Neque porro unde voluptates, cupiditate
-        explicabo modi, recusandae veniam iure dolore, blanditiis asperiores impedit
-        adipisci accusamus.
-      </p>
-    </div>
-  );
-};
-*/
+import classes from '../../css/support/support.scss';
 
 class Collapsible extends React.Component {
   constructor(props) {
@@ -26,16 +12,20 @@ class Collapsible extends React.Component {
   togglePanel(e) {
     this.setState({ open: !this.state.open });
   }
-  componentDidUpdate() {
-    // this props.onToggle(this.props.index);
-  }
+
   render() {
     return (
       <div>
-        <div onClick={e => this.togglePanel(e)} className="header">
+        <div
+          className={classes.title}
+          onClick={e => this.togglePanel(e)}
+          className="header"
+        >
           {this.props.title}
         </div>
-        {this.state.open ? <div className="content">{this.props.children}</div> : null}
+        {this.state.open ? (
+          <div className={classes.content}>{this.props.children}</div>
+        ) : null}
       </div>
     );
   }
@@ -44,6 +34,7 @@ class QandA extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div>
