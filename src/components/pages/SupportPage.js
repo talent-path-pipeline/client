@@ -5,7 +5,7 @@ import '../../css/support/support.scss';
 const SupportPage = () => {
   return (
     <div>
-      <h1>Support Page</h1>
+      <h1 className="supportTitle">Support Page</h1>
       <QandA/>
     </div>
   )
