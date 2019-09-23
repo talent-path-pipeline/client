@@ -12,15 +12,10 @@ class Collapsible extends React.Component {
   togglePanel(e) {
     this.setState({ open: !this.state.open });
   }
-
   render() {
     return (
       <div>
-        <div
-          className={classes.title}
-          onClick={e => this.togglePanel(e)}
-          className="header"
-        >
+        <div className={classes.title} onClick={e => this.togglePanel(e)}>
           {this.props.title}
         </div>
         {this.state.open ? (
@@ -31,48 +26,45 @@ class Collapsible extends React.Component {
   }
 }
 class QandA extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  state = {
+    QuestionsAnswers: [
+      {
+        key: 1,
+        question: 'Hello',
+        answer: 'Goodbye',
+      },
+      {
+        key: 2,
+        question: 'Hello2',
+        answer: 'Goodbye2',
+      },
+      {
+        key: 3,
+        question: 'Hello3',
+        answer: 'Goodbye3',
+      },
+    ],
+  };
   render() {
     return (
       <div>
-        <Collapsible title="What do I need to start my journey as a Dungeon Master V">
+        <Collapsible key={0} title="TEST TITLE">
           <div>
-            <p>Content of Collapsible</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quo
-              accusantium hic pariatur est. Repellat corporis eos adipisci blanditiis?
-              Cupiditate, quo! Ipsum voluptates illum unde odit libero voluptate, suscipit
-              aspernatur.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio
+              repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita,
+              ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?
             </p>
           </div>
         </Collapsible>
-        <br />
-        <Collapsible title="How do I get started on .... V">
-          <div>
-            <p>Content of Collapsible</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quo
-              accusantium hic pariatur est. Repellat corporis eos adipisci blanditiis?
-              Cupiditate, quo! Ipsum voluptates illum unde odit libero voluptate, suscipit
-              aspernatur.
-            </p>
-          </div>
-        </Collapsible>
-        <br />
-        <Collapsible title="Where am I? V">
-          <div>
-            <p>Content of Collapsible</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quo
-              accusantium hic pariatur est. Repellat corporis eos adipisci blanditiis?
-              Cupiditate, quo! Ipsum voluptates illum unde odit libero voluptate, suscipit
-              aspernatur.
-            </p>
-          </div>
-        </Collapsible>
+
+        {this.state.QuestionsAnswers.map(QA => (
+          <Collapsible key={QA.key} title={QA.title}>
+            <div>
+              <p>{QA.answer}</p>
+            </div>
+          </Collapsible>
+        ))}
       </div>
     );
   }
