@@ -24,10 +24,18 @@
   - Wizards of the Coast, the publishers of D&D, have a number of resources--some free online, others available for purchase as print boosk--that you can use to help craft a campaign. Learn here a brief summary of each one so you can decide which you need for your game.
   - Videos:
     - https://www.youtube.com/watch?v=wizuCHNGvwc ⭐️
-      - Length: 18:08
+      - Length: 18:08 (From Beginning to 14:38)
       - Talks about Wizards of the Coast (Free resources), Starter Sets, etc...
+      - Written Buyers Guide
+        - http://www.wasd20.net/dd-buyers-guide/
 - Lesson 3: Sourcing Your Equipment
   - So you have your books, but what else do you need? There are DM screens, dice, play mats, dice towers, dice trays, miniatures, map tiles, spell cards, and more, but what are all of these things and which do you actually need?
+  - Videos:
+    - https://www.youtube.com/watch?v=wizuCHNGvwc ⭐️
+      - Length: 18:08 (Section from 14:38 - 16:55)
+      - Talks about DM Screen, Dice, Spellbook Cards, Batlle Mats, Miniatures
+      - Written Buyers Guide
+        - http://www.wasd20.net/dd-buyers-guide/
 - Lesson 4: Choices, Choices...
   - If you've decided that DMing is for you, you'll have to decide what kind of campaign to run before you get started. Homebrew or storebought? Battle grid or Theater of the Mind? Character-focused or combat-heavy? There's more than one way to roll the dice, and this video will walk you through the different options so you know what's best for you.
 - Lesson 5: Finding Your Party
