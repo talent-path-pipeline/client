@@ -20,6 +20,7 @@
     - https://www.youtube.com/watch?v=2PEt5RdNHNw ⭐️
       - Length: 10:12
       - Fun, modern, AND has examples of people playing together
+
 - Lesson 2: Sourcing Your Books
   - Wizards of the Coast, the publishers of D&D, have a number of resources--some free online, others available for purchase as print boosk--that you can use to help craft a campaign. Learn here a brief summary of each one so you can decide which you need for your game.
   - Videos:
@@ -28,6 +29,7 @@
       - Talks about Wizards of the Coast (Free resources), Starter Sets, etc...
       - Written Buyers Guide
         - http://www.wasd20.net/dd-buyers-guide/
+
 - Lesson 3: Sourcing Your Equipment
   - So you have your books, but what else do you need? There are DM screens, dice, play mats, dice towers, dice trays, miniatures, map tiles, spell cards, and more, but what are all of these things and which do you actually need?
   - Videos:
@@ -36,6 +38,7 @@
       - Talks about DM Screen, Dice, Spellbook Cards, Batlle Mats, Miniatures
       - Written Buyers Guide
         - http://www.wasd20.net/dd-buyers-guide/
+
 - Lesson 4: Choices, Choices...
   - If you've decided that DMing is for you, you'll have to decide what kind of campaign to run before you get started. Homebrew or storebought? Battle grid or Theater of the Mind? Character-focused or combat-heavy? There's more than one way to roll the dice, and this video will walk you through the different options so you know what's best for you.
   - Videos:  (Couldn't find a video exactly for this Lesson)
@@ -56,6 +59,7 @@
     - https://www.youtube.com/watch?v=TEeuWEM63Uc ⭐️
       - Length: 11:18
       - "Running Your First Game"
+
 - Lesson 5: Finding Your Party
   - So you know what story you'd like to tell... now it's time to find the characters! This lesson walks through different places you can find potential players, and how to choose who will join your table.
   - Videos:
@@ -74,6 +78,12 @@
 
 - Lesson 1: You Make the Rules!
   - The published D&D sourcebooks have their fair share of suggested rules... but as the DM, you have the special privilege to bend those to your will! Learn in this video how to set house rules for your campaign and your world, and begin collecting these guidelines in a Player's Guide for your party.
+  - Videos:
+    - https://www.youtube.com/watch?v=g5lrIDoEPOw
+      - Length: 9:21
+    - https://www.youtube.com/watch?v=nzn9FaM1jz0 ⭐️
+      - Length: 6:33
+
 - Lesson 2: Setting Expectations
   - If your players are expecting a lighthearted comedy romp through the meadows, but you planned a dark, sober story of political intrigue... Nobody is going to have a good time. This video talks about aligning with your players on what your campaign will be... and coming to a compromise when you don't already agree.
 - Lesson 3: Dungeon Etiquette
