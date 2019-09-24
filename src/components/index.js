@@ -55,3 +55,4 @@ export { default as RecruiterDashboard } from './users/recruiter/RecruiterDashbo
 // ========================================
 // other
 export { default as NavBar } from './NavBar';
+export { default as ProgressBar } from './ProgressBar';

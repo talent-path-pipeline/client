@@ -5,7 +5,7 @@ import { CatalogCard } from '..';
 import '../../css/catalog/CatalogList.scss';
 
 const CatalogList = ({ courses }) => (
-  <div id="list-all-courses">
+  <div className="list-all-courses">
     {courses.map(course => (
       <CatalogCard course={course} key={course.slug} />
     ))}

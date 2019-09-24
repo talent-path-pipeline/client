@@ -12,14 +12,11 @@ const CatalogPage = () => {
     <div className="catalog-page">
       <header className="catalog-header">
         <h2 className="page-title">Courses</h2>
-        <input className="course-search" type="text" placeholder="Type to search!" />
+        {/* TODO: Make search actually work/do something */}
+        {/* <input className="course-search" type="text" placeholder="Type to search!" /> */}
       </header>
-      {/* <section className="filter-container">
-          <CatalogFilter />
-        </section> */}
-      <section className="course-container">
-        <CatalogList courses={courses} />
-      </section>
+      {/* TODO: <CatalogFilter /> */}
+      <CatalogList courses={courses} />
     </div>
   );
 };

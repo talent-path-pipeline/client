@@ -1,20 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ProgressBar } from '..';
 import '../../css/catalog/CatalogCard.scss';
 
-const CatalogCard = ({ course }) => (
-  <div className="course-card">
-    <Link to={`/${course.slug}`}>
-      <img className="course-image" src={course.image_link} alt={course.title} />
-      <p className="course-title">{course.title}</p>
-      {/* TODO: calculate progress and display a progress bar component
-      <p className="course-progress">
-        {course.completedCourses} of {course.totalCourses} lessons completed
-      </p> */}
+const CatalogCard = ({ course }) => {
+  // TODO: once connected to back-end, get number of completed lessons
+  const completed = 0;
+  return (
+    <Link to={`/${course.slug}`} className="course-card">
+      <div
+        className="course-image"
+        alt={course.title}
+        style={{ backgroundImage: `url(${course.image_link})` }}
+      />
+      <div className="course-info">
+        <h4 className="course-title">{course.title}</h4>
+        <p className="course-description">{course.description}</p>
+        <ProgressBar value={completed} max={course.lessons.length} label="Lessons" />
+      </div>
     </Link>
-  </div>
-);
+  );
+};
 
 CatalogCard.propTypes = {
   course: PropTypes.shape({
