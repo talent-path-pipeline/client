@@ -115,9 +115,10 @@
     - https://www.youtube.com/watch?v=fWZDuFIYkf0
       - Length: 5:52
       - "The Rule of Cool"
+
 - Lesson 4: Character Creation
   - At this point, your players should be building their characters--and you should be helping! All the data on those character sheets can be daunting, but with this video, you can get comfortable with what it all means.
-  - Videos
+  - Videos:
     - https://www.youtube.com/watch?v=-oIIZJeVGpc
       - Length: 44:56
       - Good example of the whole process!
@@ -138,6 +139,17 @@
 
 - Lesson 1: Flavortown
   - Settings are better when they're spruced up with smells, sights, and sounds! Learn how to describe environments and situations that your characters find themselves in with aplomb to fully immerse your players in the fantasy.
+  - Videos:
+    - https://www.youtube.com/watch?v=JgHI5f7hbIw 
+      - Length: 8:50 ( 0:50 - end )
+      - Starts after an in video advertisement
+    - https://www.youtube.com/watch?v=yQHQI6xADw4
+      - Length: 9:11
+      - I think this guy is kinda dry
+    - https://www.youtube.com/watch?v=NjmkolUrrB4 ⭐️
+     - Length: 15:25 (0:57 - end)
+     - "Different Styles of storytelling"
+
 - Lesson 2: The Actor In You
   - You don't need to be Mel Blanc or Matt Mercer to play many different characters at once! Practice your improv chops and learn how to craft compelling and differentiated NPCs for your party to love... or hate. 
 - Lesson 3: Lions and Tigers and Owlbears, Oh My!
