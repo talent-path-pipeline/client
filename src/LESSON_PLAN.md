@@ -120,9 +120,14 @@
   - Videos
     - https://www.youtube.com/watch?v=-oIIZJeVGpc
       - Length: 44:56
-      - Good example of the whole process
+      - Good example of the whole process!
       - A group of people coming in to play DnD
       - Dungeon Master goes through building characters together
+    - https://www.youtube.com/watch?v=vGyk5piGwrQ
+      - Length: 12:44
+    - https://www.youtube.com/watch?v=d0vZFBFs4WQ ⭐️
+      - Length 17:19
+
 
 ---
 
