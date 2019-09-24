@@ -108,6 +108,13 @@
 
 - Lesson 3: Dungeon Etiquette
   - D&D is all about having fun, and the best way to make sure that happens is to treat everyone around the table with respect. In this lesson, learn best practices to maintain harmony with your party members--both in and outside the game!
+  - Videos:
+    - https://www.youtube.com/watch?v=_9X2Tz7QegM
+      - Length: 6:30
+      - "RPG Etiquette"
+    - https://www.youtube.com/watch?v=fWZDuFIYkf0
+      - Length: 5:52
+      - "The Rule of Cool"
 - Lesson 4: Character Creation
   - At this point, your players should be building their characters--and you should be helping! All the data on those character sheets can be daunting, but with this video, you can get comfortable with what it all means.
   - Videos
