@@ -38,9 +38,26 @@
         - http://www.wasd20.net/dd-buyers-guide/
 - Lesson 4: Choices, Choices...
   - If you've decided that DMing is for you, you'll have to decide what kind of campaign to run before you get started. Homebrew or storebought? Battle grid or Theater of the Mind? Character-focused or combat-heavy? There's more than one way to roll the dice, and this video will walk you through the different options so you know what's best for you.
+  - Videos:  (Couldn't find a video exactly for this Lesson)
+    - https://www.youtube.com/watch?v=0oD6mF9vSRk
+      - Length: 12:30
+      - "10 Tips for Beginner Dungeon Masters"
+      - Talks about:
+        - How to setup your DM screen
+        - Read Ahead in the adventures
+        - Don't control your players
+        - Aid desciptive actions
+        - Voice Acting
+        - Snacks and breaks
+        - Don't rush
+        - Make the First Adventure a premade andventure
+        - It's okay to be Vanilla (Basic)
+        - Make sure everybody's having fun!
+    - https://www.youtube.com/watch?v=TEeuWEM63Uc ⭐️
+      - Length: 11:18
+      - "Running Your First Game"
 - Lesson 5: Finding Your Party
   - So you know what story you'd like to tell... now it's time to find the characters! This lesson walks through different places you can find potential players, and how to choose who will join your table.
-  
 
 ---
 
