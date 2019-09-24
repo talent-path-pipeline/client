@@ -86,6 +86,26 @@
 
 - Lesson 2: Setting Expectations
   - If your players are expecting a lighthearted comedy romp through the meadows, but you planned a dark, sober story of political intrigue... Nobody is going to have a good time. This video talks about aligning with your players on what your campaign will be... and coming to a compromise when you don't already agree.
+  - Videos:
+    - https://www.youtube.com/watch?v=8h6GXySW8GY
+      - Length: 12:39
+      - Good things to say but the guy is just casually taking the video in his car
+    - https://www.youtube.com/watch?v=aBOH8YLUPjE ⭐️
+      - Length: 18:26 (Start - 4:53)
+        - 0:59 (1) Select type/setting/space of game: Sci-fi? Pirates? Modern? High School? Star Wars?
+        - 2:55 (2) What type/setting/space of game do the players wish? Align expectations together!
+        - 4:53 (2 b) And get your players started at character creation!
+        - 5:01 (3) Create! But: keep it simple! Use your characters story to make the story better!
+        - 8:15 (3 b) Maps. What maps are needed?
+        - 9:05 (3 c) Work out your NPCs.
+        - 0:42 (4) Encounters. How many? Any battles? Encounters do not necessarily mean combat!
+        - 3:46 (5) Apply the RPG system to you world.
+        - 5:00 (6) Go back to your players: Get to know their characters!
+        - 6:18 (7) Adjust your story, make it fit with what your players are after!
+        - 6:29 (8) Launch the game!
+        - 7:24 (8 b) Evaluate afterwards.
+      - A lot of good content though we may not need everything from this video
+
 - Lesson 3: Dungeon Etiquette
   - D&D is all about having fun, and the best way to make sure that happens is to treat everyone around the table with respect. In this lesson, learn best practices to maintain harmony with your party members--both in and outside the game!
 - Lesson 4: Character Creation
