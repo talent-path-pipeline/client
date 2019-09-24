@@ -58,6 +58,13 @@
       - "Running Your First Game"
 - Lesson 5: Finding Your Party
   - So you know what story you'd like to tell... now it's time to find the characters! This lesson walks through different places you can find potential players, and how to choose who will join your table.
+  - Videos:
+    - https://www.youtube.com/watch?v=Af7aWnDtLbU
+      - Length: 5:38
+    - https://www.youtube.com/watch?v=8eEhjYLoirE 
+      - Length: 5:49
+    - https://www.youtube.com/watch?v=xQHAPEoqdVw ⭐️
+      - Length: 7:24
 
 ---
 
