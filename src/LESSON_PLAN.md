@@ -170,6 +170,11 @@
     - https://www.youtube.com/watch?v=rKU2e5Xrx1k ⭐️
       - Length: 5:37
       - "Improv and the unexpected"
+    - https://www.youtube.com/watch?v=1UpxbWReKBQ
+      - Length: 10:30
+      - Gives example of him improving
+    - https://www.youtube.com/watch?v=BgikAaswmNg
+      - Length: 20:12
   
 ---
 
