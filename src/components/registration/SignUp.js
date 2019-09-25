@@ -61,15 +61,16 @@ class SignUp extends Component {
       location,
       fullName,
     };
-    // this.showSpinner();
-    Axios.post('http://localhost:5001/api/user/', data)
+    Axios.post('http://localhost:5000/api/user/', data)
       .then(response => {
         console.log(response);
+        // Stores token in local storeage for the time being
+        localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
+        // Redirect to dashboard
       })
       .catch(error => {
         this.setState({ showRegistrationFailure: true });
-        // this.hideSpinner();
         try {
           if (error.response.status === 400) {
             console.log('Bad Request');
