@@ -83,6 +83,7 @@
       - Length: 9:21
     - https://www.youtube.com/watch?v=nzn9FaM1jz0 ⭐️
       - Length: 6:33
+    - https://www.youtube.com/watch?v=z7ArhJ-5tOY&t=3s
 
 - Lesson 2: Setting Expectations
   - If your players are expecting a lighthearted comedy romp through the meadows, but you planned a dark, sober story of political intrigue... Nobody is going to have a good time. This video talks about aligning with your players on what your campaign will be... and coming to a compromise when you don't already agree.
