@@ -223,6 +223,18 @@
 
 - Lesson 1: Rules and Rolls
   - Searching rooms, seducing spies, and triggering traps. This video covers the rules of rolling--learn how to respond when your players need to make a skill check, cast a saving throw, and more.
+  - Videos:
+    - https://www.youtube.com/watch?v=7tnrATiclg4&t=37s
+      - Length: 5:35
+      - Broad overview
+    - https://www.youtube.com/watch?v=RO2qv5Uin9c&t=70s
+      - Length: 9:10 (1:36 - end)
+    - https://www.youtube.com/watch?v=bEMB3ojhOPE
+      - Length: 4:07
+      - "When to Roll Dice"
+    - https://www.youtube.com/watch?v=5jD4HjQEJlc&t=732s ⭐️
+      - Length: 24:58
+
 - Lesson 2: Roll for Initiative!
   - A combat encounter has begun! This can be one of the most daunting experiences for new D&D-ers, but with this video, you'll know just how to run any battle or brawl with the perfect balance of challenge and fun.
 -  Lesson 3: Witchcraft and Wizardry
