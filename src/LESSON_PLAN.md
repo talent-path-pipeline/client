@@ -224,9 +224,49 @@
 
 - Lesson 1: Rules and Rolls
   - Searching rooms, seducing spies, and triggering traps. This video covers the rules of rolling--learn how to respond when your players need to make a skill check, cast a saving throw, and more.
+  - Videos:
+    - https://www.youtube.com/watch?v=7tnrATiclg4&t=37s
+      - Length: 5:35
+      - Broad overview
+    - https://www.youtube.com/watch?v=RO2qv5Uin9c&t=70s
+      - Length: 9:10 (1:36 - end)
+    - https://www.youtube.com/watch?v=bEMB3ojhOPE
+      - Length: 4:07
+      - "When to Roll Dice"
+    - https://www.youtube.com/watch?v=5jD4HjQEJlc&t=732s ⭐️
+      - Length: 24:58
+
 - Lesson 2: Roll for Initiative!
   - A combat encounter has begun! This can be one of the most daunting experiences for new D&D-ers, but with this video, you'll know just how to run any battle or brawl with the perfect balance of challenge and fun.
+  - Videos:
+    - https://www.youtube.com/watch?v=VKx1QG86wbo 
+      - Length: 25:04
+    - https://www.youtube.com/watch?v=I03UuQ28nsQ
+      - Length: 7:31
+    - https://www.youtube.com/watch?v=kpzuB0G0UEM ⭐️
+      - Length: 15:41
+      - Covers all about creating encounters
+        - Social, Exploration, and combat
+
 -  Lesson 3: Witchcraft and Wizardry
    -  Magic exists in the world of D&D, and it has its own strict set of rules. Learn the ins and outs of spellcasting, magic materials, and more.
+   - Videos:
+    - https://www.youtube.com/watch?v=wMxZDMgZKbI 
+      - Length: 6:06
+    - https://www.youtube.com/watch?v=hTl_4unUc64
+      - Length: 17:35
+    - https://www.youtube.com/watch?v=hWC5Oq1Ex8k ⭐
+      - Length: 7:31
+      - Brief, entertaining, and informative
+      - More modern
+
 -  Lesson 4: Expect the Unexpected
    - So, your players were supposed to imprison the escaped orc convict... and they decided to adopt him as a foster son instead. In this video, learn what to do when everything goes exactly NOT as planned.
+   - Videos:
+    - https://www.youtube.com/watch?v=nuTWiKyJ6sI
+      - Length: 28:50
+      - "7 Ways D&D Players Destroy Their DM's Plans"
+      - An example of a case when a DM got derailed
+    - https://www.youtube.com/watch?v=5DqRZSd2LSk ⭐️
+      - Length: 7:29
+      - "Creating Good Plot Hooks - How to Keep Players on Track"
