@@ -42,7 +42,7 @@ class NavBar extends React.Component {
       <div id="nav-main">
         <NavLink to={links.home}>
           <img
-            src="./images/StonehavenAcademy1.png"
+            src="./images/logo-red-stone.png"
             alt="Stonehaven Academy Logo"
             className="logo"
           />
