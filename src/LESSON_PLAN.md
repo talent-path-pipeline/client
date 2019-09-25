@@ -237,6 +237,10 @@
 
 - Lesson 2: Roll for Initiative!
   - A combat encounter has begun! This can be one of the most daunting experiences for new D&D-ers, but with this video, you'll know just how to run any battle or brawl with the perfect balance of challenge and fun.
+  - Videos:
+    - https://www.youtube.com/watch?v=VKx1QG86wbo ⭐️
+      - Length: 25:04
+
 -  Lesson 3: Witchcraft and Wizardry
    -  Magic exists in the world of D&D, and it has its own strict set of rules. Learn the ins and outs of spellcasting, magic materials, and more.
 -  Lesson 4: Expect the Unexpected
