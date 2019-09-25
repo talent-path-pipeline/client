@@ -162,6 +162,30 @@
     - Talks more about creating NPCs in general
 - Lesson 3: Lions and Tigers and Owlbears, Oh My!
   - The D&D world is filled with fascinating creatures--they can be your players' enemies, allies, or even pets! Watch this video for some suggestions of creatures to incorporate into your story to scare and delight your players.
+  - Videos:
+    - https://www.youtube.com/watch?v=SkqSaH96FHQ
+      - Length: 13:09
+      - Talks more about HOW TO create monsters & NPCs
+      - Might be advanced for a new DM??
+    - https://www.youtube.com/watch?v=spIMpd9hyL4
+      - Length: 15:49
+    - https://www.youtube.com/watch?v=X78D3pmHVp0 ⭐️
+      - Length: 9:26
+      - Talks about different monsters
+        - 0:30 - Aberrations
+        - 1:06 - Beasts
+        - 1:37 - Celestials
+        - 2:18 - Constructs
+        - 2:54 - Dragons
+        - 3:37 - Elementals
+        - 4:16 - Fae
+        - 4:54 - Fiends
+        - 5:32 - Giants
+        - 6:15 - Humanoids
+        - 6:49 - Monstrosities
+        - 7:33 - Oozes
+        - 8:11 - Plants
+        - 8:37 - Undead
 - Lesson 4: Stuff Yourself
   - Whether it's valuables hoarded by an evil red dragon you've just thwarted, a gift awarded by a grateful dryad, or simply the contents of a treasure chest in an abandoned dungeon room, interesting and exciting items are everywhere in the world of D&D... and this video shows how best to include them.
 - Lesson 5: Well, That Was Random.
