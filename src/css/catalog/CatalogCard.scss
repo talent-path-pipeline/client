@@ -1,4 +1,4 @@
-.course-card {
+.catalog-card {
   --img-split: 36%;
 
   box-shadow: 2px 3px 0px 1px #640d14;
@@ -51,6 +51,6 @@
   }
 }
 
-.course-card:hover {
+.catalog-card:hover {
   background-color: var(--red);
 }
