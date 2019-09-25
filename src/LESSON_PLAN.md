@@ -152,12 +152,24 @@
 
 - Lesson 2: The Actor In You
   - You don't need to be Mel Blanc or Matt Mercer to play many different characters at once! Practice your improv chops and learn how to craft compelling and differentiated NPCs for your party to love... or hate. 
+  - https://www.youtube.com/watch?v=733KGIVJng8
+    - Length: 28:36
+    - "How to do crazy NPC voices in Dungeons & Dragons/Tabletop RPGs!"
+  - https://www.youtube.com/watch?v=MXh7-UFxXc8 ⭐️
+    - Length: 9:22
+  - https://www.youtube.com/watch?v=-UA5eajTRIA
+    - Length: 6:28
+    - Talks more about creating NPCs in general
 - Lesson 3: Lions and Tigers and Owlbears, Oh My!
   - The D&D world is filled with fascinating creatures--they can be your players' enemies, allies, or even pets! Watch this video for some suggestions of creatures to incorporate into your story to scare and delight your players.
 - Lesson 4: Stuff Yourself
   - Whether it's valuables hoarded by an evil red dragon you've just thwarted, a gift awarded by a grateful dryad, or simply the contents of a treasure chest in an abandoned dungeon room, interesting and exciting items are everywhere in the world of D&D... and this video shows how best to include them.
 - Lesson 5: Well, That Was Random.
   - Random encounter tables are a DM's best friend. Learn how to create a list of possible situations and sights that fit your setting that will flavor your party's experience--and keep things always in the hands of fate!
+  - Videos:
+    - https://www.youtube.com/watch?v=rKU2e5Xrx1k ⭐️
+      - Length: 5:37
+      - "Improv and the unexpected"
   
 ---
 
