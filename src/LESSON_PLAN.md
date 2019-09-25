@@ -261,3 +261,11 @@
 
 -  Lesson 4: Expect the Unexpected
    - So, your players were supposed to imprison the escaped orc convict... and they decided to adopt him as a foster son instead. In this video, learn what to do when everything goes exactly NOT as planned.
+   - Videos:
+    - https://www.youtube.com/watch?v=nuTWiKyJ6sI
+      - Length: 28:50
+      - "7 Ways D&D Players Destroy Their DM's Plans"
+      - An example of a case when a DM got derailed
+    - https://www.youtube.com/watch?v=5DqRZSd2LSk ⭐️
+      - Length: 7:29
+      - "Creating Good Plot Hooks - How to Keep Players on Track"
