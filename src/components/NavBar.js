@@ -61,8 +61,8 @@ class NavBar extends React.Component {
           {/* Commented out until implemented */}
           {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
           {/* <li><NavLink to={links.about}>About</NavLink></li> */}
-          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
           <li><NavLink to={links.login}>Login</NavLink></li>
+          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -70,7 +70,6 @@ class NavBar extends React.Component {
             isOpen={menuOpen}
             onStateChange={state => this.handleStateChange(state)}
           >
-            <NavLink onClick={() => this.closeMenu()} to={links.login}>LogIn</NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.home}>
               Home
             </NavLink>
@@ -80,15 +79,16 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.catalog}>
               Catalog
             </NavLink>
-            {/* <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
+            <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
               Lesson
-            </NavLink> */}
-            {/* <NavLink onClick={() => this.closeMenu()} to={links.about}>
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.login}>LogIn</NavLink>
             <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
               Dashboard
-            </NavLink> */}
+            </NavLink>
           </Menu>
         </div>
       </div>

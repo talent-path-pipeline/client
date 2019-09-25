@@ -8,12 +8,10 @@ import {
   PathPage,
   LessonPage,
   CatalogPage,
+  RegistrationPage,
   // SupportPage,
-  // DashboardPage,
+  DashboardPage,
 } from './components';
-// import PropTypes from 'prop-types';
-import { NavBar, HomePage, PathInfo, CatalogPage, SupportPage, DashboardPage, RegistrationPage,LogIn  } from './components';
-// import { LessonInfo } from './components';
 
 import './css/main.scss';
 
@@ -42,8 +40,8 @@ function App() {
         />
         <Route exact path={links.catalog} component={CatalogPage} />
         {/* <Route exact path={links.support} component={SupportPage} /> */}
-        {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
-
+        <Route exact path="/login" component={RegistrationPage} />
+        <Route exact path="/dashboard" component={DashboardPage} />
         <Redirect exact from="/:course" to="/:course/0" />
         <Route
           path="/:course/:order"
@@ -58,9 +56,6 @@ function App() {
             />
           )}
         />
-        <Route exact path="/support" component={SupportPage} />
-        <Route exact path="/dashboard" component={DashboardPage} />
-        <Route exact path="/login" component={RegistrationPage} />
       </Switch>
     </div>
   );

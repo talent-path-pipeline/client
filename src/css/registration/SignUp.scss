@@ -35,6 +35,7 @@
   p {
     padding-top: 10px;
     font-size: 15px;
+    font-family: var(--fontfamily-alt);
   }
   
   textarea:focus,
@@ -44,6 +45,7 @@
   
   h6 {
     color: white;
+    font-family: var(--fontfamily-alt);
     font-weight: 100;
     font-style: oblique;
     padding-bottom: 5px;
@@ -59,9 +61,17 @@
   input:hover {
     border-style: solid red;
   }
+
+  input:placeholder-shown {
+    padding-left: 10px;
+  }
   
   form input.error {
     border-color: red;
+  }
+
+  a {
+    color: orange;
   }
   
   button {

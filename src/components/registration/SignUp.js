@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import '../../css/registration/SignUp.scss';
-import Aux from './UI/Aux';
-import Modal from './UI/Modal';
-import RegistrationComplete from './UI/RegistrationComplete';
-import Loader from './UI/loader';
 
 class SignUp extends Component {
   constructor(props){
@@ -66,11 +62,10 @@ class SignUp extends Component {
       fullName,
     };
     // this.showSpinner();
-    Axios.post('http://localhost:5000/api/user/', data)
+    Axios.post('http://localhost:5001/api/user/', data)
       .then(response => {
         console.log(response);
-        // this.hideSpinner();
-        this.showModal();
+        // Sweet Alert for successful registration
       })
       .catch(error => {
         this.setState({ showRegistrationFailure: true });
@@ -129,12 +124,6 @@ class SignUp extends Component {
     alert(`Signed up with email: ${email} password: ${password}`);
   };
 
-  goHome = () => {
-    // Route to homepage
-    console.log('Redirecting to homepage, for now getting rid of modal');
-    this.setState({ showModal: false });
-  };
-
   canBeSubmitted() {
     const { email, password, confirmPassword,  location, fullName } = this.state;
     const errors = validate(
@@ -167,83 +156,71 @@ class SignUp extends Component {
       return hasError ? shouldShow : false;
     };
 
-    if (this.state.loading) {
-      return <Loader show={this.state.showSpinner} />;
-    }
-    if (this.state.showModal) {
-      return (
-        <Modal show={this.state.showModal} modalClosed={this.closeModal}>
-          <RegistrationComplete goHome={this.goHome} />
-        </Modal>
-      );
-    }
-
     return (
-      <Aux>
-        <div id="signup-container">
-          <h1 id="signup-title">Register</h1>
-          <form id="signup-form">
-            <h3 className="input-labels">Email</h3>
-            <h6>Example: janeDoe@email.com</h6>
-            <input
-              className={shouldMarkError('email') ? 'error' : ''}
-              type="text"
-              value={this.state.email}
-              onChange={this.handleEmailChange}
-              onBlur={this.handleBlur('email')}
-            />
-            <h3 className="input-labels">Password</h3>
-            <h6>Minimum length 8 characters</h6>
-            <input
-              className={shouldMarkError('password') ? 'error' : ''}
-              type="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-              onBlur={this.handleBlur('password')}
-            />
-            <h3 className="input-labels">Confirm Password</h3>
-            <input
-              className={shouldMarkError('confirmedPassword') ? 'error' : ''}
-              type="password"
-              value={this.state.confirmPassword}
-              onChange={this.handleConfirmPassword}
-              onBlur={this.handleBlur('confirmPassword')}
-            />
-            <h3 className="input-labels">Full Name</h3>
-            <input
-              className={shouldMarkError('fullName') ? 'error' : ''}
-              type="text"
-              value={this.state.fullName}
-              onChange={this.handleFullName}
-              onBlur={this.handleBlur('fullName')}
-            />
-            <h3 className="input-labels">Location</h3>
-            <h6>Example: Los Angeles, CA</h6>
-            <input
-              className={shouldMarkError('location') ? 'error' : ''}
-              type="text"
-              value={this.state.location}
-              onChange={this.handleLocation}
-              onBlur={this.handleBlur('location')}
-            />
-            <p>
-              <span role="img">❗️</span> By clicking "Sign Up" you are agreeing
-              to our <a href="www.google.com">terms and agreement</a>
-            </p>
-            <button
-              type="button"
-              onClick={this.createUserHandler}
-              disabled={isDisabled}
-            >
-              Sign Up
-            </button>
-          </form>
-          <WarningBanner
-            warn={this.state.showRegistrationFailure}
-            message="( ! ) An error has occurred while registering you. Please try again at a later time."
+      <div id="signup-container">
+        <h1 id="signup-title">Register</h1>
+        <form id="signup-form">
+          <h3 className="input-labels">Email</h3>
+          <input
+            className={shouldMarkError('email') ? 'error' : ''}
+            type="text"
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+            onBlur={this.handleBlur('email')}
+            placeholder='JaneDoe@email.com'
           />
-        </div>
-      </Aux>
+          <h3 className="input-labels">Password</h3>
+          <input
+            className={shouldMarkError('password') ? 'error' : ''}
+            type="password"
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
+            onBlur={this.handleBlur('password')}
+            placeholder='Minimum length 8 characters'
+          />
+          <h3 className="input-labels">Confirm Password</h3>
+          <input
+            className={shouldMarkError('confirmedPassword') ? 'error' : ''}
+            type="password"
+            value={this.state.confirmPassword}
+            onChange={this.handleConfirmPassword}
+            onBlur={this.handleBlur('confirmPassword')}
+          />
+          <h3 className="input-labels">Full Name</h3>
+          <input
+            className={shouldMarkError('fullName') ? 'error' : ''}
+            type="text"
+            value={this.state.fullName}
+            onChange={this.handleFullName}
+            onBlur={this.handleBlur('fullName')}
+            placeholder='Jane Doe'
+          />
+          <h3 className="input-labels">Location</h3>
+          <input
+            className={shouldMarkError('location') ? 'error' : ''}
+            type="text"
+            value={this.state.location}
+            onChange={this.handleLocation}
+            onBlur={this.handleBlur('location')}
+            placeholder='Example: Neverwinter'
+          />
+          <p>
+              By clicking "Sign Up" you are agreeing
+              to our <a href="www.google.com">Terms and Agreement</a>
+          </p>
+          <button
+            type="button"
+            onClick={this.createUserHandler}
+            disabled={isDisabled}
+          >
+              Sign Up
+          </button>
+        </form>
+        <WarningBanner
+          warn={this.state.showRegistrationFailure}
+          message="( ! ) An error has occurred while registering you. Please try again at a later time."
+        />
+      </div>
     );
   }
 }
