@@ -39,13 +39,13 @@ function App() {
           render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
         />
         <Route exact path={links.catalog} component={CatalogPage} />
-        <Route exact path={links.support} component={SupportPage} /> 
+        <Route exact path={links.support} component={SupportPage} />
         <Route
           exact
           path={links.about}
           render={props => <AboutPage />}
         />
-        <Route exact path={links.dashboard} component={DashboardPage} />
+        {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
         <Redirect exact from="/:course" to="/:course/0" />
         <Route
           path="/:course/:order"
