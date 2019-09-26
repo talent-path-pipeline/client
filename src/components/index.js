@@ -26,6 +26,7 @@ export { default as PathPage } from './pages/PathPage';
 export { default as LessonPage } from './pages/LessonPage';
 export { default as RegistrationPage } from './pages/RegistrationPage';
 export { default as SupportPage } from './pages/SupportPage';
+export { default as AboutPage } from './pages/AboutPage';
 
 // ========================================
 // path
@@ -55,3 +56,4 @@ export { default as RecruiterDashboard } from './users/recruiter/RecruiterDashbo
 // ========================================
 // other
 export { default as NavBar } from './NavBar';
+export { default as ProgressBar } from './ProgressBar';

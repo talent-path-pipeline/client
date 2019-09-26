@@ -1,0 +1,24 @@
+.progress-bar {
+  position: relative;
+  height: 24px;
+  width: 350px;
+  background-color: var(--stone);
+  border-radius: 30px;
+  border: 1px solid var(--medium-grey);
+
+  .progress-fill {
+    background-color: var(--crimson2);
+    height: 99%;
+    border-radius: inherit;
+    transition: width 0.2s ease-in;
+  }
+
+  .progress-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    color: var(--white);
+  }
+}

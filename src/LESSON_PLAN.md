@@ -10,15 +10,38 @@
 
 - Lesson 1: An Example Session
   - There's no better way to understand D&D than to see a session in action! Watch a D&D group in action as a DM leads their party through a basic roleplaying session.
+  - Videos:
+    - https://www.youtube.com/watch?v=jT3FRzEJDp8
+      - Length: 14:32
+    - https://www.youtube.com/watch?v=wHBM9ARGdD8  
+      - Length: 6:45
+      - This guy has a funny, inviting intro!
+      - 🚫No example of people playing
+    - https://www.youtube.com/watch?v=2PEt5RdNHNw ⭐️
+      - Length: 10:12
+      - Fun, modern, AND has examples of people playing together
 - Lesson 2: Sourcing Your Books
   - Wizards of the Coast, the publishers of D&D, have a number of resources--some free online, others available for purchase as print boosk--that you can use to help craft a campaign. Learn here a brief summary of each one so you can decide which you need for your game.
+  - Videos:
+    - https://www.youtube.com/watch?v=wizuCHNGvwc ⭐️
+      - Length: 18:08 (From Beginning to 14:38)
+      - Talks about Wizards of the Coast (Free resources), Starter Sets, etc...
+      - Written Buyers Guide
+        - http://www.wasd20.net/dd-buyers-guide/
 - Lesson 3: Sourcing Your Equipment
   - So you have your books, but what else do you need? There are DM screens, dice, play mats, dice towers, dice trays, miniatures, map tiles, spell cards, and more, but what are all of these things and which do you actually need?
+  - Videos:
+    - https://www.youtube.com/watch?v=wizuCHNGvwc ⭐️
+      - Length: 18:08 (Section from 14:38 - 16:55)
+      - Talks about DM Screen, Dice, Spellbook Cards, Batlle Mats, Miniatures
+      - Written Buyers Guide
+        - http://www.wasd20.net/dd-buyers-guide/
 - Lesson 4: Choices, Choices...
   - If you've decided that DMing is for you, you'll have to decide what kind of campaign to run before you get started. Homebrew or storebought? Battle grid or Theater of the Mind? Character-focused or combat-heavy? There's more than one way to roll the dice, and this video will walk you through the different options so you know what's best for you.
 - Lesson 5: Finding Your Party
   - So you know what story you'd like to tell... now it's time to find the characters! This lesson walks through different places you can find potential players, and how to choose who will join your table.
   
+
 ---
 
 ### Course 2: Countdown to Session 0
@@ -33,6 +56,12 @@
   - D&D is all about having fun, and the best way to make sure that happens is to treat everyone around the table with respect. In this lesson, learn best practices to maintain harmony with your party members--both in and outside the game!
 - Lesson 4: Character Creation
   - At this point, your players should be building their characters--and you should be helping! All the data on those character sheets can be daunting, but with this video, you can get comfortable with what it all means.
+  - Videos
+    - https://www.youtube.com/watch?v=-oIIZJeVGpc
+      - Length: 44:56
+      - Good example of the whole process
+      - A group of people coming in to play DnD
+      - Dungeon Master goes through building characters together
 
 ---
 
