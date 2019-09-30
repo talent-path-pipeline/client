@@ -1,31 +1,5 @@
 import React from 'react';
 
-class Collapsible extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-    };
-    this.togglePanel = this.togglePanel.bind(this);
-  }
-
-  togglePanel(e) {
-    this.setState({ open: !this.state.open });
-  }
-
-  render() {
-    return (
-      <div className="outerBox">
-        <div className="QABox" onClick={e => this.togglePanel(e)}>
-          <div className="question">{this.props.title}</div>
-          {this.state.open ? <div className="answer">{this.props.children}</div> : null}
-        </div>
-        <br />
-      </div>
-    );
-  }
-}
-
 class QandA extends React.Component {
   state = {
     QuestionsAnswers: [
