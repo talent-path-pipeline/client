@@ -13,10 +13,14 @@ class RegistrationPage extends Component {
     }
   }
 
-  changeLogin = event => {
+  changeToSignup = event => {
     event.preventDefault();
-    console.log('changing modal');
     this.setState({ hideSignUp: false });
+  }
+
+  backToLogin = event => {
+    event.preventDefault();
+    this.setState({ hideSignUp: true });
   }
 
   render() {
@@ -24,8 +28,8 @@ class RegistrationPage extends Component {
     return (
       <div className="registration-container">
         {hideSignUp
-          ? <LogIn changeLogin={() => this.changeLogin} />
-          : <SignUp /> }
+          ? <LogIn changeToSignup={() => this.changeToSignup} />
+          : <SignUp backToLogin={() => this.backToLogin} /> }
       </div>
     )
   }

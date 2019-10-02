@@ -61,7 +61,7 @@ class SignUp extends Component {
       location,
       fullName,
     };
-    Axios.post('http://localhost:5000/api/user/', data)
+    Axios.post('http://localhost:5001/api/user/', data)
       .then(response => {
         console.log(response);
         // Stores token in local storeage for the time being
@@ -141,6 +141,7 @@ class SignUp extends Component {
 
   render() {
     const { email, password, confirmPassword,  location, fullName } = this.state;
+    const { backToLogin } = this.props;
     const errors = validate(
       email,
       password,
@@ -210,12 +211,14 @@ class SignUp extends Component {
               to our <a href="www.google.com">Terms and Agreement</a>
           </p>
           <button
+            id="register-button"
             type="button"
             onClick={this.createUserHandler}
             disabled={isDisabled}
           >
               Sign Up
           </button>
+          <p>Go back to <button id='login-button' type="button" onClick={backToLogin()}>Log in!</button></p>
         </form>
         <WarningBanner
           warn={this.state.showRegistrationFailure}
