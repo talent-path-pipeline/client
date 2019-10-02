@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import  AboutInfo from '../about/AboutInfo';
+// import PropTypes from 'prop-types';
+import AboutInfo from '../about/AboutInfo';
 import '../../css/pages/AboutPage.scss';
 
 export default class AboutPage extends Component {
@@ -20,15 +20,14 @@ export default class AboutPage extends Component {
   // ===============================================================
   // Render
 
+  // TODO: this entire componenet is redundant and unnecessary and has no reason to have a state
+
   render() {
+    const { title, subtitle, image_link } = this.state;
     return (
       <div className="about-page">
-      <AboutInfo
-        title={this.state.title}
-        subtitle={this.state.subtitle}
-        image_link={this.state.image_link}
-      />
-    </div>
+        <AboutInfo title={title} subtitle={subtitle} image_link={image_link} />
+      </div>
     );
   }
 }

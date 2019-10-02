@@ -8,8 +8,8 @@ const example_session = {
 
 const sourcing_books = {
   order: 1,
-  src: 'https://www.youtube.com/embed/wizuCHNGvwc',
-  length: 1088,
+  src: 'https://www.youtube.com/embed/wizuCHNGvwc?start=0&end=878;',
+  length: 878,
   title: 'Sourcing Your Books',
   description:
     'Wizards of the Coast, the publishers of D&D, have a number of resources--some free online, others available for purchase as print boosk--that you can use to help craft a campaign. Learn here a brief summary of each one so you can decide which you need for your game.',
@@ -17,8 +17,8 @@ const sourcing_books = {
 
 const sourcing_equipment = {
   order: 2,
-  src: 'https://www.youtube.com/embed/wizuCHNGvwc',
-  length: 1088,
+  src: 'https://www.youtube.com/embed/wizuCHNGvwc?start=878&end=1055;',
+  length: 177,
   title: 'Sourcing Your Equipment',
   description:
     'So you have your books, but what else do you need? There are DM screens, dice, play mats, dice towers, dice trays, miniatures, map tiles, spell cards, and more, but what are all of these things and which do you actually need?',
