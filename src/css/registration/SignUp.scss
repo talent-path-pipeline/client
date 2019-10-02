@@ -73,8 +73,14 @@
   a {
     color: orange;
   }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-family: var(--fontfamily-alt);
+  }
   
-  button {
+  #register-button {
     height: 50px;
     width: 150px;
     border-radius: 5px;
@@ -99,7 +105,15 @@
   #failedToRegister {
     color: red;
   }
-  
+
+  #login-button {
+    border: none;
+    background: none;
+    color: orange;
+    font-size: 15px;
+    font-family: var(--fontfamily-alt);
+    cursor: pointer;
+  }
   
   .warning {
     padding-top: 15px;

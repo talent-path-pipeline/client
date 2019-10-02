@@ -20,7 +20,7 @@ class LogIn extends Component{
       password,
     }
     
-      Axios.post('http://localhost:5000/api/user/login',data)
+    Axios.post('http://localhost:5001/api/user/login',data)
       .then(response=>{
         localStorage.setItem('app-token', response.data.token);
       })
@@ -44,7 +44,7 @@ class LogIn extends Component{
 
   render(){
     const { email, password } = this.state;
-    const { changeLogin } = this.props;
+    const { changeToSignup } = this.props;
     return (
       <div id="login-container">
         <h1 id="title" >Login</h1>
@@ -55,7 +55,7 @@ class LogIn extends Component{
           <input type="password" value={password} onChange={event => this.setState({password:event.target.value})}/>
           <button id="submit-button" type="button" onClick={this.LogInHandler}>Submit</button>
         </form>
-        <p>Don't have an account, <button id='signup-button' type="button" onClick={changeLogin()}>Sign up!</button></p>
+        <p>Don't have an account, <button id='signup-button' type="button" onClick={changeToSignup()}>Sign up!</button></p>
       </div>
     );
   }
