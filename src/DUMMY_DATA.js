@@ -43,7 +43,7 @@ const finding_a_party = {
 // =============================================================
 
 const adventure_begins = {
-  slug: '1',
+  slug: 'beginnings',
   title: 'The Adventure Begins! Getting Started with D&D',
   description:
     'So... what is Dungeons & Dragons, anyway? What do all these acronyms mean? Why do I have all these dice?! Learn the answers to the most basic questions here in this course.',
@@ -97,7 +97,7 @@ const char_creation = {
 // =============================================================
 
 const countdown_session0 = {
-  slug: '2',
+  slug: 'session0',
   title: 'Countdown to Session 0',
   description: `Session 0 is the most important session a D&D group will ever have--it's a gathering before gameplay starts, where everyone gets aligned on their characters, their expectations, and their house rules. Prep for it with these lessons!`,
   image_link: './images/splash-2.jpg',
@@ -152,7 +152,7 @@ const random_tables = {
 // =============================================================
 
 const worldbuilding = {
-  slug: '3',
+  slug: 'worldbuilding',
   title: 'Worldbuilding',
   description:
     'What world does your story live in? These next lessons cover the basics to crafting all of the essential D&D setpieces that will make your adventure special, from compelling characters to lofty locations.',
@@ -200,7 +200,7 @@ const unexpected = {
 // =============================================================
 
 const lets_play = {
-  slug: '4',
+  slug: 'letsplay',
   title: `Let's Play!`,
   description: `Your party is formed, your world is built... now there's nothing left to do but play! Learn the nitty-gritty of the D&D 5e mechanics in the following lessons.`,
   image_link: './images/splash-5.jpg',
