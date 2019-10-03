@@ -43,9 +43,14 @@ class NavBar extends React.Component {
         <NavLink className="nav-home" to={links.home}>
           {/* TODO: change logo to remove letters when words are there */}
           <img
+            className="desktop-logo"
             src="./images/SANavbarLogo.png"
             alt="Stonehaven Academy Logo"
-            className="logo"
+          />
+          <img
+            className="mobile-logo"
+            src="./images/logo-red-black.png"
+            alt="Stonehaven Academy Logo"
           />
         </NavLink>
         {/* <NavLink to={links.home}><h1 id="nav-title">Stonehaven Academy</h1></NavLink> */}
