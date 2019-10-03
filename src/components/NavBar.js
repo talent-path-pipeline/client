@@ -40,11 +40,17 @@ class NavBar extends React.Component {
 
     return (
       <div id="nav-main">
-        <NavLink to={links.home}>
+        <NavLink className="nav-home" to={links.home}>
+          {/* TODO: change logo to remove letters when words are there */}
           <img
+            className="desktop-logo"
+            src="./images/SANavbarLogo.png"
+            alt="Stonehaven Academy Logo"
+          />
+          <img
+            className="mobile-logo"
             src="./images/logo-red-stone.png"
             alt="Stonehaven Academy Logo"
-            className="logo"
           />
         </NavLink>
         {/* <NavLink to={links.home}><h1 id="nav-title">Stonehaven Academy</h1></NavLink> */}
@@ -55,14 +61,13 @@ class NavBar extends React.Component {
           <li>
             <NavLink to={links.catalog}>Catalog</NavLink>
           </li>
-          {/* <li>
-            <NavLink to={links.lesson}>Lessons</NavLink>
-          </li> */}
           {/* Commented out until implemented */}
-          <li><NavLink to={links.login}>Login</NavLink></li>
-          <li><NavLink to={links.support}>Support</NavLink></li>
-          <li><NavLink to={links.about}>About</NavLink></li>
+          <li>
+            <NavLink to={links.about}>About</NavLink>
+          </li>
+          {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
+          {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -82,8 +87,10 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.login}>LogIn</NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}></NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.login}>
+              LogIn
+            </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.dashboard} />
             <NavLink onClick={() => this.closeMenu()} to={links.support}>
               Support
             </NavLink>

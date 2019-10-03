@@ -1,4 +1,8 @@
 // ========================================
+// about
+// TODO: add all About components (ideally after consolidation/refactor)
+
+// ========================================
 // course
 export { default as CourseCard } from './course/CourseCard';
 export { default as CourseInfo } from './course/CourseInfo';
