@@ -41,14 +41,12 @@ class NavBar extends React.Component {
     return (
       <div id="nav-main">
         <NavLink className="nav-home" to={links.home}>
-          <span className="nav-title">Stonehaven</span>
           {/* TODO: change logo to remove letters when words are there */}
           <img
-            src="./images/logo-red-stone.png"
+            src="./images/SANavbarLogo.png"
             alt="Stonehaven Academy Logo"
             className="logo"
           />
-          <span className="nav-title">Academy</span>
         </NavLink>
         {/* <NavLink to={links.home}><h1 id="nav-title">Stonehaven Academy</h1></NavLink> */}
         <ul className="desktop-nav">
@@ -87,7 +85,7 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.login}>
               LogIn
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}></NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.dashboard} />
             <NavLink onClick={() => this.closeMenu()} to={links.support}>
               Support
             </NavLink>
