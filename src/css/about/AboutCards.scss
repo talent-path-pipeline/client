@@ -1,0 +1,134 @@
+.cardWrapper {
+  display: flex;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.icons {
+  display: flex;
+}
+
+.icon {
+  border-radius: 10rem;
+  width: 5rem;
+  height: 5rem;
+  background: var(--red);
+  position: relative;
+  top: -6rem;
+  margin-bottom: 11px;
+  padding: 5px;
+  border-style: solid;
+  border-color: #fff;
+}
+
+.cardDescription {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px;
+  position: relative;
+  top: -5rem;
+}
+
+.card {
+  text-align: center;
+  color: #fff;
+  background-color: var(--red);
+  border-radius: 1.5rem;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.12);
+  width: 28%;
+  height: 14.5rem;
+  font-size: 2rem;
+  margin: auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.card p {
+  font-size: 21px;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+.card h2 {
+  display: block;
+  margin-top: -2rem;
+}
+
+.card h3 {
+  text-align: center;
+}
+
+@media all and (max-width: 1340px) {
+  .card p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 990px) {
+  .card p {
+      font-size: 15px;
+  }
+}
+
+@media all and (max-width: 493px) {
+  .card p {
+    font-size: 0.5em;
+  }
+}
+
+@media all and (max-width: 1044px) {
+  .card {
+    height: 16rem;
+  }
+}
+
+@media all and (max-width: 990px) {
+  .card {
+    height: 14rem;
+  }
+}
+
+@media all and (max-width: 860px) {
+  .card p {
+    font-size: 16px;
+  }
+  .cardWrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    width: 19rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .card {
+    width: 21rem;
+  }
+  .card p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px){
+  .cardWrapper {
+    margin-top: 0rem;
+  }
+  .card {
+      width: 80%;
+      margin-top: 4rem;
+  }
+}
+
+@media all and (max-width: 493px) {
+  .card p {
+    font-size: 0.5em;
+  }
+}
+
+.card.last {
+  margin-bottom: -4rem;
+}

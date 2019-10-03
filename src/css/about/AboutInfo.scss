@@ -1,0 +1,116 @@
+.about-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .image-container {
+    position: relative;
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .about-splash {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+  .about-logo {
+    height: 250px;
+  }
+
+  .subtitle {
+    font-size: 50px;
+    margin-top: 40px;
+  }
+
+  .subtitle2 {
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .line {
+    // width: 100vw;
+    width: 95%;
+    max-width: 1110px;
+    margin: 2em auto;
+    border: 4px solid var(--medium-grey);
+  }
+}
+
+.about-info .title {
+  position: absolute;
+  top: 200px;
+  font-size: 50px;
+  max-width: 800px;
+  text-align: center;
+}
+
+@media all and (max-width: 1390px) {
+  .about-info .title {
+    top: 165px;
+  }
+}
+
+@media all and (max-width: 1170px) {
+  .about-info .title {
+    font-size: 37px;
+  }
+  .about-info .subtitle {
+    font-size: 40px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .about-info .title {
+    top: 135px;
+  }
+  .about-info .subtitle {
+    font-size: 37px;
+  }
+}
+
+@media all and (max-width: 880px) {
+  .about-info .title {
+    max-width: 40rem;
+    top: 130px;
+    font-size: 30px;
+  }
+  .about-info .subtitle {
+    font-size: 32px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .about-info .title {
+    max-width: 35rem;
+    top: 118px;
+    font-size: 27px;
+  }
+  .about-info .subtitle {
+    font-size: 28px;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .about-info .image-container .image-overlay, .about-info .image-container .about-splash{
+    height: 9rem;
+  }
+  .about-info .title {
+    max-width: 85%;
+    top: 112px;
+    font-size: 19px;
+  }
+  .about-info .subtitle {
+    max-width: 85%;
+    text-align: center;
+    font-size: 22px;
+  }
+}

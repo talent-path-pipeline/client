@@ -1,36 +1,28 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-// import dataIsotope from 'isotope-layout';
-// Components
-import CatalogCard from './CatalogCard';
+import { CatalogCard } from '..';
 import '../../css/catalog/CatalogList.scss';
 
-export default class CatalogList extends Component {
-  static propTypes = {
-    courses: PropTypes.arrayOf(PropTypes.object).isRequired,
-    clickCourse: PropTypes.func.isRequired,
-  };
+const CatalogList = ({ courses }) => (
+  <div className="list-all-courses">
+    {courses.map(course => (
+      <CatalogCard course={course} key={course.slug} />
+    ))}
+  </div>
+);
 
-  // ===============================================================
-  // Render
+CatalogList.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      image_link: PropTypes.string,
+      order: PropTypes.number,
+      lessons: PropTypes.arrayOf(PropTypes.object),
+    }),
+  ).isRequired,
+};
 
-  render() {
-    const { courses, clickCourse } = this.props;
-    // TODO: Add picture title progress
-
-    return (
-      <div
-        id="list-all-courses"
-        data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'
-      >
-        {courses.map(course => {
-          const cardClass = `course-item ${course.categories}`;
-          return (
-            <CatalogCard class={cardClass} course={course} clickCourse={clickCourse} slug={`${course.slug || 'rules'}`} key={course.title} />
-          );
-        })}
-      </div>
-    );
-  }
-}
+export default CatalogList;
