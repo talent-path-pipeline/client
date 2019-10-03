@@ -93,16 +93,4 @@ class SupportPage extends React.Component{
   }
 }
 
-/*
-const SupportPage = () => {
-  return (
-    <div>
-      <h1 className="supportTitle">Support Page</h1>
-      <QandA/>
-    </div>
-  )
-}
-*/
-
-
 export default SupportPage;
