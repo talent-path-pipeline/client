@@ -12,6 +12,7 @@ import {
   // DashboardPage,
   // SupportPage,
   AboutPage,
+  ErrorPage,
 } from './components';
 
 import './css/main.scss';
@@ -58,6 +59,7 @@ function App() {
             />
           )}
         />
+        <Route component={ErrorPage} />
       </Switch>
     </div>
   );
