@@ -45,9 +45,10 @@ function App() {
         {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
         {/* <Route exact path={links.support} component={SupportPage} /> */}
         <Route exact path={links.about} component={AboutPage} />
-        <Redirect exact from="/:course" to="/:course/0" />
+
+        <Redirect exact from="/courses/:course" to="/courses/:course/0" />
         <Route
-          path="/:course/:order"
+          path="/courses/:course/:order"
           render={props => (
             <LessonPage
               {...props}
@@ -59,6 +60,7 @@ function App() {
             />
           )}
         />
+
         <Route component={ErrorPage} />
       </Switch>
     </div>
