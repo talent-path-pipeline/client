@@ -9,8 +9,13 @@ const ErrorPage = ({title, desc}) => (
 )
 
 ErrorPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  desc: PropTypes.string,
 };
+
+ErrorPage.defaultProps = {
+  title: '404 Error',
+  desc: 'Page not found',
+}
 
 export default ErrorPage;
