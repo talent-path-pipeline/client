@@ -4,9 +4,16 @@ import '../../css/pages/ErrorPage.scss';
 
 const ErrorPage = ({img, title, desc}) => (
   <div className="error">
-    <img className="image" src={img} alt={title} />
-    <h1>{title}</h1>
-    <h3>{desc}</h3>
+    <div className="error-container">
+      {/* <img className="image" src={img} alt={title} /> */}
+      <img src="/images/critical-failure.jpg" alt={title}/>
+      <div className="error-text">
+        <h1>{title}</h1>
+        <h3>{desc}</h3>
+        <h4>"While trying to disarm the trapped door you snip the wrong wire and are engulfed in a blast of the fire as the trap is triggered.
+           You take 3d6 damage and your eyebrows have been singed off."</h4>
+      </div>
+    </div>
   </div>
 )
 
@@ -19,7 +26,7 @@ ErrorPage.propTypes = {
 ErrorPage.defaultProps = {
   img: 'https://rpgrunkleplaysgames.files.wordpress.com/2017/04/art-mco-critical-failure.jpg',
   title: '404 Error',
-  desc: 'Page not found',
+  desc: 'You rolled a critical failure!',
 }
 
 export default ErrorPage;
