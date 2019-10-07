@@ -67,7 +67,7 @@ class NavBar extends React.Component {
           </li>
           {/* <li><NavLink to={links.support}>Support</NavLink></li> */}
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
-          {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
+          <li><NavLink to={links.login}>Login</NavLink></li>
         </ul>
         <div className="mobile-nav">
           <Menu

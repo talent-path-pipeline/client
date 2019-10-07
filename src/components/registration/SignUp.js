@@ -61,7 +61,7 @@ class SignUp extends Component {
       location,
       fullName,
     };
-    Axios.post('http://localhost:5001/api/user/', data)
+    Axios.post('http://localhost:5000/api/user/', data)
       .then(response => {
         console.log(response);
         // Stores token in local storeage for the time being

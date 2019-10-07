@@ -20,7 +20,7 @@ class LogIn extends Component{
       password,
     }
     
-    Axios.post('http://localhost:5001/api/user/login',data)
+    Axios.post('http://localhost:5000/api/user/login',data)
       .then(response=>{
         localStorage.setItem('app-token', response.data.token);
       })
