@@ -17,7 +17,7 @@ ErrorPage.propTypes = {
 };
 
 ErrorPage.defaultProps = {
-  img: 'https://i.pinimg.com/474x/b2/a0/e3/b2a0e338f85f31a4a068276e662d8ff8.jpg',
+  img: 'https://rpgrunkleplaysgames.files.wordpress.com/2017/04/art-mco-critical-failure.jpg',
   title: '404 Error',
   desc: 'Page not found',
 }

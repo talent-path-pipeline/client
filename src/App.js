@@ -60,7 +60,6 @@ function App() {
             />
           )}
         />
-
         <Route component={ErrorPage} />
       </Switch>
     </div>
