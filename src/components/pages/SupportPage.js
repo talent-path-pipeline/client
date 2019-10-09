@@ -9,31 +9,31 @@ class SupportPage extends React.Component{
         key: 1,
         question: 'What is Stonehaven Academy?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'Stonehaven Academy is a web application dedicated towards educating and promoting Dungeons and Dragons to the public. We provide courses to better prepare new players or as a refresher for veterans.',
       },
       {
         key: 2,
         question: 'Do I need to have experience in DnD?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'Nope. Dnd requires no previous experience for playing. All that requires is a group of friends to play with.',
       },
       {
         key: 3,
         question: 'Do we collect anything from you?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'We do not collect anything from you. Our app is designed to provide you the resouces to get started playing. Some of our resources do use third party services such as Youtube.',
       },
       {
         key: 4,
         question: 'Do I need to buy anything to get started?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'All you need is the 5th edition Player\'s handbook, one set of dice (D4,D6,D10,D20), printed character sheets, pencils, a whiteboard (for maps), dry erase markers and an adventure (a premade book that contains a story, NPCs and monsters).',
       },
       {
         key: 5,
         question: 'Who do I notify if I see an problem on the site?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'Currently we do not have any other methods of communication with our team outside of email.',
       },
       {
         key: 6,
@@ -45,39 +45,27 @@ class SupportPage extends React.Component{
     QuestionsAnswersForDnD: [
       {
         key: 7,
-        question: 'Who can be a Dungeon Master?',
+        question: 'How long can a session last?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'Depending on the game you are playing. Most sessions last from several hours to years.',
       },
       {
         key: 8,
-        question: 'How long can a session last?',
+        question: 'What types of dice are needed for a session?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'The following are recommended to start off: D4, D6, D10, and a D20',
       },
       {
         key: 9,
-        question: 'What types of dice are needed for a session?',
+        question: 'Can I reuse old character sheets?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'Really up to you and your group if they want to relive past adventures.',
       },
       {
         key: 10,
-        question: 'Can I reuse old character sheets?',
-        answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
-      },
-      {
-        key: 11,
-        question: 'What happends to my character once they die?',
-        answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
-      },
-      {
-        key: 12,
         question: 'What are some good beginner campaigns?',
         answer:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
+          'There are a huge amount of campaigns available for people who are starting out.',
       },
     ],
   };
@@ -92,17 +80,5 @@ class SupportPage extends React.Component{
     )
   }
 }
-
-/*
-const SupportPage = () => {
-  return (
-    <div>
-      <h1 className="supportTitle">Support Page</h1>
-      <QandA/>
-    </div>
-  )
-}
-*/
-
 
 export default SupportPage;
