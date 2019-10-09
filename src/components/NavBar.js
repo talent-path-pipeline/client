@@ -44,7 +44,7 @@ class NavBar extends React.Component {
           {/* TODO: change logo to remove letters when words are there */}
           <img
             className="desktop-logo"
-            src="./images/SANavbarLogo.png"
+            src="/images/SANavbarLogo.png"
             alt="Stonehaven Academy Logo"
           />
           <img
