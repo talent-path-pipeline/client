@@ -49,16 +49,20 @@ function App() {
         <Redirect exact from="/courses/:course" to="/courses/:course/0" />
         <Route
           path="/courses/:course/:order"
-          render={props => (
-            <LessonPage
-              {...props}
-              lessons={
-                courses.find(course => course.slug === props.match.params.course).lessons
-              }
-              curr_lesson_num={parseInt(props.match.params.order, 10)}
-              base_path={props.match.params.course}
-            />
-          )}
+          render={props => {
+            const courseObj = courses.find(
+              course => course.slug === props.match.params.course,
+            );
+            if (!courseObj) return <ErrorPage />;
+            return (
+              <LessonPage
+                {...props}
+                lessons={courseObj.lessons}
+                curr_lesson_num={parseInt(props.match.params.order, 10)}
+                base_path={props.match.params.course}
+              />
+            );
+          }}
         />
         <Route component={ErrorPage} />
       </Switch>
