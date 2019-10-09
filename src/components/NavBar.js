@@ -49,7 +49,7 @@ class NavBar extends React.Component {
           />
           <img
             className="mobile-logo"
-            src="./images/logo-red-stone.png"
+            src="/images/logo-red-stone.png"
             alt="Stonehaven Academy Logo"
           />
         </NavLink>
