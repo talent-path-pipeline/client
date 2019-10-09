@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/pages/HomePage.scss';
-import Glide from '@glidejs/glide/';
+// import Glide from '@glidejs/glide/';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -9,9 +9,9 @@ class HomePage extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-    new Glide('.glide').mount();
-  };
+  // componentDidMount = () => {
+  //   new Glide('.glide').mount();
+  // };
 
   render() {
     return (
@@ -75,7 +75,7 @@ class HomePage extends React.Component {
             </section>
           </div>
         </div>
-        <div id="testimonials">
+        {/* <div id="testimonials">
           <div className="glide">
             <div className="glide__track" data-glide-el="track">
               <ul className="glide__slides">
@@ -98,7 +98,7 @@ class HomePage extends React.Component {
               <button type="button" className="glide__bullet" data-glide-dir="=1" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

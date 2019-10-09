@@ -6,10 +6,10 @@ const QandA = (props) =>{
     <h2 className="FAQTitle">{props.title}</h2>
       <div className="tabs">
         {props.QuestionsAnswers.map(QA => (
-          <div class="tab">
+          <div className="tab">
             <input type="checkbox" id={QA.key}></input>
-            <label class="tab-label" for={QA.key}>{QA.question}</label>
-            <div class="tab-content">
+            <label className="tab-label" htmlFor={QA.key}>{QA.question}</label>
+            <div className="tab-content">
               {QA.answer}
             </div>
           </div>
