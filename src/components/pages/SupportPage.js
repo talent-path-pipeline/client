@@ -44,37 +44,37 @@ class SupportPage extends React.Component{
     ],
     QuestionsAnswersForDnD: [
       {
-        key: 1,
+        key: 7,
         question: 'Who can be a Dungeon Master?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
       },
       {
-        key: 2,
+        key: 8,
         question: 'How long can a session last?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
       },
       {
-        key: 3,
+        key: 9,
         question: 'What types of dice are needed for a session?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
       },
       {
-        key: 4,
+        key: 10,
         question: 'Can I reuse old character sheets?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
       },
       {
-        key: 5,
+        key: 11,
         question: 'What happends to my character once they die?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
       },
       {
-        key: 6,
+        key: 12,
         question: 'What are some good beginner campaigns?',
         answer:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus soluta optio repellendus laudantium ad eaque similique. Dignissimos commodi eos expedita, ipsum est cupiditate corporis quibusdam quasi ipsa odio at doloremque?',
