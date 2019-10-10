@@ -1,6 +1,6 @@
 import React from 'react';
-import QandA from '../support/QandA'
-import '../../css/support/support.scss';
+import QandA from '../support/QandA';
+import '../../css/pages/SupportPage.scss';
 
 class SupportPage extends React.Component{
   state = {
@@ -69,15 +69,17 @@ class SupportPage extends React.Component{
       },
     ],
   };
+
   render(){
     return (
       <div>
         <h1 className="supportTitle">Support Page</h1>
-        <QandA QuestionsAnswers={this.state.QuestionsAnswersForSite} title={'Frequently Ask Questions on using this site'}/>
+        <hr className="line" />
+        <QandA QuestionsAnswers={this.state.QuestionsAnswersForSite} title="Frequently Ask Questions on using this site"/>
         <br/>
-        <QandA QuestionsAnswers={this.state.QuestionsAnswersForDnD} title={'Common Questions on Playing DnD'}/>
-    </div>
-    )
+        <QandA QuestionsAnswers={this.state.QuestionsAnswersForDnD} title="Common Questions on Playing DnD"/>
+      </div>
+    );
   }
 }
 
