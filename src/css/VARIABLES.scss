@@ -2,17 +2,25 @@
 :root {
   --black: #0a090c;
   --grey: #222;
-  --medium-grey: #3e3e3e;
+  --medium-grey: hsl(0, 0%, 24%);
   --red: #990000;
+  --darkred: #140808;
   --brown: #63372c;
   --blue: #2e294e;
-  // --white: #eeeeee;
-  --white: #c1c6c9;
+  --white: #eeeeee;
+  // --white: #c1c6c9;
   --stone: #9f9484;
-  --orange: #d68742;
+  // --orange: #d68742;
   --light-blue: #42727c;
   --crimson1: #dd3442;
   --crimson2: #dc143c;
+
+  //Complement of Stone
+  --brown: #52493c;
+  --cream: #ebe4da;
+  --navy: #334552;
+  --greyblue: #83939e;
+  --orange: #E2B546;
   // We gotta figure out our colors for real
 
   --fontfamily: 'Cinzel Decorative', cursive;

@@ -35,7 +35,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px var(--medium-grey), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 5px var(--brown), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .vertical-timeline-element-icon svg {
   display: block;
@@ -133,10 +133,10 @@
 .vertical-timeline-element-content {
   position: relative;
   margin-left: 60px;
-  background: var(--black);
+  background: var(--navy);
   border-radius: 0.25em;
   padding: 1em;
-  box-shadow: 0 3px 0 var(--orange);
+  box-shadow: 0 3px 0 var(--greyblue);
 }
 .vertical-timeline-element--no-children .vertical-timeline-element-content {
   background: transparent;
@@ -185,7 +185,7 @@
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid var(--black);
+  border-right: 7px solid var(--navy);
 }
 .vertical-timeline-element--no-children .vertical-timeline-element-content::before {
   display: none;

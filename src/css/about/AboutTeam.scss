@@ -79,7 +79,8 @@
     padding: 0;
     margin: 0;
     border-radius: 15px;
-    background-color: var(--orange);
+    background-color: var(--brown);
+    color: var(--white);
 
     h2{
       font-size: 24px;
@@ -94,7 +95,7 @@
       font-size: 15px;
       bottom: 5%;
       right: 5%;
-      color: var(--off-white);
+      color: var(--white);
     }
   }
 }

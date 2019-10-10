@@ -72,7 +72,7 @@ class SupportPage extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="support-container">
         <h1 className="supportTitle">Support Page</h1>
         <hr className="line" />
         <QandA QuestionsAnswers={this.state.QuestionsAnswersForSite} title="Frequently Ask Questions on using this site"/>

@@ -29,11 +29,13 @@
   .subtitle {
     font-size: 50px;
     margin-top: 40px;
+    color: var(--black);
   }
 
   .subtitle2 {
     margin-bottom: 40px;
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
   }
 
   .line {
@@ -41,7 +43,7 @@
     width: 95%;
     max-width: 1110px;
     margin: 2em auto;
-    border: 4px solid var(--medium-grey);
+    border: 4px solid var(--brown);
   }
 }
 
@@ -51,6 +53,8 @@
   font-size: 50px;
   max-width: 800px;
   text-align: center;
+  color: var(--cream);
+  // font-family: var(--fontfamily-alt);
 }
 
 

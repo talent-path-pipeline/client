@@ -11,6 +11,11 @@
     justify-content: space-between;
     width: 100%;
 
+    .page-title {
+      color: var(--black);
+      padding-top: 20px;
+    }
+
     input {
       border-radius: 5px;
       border: none;
@@ -21,11 +26,13 @@
     }
   }
 
+  
+
   .catalog-line {
     // width: 100vw;
     width: 99.5%;
     max-width: auto;
     margin: 2em auto;
-    border: 4px solid var(--medium-grey);
+    border: 4px solid var(--brown);
   }
 }

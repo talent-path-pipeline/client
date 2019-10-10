@@ -1,11 +1,11 @@
 .catalog-card {
   --img-split: 36%;
 
-  box-shadow: 2px 3px 0px 1px var(--orange);
+  box-shadow: 2px 3px 0px 1px var(--stone);
   border-radius: 5px;
   margin: 10px;
   padding: 14px;
-  background-color: var(--black);
+  background-color: var(--navy);
   color: var(--white);
   height: 425px;
   width: 300px;
@@ -45,6 +45,7 @@
 
     .course-description {
       font-family: var(--fontfamily-roboto);
+      font-weight: 300;
       font-size: 15px;
       height: 65%;
       overflow: auto;
@@ -53,5 +54,5 @@
 }
 
 .catalog-card:hover {
-  background-color: var(--orange);
+  background-color: var(--greyblue);
 }
