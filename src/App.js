@@ -10,8 +10,9 @@ import {
   CatalogPage,
   // RegistrationPage,
   // DashboardPage,
-  // SupportPage,
+  SupportPage,
   AboutPage,
+  ErrorPage,
 } from './components';
 
 import './css/main.scss';
@@ -42,22 +43,28 @@ function App() {
         <Route exact path={links.catalog} component={CatalogPage} />
         {/* <Route exact path={links.login} component={RegistrationPage} /> */}
         {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
-        {/* <Route exact path={links.support} component={SupportPage} /> */}
+        <Route exact path={links.support} component={SupportPage} />
         <Route exact path={links.about} component={AboutPage} />
-        <Redirect exact from="/:course" to="/:course/0" />
+
+        <Redirect exact from="/courses/:course" to="/courses/:course/0" />
         <Route
-          path="/:course/:order"
-          render={props => (
-            <LessonPage
-              {...props}
-              lessons={
-                courses.find(course => course.slug === props.match.params.course).lessons
-              }
-              curr_lesson_num={parseInt(props.match.params.order, 10)}
-              base_path={props.match.params.course}
-            />
-          )}
+          path="/courses/:course/:order"
+          render={props => {
+            const courseObj = courses.find(
+              course => course.slug === props.match.params.course,
+            );
+            if (!courseObj) return <ErrorPage />;
+            return (
+              <LessonPage
+                {...props}
+                lessons={courseObj.lessons}
+                curr_lesson_num={parseInt(props.match.params.order, 10)}
+                base_path={props.match.params.course}
+              />
+            );
+          }}
         />
+        <Route component={ErrorPage} />
       </Switch>
     </div>
   );
