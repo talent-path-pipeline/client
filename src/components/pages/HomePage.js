@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import '../../css/pages/HomePage.scss';
 // import Glide from '@glidejs/glide/';
 
@@ -13,13 +14,19 @@ class HomePage extends React.Component {
   //   new Glide('.glide').mount();
   // };
 
+  routeToPath = () => {
+    const { history } = this.props;
+    const path = `/path`;
+    history.push(path);
+  }
+
   render() {
     return (
       <div>
         <section id="splash-container">
           <div id="call-to-action">
             <h3>Start your path as a Dungeon Master Today</h3>
-            <button type="button">Roll for initiative!</button>
+            <button type="button" onClick={() => this.routeToPath()}>Roll for initiative!</button>
           </div>
           <img className="splash-image" src="./images/splash-main.png" alt="" />
           {/* <svg width="100%" height="20px">
