@@ -8,7 +8,7 @@ const CatalogCard = ({ course }) => {
   // TODO: once connected to back-end, get number of completed lessons
   const completed = 0;
   return (
-    <Link to={`/${course.slug}`} className="catalog-card">
+    <Link to={`/courses/${course.slug}`} className="catalog-card">
       <div
         className="course-image"
         alt={course.title}
