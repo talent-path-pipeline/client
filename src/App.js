@@ -10,7 +10,7 @@ import {
   LessonPage,
   CatalogPage,
   RegistrationPage,
-  // DashboardPage,
+  DashboardPage,
   // SupportPage,
   AboutPage,
 } from './components';
@@ -69,7 +69,7 @@ class App extends React.Component {
           />
           <Route exact path={links.catalog} component={CatalogPage} />
           <Route exact path={links.login} component={RegistrationPage} />
-          {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
+          <Route exact path={links.dashboard} component={DashboardPage} />
           {/* <Route exact path={links.support} component={SupportPage} /> */}
           <Route exact path={links.about} component={AboutPage} />
           <Redirect exact from="/:course" to="/:course/0" />
