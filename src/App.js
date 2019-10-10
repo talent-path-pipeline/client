@@ -10,7 +10,7 @@ import {
   CatalogPage,
   // RegistrationPage,
   // DashboardPage,
-  // SupportPage,
+  SupportPage,
   AboutPage,
   ErrorPage,
 } from './components';
@@ -43,7 +43,7 @@ function App() {
         <Route exact path={links.catalog} component={CatalogPage} />
         {/* <Route exact path={links.login} component={RegistrationPage} /> */}
         {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
-        {/* <Route exact path={links.support} component={SupportPage} /> */}
+        <Route exact path={links.support} component={SupportPage} />
         <Route exact path={links.about} component={AboutPage} />
 
         <Redirect exact from="/courses/:course" to="/courses/:course/0" />
