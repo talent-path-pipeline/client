@@ -1,3 +1,8 @@
+// channel page: https://www.youtube.com/channel/UCqJ-Xo29CKyLTjn6z2XwYAw
+// api call: https://www.googleapis.com/youtube/v3/videos?part=[PART TYPE]&id=[VIDEO ID]key=[API KEY]
+// part type = snippet gets: publishedAt, channelId, title, description, thumbnails, channelTitle, tags, categoryId
+// part type = contentDetails gets: duration, dimension, definition, caption, licensedContent, projection
+
 const example_session = {
   order: 0,
   src: 'https://www.youtube.com/embed/MFCzwiqlnCE',
@@ -65,7 +70,7 @@ const adventure_begins = {
 const make_rules = {
   order: 0,
   src: 'https://www.youtube.com/embed/g5lrIDoEPOw',
-  length: 3603,
+  length: 'PT3H9M7S',
   title: 'You Make the Rules!',
   description: `The published D&D sourcebooks have their fair share of suggested rules... but as the DM, you have the special privilege to bend those to your will! Learn in this video how to set house rules for your campaign and your world, and begin collecting these guidelines in a Player's Guide for your party.`,
 };

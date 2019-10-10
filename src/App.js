@@ -53,13 +53,15 @@ function App() {
             const courseObj = courses.find(
               course => course.slug === props.match.params.course,
             );
-            if (!courseObj) return <ErrorPage />;
+            const order = parseInt(props.match.params.order, 10);
+            if (!courseObj || order >= courseObj.lessons.length) return <ErrorPage />;
             return (
               <LessonPage
                 {...props}
+                course_title={courseObj.title}
                 lessons={courseObj.lessons}
-                curr_lesson_num={parseInt(props.match.params.order, 10)}
-                base_path={props.match.params.course}
+                curr_lesson_num={order}
+                base_path={courseObj.slug}
               />
             );
           }}
