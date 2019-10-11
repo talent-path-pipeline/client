@@ -27,6 +27,8 @@ class SignUp extends Component {
       // Shows when waiting for server response
       showSpinner: false,
       successfulRegister: false,
+      // Used for redirecting
+      loggedIn: false
     }
   }
   
@@ -67,7 +69,7 @@ class SignUp extends Component {
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
-        // Redirect to dashboard
+
       })
       .catch(error => {
         this.setState({ showRegistrationFailure: true });
@@ -157,7 +159,6 @@ class SignUp extends Component {
 
       return hasError ? shouldShow : false;
     };
-
     return (
       <div id="signup-container">
         <h1 id="signup-title">Register</h1>

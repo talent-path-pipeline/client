@@ -1,23 +1,32 @@
 import React from 'react';
+import tokenService from '../../utils/tokenServices';
+
 
 class DashboardPage extends React.Component{
   state = {
-    isAuthenticated:  false,
     userName: "",
     userID: "",
-    storedToken: ""
+    userPersona: "",
   }
-  componentWillMount(){
-    console.log("HELLO BEFORE RENDER")
-    // Call a service that checks Token and pulls id
-    const tempa = window.localStorage.getItem('app-token');
-    this.setState({ storedToken:  tempa});
+  componentDidMount(){
+    const token = tokenService.getToken();
+    if(token === null){
+      // Redirect to HTTP ErrorCode 500 page
+      // This following code is a placeholder to show that the user isn't loggedIn
+      this.setState({userID: -1});
+      this.setState({userPersona: "Not Logged In"});
+    }
+    else {
+      this.setState({userID: token.id});
+      this.setState({userPersona: token.persona});
+    }
   }
   render(){
     return (
       <div>
-        <p>Hello World</p>
-        <p>Token: {this.state.storedToken}</p>
+        <p>Greetings</p>
+        <p>User ID: {this.state.userID}</p>
+        <p>Role: {this.state.userPersona}</p>
       </div>
     )
   }

@@ -56,7 +56,7 @@ class App extends React.Component {
   
   render() {
     const { courses } = DUMMY_DATA;
-    const { user, isAuthenticated } = this.state;
+    //const { user, isAuthenticated } = this.state;
     return (
       <div id="start-page">
         <NavBar links={links} />
