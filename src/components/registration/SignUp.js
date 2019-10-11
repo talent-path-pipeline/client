@@ -69,9 +69,10 @@ class SignUp extends Component {
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
-
+        this.props.history.push("/dashboard");
       })
       .catch(error => {
+        console.log(error)
         this.setState({ showRegistrationFailure: true });
         try {
           if (error.response.status === 400) {

@@ -28,8 +28,8 @@ class RegistrationPage extends Component {
     return (
       <div className="registration-container">
         {hideSignUp
-          ? <LogIn changeToSignup={() => this.changeToSignup} />
-          : <SignUp backToLogin={() => this.backToLogin} /> }
+          ? <LogIn history ={this.props.history} changeToSignup={() => this.changeToSignup} />
+          : <SignUp history ={this.props.history} backToLogin={() => this.backToLogin} /> }
       </div>
     )
   }

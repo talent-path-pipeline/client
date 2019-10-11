@@ -23,6 +23,7 @@ class LogIn extends Component{
     Axios.post('http://localhost:5000/api/user/login',data)
       .then(response=>{
         localStorage.setItem('app-token', response.data.token);
+        this.props.history.push("/dashboard");
       })
       .catch(error=>{
         this.showSuccess = false;
