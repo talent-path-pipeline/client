@@ -1,3 +1,144 @@
-#an-id {
-  outline: none;
+$titleBar: #334552;
+
+$contentBackground: white;
+
+.support-container {
+  background-color: var(--cream);
+}
+
+.line {
+  // width: 100vw;
+  width: 95%;
+  max-width: 1110px;
+  margin: 2em auto;
+  border: 4px solid var(--brown);
+  // border: 4px solid var(--teal);
+}
+
+.tabs input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+// Layout
+.row {
+  display: flex;
+
+  .col {
+    flex: 1;
+
+    &:last-child {
+      margin-left: 1em;
+    }
+  }
+}
+
+/* Accordion styles */
+.tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+
+  &-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: $titleBar;
+    cursor: pointer;
+
+    /* Icon */
+    &:hover {
+      background: darken($titleBar, 10%);
+    }
+
+    &::after {
+      content: "\276F";
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all .35s;
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: black;
+    background: $contentBackground;
+    transition: all .35s;
+    font-family: var(--fontfamily-alt);
+    line-height: 30px;
+  }
+
+  &-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: $titleBar;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($titleBar, 10%);
+    }
+  }
+}
+
+// :checked
+input:checked {
+  +.tab-label {
+    background: darken($titleBar, 10%);
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  ~.tab-content {
+    max-height: 100vh;
+    padding: 1em;
+    font-family: var(--fontfamily-roboto);
+    font-weight: 300;
+    background-color: var(--white);
+  }
+}
+
+//----------------------------------
+.container {
+  width: 900px;
+  margin: auto;
+}
+
+.supportTitle {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--black);
+  // font-family: var(--fontfamily-alt);
+}
+
+.FAQTitle {
+  color: var(--black);
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-family: var(--fontfamily-alt); 
+}
+
+.tab-label {
+  font-family: var(--fontfamily-roboto);
+}
+
+@media only screen and (max-width: 760px) {
+  .container {
+    width: 80%;
+    margin: auto;
+  }
 }
