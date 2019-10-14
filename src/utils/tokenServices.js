@@ -8,7 +8,7 @@ function getToken() {
     return null;  
   }
   const results = jwtdecode(token);
-  return {id: results.id, persona: results.persona}
+  return {id: results.id, persona: results.persona, fullName: results.fullName}
 }
 /**
  * Removes token from local storage ie: logout
