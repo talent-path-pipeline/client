@@ -26,7 +26,7 @@ const LessonLink = ({ title, length, order, active, base_path }) => (
       </div>
     ) : (
       <div className="link">
-        <Link to={`/${base_path}/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
+        <Link to={`/courses/${base_path}/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
       </div>
     )}
   </div>

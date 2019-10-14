@@ -10,11 +10,15 @@
 /* =========================== MAIN =========================== */
 
 body {
-  background-color: var(--grey);
+  background-color: var(--cream);
   color: var(--white);
   font-family: var(--fontfamily);
   font-size: 20px;
   height: 100%;
+}
+
+#start-page {
+  height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {

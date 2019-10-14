@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import '../../css/pages/HomePage.scss';
 // import Glide from '@glidejs/glide/';
 
@@ -13,15 +14,21 @@ class HomePage extends React.Component {
   //   new Glide('.glide').mount();
   // };
 
+  routeToPath = () => {
+    const { history } = this.props;
+    const path = `/path`;
+    history.push(path);
+  }
+
   render() {
     return (
       <div>
         <section id="splash-container">
           <div id="call-to-action">
             <h3>Start your path as a Dungeon Master Today</h3>
-            {/* <button type="button">Click here</button> */}
+            <button type="button" onClick={() => this.routeToPath()}>Roll for initiative!</button>
           </div>
-          <img className="splash-image" src="./images/splash-main2.png" alt="" />
+          <img className="splash-image" src="./images/splash-main.png" alt="" />
           {/* <svg width="100%" height="20px">
             <clipPath id="clipPolygon">
               <polygon points="-1 419,960 421,0 367" />
@@ -57,7 +64,8 @@ class HomePage extends React.Component {
                 <p>
                   We’re unique because we have curated paths for you to follow as well as
                   different courses so that you can gain all the information you need to
-                  start playing.{' '}
+                  start playing.
+                  {' '}
                 </p>
               </div>
             </section>
