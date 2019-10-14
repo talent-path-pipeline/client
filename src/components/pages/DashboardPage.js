@@ -20,12 +20,13 @@ class DashboardPage extends React.Component{
     else {
       this.setState({userID: token.id});
       this.setState({userPersona: token.persona});
+      this.setState({userName: token.fullName})
     }
   }
   render(){
     return (
       <div>
-        <p>Greetings</p>
+        <p>Greetings {this.state.userName}!</p>
         <p>User ID: {this.state.userID}</p>
         <p>Role: {this.state.userPersona}</p>
       </div>
