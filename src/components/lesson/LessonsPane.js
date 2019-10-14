@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { LessonLink } from '..';
 import '../../css/lesson/LessonsPane.scss';
 
+// TODO: add next and previous course buttons
 const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path }) => (
   <div className="lessons-pane">
     <h2>{course_title}</h2>

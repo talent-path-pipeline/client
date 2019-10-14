@@ -16,6 +16,7 @@ const formatTime = time => {
     // this is the date format the YouTube API uses: "PT3H9M7S"
     const timeStr = time.slice(2, time.length - 1);
     let msStr;
+    // TODO: this breaks if there are no hours
     [h, msStr] = timeStr.split('H');
     [m, s] = msStr.split('M');
   }

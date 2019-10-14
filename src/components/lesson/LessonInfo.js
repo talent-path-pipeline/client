@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
+// TODO: add content channel link
+// TODO: add description about channel and text from actual video
+// TODO: add next and previous lesson buttons
 const LessonInfo = ({ title, description }) => (
   <div className="lesson-info">
     <h4 id="lesson-playing">Now playing:</h4>
