@@ -5,9 +5,16 @@ import '../../css/lesson/LessonNav.scss';
 
 const LessonNav = ({order, base_path, course_size}) => (
   <div className="lesson-nav">
-    {/* <p style={{color: 'black'}}>Lesson Nav buttons go here</p> */}
-    <button type="button" className='btn'><Link to={`/courses/${base_path}/${+order - 1}`} >← Prev</Link></button>
-    <button type="button" className="btn"><Link to={`/courses/${base_path}/${+order + 1}`}>Next →</Link></button>
+    { order !== 0
+      ? <button type="button" className='btn'>
+        <Link to={`/courses/${base_path}/${order - 1}`} >← Prev</Link>
+      </button>
+      : ''}
+    { order !== course_size - 1
+      ? <button type="button" className="btn">
+        <Link to={`/courses/${base_path}/${order + 1}`}>Next →</Link>
+      </button>
+      : ''}
   </div>
 );
 
