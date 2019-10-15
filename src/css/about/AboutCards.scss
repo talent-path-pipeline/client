@@ -12,7 +12,7 @@
   border-radius: 10rem;
   width: 5rem;
   height: 5rem;
-  background: var(--red);
+  background: var(--navy);
   position: relative;
   top: -6rem;
   margin-bottom: 11px;
@@ -30,10 +30,12 @@
 
 .card {
   text-align: center;
-  color: #fff;
-  background-color: var(--red);
+  color: var(--white);
+  font-family: var(--fontfamily-roboto);
+  font-weight: 300;
+  background-color: var(--navy);
   border-radius: 1.5rem;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.12);
+  box-shadow: 5px 5px var(--greyblue);
   width: 28%;
   height: 14.5rem;
   font-size: 2rem;
