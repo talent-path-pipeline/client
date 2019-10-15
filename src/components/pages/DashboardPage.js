@@ -1,12 +1,15 @@
 import React from 'react';
 import tokenService from '../../utils/tokenServices';
+import DashboardMenu from '../dashboard/DashboardMenu';
+import '../../css/pages/DashboardPage.scss';
 
 
 class DashboardPage extends React.Component{
   state = {
-    userName: "",
-    userID: "",
-    userPersona: "",
+    userName: '',
+    userID: '',
+    userPersona: '',
+    active: 'overview',
   }
   componentDidMount(){
     const token = tokenService.getToken();
@@ -25,11 +28,37 @@ class DashboardPage extends React.Component{
   }
   render(){
     return (
-      <div>
-        <p>Greetings {this.state.userName}!</p>
-        <p>User ID: {this.state.userID}</p>
-        <p>Role: {this.state.userPersona}</p>
-      </div>
+      <main className="dashboard">
+        <DashboardMenu
+          user={user}
+          activeView={this.state.active}
+          showOverview={this.goToOverview}
+          showSettings={this.goToSettings}
+          logout={logout}
+        />
+        {this.state.active === 'overview' ? (
+          <div className="dashboardBody">
+            <h1 className="dashboardHeader">Welcome, {user.username ? user.username : 'Anon'}!</h1>
+            {/* <Favorites
+              modalDetails={modalDetails}
+              isShowing={isModalShowing}
+              openModal={openModal}
+              closeModal={closeModal}
+            /> */}
+            <h3>You do not have any favorites saved.</h3>
+          </div>
+        ) : (
+          ''
+        )}
+        {this.state.active === 'settings' ? (
+          <div className="dashboardBody">
+            <h1 className="dashboardHeader">Account Settings</h1>
+            <AccountSettings user={user} />
+          </div>
+        ) : (
+          ''
+        )}
+      </main>
     )
   }
 }
