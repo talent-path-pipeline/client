@@ -45,7 +45,6 @@ class DashboardPage extends React.Component{
     return (
       <main className="dashboard">
         <DashboardMenu
-          user={this.state.userName}
           activeView={this.state.active}
           showOverview={this.goToOverview}
           showSettings={this.goToSettings}
@@ -54,14 +53,14 @@ class DashboardPage extends React.Component{
         {this.state.active === 'overview' ? (
           <div className="dashboardBody">
             <h1 className="dashboardHeader">Welcome, {this.state.userName ? this.state.userName : 'Anon'}!</h1>
-            <h3>You do not have any favorites saved.</h3>
+            <p className="dashboardText">Persona: {this.state.userPersona}</p>
           </div>
         ) : (
           ''
         )}
         {this.state.active === 'settings' ? (
           <div className="dashboardBody">
-            <h1 className="dashboardHeader">Account Settings</h1>
+            <h1 className="dashboardHeader">{this.state.userName}'s Account</h1>
             <p className="dashboardText"> User ID: {this.state.userID}</p>
           </div>
         ) : (
