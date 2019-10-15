@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/lesson/LessonNav.scss';
 
-const LessonNav = props => (
+const LessonNav = ({order, base_path, course_size}) => (
   <div className="lesson-nav">
     {/* <p style={{color: 'black'}}>Lesson Nav buttons go here</p> */}
-    <button className='prev-btn btn'>← Prev</button>
-    <button className="next-btn btn">Next →</button>
+    <button type="button" className='btn'><Link to={`/courses/${base_path}/${+order - 1}`} >← Prev</Link></button>
+    <button type="button" className="btn"><Link to={`/courses/${base_path}/${+order + 1}`}>Next →</Link></button>
   </div>
 );
 

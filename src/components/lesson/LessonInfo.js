@@ -3,9 +3,9 @@ import { LessonNav } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
-const LessonInfo = ({ title, description }) => (
+const LessonInfo = ({ title, description, order, base_path, course_size }) => (
   <div className="lesson-info">
-    <LessonNav />
+    <LessonNav order={order} base_path={base_path} course_size={course_size} />
     <h4 id="lesson-playing">Now playing:</h4>
     <h2>{title || 'Lesson'}</h2>
     <hr />
