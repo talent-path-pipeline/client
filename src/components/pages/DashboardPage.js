@@ -26,25 +26,34 @@ class DashboardPage extends React.Component{
       this.setState({userName: token.fullName})
     }
   }
+
+  goToOverview = () => {
+    this.setState({ active: 'overview' });
+  };
+
+  goToSettings = () => {
+    this.setState({ active: 'settings' });
+  };
+
+  // TODO: Implement Logout
+  logout = () => {
+    console.log('LOGGING OUT');
+  }
+
+
   render(){
     return (
       <main className="dashboard">
         <DashboardMenu
-          user={user}
+          user={this.state.userName}
           activeView={this.state.active}
           showOverview={this.goToOverview}
           showSettings={this.goToSettings}
-          logout={logout}
+          logout={this.logout}
         />
         {this.state.active === 'overview' ? (
           <div className="dashboardBody">
-            <h1 className="dashboardHeader">Welcome, {user.username ? user.username : 'Anon'}!</h1>
-            {/* <Favorites
-              modalDetails={modalDetails}
-              isShowing={isModalShowing}
-              openModal={openModal}
-              closeModal={closeModal}
-            /> */}
+            <h1 className="dashboardHeader">Welcome, {this.state.userName ? this.state.userName : 'Anon'}!</h1>
             <h3>You do not have any favorites saved.</h3>
           </div>
         ) : (
@@ -53,7 +62,7 @@ class DashboardPage extends React.Component{
         {this.state.active === 'settings' ? (
           <div className="dashboardBody">
             <h1 className="dashboardHeader">Account Settings</h1>
-            <AccountSettings user={user} />
+            <p className="dashboardText"> User ID: {this.state.userID}</p>
           </div>
         ) : (
           ''
