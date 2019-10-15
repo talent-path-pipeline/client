@@ -15,6 +15,8 @@ Lesson.propTypes = {
   src: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   order: PropTypes.number.isRequired,
+  course_size: PropTypes.number.isRequired,
+  base_path: PropTypes.string.isRequired,
 };
 
 export default Lesson;

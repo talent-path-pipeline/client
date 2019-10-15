@@ -16,6 +16,9 @@ const LessonInfo = ({ title, description, order, base_path, course_size }) => (
 LessonInfo.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  order: PropTypes.number.isRequired,
+  base_path: PropTypes.string.isRequired,
+  course_size: PropTypes.number.isRequired,
 };
 
 export default LessonInfo;
