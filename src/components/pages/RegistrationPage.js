@@ -29,7 +29,8 @@ class RegistrationPage extends Component {
 
   handleLogin = event => {
     // event.preventDefault();
-    this.props.history.push("/dashboard");
+    // this.props.history.push("/dashboard");
+    this.props.handleLogin();
   }
 
   changeToSignup = event => {
@@ -58,6 +59,7 @@ RegistrationPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }),
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default RegistrationPage;

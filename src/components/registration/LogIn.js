@@ -67,9 +67,6 @@ class LogIn extends Component{
 
 
 LogIn.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }),
   handleLogin: PropTypes.func.isRequired,
 };
 
