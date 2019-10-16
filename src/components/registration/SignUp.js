@@ -20,12 +20,10 @@ class SignUp extends Component {
       },
       // Controls when there are failed validations when registering
       disableButton: true,
-      // Modal
-      showModal: false,
-      // Shows error message if server fails
-      showRegistrationFailure: false,
-      // Shows when waiting for server response
-      showSpinner: false,
+      // Showsgdfgsdgss error message if server fails
+      showRegsgdfgsdgsistrationFailure: false,
+      // Showsgdfgsdgss when waiting for server response
+      showSpisgdfgsdgsnner: false,
       successfulRegister: false,
       // Used for redirecting
       loggedIn: false
@@ -52,15 +50,18 @@ class SignUp extends Component {
         this.props.history.push("/dashboard");
       })
       .catch(error => {
-        console.log(error)
-        this.setState({ showRegistrationFailure: true });
         try {
-          if (error.response.status === 400) {
+          // Handles errors that are not HTTP specific
+          console.log(error)
+          this.setState({ showRegistrationFailure: true });
+          if (!error.status) {
+            console.log('A network error has occured.')
+          } else if (error.response.status === 400) {
             console.log('Bad Request');
           } else if (error.response.status === 500) {
             console.log('Something bad happended on the server.');
           } else {
-            console.log('Uh oh...');
+            console.log('An unknown error has occurred');
           }
         } catch (ex) {
           Promise.reject(ex);
@@ -113,7 +114,7 @@ class SignUp extends Component {
     const errors = validate(
       email,
       password,
-      confirmPassword,
+      confirmPassword,// Moda
       fullName,
       location
     );
