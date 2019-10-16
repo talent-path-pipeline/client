@@ -1,7 +1,7 @@
 #nav-main {
   display: flex;
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--navy);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
   height: 80px;
   width: 100%;
@@ -50,7 +50,7 @@
   }
 
   a:hover {
-    color: var(--red);
+    color: var(--stone);
   }
 }
 

@@ -3,12 +3,13 @@
 .lesson-info {
   background-color: #EEEEEE;
   padding: 3rem;
+  border: 2px solid var(--blue);
 }
 
 .lesson-info h2 {
   margin: 1rem 0 1.5rem 0;
-  color: var(--red);
-  text-shadow: 1px 0px var(--grey);
+  color: var(--brown);
+  text-shadow: 1px 0px var(--greyblue);
 }
 
 #lesson-playing {

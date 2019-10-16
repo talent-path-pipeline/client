@@ -15,6 +15,7 @@ const CatalogPage = () => {
         {/* TODO: Make search actually work/do something */}
         {/* <input className="course-search" type="text" placeholder="Type to search!" /> */}
       </header>
+      <hr className="catalog-line" />
       {/* TODO: <CatalogFilter /> */}
       <CatalogList courses={courses} />
     </div>
