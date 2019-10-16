@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Axios from 'axios';
 import '../../css/registration/SignUp.scss';
 
@@ -47,7 +48,7 @@ class SignUp extends Component {
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
-        this.props.history.push("/dashboard");
+        this.props.handleSignup();
       })
       .catch(error => {
         try {
@@ -229,5 +230,8 @@ function WarningBanner(props) {
   return <div className="warning"> {props.message}</div>;
 }
 
+SignUp.propTypes = {
+  handleSignup: PropTypes.func.isRequired,
+};
 
 export default SignUp;

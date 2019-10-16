@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import DUMMY_DATA from './DUMMY_DATA';
 import tokenServices from './utils/tokenServices';
+import ProtectedRoute from './utils/ProtectedRoute';
 import {
   NavBar,
   HomePage,
@@ -47,9 +48,18 @@ class App extends React.Component {
    * get user data from database
    */
   componentDidMount = () => {
-    const user = tokenServices.getToken;
+    const user = tokenServices.getToken();
     if (user) {
       this.setState({ isAuthenticated: true, user });
+    }
+  }
+
+  handleLogin = () => {
+    const user = tokenServices.getToken();
+    if (user) {
+      this.setState({ isAuthenticated: true, user });
+    } else {
+      this.setState({ isAuthenticated: null, user: null });
     }
   }
 
@@ -59,7 +69,7 @@ class App extends React.Component {
     //const { user, isAuthenticated } = this.state;
     return (
       <div id="start-page">
-        <NavBar links={links} />
+        <NavBar links={links} isAuthenticated={this.state.isAuthenticated} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -68,8 +78,21 @@ class App extends React.Component {
             render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
           />
           <Route exact path={links.catalog} component={CatalogPage} />
-          <Route exact path={links.login} component={RegistrationPage} />
-          <Route exact path={links.dashboard} component={DashboardPage} />
+          {/* Login Protected Route */}
+          <ProtectedRoute
+            path={links.login}
+            isSomething={!this.state.isAuthenticated}
+            redirectLink={links.dashboard}
+            component={RegistrationPage}
+            handleLogin={this.handleLogin}
+          />
+          {/* Dashboard Protected Route */}
+          <ProtectedRoute
+            path={links.dashboard}
+            isSomething={this.state.isAuthenticated}
+            redirectLink={links.login}
+            component={DashboardPage}
+          />
           <Route exact path={links.support} component={SupportPage} />
           <Route exact path={links.about} component={AboutPage} />
 
