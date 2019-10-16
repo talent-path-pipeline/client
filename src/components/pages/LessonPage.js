@@ -7,10 +7,11 @@ function LessonPage(props) {
   const { curr_lesson_num, lessons, base_path } = props;
   // const { title, src, description, id } = lessons.find(elem => elem.id === activeId);
   const { title, src, description, order } = lessons[curr_lesson_num];
+  const total = lessons.length;
 
   return (
     <div className="lesson-page">
-      <Lesson order={order} title={title} src={src} description={description} />
+      <Lesson order={order} title={title} src={src} description={description} course_size={total} base_path={base_path}/>
       <LessonsPane lessons={lessons} curr_lesson_num={curr_lesson_num} base_path={base_path} />
     </div>
   );

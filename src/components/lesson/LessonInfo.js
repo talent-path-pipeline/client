@@ -1,9 +1,11 @@
 import React from 'react';
+import { LessonNav } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
-const LessonInfo = ({ title, description }) => (
+const LessonInfo = ({ title, description, order, base_path, course_size }) => (
   <div className="lesson-info">
+    <LessonNav order={order} base_path={base_path} course_size={course_size} />
     <h4 id="lesson-playing">Now playing:</h4>
     <h2>{title || 'Lesson'}</h2>
     <hr />
@@ -14,6 +16,9 @@ const LessonInfo = ({ title, description }) => (
 LessonInfo.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  order: PropTypes.number.isRequired,
+  base_path: PropTypes.string.isRequired,
+  course_size: PropTypes.number.isRequired,
 };
 
 export default LessonInfo;
