@@ -49,7 +49,7 @@ class SignUp extends Component {
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
-        this.props.history.push("/dashboard");
+        this.props.handleSignup();
       })
       .catch(error => {
         console.log(error)
@@ -228,5 +228,8 @@ function WarningBanner(props) {
   return <div className="warning"> {props.message}</div>;
 }
 
+SignUp.propTypes = {
+  handleSignup: PropTypes.func.isRequired,
+};
 
 export default SignUp;

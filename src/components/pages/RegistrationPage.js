@@ -48,17 +48,14 @@ class RegistrationPage extends Component {
     return (
       <div className="registration-container">
         {hideSignUp
-          ? <LogIn history ={this.props.history} changeToSignup={() => this.changeToSignup} handleLogin={this.handleLogin}/>
-          : <SignUp history ={this.props.history} backToLogin={() => this.backToLogin} /> }
+          ? <LogIn changeToSignup={() => this.changeToSignup} handleLogin={this.handleLogin}/>
+          : <SignUp backToLogin={() => this.backToLogin} handleSignup={this.handleLogin}/> }
       </div>
     )
   }
 }
 
 RegistrationPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }),
   handleLogin: PropTypes.func.isRequired,
 };
 
