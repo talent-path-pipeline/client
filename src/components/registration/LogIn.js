@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import Axios from 'axios';
 import '../../css/registration/LogIn.scss';
 
@@ -21,9 +22,9 @@ class LogIn extends Component{
     }
     
     Axios.post('http://localhost:5000/api/user/login',data)
-      .then(response=>{
-        localStorage.setItem('app-token', response.data.token);
-        this.props.history.push("/dashboard");
+      .then(async response=>{
+        await localStorage.setItem('app-token', response.data.token);
+        this.props.handleLogin();
       })
       .catch(error=>{
         this.showSuccess = false;
@@ -62,5 +63,8 @@ class LogIn extends Component{
   }
 }
 
+LogIn.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+};
 
 export default LogIn;

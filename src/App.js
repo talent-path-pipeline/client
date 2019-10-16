@@ -48,9 +48,18 @@ class App extends React.Component {
    * get user data from database
    */
   componentDidMount = () => {
-    const user = tokenServices.getToken;
+    const user = tokenServices.getToken();
     if (user) {
       this.setState({ isAuthenticated: true, user });
+    }
+  }
+
+  handleLogin = () => {
+    const user = tokenServices.getToken();
+    if (user) {
+      this.setState({ isAuthenticated: true, user });
+    } else {
+      this.setState({ isAuthenticated: null, user: null });
     }
   }
 
@@ -60,7 +69,7 @@ class App extends React.Component {
     //const { user, isAuthenticated } = this.state;
     return (
       <div id="start-page">
-        <NavBar links={links} />
+        <NavBar links={links} isAuthenticated={this.state.isAuthenticated} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -69,7 +78,15 @@ class App extends React.Component {
             render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
           />
           <Route exact path={links.catalog} component={CatalogPage} />
-          <Route exact path={links.login} component={RegistrationPage} />
+          <Route
+            path={links.login}
+            render={props => (
+              <RegistrationPage
+                {...props}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
           <ProtectedDashboardRoute
             path="/dashboard"
             isAuthenticated={this.state.isAuthenticated}

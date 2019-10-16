@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LogIn from '../registration/LogIn';
 import SignUp from '../registration/SignUp';
 import TokenServices from '../../utils/tokenServices'
@@ -24,6 +25,11 @@ class RegistrationPage extends Component {
     }
   }
 
+  handleLogin = event => {
+    event.preventDefault();
+    this.props.handleLogin();
+  }
+
   changeToSignup = event => {
     event.preventDefault();
     this.setState({ hideSignUp: false });
@@ -39,11 +45,15 @@ class RegistrationPage extends Component {
     return (
       <div className="registration-container">
         {hideSignUp
-          ? <LogIn history ={this.props.history} changeToSignup={() => this.changeToSignup} />
+          ? <LogIn history ={this.props.history} changeToSignup={() => this.changeToSignup} handleLogin={this.handleLogin}/>
           : <SignUp history ={this.props.history} backToLogin={() => this.backToLogin} /> }
       </div>
     )
   }
 }
+
+RegistrationPage.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+};
 
 export default RegistrationPage;

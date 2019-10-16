@@ -11,6 +11,7 @@ class NavBar extends React.Component {
 
     this.state = {
       menuOpen: false,
+      isAuthenticated: false,
     };
   }
 
@@ -35,7 +36,8 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
-    const { links } = this.props;
+    const { links, isAuthenticated } = this.props;
+    this.state.isAuthenticated = isAuthenticated
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
@@ -67,7 +69,9 @@ class NavBar extends React.Component {
           </li>
           <li><NavLink to={links.support}>Support</NavLink></li>
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
-          <li><NavLink to={links.login}>Login</NavLink></li>
+          {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : (
+          <li><NavLink to={links.login}>Login</NavLink></li>)}
+          {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -108,6 +112,7 @@ NavBar.propTypes = {
   links: PropTypes.shape({
     home: PropTypes.string,
   }).isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
 export default NavBar;
