@@ -16,7 +16,15 @@
   color: var(--black);
 }
 
-#lesson-description {
+.lesson-info p {
   font-family: var(--fontfamily-alt);
   color: var(--black);
+}
+
+#yt-info {
+  margin: 1rem 0;
+}
+
+.title {
+  font-family: var(--fontfamily);
 }

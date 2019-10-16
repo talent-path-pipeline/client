@@ -10,6 +10,22 @@ const LessonInfo = ({ title, description, order, base_path, course_size }) => (
     <h2>{title || 'Lesson'}</h2>
     <hr />
     <p id="lesson-description">{description || 'No description provided'}</p>
+    <hr />
+    <div id="yt-info">
+      {/* link to YT chan, original video name, desc */}
+      <p id="yt-chan">
+        <span className="title">Creator: </span>
+        Youtube channel
+      </p>
+      <p id="yt-title">
+        <span className="title">Original video title: </span>
+        Original Youtube Title
+      </p>
+      <p id="yt-desc">
+        <span className="title">Original description: </span>
+        Youtube description
+      </p>
+    </div>
   </div>
 );
 
