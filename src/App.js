@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import DUMMY_DATA from './DUMMY_DATA';
 import tokenServices from './utils/tokenServices';
+import ProtectedDashboardRoute from './components/dashboard/ProtectedDashboardRoute';
 import {
   NavBar,
   HomePage,
@@ -69,7 +70,11 @@ class App extends React.Component {
           />
           <Route exact path={links.catalog} component={CatalogPage} />
           <Route exact path={links.login} component={RegistrationPage} />
-          <Route exact path={links.dashboard} component={DashboardPage} />
+          <ProtectedDashboardRoute
+            path="/dashboard"
+            isAuthenticated={this.state.isAuthenticated}
+            component={DashboardPage}
+          />
           <Route exact path={links.support} component={SupportPage} />
           <Route exact path={links.about} component={AboutPage} />
 

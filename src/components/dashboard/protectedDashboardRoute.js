@@ -8,7 +8,7 @@ import { Route, Redirect } from 'react-router-dom';
  * @param {Symbol} props.component Rendered component
  * @param {bool} props.isAuthenticated Authenticated flag
  */
-const protectedDashboardRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+const ProtectedDashboardRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route
     {...rest}
     render={props =>
@@ -21,10 +21,10 @@ const protectedDashboardRoute = ({ component: Component, isAuthenticated, ...res
   />
 );
 
-protectedDashboardRoute.propTypes = {
+ProtectedDashboardRoute.propTypes = {
   component: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   location: PropTypes.object, // FIXME: Check out how to get this to not yell with .isRequired
 };
 
-export default protectedDashboardRoute;
+export default ProtectedDashboardRoute;
