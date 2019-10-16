@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
-const Lesson = ({ title, src, description, order, course_size, base_path }) => (
-  <div className="lesson" key={order}>
-    <LessonVideo title={title} src={src} />
-    <LessonInfo title={title} order={order} description={description} course_size={course_size} base_path={base_path} />
+const Lesson = ({ lesson, course_size, base_path }) => (
+  <div className="lesson" key={lesson.order}>
+    <LessonVideo title={lesson.title} src={lesson.src} />
+    <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
   </div>
 );
 

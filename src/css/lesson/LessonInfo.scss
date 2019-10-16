@@ -25,6 +25,11 @@
   margin: 1rem 0;
 }
 
+.subheader {
+  color: var(--brown);
+}
+
 .title {
-  font-family: var(--fontfamily);
+  font-family: var(--fontfamily-roboto);
+  // font-size: 1.1em;
 }
