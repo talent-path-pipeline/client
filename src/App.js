@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import DUMMY_DATA from './DUMMY_DATA';
 import tokenServices from './utils/tokenServices';
-import ProtectedDashboardRoute from './components/dashboard/ProtectedDashboardRoute';
+import ProtectedRoute from './utils/ProtectedRoute';
 import {
   NavBar,
   HomePage,
@@ -78,18 +78,17 @@ class App extends React.Component {
             render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
           />
           <Route exact path={links.catalog} component={CatalogPage} />
-          <Route
+          {/* Login Protected Route */}
+          <ProtectedRoute
             path={links.login}
-            render={props => (
-              <RegistrationPage
-                {...props}
-                // isAuthenticated={this.state.isAuthenticated}
-              />
-            )}
+            isSomething={!this.state.isAuthenticated}
+            redirectLink={links.dashboard}
+            component={RegistrationPage}
           />
-          <ProtectedDashboardRoute
-            path="/dashboard"
-            isAuthenticated={this.state.isAuthenticated}
+          {/* Dashboard Protected Route */}
+          <ProtectedRoute
+            path={links.dashboard}
+            isSomething={this.state.isAuthenticated}
             redirectLink={links.login}
             component={DashboardPage}
           />
