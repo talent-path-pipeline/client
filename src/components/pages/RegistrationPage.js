@@ -6,17 +6,6 @@ import TokenServices from '../../utils/tokenServices'
 import '../../css/pages/RegistrationPage.scss';
 
 class RegistrationPage extends Component {
-  /**
-   * Checks wether or not the user is already logged in
-   */
-  componentDidMount() {
-    if(TokenServices.getToken()){
-      console.log("You are logged in redirecting")
-      this.props.history.push("/dashboard");
-    }else{
-      console.log("You are not logged in doing nothing")
-    }
-  }
   constructor() {
     super();
 
@@ -25,9 +14,22 @@ class RegistrationPage extends Component {
     }
   }
 
+  /**
+   * Checks wether or not the user is already logged in
+   */
+  componentDidMount() {
+    if(TokenServices.getToken()){
+      console.log("You are logged in redirecting")
+      // this.props.history.push("/dashboard");
+      this.handleLogin()
+    }else{
+      console.log("You are not logged in doing nothing")
+    }
+  }
+
   handleLogin = event => {
-    event.preventDefault();
-    this.props.handleLogin();
+    // event.preventDefault();
+    this.props.history.push("/dashboard");
   }
 
   changeToSignup = event => {
@@ -53,7 +55,9 @@ class RegistrationPage extends Component {
 }
 
 RegistrationPage.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
 };
 
 export default RegistrationPage;

@@ -22,8 +22,9 @@ class LogIn extends Component{
     }
     
     Axios.post('http://localhost:5000/api/user/login',data)
-      .then(async response=>{
-        await localStorage.setItem('app-token', response.data.token);
+      .then(response=>{
+        localStorage.setItem('app-token', response.data.token);
+        // this.props.history.push("/dashboard");
         this.props.handleLogin();
       })
       .catch(error=>{
@@ -38,7 +39,8 @@ class LogIn extends Component{
             console.log('Uh oh...')
           }
         }catch(ex){
-          this.errors = error.response.data;
+          console.log(ex);
+          // this.errors = error.response.data;
           Promise.reject(error);
         }
       })
@@ -63,7 +65,11 @@ class LogIn extends Component{
   }
 }
 
+
 LogIn.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
   handleLogin: PropTypes.func.isRequired,
 };
 

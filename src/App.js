@@ -83,13 +83,14 @@ class App extends React.Component {
             render={props => (
               <RegistrationPage
                 {...props}
-                handleLogin={this.handleLogin}
+                // isAuthenticated={this.state.isAuthenticated}
               />
             )}
           />
           <ProtectedDashboardRoute
             path="/dashboard"
             isAuthenticated={this.state.isAuthenticated}
+            redirectLink={links.login}
             component={DashboardPage}
           />
           <Route exact path={links.support} component={SupportPage} />
