@@ -32,26 +32,6 @@ class SignUp extends Component {
     }
   }
   
-  
-  /**
-   * Controls modal and spinner controlls
-   */
-  showModal = () => {
-    this.setState({ showModal: true });
-  };
-
-  hideModal = () => {
-    this.setState({ showModal: false });
-  };
-
-  showSpinner = () => {
-    this.setState({ loading: true });
-  };
-
-  hideSpinner = () => {
-    this.setState({ loading: false });
-  };
-
   /**
    * Creates a user with the server
    */
