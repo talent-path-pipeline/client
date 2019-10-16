@@ -15,7 +15,7 @@ class DashboardPage extends React.Component{
     const token = tokenService.getToken();
     if(!token){
       // Redirect to HTTP ErrorCode 500 page, this is a placeholder, replace with real
-      //this.props.history.push("/forbidenPage");
+      this.props.history.push('/login')
       // This following code is a placeholder to show that the user isn't loggedIn
       this.setState({userID: -1});
       this.setState({userPersona: "Not Logged In"});

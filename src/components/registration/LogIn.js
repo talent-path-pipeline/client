@@ -28,20 +28,21 @@ class LogIn extends Component{
         this.props.handleLogin();
       })
       .catch(error=>{
-        this.showSuccess = false;
-        this.showError = true;
-        try{
-          if(error.response.status === 400){
+         try {
+          // Handles errors that are not HTTP specific
+          console.log(error)
+          this.setState({ showRegistrationFailure: true });
+          if (!error.status) {
+            console.log('A network error has occured.')
+          } else if (error.response.status === 400) {
             console.log('Bad Request');
-          }else if(error.response.status === 500){
-            console.log('Something bad happended on the server.')
-          }else{
-            console.log('Uh oh...')
+          } else if (error.response.status === 500) {
+            console.log('Something bad happended on the server.');
+          } else {
+            console.log('An unknown error has occurred');
           }
-        }catch(ex){
-          console.log(ex);
-          // this.errors = error.response.data;
-          Promise.reject(error);
+        } catch (ex) {
+          Promise.reject(ex);
         }
       })
   }
