@@ -3,6 +3,9 @@ import { LessonNav } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
+// TODO: add content channel link
+// TODO: add description about channel and text from actual video
+// TODO: add next and previous lesson buttons
 const LessonInfo = ({ title, description, order, base_path, course_size }) => (
   <div className="lesson-info">
     <LessonNav order={order} base_path={base_path} course_size={course_size} />

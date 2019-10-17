@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import YouTube from 'react-youtube';
+// https://www.npmjs.com/package/react-youtube
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
 const Lesson = ({ title, src, description, order, course_size, base_path }) => (
   <div className="lesson" key={order}>
+    {/* <YouTube videoId={} opts={} onEnd={} /> */}
     <LessonVideo title={title} src={src} />
     <LessonInfo title={title} order={order} description={description} course_size={course_size} base_path={base_path} />
   </div>
