@@ -16,12 +16,12 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
       <hr />
       <p id="lesson-description">{description || 'No description provided'}</p>
       <hr />
+
       <div id="yt-info">
-        {/* link to YT chan, original video name, desc */}
         <h3 className="subheader">Youtube credits</h3>
         <p id="yt-chan">
           <span className="title">Creator: </span>
-          <a href={yt_chan_src} target="_blank" rel="noopener noreferrer">{yt_chan_name || 'YouTube Channel'}</a>
+          <a href={yt_chan_src} target="_blank" rel="noopener noreferrer">{yt_chan_name || 'YouTube Channel goes here'}</a>
         </p>
         <p id="yt-title">
           <span className="title">Video title: </span>
@@ -29,16 +29,24 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
         </p>
         <p id="yt-desc">
           <span className="title">Video Description: </span>
-          {yt_desc || 'YouTube description'}
+          {yt_desc || 'YouTube description goes here'}
         </p>
       </div>
     </div>
   );
 };
+
 LessonInfo.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  order: PropTypes.number.isRequired,
+  lesson: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    order: PropTypes.number.isRequired,
+    yt_chan_name: PropTypes.string.isRequired,
+    yt_chan_src: PropTypes.string.isRequired,
+    yt_title: PropTypes.string.isRequired,
+    yt_desc: PropTypes.string.isRequired,
+  }).isRequired,
   base_path: PropTypes.string.isRequired,
   course_size: PropTypes.number.isRequired,
 };

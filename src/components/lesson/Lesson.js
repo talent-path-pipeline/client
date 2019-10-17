@@ -13,10 +13,16 @@ const Lesson = ({ lesson, course_size, base_path }) => (
 );
 
 Lesson.propTypes = {
-  title: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  order: PropTypes.number.isRequired,
+  lesson: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    order: PropTypes.number.isRequired,
+    yt_chan_name: PropTypes.string.isRequired,
+    yt_chan_src: PropTypes.string.isRequired,
+    yt_title: PropTypes.string.isRequired,
+    yt_desc: PropTypes.string.isRequired,
+  }).isRequired,
   course_size: PropTypes.number.isRequired,
   base_path: PropTypes.string.isRequired,
 };

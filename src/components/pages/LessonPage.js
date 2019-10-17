@@ -6,7 +6,6 @@ import '../../css/pages/LessonPage.scss';
 function LessonPage(props) {
   const { curr_lesson_num, lessons, base_path, course_title } = props;
   // const { title, src, description, id } = lessons.find(elem => elem.id === activeId);
-  // const { title, src, description, order } = lessons[curr_lesson_num];
   const lesson = lessons[curr_lesson_num];
   const total = lessons.length;
 
@@ -31,7 +30,7 @@ LessonPage.propTypes = {
       order: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired,
-      length: PropTypes.number.isRequired,
+      length: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
   ).isRequired,
