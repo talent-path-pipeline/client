@@ -91,10 +91,15 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.login}>
-              LogIn
+            {this.state.isAuthenticated ? (
+            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
+              Dashboard
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard} />
+            ) : (
+              <NavLink onClick={() => this.closeMenu()} to={links.login}>
+                LogIn
+              </NavLink>
+            )}
             <NavLink onClick={() => this.closeMenu()} to={links.support}>
               Support
             </NavLink>
