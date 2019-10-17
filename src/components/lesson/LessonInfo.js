@@ -3,8 +3,11 @@ import { LessonNav } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
+const getVideoURL = embedLink => embedLink.replace('embed/', 'watch?v=');
+
 const LessonInfo = ({ lesson, base_path, course_size }) => {
-  const {title, description, order, yt_chan_name, yt_chan_src, yt_title, yt_desc} = lesson;
+  const {title, description, order, src, yt_chan_name, yt_chan_src, yt_title, yt_desc} = lesson;
+
   return (
     <div className="lesson-info">
       <LessonNav order={order} base_path={base_path} course_size={course_size} />
@@ -18,15 +21,15 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
         <h3 className="subheader">Youtube credits</h3>
         <p id="yt-chan">
           <span className="title">Creator: </span>
-          <a href={yt_chan_src} target="_blank" rel="noopener noreferrer">{yt_chan_name || 'YT Channel'}</a>
+          <a href={yt_chan_src} target="_blank" rel="noopener noreferrer">{yt_chan_name || 'YouTube Channel'}</a>
         </p>
         <p id="yt-title">
           <span className="title">Video title: </span>
-          {yt_title || 'Original Youtube Title'}
+          <a href={getVideoURL(src)} target="_blank" rel="noopener noreferrer">{yt_title || 'Original YouTube Video'}</a>
         </p>
         <p id="yt-desc">
           <span className="title">Video Description: </span>
-          {yt_desc || 'Youtube description'}
+          {yt_desc || 'YouTube description'}
         </p>
       </div>
     </div>

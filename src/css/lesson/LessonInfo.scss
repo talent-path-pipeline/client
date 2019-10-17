@@ -18,6 +18,7 @@
 
 .lesson-info p {
   font-family: var(--fontfamily-alt);
+  font-weight: bold;
   color: var(--black);
 }
 
@@ -32,4 +33,13 @@
 .title {
   font-family: var(--fontfamily-roboto);
   // font-size: 1.1em;
+}
+
+#yt-info a {
+  text-decoration: none;
+  color: var(--light-blue);
+}
+
+#yt-info a:hover {
+  text-decoration: underline;
 }
