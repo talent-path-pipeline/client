@@ -4,7 +4,7 @@ import { Lesson, LessonsPane } from '..';
 import '../../css/pages/LessonPage.scss';
 
 function LessonPage(props) {
-  const { curr_lesson_num, lessons, base_path } = props;
+  const { curr_lesson_num, lessons, base_path, course_title } = props;
   // const { title, src, description, id } = lessons.find(elem => elem.id === activeId);
   // const { title, src, description, order } = lessons[curr_lesson_num];
   const lesson = lessons[curr_lesson_num];
@@ -13,12 +13,18 @@ function LessonPage(props) {
   return (
     <div className="lesson-page">
       <Lesson lesson={lesson} course_size={total} base_path={base_path}/>
-      <LessonsPane lessons={lessons} curr_lesson_num={curr_lesson_num} base_path={base_path} />
+      <LessonsPane
+        course_title={course_title}
+        lessons={lessons}
+        curr_lesson_num={curr_lesson_num}
+        base_path={base_path}
+      />
     </div>
   );
 }
 
 LessonPage.propTypes = {
+  course_title: PropTypes.string.isRequired,
   curr_lesson_num: PropTypes.number.isRequired,
   lessons: PropTypes.arrayOf(
     PropTypes.shape({
