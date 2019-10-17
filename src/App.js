@@ -63,13 +63,16 @@ class App extends React.Component {
     }
   }
 
-  
+  handleLogoff = () =>{
+    tokenServices.removeToken();
+    this.setState({isAuthenticated: false, user: null})
+  }
   render() {
     const { courses } = DUMMY_DATA;
     //const { user, isAuthenticated } = this.state;
     return (
       <div id="start-page">
-        <NavBar links={links} isAuthenticated={this.state.isAuthenticated} />
+        <NavBar links={links} isAuthenticated={this.state.isAuthenticated} handleLogoff={this.handleLogoff} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route

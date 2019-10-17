@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../css/NavBar.scss';
 import '../css/BurgerMenu.scss';
-
+import TokenService from '../utils/tokenServices'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +69,8 @@ class NavBar extends React.Component {
           </li>
           <li><NavLink to={links.support}>Support</NavLink></li>
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
-          {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : (
+          {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : null}
+          {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log("LoGGING OFF"); this.props.handleLogoff()}} to={"/"}>Log Off</NavLink></li>) : (
           <li><NavLink to={links.login}>Login</NavLink></li>)}
           {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
