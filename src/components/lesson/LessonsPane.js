@@ -27,7 +27,7 @@ LessonsPane.propTypes = {
     PropTypes.shape({
       order: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      length: PropTypes.number.isRequired,
+      length: PropTypes.string.isRequired,
     }),
   ).isRequired,
   base_path: PropTypes.string.isRequired,
