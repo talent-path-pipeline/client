@@ -5,12 +5,12 @@ import '../../css/lesson/LessonNavBar.scss';
 
 const LessonNavBar = ({order, base_path, course_size}) => (
   <div className="lesson-nav">
-    { order !== 0
+    { order
       ? <button type="button" className='btn prev-btn'>
         <Link to={`/courses/${base_path}/${order - 1}`} >← Prev</Link>
       </button>
       : ''}
-    { order !== course_size - 1
+    { order < course_size - 1
       ? <button type="button" className="btn next-btn">
         <Link to={`/courses/${base_path}/${order + 1}`}>Next →</Link>
       </button>
@@ -25,7 +25,7 @@ LessonNavBar.propTypes = {
 };
 
 LessonNavBar.defaultProps = {
-  order: 0,
+  order: undefined,
 };
 
 export default LessonNavBar;

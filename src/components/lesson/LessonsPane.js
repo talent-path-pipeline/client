@@ -5,7 +5,7 @@ import '../../css/lesson/LessonsPane.scss';
 import LessonNavBar from './LessonNavBar';
 
 // TODO: add next and previous course buttons
-const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path }) => (
+const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path, prev_slug, next_slug }) => (
   <div className="lessons-pane">
     <LessonNavBar />
     <h2>{course_title}</h2>
