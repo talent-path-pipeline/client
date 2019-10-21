@@ -7,8 +7,10 @@ import LessonNavBar from './LessonNavBar';
 // TODO: add next and previous course buttons
 const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path, prev_slug, next_slug }) => (
   <div className="lessons-pane">
-    <LessonNavBar prev_path={prev_slug ? `/courses/${prev_slug}/0`: undefined} next_path={next_slug ? `/courses/${next_slug}/0` : undefined} />
-    <h2>{course_title}</h2>
+    <h2>
+      <LessonNavBar className="course-nav" prev_path={prev_slug ? `/courses/${prev_slug}/0`: undefined} next_path={next_slug ? `/courses/${next_slug}/0` : undefined} />
+      {course_title}
+</h2>
     {lessons.map(({ order, title, length }) => (
       <LessonLink
         key={order}
