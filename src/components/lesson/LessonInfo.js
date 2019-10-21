@@ -11,7 +11,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
   const nextPath = order < course_size - 1 ? `/courses/${base_path}/${order + 1}` : undefined;
   return (
     <div className="lesson-info">
-      <LessonNavBar order={order} base_path={base_path} course_size={course_size} prev_path={prevPath} next_path={nextPath} />
+      <LessonNavBar className="lesson-nav" order={order} base_path={base_path} course_size={course_size} prev_path={prevPath} next_path={nextPath} />
       <h4 id="lesson-playing">Now playing:</h4>
       <h2>{title || 'Lesson'}</h2>
       <hr />

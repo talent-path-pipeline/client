@@ -25,8 +25,8 @@ LessonNavBar.propTypes = {
 };
 
 LessonNavBar.defaultProps = {
-  prev_path: undefined,
-  next_path: undefined,
+  prev_path: '',
+  next_path: '',
 };
 
 export default LessonNavBar;
