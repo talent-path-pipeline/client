@@ -1,5 +1,5 @@
 import React from 'react';
-import { LessonNav } from '..';
+import { LessonNavBar } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
@@ -10,7 +10,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
 
   return (
     <div className="lesson-info">
-      <LessonNav order={order} base_path={base_path} course_size={course_size} />
+      <LessonNavBar order={order} base_path={base_path} course_size={course_size} />
       <h4 id="lesson-playing">Now playing:</h4>
       <h2>{title || 'Lesson'}</h2>
       <hr />

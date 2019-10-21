@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import '../../css/lesson/LessonNav.scss';
+import '../../css/lesson/LessonNavBar.scss';
 
-const LessonNav = ({order, base_path, course_size}) => (
+const LessonNavBar = ({order, base_path, course_size}) => (
   <div className="lesson-nav">
     { order !== 0
       ? <button type="button" className='btn prev-btn'>
@@ -18,10 +18,14 @@ const LessonNav = ({order, base_path, course_size}) => (
   </div>
 );
 
-LessonNav.propTypes = {
-  order: PropTypes.number.isRequired,
+LessonNavBar.propTypes = {
+  order: PropTypes.number,
   base_path: PropTypes.string.isRequired,
   course_size: PropTypes.number.isRequired,
 };
 
-export default LessonNav;
+LessonNavBar.defaultProps = {
+  order: 0,
+};
+
+export default LessonNavBar;
