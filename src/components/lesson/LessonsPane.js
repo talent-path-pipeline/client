@@ -33,8 +33,12 @@ LessonsPane.propTypes = {
     }),
   ).isRequired,
   base_path: PropTypes.string.isRequired,
-  prev_slug: PropTypes.string.isRequired,
-  next_slug: PropTypes.string.isRequired,
+  prev_slug: PropTypes.string,
+  next_slug: PropTypes.string,
 };
 
+LessonsPane.defaultProps = {
+  prev_slug: undefined,
+  next_slug: undefined,
+};
 export default LessonsPane;

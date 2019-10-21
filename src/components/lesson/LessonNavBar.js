@@ -19,8 +19,13 @@ const LessonNavBar = ({prev_path, next_path}) => (
 );
 
 LessonNavBar.propTypes = {
-  prev_path: PropTypes.string.isRequired,
-  next_path: PropTypes.string.isRequired,
+  prev_path: PropTypes.string,
+  next_path: PropTypes.string,
+};
+
+LessonNavBar.defaultProps = {
+  prev_path: undefined,
+  next_path: undefined,
 };
 
 export default LessonNavBar;
