@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonNav.scss';
 
-const CourseNav = ({prev_path, next_path}) => (
+const LessonNav = ({prev_path, next_path}) => (
   <div className="lesson-nav">
     { prev_path
       ? <button type="button" className='btn prev-btn'>
@@ -18,9 +18,9 @@ const CourseNav = ({prev_path, next_path}) => (
   </div>
 );
 
-CourseNav.propTypes = {
+LessonNav.propTypes = {
   prev_path: PropTypes.string.isRequired,
   next_path: PropTypes.string.isRequired,
 };
 
-export default CourseNav;
+export default LessonNav;

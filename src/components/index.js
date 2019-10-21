@@ -10,7 +10,7 @@ export { default as CourseInfo } from './course/CourseInfo';
 // ========================================
 // lesson
 export { default as LessonInfo } from './lesson/LessonInfo';
-export { default as LessonNavBar } from './lesson/LessonNavBar';
+export { default as LessonNav } from './lesson/LessonNav';
 export { default as LessonVideo } from './lesson/LessonVideo';
 export { default as LessonLink } from './lesson/LessonLink';
 export { default as LessonsPane } from './lesson/LessonsPane';

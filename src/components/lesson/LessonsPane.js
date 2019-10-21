@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LessonLink } from '..';
 import '../../css/lesson/LessonsPane.scss';
-import LessonNavBar from './LessonNavBar';
+import LessonNav from './CourseNav';
 
 // TODO: add next and previous course buttons
 const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path, prev_slug, next_slug }) => (
   <div className="lessons-pane">
-    <LessonNavBar />
+    <LessonNav prev_path={prev_slug ? `/courses/${prev_slug}/0`: undefined} next_path={next_slug ? `/courses/${next_slug}/0` : undefined} />
     <h2>{course_title}</h2>
     {lessons.map(({ order, title, length }) => (
       <LessonLink
@@ -33,6 +33,8 @@ LessonsPane.propTypes = {
     }),
   ).isRequired,
   base_path: PropTypes.string.isRequired,
+  prev_slug: PropTypes.string.isRequired,
+  next_slug: PropTypes.string.isRequired,
 };
 
 export default LessonsPane;

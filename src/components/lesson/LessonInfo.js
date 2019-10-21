@@ -1,5 +1,5 @@
 import React from 'react';
-import { LessonNavBar } from '..';
+import { LessonNav } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
@@ -7,10 +7,11 @@ const getVideoURL = embedLink => embedLink.replace('embed/', 'watch?v=');
 
 const LessonInfo = ({ lesson, base_path, course_size }) => {
   const {title, description, order, src, yt_chan_name, yt_chan_src, yt_title, yt_desc} = lesson;
-
+  const prevPath = order ? `/courses/${base_path}/${order - 1}` : undefined;
+  const nextPath = order < course_size - 1 ? `/courses/${base_path}/${order + 1}` : undefined;
   return (
     <div className="lesson-info">
-      <LessonNavBar order={order} base_path={base_path} course_size={course_size} />
+      <LessonNav order={order} base_path={base_path} course_size={course_size} prev_path={prevPath} next_path={nextPath} />
       <h4 id="lesson-playing">Now playing:</h4>
       <h2>{title || 'Lesson'}</h2>
       <hr />

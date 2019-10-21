@@ -64,8 +64,8 @@ function App() {
                 lessons={courseObj.lessons}
                 curr_lesson_num={order}
                 base_path={courseObj.slug}
-                prev_slug={prevCourse ? prevCourse.slug : null}
-                next_slug={nextCourse ? nextCourse.slug : null}
+                prev_slug={prevCourse ? prevCourse.slug : undefined}
+                next_slug={nextCourse ? nextCourse.slug : undefined}
 
               />
             );
