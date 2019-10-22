@@ -53,6 +53,8 @@ function App() {
             const courseObj = courses.find(
               course => course.slug === props.match.params.course,
             );
+            const prevCourse = courses.find(course => course.order === courseObj.order - 1);
+            const nextCourse = courses.find(course => course.order === courseObj.order + 1);
             const order = parseInt(props.match.params.order, 10);
             if (!courseObj || order >= courseObj.lessons.length) return <ErrorPage />;
             return (
@@ -62,6 +64,9 @@ function App() {
                 lessons={courseObj.lessons}
                 curr_lesson_num={order}
                 base_path={courseObj.slug}
+                prev_slug={prevCourse ? prevCourse.slug : undefined}
+                next_slug={nextCourse ? nextCourse.slug : undefined}
+
               />
             );
           }}
