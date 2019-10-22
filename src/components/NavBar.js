@@ -66,6 +66,7 @@ class NavBar extends React.Component {
             <NavLink to={links.about}>About</NavLink>
           </li>
           <li><NavLink to={links.support}>Support</NavLink></li>
+          <li><a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a></li>
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
           {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
@@ -94,9 +95,7 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.support}>
               Support
             </NavLink>
-            {/* <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
-              Lesson
-            </NavLink> */}
+            <a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a>
           </Menu>
         </div>
       </div>
