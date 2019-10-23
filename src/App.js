@@ -48,7 +48,9 @@ class App extends Component {
 
   componentDidMount() {
     contentAPI.getAllNestedPaths().then(contentResp => {
-      this.setState({ only_path: contentResp.data[0] });
+      if (contentResp.data[0]) {
+        this.setState({ only_path: contentResp.data[0] });
+      }
     });
   }
 

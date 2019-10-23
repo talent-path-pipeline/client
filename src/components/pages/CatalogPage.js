@@ -14,8 +14,10 @@ class CatalogPage extends Component {
 
   componentDidMount() {
     contentAPI.getAllNestedCourses().then(contentResp => {
-      this.all_courses = contentResp.data;
-      this.setState({ curr_courses: contentResp.data });
+      if (contentResp.data) {
+        this.all_courses = contentResp.data;
+        this.setState({ curr_courses: contentResp.data });
+      }
     });
   }
 
