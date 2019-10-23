@@ -3,34 +3,60 @@ import { LessonNavBar } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
-const getVideoURL = embedLink => embedLink.replace('embed/', 'watch?v=');
-
 const LessonInfo = ({ lesson, base_path, course_size }) => {
-  const {title, description, order, src, yt_chan_name, yt_chan_src, yt_title, yt_desc} = lesson;
-  const prevPath = order ? `/courses/${base_path}/${order - 1}` : undefined;
-  const nextPath = order < course_size - 1 ? `/courses/${base_path}/${order + 1}` : undefined;
+  const {
+    title,
+    description,
+    order,
+    video_id,
+    channel_name,
+    channel_id,
+    video_title,
+    video_description,
+  } = lesson;
+  const base_link = `/courses/${base_path}/`;
+  const prevPath = order > 0 ? `${base_link}${order - 1}` : undefined;
+  const nextPath = order < course_size - 1 ? `${base_link}/${order + 1}` : undefined;
   return (
     <div className="lesson-info">
-      <LessonNavBar className="lesson-nav" order={order} base_path={base_path} course_size={course_size} prev_path={prevPath} next_path={nextPath} />
-      <h4 id="lesson-playing">Now playing:</h4>
+      <LessonNavBar
+        className="lesson-nav"
+        order={order}
+        base_path={base_path}
+        course_size={course_size}
+        prev_path={prevPath}
+        next_path={nextPath}
+      />
+      <h4 className="lesson-playing">Now Playing:</h4>
       <h2>{title || 'Lesson'}</h2>
       <hr />
-      <p id="lesson-description">{description || 'No description provided'}</p>
+      <p className="lesson-description">{description || 'No description provided'}</p>
       <hr />
-
-      <div id="yt-info">
-        <h3 className="subheader">Youtube credits</h3>
-        <p id="yt-chan">
+      <div className="yt-info">
+        <h3 className="subheader">YouTube credits:</h3>
+        <p className="yt-chan">
           <span className="title">Creator: </span>
-          <a href={yt_chan_src} target="_blank" rel="noopener noreferrer">{yt_chan_name || 'YouTube Channel goes here'}</a>
+          <a
+            href={`https://www.youtube.com/${channel_id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {channel_name || 'YouTube Channel'}
+          </a>
         </p>
-        <p id="yt-title">
-          <span className="title">Video title: </span>
-          <a href={getVideoURL(src)} target="_blank" rel="noopener noreferrer">{yt_title || 'Original YouTube Video'}</a>
+        <p className="yt-title">
+          <span className="title">Video Title: </span>
+          <a
+            href={`https://www.youtube.com/watch?v=/${video_id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {video_title || 'Original YouTube Video'}
+          </a>
         </p>
-        <p id="yt-desc">
+        <p className="yt-desc">
           <span className="title">Video Description: </span>
-          {yt_desc || 'YouTube description goes here'}
+          {video_description || 'YouTube Description'}
         </p>
       </div>
     </div>
@@ -39,14 +65,17 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
 
 LessonInfo.propTypes = {
   lesson: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     order: PropTypes.number.isRequired,
-    yt_chan_name: PropTypes.string.isRequired,
-    yt_chan_src: PropTypes.string.isRequired,
-    yt_title: PropTypes.string.isRequired,
-    yt_desc: PropTypes.string.isRequired,
+    start: PropTypes.number,
+    end: PropTypes.number,
+    video_id: PropTypes.string.isRequired,
+    video_title: PropTypes.string.isRequired,
+    video_description: PropTypes.string.isRequired,
+    channel_id: PropTypes.string.isRequired,
+    channel_name: PropTypes.string.isRequired,
   }).isRequired,
   base_path: PropTypes.string.isRequired,
   course_size: PropTypes.number.isRequired,

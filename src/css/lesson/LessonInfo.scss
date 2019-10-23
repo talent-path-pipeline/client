@@ -1,7 +1,7 @@
 @import '../VARIABLES.scss';
 
 .lesson-info {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   padding: 3rem;
   border: 2px solid var(--blue);
 }
@@ -30,7 +30,7 @@
   color: var(--brown);
 }
 
-.title {
+.lesson-info .title {
   font-family: var(--fontfamily-roboto);
   // font-size: 1.1em;
 }

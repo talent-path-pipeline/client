@@ -7,21 +7,24 @@ import '../../css/lesson/Lesson.scss';
 
 const Lesson = ({ lesson, course_size, base_path }) => (
   <div className="lesson" key={lesson.order}>
-    <LessonVideo title={lesson.title} src={lesson.src} />
+    <LessonVideo title={lesson.title} video_id={lesson.video_id} />
     <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
   </div>
 );
 
 Lesson.propTypes = {
   lesson: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     order: PropTypes.number.isRequired,
-    yt_chan_name: PropTypes.string.isRequired,
-    yt_chan_src: PropTypes.string.isRequired,
-    yt_title: PropTypes.string.isRequired,
-    yt_desc: PropTypes.string.isRequired,
+    start: PropTypes.number,
+    end: PropTypes.number,
+    video_id: PropTypes.string.isRequired,
+    video_title: PropTypes.string.isRequired,
+    video_description: PropTypes.string.isRequired,
+    channel_id: PropTypes.string.isRequired,
+    channel_name: PropTypes.string.isRequired,
   }).isRequired,
   course_size: PropTypes.number.isRequired,
   base_path: PropTypes.string.isRequired,
