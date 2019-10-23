@@ -11,7 +11,9 @@ const PathPage = ({ path_data }) => (
       subtitle2={path_data.subtitle2}
       image_link={`./images/${path_data.image_name}`}
     />
-    <PathTree courses={path_data.courses} />
+    {path_data.courses && path_data.courses.length > 0 && (
+      <PathTree courses={path_data.courses} />
+    )}
   </div>
 );
 

@@ -37,7 +37,9 @@ class CatalogPage extends Component {
         </header>
         <hr className="catalog-line" />
         {/* TODO: <CatalogFilter /> */}
-        <CatalogList courses={curr_courses} />
+        {curr_courses && curr_courses.length > 0 && (
+          <CatalogList courses={curr_courses} />
+        )}
       </div>
     );
   }
