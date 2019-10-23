@@ -1,4 +1,4 @@
-@import '../VARIABLES.scss';
+// TODO: clean this up
 
 .lesson-info {
   background-color: #eeeeee;
@@ -12,7 +12,7 @@
   text-shadow: 1px 0px var(--greyblue);
 }
 
-#lesson-playing {
+.lesson-playing {
   color: var(--black);
 }
 
@@ -22,7 +22,7 @@
   color: var(--black);
 }
 
-#yt-info {
+.yt-info {
   margin: 1rem 0;
 }
 
@@ -35,11 +35,11 @@
   // font-size: 1.1em;
 }
 
-#yt-info a {
+.yt-info a {
   text-decoration: none;
   color: var(--light-blue);
 }
 
-#yt-info a:hover {
+.yt-info a:hover {
   text-decoration: underline;
 }

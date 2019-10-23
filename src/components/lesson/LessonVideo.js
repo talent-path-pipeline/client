@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../css/lesson/LessonVideo.scss';
 
 const LessonVideo = ({ title, video_id }) => (
+  // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
   <div className="lesson-video">
     <iframe
       title={title}
