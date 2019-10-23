@@ -41,6 +41,9 @@ class App extends Component {
     super(props);
     this.state = {
       only_path: {
+        title: 'Path Title',
+        subtitle: 'Path Subtitle',
+        image_name: 'path-image-main.jpg',
         courses: [],
       },
     };
