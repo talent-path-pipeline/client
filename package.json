@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0"
   }
 }
