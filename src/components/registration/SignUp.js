@@ -19,16 +19,7 @@ class SignUp extends Component {
         email: false,
         password: false,
       },
-      // Controls when there are failed validations when registering
-      disableButton: true,
-      // Showsgdfgsdgss error message if server fails
-      showRegsgdfgsdgsistrationFailure: false,
-      // Showsgdfgsdgss when waiting for server response
-      showSpisgdfgsdgsnner: false,
-      successfulRegister: false,
-      // Used for redirecting
-      loggedIn: false
-    }
+    };
   }
   
   /**
@@ -53,10 +44,10 @@ class SignUp extends Component {
       .catch(error => {
         try {
           // Handles errors that are not HTTP specific
-          console.log(error)
+          console.log(error);
           this.setState({ showRegistrationFailure: true });
           if (!error.status) {
-            console.log('A network error has occured.')
+            console.log('A network error has occured.');
           } else if (error.response.status === 400) {
             console.log('Bad Request');
           } else if (error.response.status === 500) {
@@ -192,7 +183,9 @@ class SignUp extends Component {
           />
           <p>
               By clicking "Sign Up" you are agreeing
-              to our <a href="www.google.com">Terms and Agreement</a>
+              to our
+            {' '}
+            <a href="www.google.com">Terms and Agreement</a>
           </p>
           <button
             id="register-button"
@@ -202,7 +195,11 @@ class SignUp extends Component {
           >
               Sign Up
           </button>
-          <p>Go back to <button id='login-button' type="button" onClick={backToLogin()}>Log in!</button></p>
+          <p>
+Go back to
+            {' '}
+            <button id='login-button' type="button" onClick={backToLogin()}>Log in!</button>
+          </p>
         </form>
         <WarningBanner
           warn={this.state.showRegistrationFailure}
@@ -227,7 +224,10 @@ function WarningBanner(props) {
   if (!props.warn) {
     return null;
   }
-  return <div className="warning"> {props.message}</div>;
+  return <div className="warning">
+    {' '}
+    {props.message}
+  </div>;
 }
 
 SignUp.propTypes = {

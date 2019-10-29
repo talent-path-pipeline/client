@@ -35,7 +35,7 @@ class App extends React.Component {
     this.state = {
       user: null,
       isAuthenticated: false,
-    }
+    };
   }
 
   componentWillMount = () => {
@@ -65,11 +65,12 @@ class App extends React.Component {
 
   handleLogoff = () =>{
     tokenServices.removeToken();
-    this.setState({isAuthenticated: false, user: null})
+    this.setState({isAuthenticated: false, user: null});
   }
+
   render() {
     const { courses } = DUMMY_DATA;
-    //const { user, isAuthenticated } = this.state;
+    // const { user, isAuthenticated } = this.state;
     return (
       <div id="start-page">
         <NavBar links={links} isAuthenticated={this.state.isAuthenticated} handleLogoff={this.handleLogoff} />
