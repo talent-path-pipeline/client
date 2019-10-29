@@ -11,19 +11,16 @@ class DashboardPage extends React.Component{
     userPersona: '',
     active: 'overview',
   }
+
   componentDidMount(){
     const token = tokenService.getToken();
     if(!token){
       // Redirect to HTTP ErrorCode 500 page, this is a placeholder, replace with real
-      this.props.history.push('/login')
-      // This following code is a placeholder to show that the user isn't loggedIn
-      this.setState({userID: -1});
-      this.setState({userPersona: "Not Logged In"});
-    }
-    else {
+      this.props.history.push('/login');
+    } else {
       this.setState({userID: token.id});
       this.setState({userPersona: token.persona});
-      this.setState({userName: token.fullName})
+      this.setState({userName: token.fullName});
     }
   }
 
@@ -34,12 +31,6 @@ class DashboardPage extends React.Component{
   goToSettings = () => {
     this.setState({ active: 'settings' });
   };
-
-  // TODO: Implement Logout
-  logout = () => {
-    console.log('LOGGING OUT');
-  }
-
 
   render(){
     return (
@@ -52,22 +43,35 @@ class DashboardPage extends React.Component{
         />
         {this.state.active === 'overview' ? (
           <div className="dashboardBody">
-            <h1 className="dashboardHeader">Welcome, {this.state.userName ? this.state.userName : 'Anon'}!</h1>
-            <p className="dashboardText">Persona: {this.state.userPersona}</p>
+            <h1 className="dashboardHeader">
+Welcome,
+              {' '}
+              {this.state.userName ? this.state.userName : 'Anon'}
+!
+            </h1>
+           
           </div>
         ) : (
           ''
         )}
         {this.state.active === 'settings' ? (
           <div className="dashboardBody">
-            <h1 className="dashboardHeader">{this.state.userName}'s Account</h1>
-            <p className="dashboardText"> User ID: {this.state.userID}</p>
+            <h1 className="dashboardHeader">
+              {this.state.userName}
+'s Account
+            </h1>
+            <p className="dashboardText">
+              {' '}
+User ID:
+              {' '}
+              {this.state.userID}
+            </p>
           </div>
         ) : (
           ''
         )}
       </main>
-    )
+    );
   }
 }
 

@@ -63,17 +63,14 @@ class NavBar extends React.Component {
           <li>
             <NavLink to={links.catalog}>Catalog</NavLink>
           </li>
-          {/* Commented out until implemented */}
           <li>
             <NavLink to={links.about}>About</NavLink>
           </li>
           <li><NavLink to={links.support}>Support</NavLink></li>
           <li><a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a></li>
-          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
           {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : null}
           {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log('LoGGING OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink></li>) : (
             <li><NavLink to={links.login}>Login</NavLink></li>)}
-          {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -93,6 +90,11 @@ class NavBar extends React.Component {
             <NavLink onClick={() => this.closeMenu()} to={links.about}>
               About
             </NavLink>
+            <NavLink onClick={() => this.closeMenu()} to={links.support}>
+              Support
+            </NavLink>
+            <a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a>
+
             {this.state.isAuthenticated ? (
               <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
               Dashboard
@@ -102,10 +104,7 @@ class NavBar extends React.Component {
             {this.state.isAuthenticated ? (<NavLink onClick={()=>{console.log('Logging OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink>) : (
               <NavLink to={links.login}>Login</NavLink>)}
 
-            <NavLink onClick={() => this.closeMenu()} to={links.support}>
-              Support
-            </NavLink>
-            <a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a>
+            
           </Menu>
         </div>
       </div>
