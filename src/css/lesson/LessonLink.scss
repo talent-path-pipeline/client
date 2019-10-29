@@ -1,49 +1,36 @@
-
 @import '../VARIABLES.scss';
 
 .lesson-link {
   border: dotted var(--blue) 0.5px;
+  font-family: var(--fontfamily-alt);
+  color: var(--black);
+
+  .video-length {
+    float: right;
+  }
 }
 
-.lesson-link .link {
+a.lesson-link,
+p.lesson-link {
   display: flex;
   justify-content: space-between;
-  // padding: 1rem;
-  cursor: pointer;
-  font-family: var(--fontfamily-alt);
-
-  p {
-    color: var(--black);
-  }
-
-}
-
-.lesson-link .link a {
-  color: var(--black);
-  text-decoration: none;
   padding: 1rem;
   width: 100%;
 }
 
-.lesson-link .link:hover a{
+a.lesson-link {
+  cursor: pointer;
+  color: var(--black);
+  text-decoration: none;
+}
+
+p.lesson-link {
+  color: var(--white);
+  background-color: var(--brown);
+}
+
+a.lesson-link:hover {
   background-color: var(--greyblue);
   color: var(--white);
   border: none;
-}
-
-.lesson-link .video-length {
-  float: right;
-}
-
-.lesson-link .active-video {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: var(--brown);
-  font-family: var(--fontfamily-alt);
-}
-
-
-.lesson-link .active-video p{
-  width: 100%;
 }
