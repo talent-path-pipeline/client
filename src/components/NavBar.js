@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../css/NavBar.scss';
 import '../css/BurgerMenu.scss';
-import TokenService from '../utils/tokenServices'
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class NavBar extends React.Component {
   render() {
     const { menuOpen } = this.state;
     const { links, isAuthenticated } = this.props;
-    this.state.isAuthenticated = isAuthenticated
+    this.state.isAuthenticated = isAuthenticated;
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
@@ -70,8 +70,8 @@ class NavBar extends React.Component {
           <li><NavLink to={links.support}>Support</NavLink></li>
           {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
           {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : null}
-          {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log("LoGGING OFF"); this.props.handleLogoff()}} to={"/"}>Log Off</NavLink></li>) : (
-          <li><NavLink to={links.login}>Login</NavLink></li>)}
+          {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log('LoGGING OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink></li>) : (
+            <li><NavLink to={links.login}>Login</NavLink></li>)}
           {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
         </ul>
         <div className="mobile-nav">
@@ -93,13 +93,13 @@ class NavBar extends React.Component {
               About
             </NavLink>
             {this.state.isAuthenticated ? (
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
+              <NavLink onClick={() => this.closeMenu()} to={links.dashboard}>
               Dashboard
-            </NavLink>
+              </NavLink>
             ) : (null
             )}
-            {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log("LoGGING OFF"); this.props.handleLogoff()}} to={"/"}>Log Off</NavLink></li>) : (
-          <li><NavLink to={links.login}>Login</NavLink></li>)}
+            {this.state.isAuthenticated ? (<NavLink onClick={()=>{console.log('Logging OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink>) : (
+              <NavLink to={links.login}>Login</NavLink>)}
 
             <NavLink onClick={() => this.closeMenu()} to={links.support}>
               Support
