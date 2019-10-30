@@ -7,13 +7,13 @@ import { Route, Redirect } from 'react-router-dom';
  * @param {Object} props Props Variables
  * @param {Symbol} props.component Rendered component
  * @param {String} props.redirectLink Link for default route
- * @param {bool} props.isSomething A boolean flag
+ * @param {bool} props.isAuthenticated A boolean flag
  */
-const ProtectedDashboardRoute = ({ component: Component, isSomething, redirectLink, ...rest }) => (
+const ProtectedDashboardRoute = ({ component: Component, isAuthenticated, redirectLink, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      isSomething ? (
+      isAuthenticated ? (
         <Component {...props} {...rest} />
       ) : (
         <Redirect to={{ pathname: redirectLink, state: { from: props.location } }} />
@@ -24,7 +24,7 @@ const ProtectedDashboardRoute = ({ component: Component, isSomething, redirectLi
 
 ProtectedDashboardRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  isSomething: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   redirectLink: PropTypes.string.isRequired,
   location: PropTypes.object, // FIXME: Check out how to get this to not yell with .isRequired
 };
