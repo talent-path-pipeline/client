@@ -16,7 +16,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
   } = lesson;
   const base_link = `/courses/${base_path}/`;
   const prevPath = order > 0 ? `${base_link}${order - 1}` : undefined;
-  const nextPath = order < course_size - 1 ? `${base_link}/${order + 1}` : undefined;
+  const nextPath = order < course_size - 1 ? `${base_link}${order + 1}` : undefined;
   return (
     <div className="lesson-info">
       <LessonNavBar
@@ -37,7 +37,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
         <p className="yt-chan">
           <span className="title">Creator: </span>
           <a
-            href={`https://www.youtube.com/${channel_id}`}
+            href={`https://www.youtube.com/channel/${channel_id}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -47,7 +47,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
         <p className="yt-title">
           <span className="title">Video Title: </span>
           <a
-            href={`https://www.youtube.com/watch?v=/${video_id}`}
+            href={`https://www.youtube.com/watch?v=${video_id}`}
             target="_blank"
             rel="noopener noreferrer"
           >
