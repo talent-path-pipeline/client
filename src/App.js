@@ -85,7 +85,7 @@ class App extends React.Component {
           {/* Login Protected Route */}
           <ProtectedRoute
             path={links.login}
-            isSomething={!this.state.isAuthenticated}
+            isAuthenticated={!this.state.isAuthenticated}
             redirectLink={links.dashboard}
             component={RegistrationPage}
             handleLogin={this.handleLogin}
@@ -93,7 +93,7 @@ class App extends React.Component {
           {/* Dashboard Protected Route */}
           <ProtectedRoute
             path={links.dashboard}
-            isSomething={this.state.isAuthenticated}
+            isAuthenticated={this.state.isAuthenticated}
             redirectLink={links.login}
             component={DashboardPage}
           />
