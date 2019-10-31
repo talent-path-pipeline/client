@@ -7,7 +7,12 @@ import '../../css/lesson/Lesson.scss';
 
 const Lesson = ({ lesson, course_size, base_path }) => (
   <div className="lesson" key={lesson.order}>
-    <LessonVideo title={lesson.title} video_id={lesson.video_id} />
+    <LessonVideo
+      title={lesson.title}
+      video_id={lesson.video_id}
+      start={lesson.start}
+      end={lesson.end}
+    />
     <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
   </div>
 );
@@ -20,6 +25,7 @@ Lesson.propTypes = {
     order: PropTypes.number.isRequired,
     start: PropTypes.number,
     end: PropTypes.number,
+    length: PropTypes.number.isRequired,
     video_id: PropTypes.string.isRequired,
     video_title: PropTypes.string.isRequired,
     video_description: PropTypes.string.isRequired,

@@ -28,7 +28,7 @@ const LessonLink = ({ title, length, order, active, base_path }) => {
 LessonLink.propTypes = {
   title: PropTypes.string.isRequired,
   order: PropTypes.number.isRequired,
-  length: PropTypes.string.isRequired,
+  length: PropTypes.number.isRequired,
   active: PropTypes.bool.isRequired,
   base_path: PropTypes.string.isRequired,
 };

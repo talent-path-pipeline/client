@@ -71,6 +71,7 @@ LessonInfo.propTypes = {
     order: PropTypes.number.isRequired,
     start: PropTypes.number,
     end: PropTypes.number,
+    length: PropTypes.number.isRequired,
     video_id: PropTypes.string.isRequired,
     video_title: PropTypes.string.isRequired,
     video_description: PropTypes.string.isRequired,
