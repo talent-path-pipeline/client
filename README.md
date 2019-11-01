@@ -12,28 +12,39 @@ Stonhaven Academy is a white-label online learning platform.  We have developed 
 Pre-Alpha (0.0.0)
 
 ### Release Details:
-#### Upgrade Steps
-Includes:
-- Steps users have to take when they upgrade beyond just dumping the dependency.
-- Pseudocode that highlights what code should change and how.
-- Call out if users are recommended to upgrade because of known problems with older releases.
+<!-- #### Upgrade Steps -->
+<!--Includes:
+      - Steps users have to take when they upgrade beyond just dumping the dependency.
+      - Pseudocode that highlights what code should change and how.
+      - Call out if users are recommended to upgrade because of known problems with older releases. -->
 
 #### New Features
-Includes:
-- the new feature 
-- when/why to use it
-- pictures! 
-- caveats/warnings? 
-- Is it a beta feature?
+<!-- Includes:
+      - the new feature 
+      - when/why to use it
+      - pictures! 
+      - caveats/warnings? 
+      - Is it a beta feature? -->
+- Lesson Page
+  - List of Lessons in current course
+    - Cycle through lessons with next/prev buttons
+  - Youtube Credits
+- Support Page
+  - FAQ
+- Feedback
+  - Link to Google Forms feedback
+
 
 #### Bug Fixes
-Includes:
-- existing feature/functionality that now works as intended or expected.
+<!-- Includes:
+      - existing feature/functionality that now works as intended or expected.-->
+- No bugs...
 
 #### Improvements
-Includes:
-- Improvements/enhancements to a:
-  - workflow, performance, logging, error messaging, or user experience
+<!-- Includes:
+      - Improvements/enhancements to a:
+        - workflow, performance, logging, error messaging, or user experience -->
+- No feedback...
 
 ---
 ## Dev Notes
