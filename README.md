@@ -2,6 +2,14 @@
 ## Overview
 Stonhaven Academy is a white-label online learning platform.  We have developed this platform to teach a person how to be a DnD Dungeon Master.  The purpose of this project is to be able to develop a platform that is customizable for any learning path that a person or business needs.
 
+
+---
+## Table of Contents
+- [Release Notes](##Release%20Notes)
+- [Dev Notes](##Dev%20Notes)
+- [Availables Scripts](##Available%20Scripts)
+- [Learn More](##Learn%20More)
+
 ---
 ## Release Notes
 ### Build Status:
