@@ -6,7 +6,7 @@ Stonhaven Academy is a white-label online learning platform.  We have developed 
 ## Release Notes
 ### Build Status:
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/4a6764c5-39f3-4f9d-a730-0c7fc1370a76/deploy-status)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2e46d261-c26c-4458-b7c1-0543ce10a1d5/deploy-status)](https://app.netlify.com/sites/stonehaven-academy/deploys)
 
 ### Current Release:
 Pre-Alpha (0.0.0)
