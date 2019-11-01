@@ -7,7 +7,7 @@ Stonhaven Academy is a white-label online learning platform.  We have developed 
 ## Table of Contents
 - [Release Notes](##Release%20Notes)
 - [Dev Notes](##Dev%20Notes)
-- [Availables Scripts](##Available%20Scripts)
+- [Available Scripts](##Available%20Scripts)
 - [Learn More](##Learn%20More)
 
 ---
