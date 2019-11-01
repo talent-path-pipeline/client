@@ -44,12 +44,8 @@ class DashboardPage extends React.Component{
         {this.state.active === 'overview' ? (
           <div className="dashboardBody">
             <h1 className="dashboardHeader">
-Welcome,
-              {' '}
-              {this.state.userName ? this.state.userName : 'Anon'}
-!
+              {`Welcome, ${this.state.userName || 'Anon'}`}
             </h1>
-           
           </div>
         ) : (
           ''
@@ -61,10 +57,7 @@ Welcome,
 's Account
             </h1>
             <p className="dashboardText">
-              {' '}
-User ID:
-              {' '}
-              {this.state.userID}
+              {`User ID: ${this.state.userID}`}
             </p>
           </div>
         ) : (
