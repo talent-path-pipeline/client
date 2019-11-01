@@ -1,0 +1,47 @@
+.yt-info {
+  margin: 1rem 0;
+
+  .promo {
+    font-family: var(--fontfamily-alt);
+  }
+
+  .subheader {
+    color: var(--brown);
+  }
+
+  .chunk {
+    margin-top: 8px;
+  }
+
+  .yt-desc {
+    //   overflow: auto;
+
+    .yt-desc-line {
+      // border: 1px solid red;
+      margin: 1px 0px 2px 0px;
+      // font-size: calc(0.6em + 0.75vw);
+      font-size: 0.85em;
+      line-height: 145%;
+      // overflow: hidden;
+    }
+
+    .pad-line {
+      // line-height: 100%;
+      padding-bottom: 0.8em;
+      // border: 1px solid green;
+    }
+
+    .breakline {
+      width: 88%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--light-blue);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
+// TODO: breaks if lesson is undefined somehow
 const Lesson = ({ lesson, course_size, base_path }) => (
   <div className="lesson" key={lesson.order}>
     <LessonVideo

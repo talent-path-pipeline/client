@@ -1,19 +1,10 @@
 import React from 'react';
-import { LessonNavBar } from '..';
+import { LessonNavBar, YouTubeInfo } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
 const LessonInfo = ({ lesson, base_path, course_size }) => {
-  const {
-    title,
-    description,
-    order,
-    video_id,
-    channel_name,
-    channel_id,
-    video_title,
-    video_description,
-  } = lesson;
+  const { title, description, order } = lesson;
   const base_link = `/courses/${base_path}/`;
   const prevPath = order > 0 ? `${base_link}${order - 1}` : undefined;
   const nextPath = order < course_size - 1 ? `${base_link}${order + 1}` : undefined;
@@ -32,33 +23,7 @@ const LessonInfo = ({ lesson, base_path, course_size }) => {
       <hr />
       <p className="lesson-description">{description || 'No description provided'}</p>
       <hr />
-      <div className="yt-info">
-        <h3 className="subheader">YouTube credits:</h3>
-        <p className="yt-chan">
-          <span className="title">Creator: </span>
-          <a
-            href={`https://www.youtube.com/channel/${channel_id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {channel_name || 'YouTube Channel'}
-          </a>
-        </p>
-        <p className="yt-title">
-          <span className="title">Video Title: </span>
-          <a
-            href={`https://www.youtube.com/watch?v=${video_id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {video_title || 'Original YouTube Video'}
-          </a>
-        </p>
-        <p className="yt-desc">
-          <span className="title">Video Description: </span>
-          {video_description || 'YouTube Description'}
-        </p>
-      </div>
+      <YouTubeInfo lesson={lesson} />
     </div>
   );
 };

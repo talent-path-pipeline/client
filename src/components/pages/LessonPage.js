@@ -5,7 +5,6 @@ import '../../css/pages/LessonPage.scss';
 
 function LessonPage(props) {
   const { curr_lesson_num, lessons, base_path } = props;
-  // const { title, src, description, id } = lessons.find(elem => elem.id === activeId);
   const lesson = lessons[curr_lesson_num];
   const total = lessons.length;
 

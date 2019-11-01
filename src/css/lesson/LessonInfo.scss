@@ -4,6 +4,7 @@
   background-color: #eeeeee;
   padding: 3rem;
   border: 2px solid var(--blue);
+  color: var(--black);
 }
 
 .lesson-info h2 {
@@ -22,24 +23,7 @@
   color: var(--black);
 }
 
-.yt-info {
-  margin: 1rem 0;
-}
-
-.subheader {
-  color: var(--brown);
-}
-
 .lesson-info .title {
   font-family: var(--fontfamily-roboto);
   // font-size: 1.1em;
-}
-
-.yt-info a {
-  text-decoration: none;
-  color: var(--light-blue);
-}
-
-.yt-info a:hover {
-  text-decoration: underline;
 }
