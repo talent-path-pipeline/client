@@ -1,3 +1,61 @@
+# Client
+## Overview
+Stonhaven Academy is a white-label online learning platform.  We have developed this platform to teach a person how to be a DnD Dungeon Master.  The purpose of this project is to be able to develop a platform that is customizable for any learning path that a person or business needs.
+
+
+---
+## Table of Contents
+- [Release Notes](##Release%20Notes)
+- [Dev Notes](##Dev%20Notes)
+- [Available Scripts](##Available%20Scripts)
+- [Learn More](##Learn%20More)
+
+---
+## Release Notes
+### Build Status:
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2e46d261-c26c-4458-b7c1-0543ce10a1d5/deploy-status)](https://app.netlify.com/sites/stonehaven-academy/deploys)
+
+### Current Release:
+Pre-Alpha (0.0.0)
+
+### Release Details:
+<!-- #### Upgrade Steps -->
+<!--Includes:
+      - Steps users have to take when they upgrade beyond just dumping the dependency.
+      - Pseudocode that highlights what code should change and how.
+      - Call out if users are recommended to upgrade because of known problems with older releases. -->
+
+#### New Features
+<!-- Includes:
+      - the new feature 
+      - when/why to use it
+      - pictures! 
+      - caveats/warnings? 
+      - Is it a beta feature? -->
+- Lesson Page
+  - List of Lessons in current course
+    - Cycle through lessons with next/prev buttons
+  - Youtube Credits
+- Support Page
+  - FAQ
+- Feedback
+  - Link to Google Forms feedback
+
+
+#### Bug Fixes
+<!-- Includes:
+      - existing feature/functionality that now works as intended or expected.-->
+- No bugs...
+
+#### Improvements
+<!-- Includes:
+      - Improvements/enhancements to a:
+        - workflow, performance, logging, error messaging, or user experience -->
+- No feedback...
+
+---
+## Dev Notes
 ### Naming conventions:
 
 - **Classes/Components**: Pascal case (e.g. `HomePage.js`)
@@ -11,10 +69,11 @@
 
 We are using VSCode for development with the ESLint and Prettier extensions for consistency. Configuration files for both extensions are included in the root of this repository. If contributing, please either install those extensions or read through them and ensure your code complies with the rules listed.
 
-------------------------------
+### Library
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+---
 ## Available Scripts
 
 In the project directory, you can run:
@@ -52,6 +111,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+---
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
