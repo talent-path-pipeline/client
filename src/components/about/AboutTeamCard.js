@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 
 class AboutTeamCard extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class AboutTeamCard extends React.Component {
    */
   toggleActive = () => {
     this.setState(prevState => ({ active: !prevState.active }));
+    ReactGA.event({ category: "Info", action: "User viewed a profile"});
   };
 
   /**
