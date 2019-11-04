@@ -14,25 +14,35 @@
   }
 
   .yt-desc {
-    //   overflow: auto;
+    .yt-desc-text {
+      overflow: hidden;
+      transition: height 0.2s ease-in-out;
+    }
 
     .yt-desc-line {
-      // border: 1px solid red;
       margin: 1px 0px 2px 0px;
       // font-size: calc(0.6em + 0.75vw);
       font-size: 0.85em;
       line-height: 145%;
-      // overflow: hidden;
     }
 
     .pad-line {
-      // line-height: 100%;
       padding-bottom: 0.8em;
-      // border: 1px solid green;
     }
 
     .breakline {
       width: 88%;
+    }
+
+    .see-more {
+      cursor: pointer;
+      border: none;
+      padding: 0.75rem;
+      margin-top: 8px;
+      font-family: var(--fontfamily);
+      font-size: 1rem;
+      background-color: var(--navy);
+      color: var(--cream);
     }
   }
 

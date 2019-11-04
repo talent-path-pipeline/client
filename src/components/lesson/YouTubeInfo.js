@@ -89,19 +89,18 @@ export default class YouTubeInfo extends Component {
    * line breaks, and turns it into a formatted JSX Element with breaks between lines
    * and working links.
    * @param {string} description the unformatted description
-   * @returns {JSX.Element} a formatted JSX element with correct line breaks and working links
+   * @returns {JSX.Element[]} an array of formatted JSX elements with correct line breaks and working links
    */
   formatDescription = description => {
-    if (!description) return <></>;
-    return (
-      <div className="yt-desc-text">{description.split('\n').map(this.formatLine)}</div>
-    );
+    if (!description) return [<></>];
+    return <>{description.split('\n').map(this.formatLine)}</>;
   };
 
   render() {
     const {
       lesson: { video_id, channel_name, channel_id, video_title, video_description },
     } = this.props;
+    const { open } = this.state;
 
     return (
       <div className="yt-info">
@@ -133,9 +132,14 @@ export default class YouTubeInfo extends Component {
         </section>
         <section className="yt-desc chunk">
           <p className="title">Video Description: </p>
-          {!video_description
-            ? 'YouTube Description'
-            : this.formatDescription(video_description)}
+          <div className="yt-desc-text" style={{ height: open ? 'auto' : '300px' }}>
+            {!video_description
+              ? 'YouTube Description'
+              : this.formatDescription(video_description)}
+          </div>
+          <button type="button" className="see-more" onClick={this.toggleOpen}>
+            {`See ${open ? 'Less' : 'More'}`}
+          </button>
         </section>
       </div>
     );
