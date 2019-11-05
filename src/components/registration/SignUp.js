@@ -53,7 +53,7 @@ class SignUp extends Component {
     axios
       .post(`${REACT_APP_SVR_API}/user/`, data)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
@@ -74,6 +74,7 @@ class SignUp extends Component {
             console.error('An unknown error has occurred');
           }
         } catch (ex) {
+          alert('Something went wrong...');
           Promise.reject(ex);
         }
       });

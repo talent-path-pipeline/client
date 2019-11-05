@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import DUMMY_DATA from './DUMMY_DATA';
-import tokenServices from './utils/tokenServices';
-import ProtectedRoute from './utils/ProtectedRoute';
+import { tokenServices, ProtectedRoute } from './utils';
 import {
   NavBar,
   HomePage,
@@ -38,11 +37,11 @@ class App extends React.Component {
     };
   }
 
-  componentWillMount = () => {
-    const { history, location } = this.props;
-    console.log(history);
-    console.log(location);
-  }
+  // componentWillMount = () => {
+  //   const { history, location } = this.props;
+  //   console.log(history);
+  //   console.log(location);
+  // }
 
   /**
    * get user data from database
@@ -52,7 +51,7 @@ class App extends React.Component {
     if (user) {
       this.setState({ isAuthenticated: true, user });
     }
-  }
+  };
 
   handleLogin = () => {
     const user = tokenServices.getToken();
@@ -61,19 +60,24 @@ class App extends React.Component {
     } else {
       this.setState({ isAuthenticated: null, user: null });
     }
-  }
+  };
 
-  handleLogoff = () =>{
+  handleLogoff = () => {
     tokenServices.removeToken();
-    this.setState({isAuthenticated: false, user: null});
-  }
+    this.setState({ isAuthenticated: false, user: null });
+  };
 
   render() {
     const { courses } = DUMMY_DATA;
-    // const { user, isAuthenticated } = this.state;
+    const { user, isAuthenticated } = this.state;
+
     return (
       <div id="start-page">
-        <NavBar links={links} isAuthenticated={this.state.isAuthenticated} handleLogoff={this.handleLogoff} />
+        <NavBar
+          links={links}
+          isAuthenticated={isAuthenticated}
+          handleLogoff={this.handleLogoff}
+        />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -85,7 +89,7 @@ class App extends React.Component {
           {/* Login Protected Route */}
           <ProtectedRoute
             path={links.login}
-            isAuthenticated={!this.state.isAuthenticated}
+            isAuthenticated={!isAuthenticated}
             redirectLink={links.dashboard}
             component={RegistrationPage}
             handleLogin={this.handleLogin}
@@ -93,7 +97,7 @@ class App extends React.Component {
           {/* Dashboard Protected Route */}
           <ProtectedRoute
             path={links.dashboard}
-            isAuthenticated={this.state.isAuthenticated}
+            isAuthenticated={isAuthenticated}
             redirectLink={links.login}
             component={DashboardPage}
           />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Axios from 'axios';
+import axios from 'axios';
 import '../../css/registration/LogIn.scss';
 
 const { REACT_APP_SVR_API } = process.env;
@@ -22,7 +22,8 @@ class LogIn extends Component {
       password,
     };
 
-    Axios.post(`${REACT_APP_SVR_API}/user/login`, data)
+    axios
+      .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         // this.props.history.push("/dashboard");
@@ -68,13 +69,13 @@ class LogIn extends Component {
             onChange={event => this.setState({ password: event.target.value })}
           />
           <button id="submit-button" type="button" onClick={this.LogInHandler}>
-            Submit
+            {`Submit`}
           </button>
         </form>
         <p>
-          Don't have an account,{' '}
+          {`Don't have an account, `}
           <button id="signup-button" type="button" onClick={changeToSignup()}>
-            Sign up!
+            {`Sign up!`}
           </button>
         </p>
       </div>
