@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/support/QandA.scss';
 
 const QandA = ({ title, questions_answers }) => (
-  <div className="container">
+  <div className="question-container">
     <h2 className="FAQTitle">{title}</h2>
     <div className="tabs">
       {questions_answers.map(QA => (

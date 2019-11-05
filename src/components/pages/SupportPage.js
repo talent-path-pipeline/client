@@ -69,13 +69,12 @@ const questions_answers_DnD = [
 
 const SupportPage = () => (
   <div className="support-container">
-    <h1 className="supportTitle">Support Page</h1>
-    <hr className="line" />
+    <h1 className="support-title">Support and FAQ</h1>
+    <hr className="breakline" />
     <QandA
       questions_answers={questions_answers_site}
       title="Frequently Asked Questions For Using This Site"
     />
-    <br />
     <QandA
       questions_answers={questions_answers_DnD}
       title="Common Questions About Playing D&D"
