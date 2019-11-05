@@ -185,7 +185,7 @@ class SignUp extends Component {
               By clicking "Sign Up" you are agreeing
               to our
             {' '}
-            <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" target="_blank">Terms and Agreement</a>
+            <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" rel="noopener noreferrer" target="_blank">Terms and Agreement</a>
           </p>
           <button
             id="register-button"
