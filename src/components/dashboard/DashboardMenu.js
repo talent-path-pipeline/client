@@ -44,7 +44,7 @@ DashboardMenu.propTypes = {
   activeView: PropTypes.string.isRequired,
   showOverview: PropTypes.func.isRequired,
   showSettings: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
+  logout: PropTypes.func,
 };
 
 export default DashboardMenu;
