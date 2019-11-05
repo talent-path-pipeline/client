@@ -15,6 +15,8 @@ export default class YouTubeInfo extends Component {
 
   constructor(props) {
     super(props);
+
+    this.yt_desc_text = React.createRef();
     this.state = {
       open: false,
     };
@@ -23,7 +25,10 @@ export default class YouTubeInfo extends Component {
   /**
    * Toggles the `open` tracker on state, which is used to collapse or open the description
    */
-  toggleOpen = () => this.setState(prevState => ({ open: !prevState.open }));
+  toggleOpen = () => {
+    this.yt_desc_text.current.scrollTop = 0;
+    this.setState(prevState => ({ open: !prevState.open }));
+  };
 
   /**
    *
@@ -132,7 +137,15 @@ export default class YouTubeInfo extends Component {
         </section>
         <section className="yt-desc chunk">
           <p className="title">Video Description: </p>
-          <div className="yt-desc-text" style={{ height: open ? 'auto' : '300px' }}>
+          <div
+            className="yt-desc-text"
+            ref={this.yt_desc_text}
+            style={
+              open
+                ? { height: '700px', overflow: 'hidden auto' }
+                : { height: '200px', overflow: 'hidden' }
+            }
+          >
             {!video_description
               ? 'YouTube Description'
               : this.formatDescription(video_description)}

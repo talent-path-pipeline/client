@@ -5,25 +5,24 @@
   padding: 3rem;
   border: 2px solid var(--blue);
   color: var(--black);
-}
 
-.lesson-info h2 {
-  margin: 1rem 0 1.5rem 0;
-  color: var(--brown);
-  text-shadow: 1px 0px var(--greyblue);
-}
+  h2 {
+    margin: 10px 0 5px 0;
+    color: var(--brown);
+    text-shadow: 1px 0px var(--greyblue);
+  }
+  .lesson-playing {
+    color: var(--black);
+  }
 
-.lesson-playing {
-  color: var(--black);
-}
+  p {
+    font-family: var(--fontfamily-alt);
+    color: var(--black);
+    padding: 5px 0px;
+  }
 
-.lesson-info p {
-  font-family: var(--fontfamily-alt);
-  font-weight: bold;
-  color: var(--black);
-}
-
-.lesson-info .title {
-  font-family: var(--fontfamily-roboto);
-  // font-size: 1.1em;
+  .title {
+    font-family: var(--fontfamily-roboto);
+    // font-size: 1.1em;
+  }
 }

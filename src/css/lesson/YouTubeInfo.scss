@@ -3,19 +3,32 @@
 
   .promo {
     font-family: var(--fontfamily-alt);
+    font-weight: normal;
+    padding: 3px 0px;
   }
 
   .subheader {
     color: var(--brown);
+    text-decoration: underline;
   }
 
   .chunk {
     margin-top: 8px;
   }
 
+  a {
+    text-decoration: none;
+    color: var(--light-blue);
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
   .yt-desc {
     .yt-desc-text {
-      overflow: hidden;
+      // overflow: hidden;
       transition: height 0.2s ease-in-out;
     }
 
@@ -34,6 +47,10 @@
       width: 88%;
     }
 
+    a {
+      font-weight: normal;
+    }
+
     .see-more {
       cursor: pointer;
       border: none;
@@ -44,14 +61,5 @@
       background-color: var(--navy);
       color: var(--cream);
     }
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--light-blue);
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 }
