@@ -75,7 +75,7 @@ class NavBar extends React.Component {
           <li><NavLink to={links.support}>Support</NavLink></li>
           <li><a onClick={() => this.closeMenu()} target="_blank" rel="noopener noreferrer" href="https://forms.gle/2YMiTeQ4iuZByx4ZA">Feedback</a></li>
           {this.state.isAuthenticated ? (<li><NavLink to={links.dashboard}>Dashboard</NavLink></li>) : null}
-          {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{console.log('LoGGING OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink></li>) : (
+          {this.state.isAuthenticated ? (<li><NavLink onClick={()=>{this.props.handleLogoff();}} to="/">Log Off</NavLink></li>) : (
             <li><NavLink to={links.login}>Login</NavLink></li>)}
         </ul>
         <div className="mobile-nav">
@@ -107,7 +107,7 @@ class NavBar extends React.Component {
               </NavLink>
             ) : (null
             )}
-            {this.state.isAuthenticated ? (<NavLink onClick={()=>{console.log('Logging OFF'); this.props.handleLogoff();}} to="/">Log Off</NavLink>) : (
+            {this.state.isAuthenticated ? (<NavLink onClick={()=>{ this.props.handleLogoff();}} to="/">Log Off</NavLink>) : (
               <NavLink to={links.login}>Login</NavLink>)}
 
             
