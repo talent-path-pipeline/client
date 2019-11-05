@@ -19,11 +19,11 @@ class RegistrationPage extends Component {
    */
   componentDidMount() {
     if(TokenServices.getToken()){
-      console.log("You are logged in redirecting")
+      // console.log("You are logged in redirecting")
       // this.props.history.push("/dashboard");
       this.handleLogin()
     }else{
-      console.log("You are not logged in doing nothing")
+      // console.log("You are not logged in doing nothing")
     }
   }
 
