@@ -15,6 +15,13 @@ class NavBar extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated !== prevState.isAuthenticated) {
+      this.setState({ isAuthenticated });
+    }
+  }
+
   // This keeps your state in sync with the opening/closing of the menu
   // via the default means, e.g. clicking the X, pressing the ESC key etc.
   handleStateChange(state) {
@@ -36,8 +43,7 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
-    const { links, isAuthenticated } = this.props;
-    this.state.isAuthenticated = isAuthenticated;
+    const { links } = this.props;
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
