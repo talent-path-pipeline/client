@@ -41,14 +41,11 @@
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1, "maxBOF": 1 }],
     "no-trailing-spaces": ["warn", { "skipBlankLines": true, "ignoreComments": true }],
 
-    "react/jsx-one-expression-per-line": [1, { "allow": "single-child" }],
+    // "react/jsx-one-expression-per-line": [1, { "allow": "single-child" }],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
     "import/no-dynamic-require": "off",
     "import/extensions": "off",
-    "semi": [
-      1,
-      "always"
-    ]
+    "semi": [1, "always"]
   }
 }
