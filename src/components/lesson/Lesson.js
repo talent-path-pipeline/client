@@ -5,18 +5,21 @@ import PropTypes from 'prop-types';
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
-// TODO: breaks if lesson is undefined somehow
-const Lesson = ({ lesson, course_size, base_path }) => (
-  <div className="lesson" key={lesson.order}>
-    <LessonVideo
-      title={lesson.title}
-      video_id={lesson.video_id}
-      start={lesson.start}
-      end={lesson.end}
-    />
-    <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
-  </div>
-);
+const Lesson = ({ lesson, course_size, base_path }) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  lesson ? (
+    <div className="lesson" key={lesson.order}>
+      <LessonVideo
+        title={lesson.title}
+        video_id={lesson.video_id}
+        start={lesson.start}
+        end={lesson.end}
+      />
+      <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
+    </div>
+  ) : (
+    <div className="no-lesson" />
+  );
 
 Lesson.propTypes = {
   lesson: PropTypes.shape({
