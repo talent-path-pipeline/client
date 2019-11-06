@@ -17,7 +17,7 @@ const CatalogCard = ({ course }) => {
       <div className="course-info">
         <h4 className="course-title">{course.title}</h4>
         <p className="course-description">{course.description}</p>
-        <ProgressBar value={completed} max={course.lessons.length} label="Lessons" />
+        {/* <ProgressBar value={completed} max={course.lessons.length} label="Lessons" /> */}
       </div>
     </Link>
   );

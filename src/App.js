@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 // import DUMMY_DATA from './DUMMY_DATA';
-import { contentAPI } from './utils';
+import { contentAPI, tokenServices, ProtectedRoute } from './utils';
 import {
   NavBar,
   HomePage,
   PathPage,
   LessonPage,
   CatalogPage,
-  // RegistrationPage,
-  // DashboardPage,
+  RegistrationPage,
+  DashboardPage,
   SupportPage,
   AboutPage,
   ErrorPage,
@@ -46,6 +46,8 @@ class App extends Component {
         image_name: 'path-image-main.jpg',
         courses: [],
       },
+      user: null,
+      isAuthenticated: false,
     };
   }
 
@@ -55,15 +57,37 @@ class App extends Component {
         this.setState({ only_path: contentResp.data[0] });
       }
     });
+    const user = tokenServices.getToken();
+    if (user) {
+      this.setState({ isAuthenticated: true, user });
+    }
   }
 
+  handleLogin = () => {
+    const user = tokenServices.getToken();
+    if (user) {
+      this.setState({ isAuthenticated: true, user });
+    } else {
+      this.setState({ isAuthenticated: null, user: null });
+    }
+  };
+
+  handleLogoff = () => {
+    tokenServices.removeToken();
+    this.setState({ isAuthenticated: false, user: null });
+  };
+
   render() {
-    const { only_path } = this.state;
+    const { only_path, user, isAuthenticated } = this.state;
     const { courses } = only_path;
 
     return (
       <div id="start-page">
-        <NavBar links={links} />
+        <NavBar
+          links={links}
+          isAuthenticated={isAuthenticated}
+          handleLogoff={this.handleLogoff}
+        />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route
@@ -72,8 +96,21 @@ class App extends Component {
             render={props => <PathPage {...props} path_data={only_path} />}
           />
           <Route exact path={links.catalog} component={CatalogPage} />
-          {/* <Route exact path={links.login} component={RegistrationPage} /> */}
-          {/* <Route exact path={links.dashboard} component={DashboardPage} /> */}
+          {/* Login Protected Route */}
+          <ProtectedRoute
+            path={links.login}
+            isAuthenticated={!isAuthenticated}
+            redirectLink={links.dashboard}
+            component={RegistrationPage}
+            handleLogin={this.handleLogin}
+          />
+          {/* Dashboard Protected Route */}
+          <ProtectedRoute
+            path={links.dashboard}
+            isAuthenticated={isAuthenticated}
+            redirectLink={links.login}
+            component={DashboardPage}
+          />
           <Route exact path={links.support} component={SupportPage} />
           <Route exact path={links.about} component={AboutPage} />
 
