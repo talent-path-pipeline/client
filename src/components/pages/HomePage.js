@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import '../../css/pages/HomePage.scss';
 // import Glide from '@glidejs/glide/';
 
