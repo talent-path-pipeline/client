@@ -12,7 +12,7 @@ const CatalogCard = ({ course }) => {
       <div
         className="course-image"
         alt={course.title}
-        style={{ backgroundImage: `url(${course.image_link})` }}
+        style={{ backgroundImage: `url(./images/${course.image_name})` }}
       />
       <div className="course-info">
         <h4 className="course-title">{course.title}</h4>

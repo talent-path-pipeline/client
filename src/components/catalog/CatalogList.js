@@ -6,9 +6,11 @@ import '../../css/catalog/CatalogList.scss';
 
 const CatalogList = ({ courses }) => (
   <div className="list-all-courses">
-    {courses.map(course => (
-      <CatalogCard course={course} key={course.slug} />
-    ))}
+    {courses ? (
+      courses.map(course => <CatalogCard course={course} key={course.slug} />)
+    ) : (
+      <div className="no-courses" />
+    )}
   </div>
 );
 

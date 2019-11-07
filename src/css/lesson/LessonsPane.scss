@@ -1,9 +1,7 @@
-@import '../VARIABLES.scss';
-
 .lessons-pane {
   background-color: var(--white);
-  min-width: 30%;
   border: solid var(--blue) 2px;
+  min-width: 305px;
   flex: 1 0 30%;
 }
 

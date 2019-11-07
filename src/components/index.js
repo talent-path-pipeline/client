@@ -15,6 +15,7 @@ export { default as LessonVideo } from './lesson/LessonVideo';
 export { default as LessonLink } from './lesson/LessonLink';
 export { default as LessonsPane } from './lesson/LessonsPane';
 export { default as Lesson } from './lesson/Lesson';
+export { default as YouTubeInfo } from './lesson/YouTubeInfo';
 
 // ========================================
 // catalog

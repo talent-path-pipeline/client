@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import DUMMY_DATA from './DUMMY_DATA';
-import { tokenServices, ProtectedRoute } from './utils';
+// import DUMMY_DATA from './DUMMY_DATA';
+import { contentAPI, tokenServices, ProtectedRoute } from './utils';
 import {
   NavBar,
   HomePage,
@@ -15,7 +15,6 @@ import {
   AboutPage,
   ErrorPage,
 } from './components';
-
 import './css/main.scss';
 
 const links = {
@@ -28,30 +27,41 @@ const links = {
   dashboard: '/dashboard',
 };
 
-class App extends React.Component {
+class App extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        order: PropTypes.string,
+        course: PropTypes.string,
+      }),
+    }).isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
+      only_path: {
+        title: 'Path Title',
+        subtitle: 'Path Subtitle',
+        image_name: 'path-image-main.jpg',
+        courses: [],
+      },
       user: null,
       isAuthenticated: false,
     };
   }
 
-  // componentWillMount = () => {
-  //   const { history, location } = this.props;
-  //   console.log(history);
-  //   console.log(location);
-  // }
-
-  /**
-   * get user data from database
-   */
-  componentDidMount = () => {
+  componentDidMount() {
+    contentAPI.getAllNestedPaths().then(contentResp => {
+      if (contentResp.data[0]) {
+        this.setState({ only_path: contentResp.data[0] });
+      }
+    });
     const user = tokenServices.getToken();
     if (user) {
       this.setState({ isAuthenticated: true, user });
     }
-  };
+  }
 
   handleLogin = () => {
     const user = tokenServices.getToken();
@@ -68,8 +78,8 @@ class App extends React.Component {
   };
 
   render() {
-    const { courses } = DUMMY_DATA;
-    const { user, isAuthenticated } = this.state;
+    const { only_path, user, isAuthenticated } = this.state;
+    const { courses } = only_path;
 
     return (
       <div id="start-page">
@@ -83,7 +93,7 @@ class App extends React.Component {
           <Route
             exact
             path={links.path}
-            render={props => <PathPage {...props} path_data={DUMMY_DATA} />}
+            render={props => <PathPage {...props} path_data={only_path} />}
           />
           <Route exact path={links.catalog} component={CatalogPage} />
           {/* Login Protected Route */}
@@ -138,14 +148,5 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      order: PropTypes.string,
-      course: PropTypes.string,
-    }),
-  }).isRequired,
-};
 
 export default App;

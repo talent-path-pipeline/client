@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { contentAPI } from '../../utils';
 import { CatalogList } from '..';
-import DUMMY_DATA from '../../DUMMY_DATA';
 import '../../css/pages/CatalogPage.scss';
 
-const CatalogPage = () => {
-  // TODO: once we have the data in the back-end instead of just a file we can give this
-  // a state again to load and hold the current set of courses
-  const { courses } = DUMMY_DATA;
+class CatalogPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      curr_courses: [],
+    };
+    this.all_courses = [];
+  }
 
-  return (
-    <div className="catalog-page">
-      <header className="catalog-header">
-        <h2 className="page-title">Courses</h2>
-        {/* TODO: Make search actually work/do something */}
-        {/* <input className="course-search" type="text" placeholder="Type to search!" /> */}
-      </header>
-      <hr className="catalog-line" />
-      {/* TODO: <CatalogFilter /> */}
-      <CatalogList courses={courses} />
-    </div>
-  );
-};
+  componentDidMount() {
+    contentAPI.getAllNestedCourses().then(contentResp => {
+      if (contentResp.data) {
+        this.all_courses = contentResp.data;
+        this.setState({ curr_courses: contentResp.data });
+      }
+    });
+  }
+
+  resetCourses = () => {
+    this.setState({ curr_courses: this.all_courses });
+  };
+
+  render() {
+    const { curr_courses } = this.state;
+
+    return (
+      <div className="catalog-page">
+        <header className="catalog-header">
+          <h2 className="page-title">Courses</h2>
+          {/* TODO: Make search actually work/do something */}
+          {/* <input className="course-search" type="text" placeholder="Type to search!" /> */}
+        </header>
+        <hr className="catalog-line" />
+        {/* TODO: <CatalogFilter /> */}
+        {curr_courses && curr_courses.length > 0 && (
+          <CatalogList courses={curr_courses} />
+        )}
+      </div>
+    );
+  }
+}
 
 export default CatalogPage;
