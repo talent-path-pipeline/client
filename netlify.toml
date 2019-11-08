@@ -5,9 +5,12 @@
 
 [context.production.environment]
   REACT_APP_SVR_API = "https://stonehaven-academy.herokuapp.com/api"
+  TRACKING_ID = "UA-151439270-1"
 
 [context.branch-deploy.environment]
   REACT_APP_SVR_API = "https://stonehaven-server-staging.herokuapp.com/api"
+  TRACKING_ID = "UA-151439270-1"
 
 [context.deploy-preview.environment]
   REACT_APP_SVR_API = "https://stonehaven-server-staging.herokuapp.com/api"
+  TRACKING_ID = "UA-151439270-1"
