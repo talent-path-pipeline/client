@@ -17,8 +17,8 @@ const PathTree = ({ courses }) => (
   <div className="path-tree">
     <VerticalTimeline layout="1-column">
       {courses.map(course => (
-        <VerticalTimelineElement key={course.order}>
-          <CourseCard course={course} key={course.order} />
+        <VerticalTimelineElement key={course.slug}>
+          <CourseCard course={course} key={course.slug} />
         </VerticalTimelineElement>
       ))}
     </VerticalTimeline>

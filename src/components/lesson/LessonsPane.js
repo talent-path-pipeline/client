@@ -4,10 +4,21 @@ import { LessonLink } from '..';
 import '../../css/lesson/LessonsPane.scss';
 import LessonNavBar from './LessonNavBar';
 
-const LessonsPane = ({ course_title, lessons, curr_lesson_num, base_path, prev_slug, next_slug }) => (
+const LessonsPane = ({
+  course_title,
+  lessons,
+  curr_lesson_num,
+  base_path,
+  prev_slug,
+  next_slug,
+}) => (
   <div className="lessons-pane">
     <h2>
-      <LessonNavBar className="course-nav" prev_path={prev_slug ? `/courses/${prev_slug}/0`: ''} next_path={next_slug ? `/courses/${next_slug}/0` : ''} />
+      <LessonNavBar
+        className="course-nav"
+        prev_path={prev_slug ? `/courses/${prev_slug}/0` : ''}
+        next_path={next_slug ? `/courses/${next_slug}/0` : ''}
+      />
       {course_title}
     </h2>
     {lessons.map(({ order, title, length }) => (
@@ -30,7 +41,7 @@ LessonsPane.propTypes = {
     PropTypes.shape({
       order: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      length: PropTypes.string.isRequired,
+      length: PropTypes.number.isRequired,
     }),
   ).isRequired,
   base_path: PropTypes.string.isRequired,

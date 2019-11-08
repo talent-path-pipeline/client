@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import ReactGA from 'react-ga';
+import App from './App';
 
 ReactGA.initialize(process.env.TRACKING_ID);
 

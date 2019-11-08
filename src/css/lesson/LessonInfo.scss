@@ -1,45 +1,28 @@
-@import '../VARIABLES.scss';
+// TODO: clean this up
 
 .lesson-info {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   padding: 3rem;
   border: 2px solid var(--blue);
-}
-
-.lesson-info h2 {
-  margin: 1rem 0 1.5rem 0;
-  color: var(--brown);
-  text-shadow: 1px 0px var(--greyblue);
-}
-
-#lesson-playing {
   color: var(--black);
-}
 
-.lesson-info p {
-  font-family: var(--fontfamily-alt);
-  font-weight: bold;
-  color: var(--black);
-}
+  h2 {
+    margin: 10px 0 5px 0;
+    color: var(--brown);
+    text-shadow: 1px 0px var(--greyblue);
+  }
+  .lesson-playing {
+    color: var(--black);
+  }
 
-#yt-info {
-  margin: 1rem 0;
-}
+  p {
+    font-family: var(--fontfamily-alt);
+    color: var(--black);
+    padding: 5px 0px;
+  }
 
-.subheader {
-  color: var(--brown);
-}
-
-.title {
-  font-family: var(--fontfamily-roboto);
-  // font-size: 1.1em;
-}
-
-#yt-info a {
-  text-decoration: none;
-  color: var(--light-blue);
-}
-
-#yt-info a:hover {
-  text-decoration: underline;
+  .title {
+    font-family: var(--fontfamily-roboto);
+    // font-size: 1.1em;
+  }
 }

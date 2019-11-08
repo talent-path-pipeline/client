@@ -14,13 +14,12 @@
       bottom: 0;
       background: rgba(0, 0, 0, 0.4);
     }
-    
+
     .path-splash {
       width: 100%;
       height: auto;
     }
   }
-
 
   .path-logo {
     height: 250px;
@@ -54,7 +53,6 @@
   max-width: 800px;
   text-align: center;
   color: var(--cream);
+  font-family: var(--fontfamily);
   // font-family: var(--fontfamily-alt);
 }
-
-
