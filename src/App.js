@@ -134,15 +134,14 @@ export default class App extends Component {
                 const courseObj = courses.find(
                   course => course.slug === props.match.params.course,
                 );
-                if (!courseObj) return <ErrorPage />;
+                const order = parseInt(props.match.params.order, 10);
+                if (!courseObj || order >= courseObj.lessons.length) return <ErrorPage />;
                 const prevCourse = courses.find(
                   course => course.order === courseObj.order - 1,
                 );
                 const nextCourse = courses.find(
                   course => course.order === courseObj.order + 1,
                 );
-                const order = parseInt(props.match.params.order, 10);
-                if (order >= courseObj.lessons.length) return <ErrorPage />;
                 return (
                   <LessonPage
                     {...props}
