@@ -5,15 +5,17 @@
   height: calc(100% - 80px);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 50px 30px;
   flex-wrap: wrap;
   overflow: hidden;
 
   .error-image {
     height: 80%;
+    max-height: 400px;
     width: auto;
     margin: 15px;
+    margin-right: 5vw;
   }
 
   .error-text {
