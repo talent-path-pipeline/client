@@ -135,7 +135,11 @@ export default class App extends Component {
                   course => course.slug === props.match.params.course,
                 );
                 const lesson_num = parseInt(props.match.params.lesson_num, 10);
-                if (!courseObj || lesson_num >= courseObj.lessons.length) {
+                if (
+                  !courseObj ||
+                  lesson_num >= courseObj.lessons.length ||
+                  lesson_num < 0
+                ) {
                   return <ErrorPage />;
                 }
                 const prevCourse = courses.find(
