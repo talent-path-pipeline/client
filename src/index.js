@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import App from './App';
 
-ReactDOM.render(<Router><Route component={App} /></Router>, document.getElementById('root'));
+ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
+
+ReactDOM.render(<App />, document.getElementById('root'));
