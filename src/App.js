@@ -129,13 +129,15 @@ export default class App extends Component {
 
             <Redirect exact from="/courses/:course" to="/courses/:course/0" />
             <Route
-              path="/courses/:course/:order"
+              path="/courses/:course/:lesson_num"
               render={props => {
                 const courseObj = courses.find(
                   course => course.slug === props.match.params.course,
                 );
-                const order = parseInt(props.match.params.order, 10);
-                if (!courseObj || order >= courseObj.lessons.length) return <ErrorPage />;
+                const lesson_num = parseInt(props.match.params.lesson_num, 10);
+                if (!courseObj || lesson_num >= courseObj.lessons.length) {
+                  return <ErrorPage />;
+                }
                 const prevCourse = courses.find(
                   course => course.order === courseObj.order - 1,
                 );
@@ -147,7 +149,7 @@ export default class App extends Component {
                     {...props}
                     course_title={courseObj.title}
                     lessons={courseObj.lessons}
-                    curr_lesson_num={order}
+                    curr_lesson_num={lesson_num}
                     base_path={courseObj.slug}
                     prev_slug={prevCourse ? prevCourse.slug : undefined}
                     next_slug={nextCourse ? nextCourse.slug : undefined}
