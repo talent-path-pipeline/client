@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonLink.scss';
 
-const formatTime = seconds => {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor((seconds % 3600) % 60);
+const formatTime = time => {
+  const h = Math.floor(time / 3600);
+  const m = Math.floor((time % 3600) / 60);
+  const s = Math.floor((time % 3600) % 60);
 
   const hStr = h > 0 ? `${h}:` : '';
   const mStr = `${m < 10 ? '0' : ''}${m}:`;
@@ -15,22 +16,15 @@ const formatTime = seconds => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, length, order, active, base_path }) => (
-  <div className="lesson-link">
-    {/* TODO: this can probably be consolidated */}
-    {active ? (
-      <div className="active-video">
-        <p>{title}
-          <span className="video-length">{formatTime(length)}</span>
-        </p>
-      </div>
-    ) : (
-      <div className="link">
-        <Link to={`/courses/${base_path}/${order}`}>{title}<span className="video-length">{formatTime(length)}</span></Link>
-      </div>
-    )}
-  </div>
-);
+const LessonLink = ({ title, length, order, active, base_path }) => {
+  const TagType = active ? 'p' : Link;
+  return (
+    <TagType to={`/courses/${base_path}/${order}`} className="lesson-link" onClick={ReactGA.event({ category: "Navigation", action: "User clicked on a lesson link"})}>
+      {title}
+      <span className="video-length">{formatTime(length)}</span>
+    </TagType>
+  );
+};
 
 LessonLink.propTypes = {
   title: PropTypes.string.isRequired,

@@ -15,14 +15,16 @@
     .course-info {
       margin-left: 20px;
 
-      h4 {
+      .title {
         font-size: 30px;
-        color: var(--red);
+        color: var(--stone);
+        font-family: var(--fontfamily);
       }
 
       p {
         // font-family: var(--fontfamily-alt);
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: var(--fontfamily-roboto);
+        font-weight: 300;
         color: var(--white);
       }
     }
@@ -30,6 +32,6 @@
 
   a:hover {
     box-shadow: 5px 0 var(--white);
-    text-decoration: underline var(--red);
+    text-decoration: underline var(--stone);
   }
 }

@@ -35,13 +35,12 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
-    const { links } = this.props;
+    const { links, handleLogoff, isAuthenticated } = this.props;
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
       <div id="nav-main">
         <NavLink className="nav-home" to={links.home}>
-          {/* TODO: change logo to remove letters when words are there */}
           <img
             className="desktop-logo"
             src="/images/SANavbarLogo.png"
@@ -61,13 +60,38 @@ class NavBar extends React.Component {
           <li>
             <NavLink to={links.catalog}>Catalog</NavLink>
           </li>
-          {/* Commented out until implemented */}
           <li>
             <NavLink to={links.about}>About</NavLink>
           </li>
-          <li><NavLink to={links.support}>Support</NavLink></li>
-          {/* <li><NavLink to={links.dashboard}>Dashboard</NavLink></li> */}
-          {/* <li><NavLink to={links.login}>Login</NavLink></li> */}
+          <li>
+            <NavLink to={links.support}>Support</NavLink>
+          </li>
+          <li>
+            <a
+              onClick={() => this.closeMenu()}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://forms.gle/2YMiTeQ4iuZByx4ZA"
+            >
+              Feedback
+            </a>
+          </li>
+          {isAuthenticated ? (
+            <li>
+              <NavLink to={links.dashboard}>Dashboard</NavLink>
+            </li>
+          ) : null}
+          {isAuthenticated ? (
+            <li>
+              <NavLink onClick={handleLogoff} to="/">
+                Log Off
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink to={links.login}>Login</NavLink>
+            </li>
+          )}
         </ul>
         <div className="mobile-nav">
           <Menu
@@ -75,28 +99,42 @@ class NavBar extends React.Component {
             isOpen={menuOpen}
             onStateChange={state => this.handleStateChange(state)}
           >
-            <NavLink onClick={() => this.closeMenu()} to={links.home}>
+            <NavLink onClick={this.closeMenu} to={links.home}>
               Home
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.path}>
+            <NavLink onClick={this.closeMenu} to={links.path}>
               Path
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.catalog}>
+            <NavLink onClick={this.closeMenu} to={links.catalog}>
               Catalog
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.about}>
+            <NavLink onClick={this.closeMenu} to={links.about}>
               About
             </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.login}>
-              LogIn
-            </NavLink>
-            <NavLink onClick={() => this.closeMenu()} to={links.dashboard} />
-            <NavLink onClick={() => this.closeMenu()} to={links.support}>
+            <NavLink onClick={this.closeMenu} to={links.support}>
               Support
             </NavLink>
-            {/* <NavLink onClick={() => this.closeMenu()} to={links.lesson}>
-              Lesson
-            </NavLink> */}
+            <a
+              onClick={this.closeMenu}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://forms.gle/2YMiTeQ4iuZByx4ZA"
+            >
+              Feedback
+            </a>
+
+            {isAuthenticated ? (
+              <NavLink onClick={this.closeMenu} to={links.dashboard}>
+                Dashboard
+              </NavLink>
+            ) : null}
+            {isAuthenticated ? (
+              <NavLink onClick={handleLogoff} to="/">
+                Log Off
+              </NavLink>
+            ) : (
+              <NavLink to={links.login}>Login</NavLink>
+            )}
           </Menu>
         </div>
       </div>
@@ -108,6 +146,8 @@ NavBar.propTypes = {
   links: PropTypes.shape({
     home: PropTypes.string,
   }).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  handleLogoff: PropTypes.func.isRequired,
 };
 
 export default NavBar;

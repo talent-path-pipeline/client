@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 import '../../css/registration/SignUp.scss';
 
+const { REACT_APP_SVR_API } = process.env;
+
+/**
+ * @description Validates all inputs to theses constraints
+ */
+const validate = (email, password, confirmedPassword, fullName, location) => ({
+  email: email.length === 0,
+  password: password.length < 8 || password !== confirmedPassword,
+  fullName: fullName.length === 0,
+  location: location.length === 0,
+});
+
+const WarningBanner = warn_data =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  warn_data.warn ? <div className="warning">{warn_data.message}</div> : null;
+
 class SignUp extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -13,73 +30,51 @@ class SignUp extends Component {
       confirmPassword: '',
       location: '',
       fullName: '',
-      // Might have to refactored this...
+      // Might have to refactor this...
       touched: {
         email: false,
         password: false,
       },
-      // Controls when there are failed validations when registering
-      disableButton: true,
-      // Modal
-      showModal: false,
-      // Shows error message if server fails
-      showRegistrationFailure: false,
-      // Shows when waiting for server response
-      showSpinner: false,
-      successfulRegister: false,
-    }
+    };
   }
-  
-  
-  /**
-   * Controls modal and spinner controlls
-   */
-  showModal = () => {
-    this.setState({ showModal: true });
-  };
-
-  hideModal = () => {
-    this.setState({ showModal: false });
-  };
-
-  showSpinner = () => {
-    this.setState({ loading: true });
-  };
-
-  hideSpinner = () => {
-    this.setState({ loading: false });
-  };
 
   /**
    * Creates a user with the server
    */
   createUserHandler = () => {
     const { email, password, location, fullName } = this.state;
+    const { handleSignup } = this.props;
     const data = {
       email,
       password,
       location,
       fullName,
     };
-    Axios.post('http://localhost:5001/api/user/', data)
+    axios
+      .post(`${REACT_APP_SVR_API}/user/`, data)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
         // Sweet Alert for successful registration
-        // Redirect to dashboard
+        handleSignup();
       })
       .catch(error => {
-        this.setState({ showRegistrationFailure: true });
         try {
-          if (error.response.status === 400) {
-            console.log('Bad Request');
+          // Handles errors that are not HTTP specific
+          console.error(error);
+          this.setState({ showRegistrationFailure: true });
+          if (!error.status) {
+            console.error('A network error has occured.');
+          } else if (error.response.status === 400) {
+            console.error('Bad Request');
           } else if (error.response.status === 500) {
-            console.log('Something bad happended on the server.');
+            console.error('Something bad happended on the server.');
           } else {
-            console.log('Uh oh...');
+            console.error('An unknown error has occurred');
           }
         } catch (ex) {
+          alert('Something went wrong...');
           Promise.reject(ex);
         }
       });
@@ -108,11 +103,11 @@ class SignUp extends Component {
   };
 
   handleBlur = field => event => {
-    this.setState({
-      touched: { ...this.state.touched, [field]: true },
-    });
+    this.setState(prevState => ({
+      touched: { ...prevState.touched, [field]: true },
+    }));
   };
-  
+
   /**
    * @description Controls the submit button
    */
@@ -126,38 +121,30 @@ class SignUp extends Component {
   };
 
   canBeSubmitted() {
-    const { email, password, confirmPassword,  location, fullName } = this.state;
+    const { email, password, confirmPassword, location, fullName } = this.state;
     const errors = validate(
       email,
       password,
-      confirmPassword,
+      confirmPassword, // Moda
       fullName,
-      location
+      location,
     );
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
-  
 
   render() {
-    const { email, password, confirmPassword,  location, fullName } = this.state;
+    const { email, password, confirmPassword, location, fullName, touched } = this.state;
     const { backToLogin } = this.props;
-    const errors = validate(
-      email,
-      password,
-      confirmPassword,
-      fullName,
-      location
-    );
+    const errors = validate(email, password, confirmPassword, fullName, location);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
 
     const shouldMarkError = field => {
       const hasError = errors[field];
-      const shouldShow = this.state.touched[field];
+      const shouldShow = touched[field];
 
       return hasError ? shouldShow : false;
     };
-
     return (
       <div id="signup-container">
         <h1 id="signup-title">Register</h1>
@@ -166,25 +153,25 @@ class SignUp extends Component {
           <input
             className={shouldMarkError('email') ? 'error' : ''}
             type="text"
-            value={this.state.email}
+            value={email}
             onChange={this.handleEmailChange}
             onBlur={this.handleBlur('email')}
-            placeholder='JaneDoe@email.com'
+            placeholder="JaneDoe@email.com"
           />
           <h3 className="input-labels">Password</h3>
           <input
             className={shouldMarkError('password') ? 'error' : ''}
             type="password"
-            value={this.state.password}
+            value={password}
             onChange={this.handlePasswordChange}
             onBlur={this.handleBlur('password')}
-            placeholder='Minimum length 8 characters'
+            placeholder="Minimum length 8 characters"
           />
           <h3 className="input-labels">Confirm Password</h3>
           <input
             className={shouldMarkError('confirmedPassword') ? 'error' : ''}
             type="password"
-            value={this.state.confirmPassword}
+            value={confirmPassword}
             onChange={this.handleConfirmPassword}
             onBlur={this.handleBlur('confirmPassword')}
           />
@@ -192,33 +179,38 @@ class SignUp extends Component {
           <input
             className={shouldMarkError('fullName') ? 'error' : ''}
             type="text"
-            value={this.state.fullName}
+            value={fullName}
             onChange={this.handleFullName}
             onBlur={this.handleBlur('fullName')}
-            placeholder='Jane Doe'
+            placeholder="Jane Doe"
           />
           <h3 className="input-labels">Location</h3>
           <input
             className={shouldMarkError('location') ? 'error' : ''}
             type="text"
-            value={this.state.location}
+            value={location}
             onChange={this.handleLocation}
             onBlur={this.handleBlur('location')}
-            placeholder='Example: Neverwinter'
+            placeholder="Example: Neverwinter"
           />
-          <p>
-              By clicking "Sign Up" you are agreeing
-              to our <a href="www.google.com">Terms and Agreement</a>
-          </p>
+          {/* <p>
+              {`By clicking "Sign Up" you are agreeing to our `} 
+            <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" rel="noopener noreferrer" target="_blank">Terms and Agreement</a>
+          </p> */}
           <button
             id="register-button"
             type="button"
             onClick={this.createUserHandler}
             disabled={isDisabled}
           >
-              Sign Up
+            {`Sign Up`}
           </button>
-          <p>Go back to <button id='login-button' type="button" onClick={backToLogin()}>Log in!</button></p>
+          <p>
+            {`Go back to `}
+            <button id="login-button" type="button" onClick={backToLogin()}>
+              {`Log in!`}
+            </button>
+          </p>
         </form>
         <WarningBanner
           warn={this.state.showRegistrationFailure}
@@ -229,22 +221,8 @@ class SignUp extends Component {
   }
 }
 
-/**
- * @description Validates all inputs to theses constraints
- */
-const validate = (email, password, confirmedPassword, fullName, location) => ({
-  email: email.length === 0,
-  password: password.length < 8 || password !== confirmedPassword,
-  fullName: fullName.length === 0,
-  location: location.length === 0,
-});
-
-function WarningBanner(props) {
-  if (!props.warn) {
-    return null;
-  }
-  return <div className="warning"> {props.message}</div>;
-}
-
+SignUp.propTypes = {
+  handleSignup: PropTypes.func.isRequired,
+};
 
 export default SignUp;

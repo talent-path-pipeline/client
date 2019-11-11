@@ -1,8 +1,8 @@
 #nav-main {
   display: flex;
   color: var(--white);
-  background-color: var(--black);
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  background-color: var(--navy);
+  // box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
   height: 80px;
   width: 100%;
   justify-content: space-between;
@@ -13,6 +13,7 @@
 
   .desktop-logo {
     // height: 100%;
+    display: none;
     padding: 2px;
     width: 400px;
     margin-left: 10px;
@@ -50,7 +51,7 @@
   }
 
   a:hover {
-    color: var(--red);
+    color: var(--stone);
   }
 }
 
@@ -59,39 +60,42 @@
   margin-top: 5px;
 }
 
-// /* Small devices (landscape phones, 576px and up) */
-// @media (min-width: 576px) {
-// }
+@media (min-width: 875px) {
+  #nav-main {
+    .mobile-nav {
+      display: none;
+    }
 
-// /* Medium devices (tablets portrait, 768px and up)  */
-// @media (min-width: 768px) {
-// }
+    .mobile-logo {
+      display: block;
+    }
 
-@media (max-width: 992px) {
-  .desktop-logo {
-    display: none;
+    .desktop-nav {
+      display: flex;
+    }
+
+    .desktop-logo {
+      display: none;
+    }
   }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .mobile-nav {
-    display: none;
-  }
+@media (min-width: 1150px) {
+  #nav-main {
+    .mobile-nav {
+      display: none;
+    }
 
-  .mobile-logo {
-    display: none;
-  }
+    .mobile-logo {
+      display: none;
+    }
 
-  .nav-title {
-    display: block;
-  }
+    .desktop-nav {
+      display: flex;
+    }
 
-  .desktop-nav {
-    display: flex;
+    .desktop-logo {
+      display: block;
+    }
   }
 }
-
-// /* Extra large devices (large desktops, 1200px and up) */
-// @media (min-width: 1200px) {
-// }

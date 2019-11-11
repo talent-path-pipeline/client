@@ -1,8 +1,5 @@
-/* Mobile first approach. Responsive breakpoints are listed smallest to highest */
-/* Small devices, Phones up to 575px */
-
 .catalog-page {
-  padding: 1rem;
+  padding: 20px;
 
   .catalog-header {
     // margin: 1rem;
@@ -10,6 +7,11 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    padding: 5px 0px 0px 5px;
+
+    .page-title {
+      color: var(--black);
+    }
 
     input {
       border-radius: 5px;
@@ -19,5 +21,13 @@
       color: var(--black);
       background-color: var(--stone);
     }
+  }
+
+  .catalog-line {
+    // width: 100vw;
+    width: 99.5%;
+    max-width: auto;
+    margin: 15px auto;
+    border: 4px solid var(--brown);
   }
 }
