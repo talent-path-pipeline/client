@@ -1,13 +1,21 @@
-.error {
+.error-page {
   text-align: center;
-  background-color: #c1c6c9;
-  height: 100%;
+  // background-color: var(--stone);
+  background: linear-gradient(var(--cream), 15%, var(--stone), 85%, var(--brown));
+  height: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 30px;
+  flex-wrap: wrap;
+  overflow: hidden;
 
-  .error-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    flex-wrap: wrap;
+  .error-image {
+    height: 80%;
+    max-height: 400px;
+    width: auto;
+    margin: 15px;
+    margin-right: 5vw;
   }
 
   .error-text {
@@ -22,7 +30,7 @@
 
     h4 {
       font-family: var(--fontfamily-alt);
+      font-weight: normal;
     }
   }
 }
-
