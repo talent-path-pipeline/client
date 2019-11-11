@@ -1,13 +1,19 @@
-.error {
+.error-page {
   text-align: center;
-  background-color: #c1c6c9;
-  height: 100%;
+  // background-color: var(--stone);
+  background: linear-gradient(var(--cream), 15%, var(--stone), 85%, var(--brown));
+  height: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 50px 30px;
+  flex-wrap: wrap;
+  overflow: hidden;
 
-  .error-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    flex-wrap: wrap;
+  .error-image {
+    height: 80%;
+    width: auto;
+    margin: 15px;
   }
 
   .error-text {
@@ -22,7 +28,7 @@
 
     h4 {
       font-family: var(--fontfamily-alt);
+      font-weight: normal;
     }
   }
 }
-
