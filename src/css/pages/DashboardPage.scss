@@ -30,24 +30,26 @@
   }
 }
 
-.dashboardHeader,  .menuHeader{
+.dashboardHeader,
+.menuHeader {
   display: block;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  font-family: var(--fontfamily-alt);
+  font-family: var(--font-main);
   padding: 0;
   float: none;
   margin-left: 0;
 }
 
-.menuHeader{
+.menuHeader {
   color: var(--white);
   margin-bottom: 10px;
-  font-family: var(--fontfamily);
+  font-family: var(--font-deco);
 }
 
-.dashboardHeader, .dashboardText{
+.dashboardHeader,
+.dashboardText {
   color: var(--black);
 }
 
@@ -59,12 +61,12 @@
 .dashboardBody p {
   padding: 15px 0;
   margin: 0;
-  font-family: var(--fontfamily-roboto);
+  font-family: var(--font-alt);
 }
 
 .dashboard .activeView {
   font-weight: bolder;
-  font-family: var(--fontfamily-roboto);
+  font-family: var(--font-alt);
   color: var(--greyblue);
 }
 
@@ -94,7 +96,7 @@
   margin: 0;
   padding: 0;
   font-size: 18px;
-  font-family: var(--fontfamily-roboto);
+  font-family: var(--font-alt);
   color: var(--white);
 }
 
@@ -131,14 +133,14 @@
   background-color: var(--greyblue);
   outline: none;
   font-size: 1rem;
-  font-family: var(--fontfamily-roboto);
+  font-family: var(--font-alt);
 }
 
 .accountForms form button {
   font-size: 18px;
   margin: 20px 0;
   max-width: 200px;
-  font-family: var(--fontfamily);
+  font-family: var(--font-deco);
   background-color: var(--light-blue);
   outline: none;
 }

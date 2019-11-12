@@ -9,7 +9,7 @@ $contentBackground: white;
     color: var(--black);
     text-align: center;
     margin-bottom: 6px;
-    font-family: var(--fontfamily-alt);
+    font-family: var(--font-main);
   }
 
   /* Accordion styles */
@@ -33,7 +33,7 @@ $contentBackground: white;
         display: flex;
         justify-content: space-between;
         padding: 1em;
-        font-family: var(--fontfamily-roboto);
+        font-family: var(--font-alt);
         background: $title-bar;
         cursor: pointer;
 
@@ -57,7 +57,7 @@ $contentBackground: white;
         color: black;
         background: $contentBackground;
         transition: all 0.35s;
-        font-family: var(--fontfamily-alt);
+        font-family: var(--font-main);
         line-height: 30px;
       }
 
@@ -87,7 +87,7 @@ $contentBackground: white;
         ~ .tab-content {
           max-height: 100vh;
           padding: 1em;
-          font-family: var(--fontfamily-roboto);
+          font-family: var(--font-alt);
           font-weight: 300;
           background-color: var(--white);
         }

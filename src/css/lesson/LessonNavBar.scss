@@ -3,14 +3,13 @@
     border: none;
 
     a {
-        font-family: var(--fontfamily);
-        font-size: 1rem;
-        height: 100%;
-        width: 100%;
-        background-color: var(--navy);
-        color:var(--cream);
-        text-decoration: none;
-
+      font-family: var(--font-deco);
+      font-size: 1rem;
+      height: 100%;
+      width: 100%;
+      background-color: var(--navy);
+      color: var(--cream);
+      text-decoration: none;
     }
   }
 
@@ -29,11 +28,11 @@
 
   a {
     background-color: var(--navy);
-    color:var(--cream);
+    color: var(--cream);
     padding: 0.75rem 1.5rem;
   }
   & a:hover {
-      background-color: var(--brown);
+    background-color: var(--brown);
   }
 }
 
@@ -44,12 +43,9 @@
     padding: 0.75rem 0;
   }
   a:hover {
-      text-decoration: underline;
+    text-decoration: underline;
   }
 }
-
-
-
 
 // clear floats
 .lesson-nav-bar:after {

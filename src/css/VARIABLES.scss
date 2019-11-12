@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+  // Colors
   --black: #0a090c;
   --grey: #222;
   --medium-grey: hsl(0, 0%, 24%);
@@ -20,10 +21,11 @@
   --cream: #ebe4da;
   --navy: #334552;
   --greyblue: #83939e;
-  --orange: #E2B546;
+  --orange: #e2b546;
   // We gotta figure out our colors for real
 
-  --fontfamily: 'Cinzel Decorative', cursive;
-  --fontfamily-alt: 'Open Sans', sans-serif;
-  --fontfamily-roboto: 'Roboto', sans-serif;
+  // White-label variables
+  --font-deco: 'Cinzel Decorative', cursive;
+  --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
+  --font-alt: 'Roboto', 'Tahoma', sans-serif;
 }

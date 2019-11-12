@@ -31,7 +31,7 @@
 .card {
   text-align: center;
   color: var(--white);
-  font-family: var(--fontfamily-roboto);
+  font-family: var(--font-alt);
   font-weight: 300;
   background-color: var(--navy);
   border-radius: 1.5rem;
@@ -69,7 +69,7 @@
 
 @media (max-width: 990px) {
   .card p {
-      font-size: 15px;
+    font-size: 15px;
   }
 }
 
@@ -115,13 +115,13 @@
   }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
   .cardWrapper {
     margin-top: 0rem;
   }
   .card {
-      width: 80%;
-      margin-top: 4rem;
+    width: 80%;
+    margin-top: 4rem;
   }
 }
 

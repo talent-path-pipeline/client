@@ -1,7 +1,7 @@
 #login-container {
   border: 1px solid black;
   border-radius: 10px;
-  background-color: rgba($color: #0A090C, $alpha: 0.7);
+  background-color: rgba($color: #0a090c, $alpha: 0.7);
   max-width: 600px;
   box-shadow: 3px 3px 6px rgb(37, 37, 37);
   text-align: center;
@@ -13,12 +13,12 @@
     padding: 20px;
     text-align: center;
   }
-  
+
   #login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+
     h3 {
       padding: 10px;
     }
@@ -29,7 +29,7 @@
     width: 400px;
     border-radius: 5px;
   }
-  
+
   form input.error {
     border-color: red;
   }
@@ -39,7 +39,7 @@
     width: 150px;
     border-radius: 5px;
     border: 1px solid var(--grey);
-    background-color: rgba($color: white, $alpha: .2);
+    background-color: rgba($color: white, $alpha: 0.2);
     // color: var(--white);
     color: white;
     margin: 15px;
@@ -59,7 +59,7 @@
   p {
     font-size: 15px;
     margin-bottom: 20px;
-    font-family: var(--fontfamily-alt);
+    font-family: var(--font-main);
   }
 
   #signup-button {
@@ -67,19 +67,17 @@
     background: none;
     color: orange;
     font-size: 15px;
-    font-family: var(--fontfamily-alt);
+    font-family: var(--font-main);
     cursor: pointer;
   }
 
   #failedToRegister {
     color: red;
   }
-  
+
   .warning {
     padding-top: 15px;
     color: red;
     text-align: center;
   }
-  
 }
-
