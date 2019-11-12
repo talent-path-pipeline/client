@@ -55,6 +55,7 @@
   input {
     height: 30px;
     width: 400px;
+    padding-left: 5px;
     border-radius: 5px;
   }
   
@@ -66,7 +67,7 @@
     padding-left: 10px;
   }
   
-  form input.error {
+  .formError {
     border-color: red;
   }
 
@@ -74,9 +75,12 @@
     color: orange;
   }
 
+  #bottomLink{
+    margin-bottom: 20px;
+  }
+  
   p {
     font-size: 15px;
-    margin-bottom: 20px;
     font-family: var(--fontfamily-alt);
   }
   
@@ -101,11 +105,10 @@
   button:disabled {
     background-color: #454545;
   }
-  
-  #failedToRegister {
-    color: red;
-  }
 
+  .ErrorMessage{
+    color:red;
+  }
   #login-button {
     border: none;
     background: none;
@@ -113,11 +116,5 @@
     font-size: 15px;
     font-family: var(--fontfamily-alt);
     cursor: pointer;
-  }
-  
-  .warning {
-    padding-top: 15px;
-    color: red;
-    text-align: center;
   }
 }
