@@ -1,9 +1,13 @@
+@function getRGBfromHex($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
 #login-container {
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 10px;
   background-color: rgba($color: #0a090c, $alpha: 0.7);
   max-width: 600px;
-  box-shadow: 3px 3px 6px rgb(37, 37, 37);
+  box-shadow: 3px 3px 6px var(--black);
   text-align: center;
   margin: auto;
   position: relative;
@@ -31,7 +35,7 @@
   }
 
   form input.error {
-    border-color: red;
+    border-color: var(--error);
   }
 
   #submit-button {
@@ -39,9 +43,9 @@
     width: 150px;
     border-radius: 5px;
     border: 1px solid var(--grey);
-    background-color: rgba($color: white, $alpha: 0.2);
-    // color: var(--white);
-    color: white;
+    background-color: rgba($color: #eeeeee, $alpha: 0.2);
+    // background-color: rgba(var(--plain-light-rgb), 0.2);
+    color: var(--white);
     margin: 15px;
     font-size: 1.2em;
     transition: 1s;
@@ -49,11 +53,11 @@
   }
 
   #submit-button:hover {
-    background-color: orange;
+    background-color: var(--orange);
   }
 
   #submit-button:disabled {
-    background-color: #454545;
+    background-color: var(--brown);
   }
 
   p {
@@ -65,19 +69,19 @@
   #signup-button {
     border: none;
     background: none;
-    color: orange;
+    color: var(--orange);
     font-size: 15px;
     font-family: var(--font-main);
     cursor: pointer;
   }
 
   #failedToRegister {
-    color: red;
+    color: var(--error);
   }
 
   .warning {
     padding-top: 15px;
-    color: red;
+    color: var(--error);
     text-align: center;
   }
 }

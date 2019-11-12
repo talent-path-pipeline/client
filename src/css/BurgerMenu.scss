@@ -40,7 +40,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: var(--black);
+  background: var(--navy);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   padding-left: 25px;
@@ -48,19 +48,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: var(--grey);
+  fill: var(--black);
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
   padding: 0.8em;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: var(--white);
+  color: var(--cream);
   padding: 0.8em;
   text-decoration: none;
   outline: none;
@@ -68,11 +67,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .bm-item:hover {
-  color: var(--red);
+  color: var(--greyblue);
+  font-weight: bold;
 }
 
 .bm-item:active {
-  color: var(--red);
+  color: var(--greyblue);
+  font-weight: bold;
 }
 
 /* Styling of overlay */

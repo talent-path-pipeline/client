@@ -1,5 +1,5 @@
 #signup-container {
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 10px;
   background-color: rgba($color: #0a090c, $alpha: 0.7);
   max-width: 600px;
@@ -44,7 +44,7 @@
   }
 
   h6 {
-    color: white;
+    color: var(--white);
     font-family: var(--font-main);
     font-weight: 100;
     font-style: oblique;
@@ -58,7 +58,7 @@
   }
 
   input:hover {
-    border-style: solid red;
+    border-style: solid var(--error);
   }
 
   input:placeholder-shown {
@@ -66,11 +66,11 @@
   }
 
   form input.error {
-    border-color: red;
+    border-color: var(--error);
   }
 
   a {
-    color: orange;
+    color: var(--orange);
   }
 
   p {
@@ -85,7 +85,7 @@
     border-radius: 5px;
     border: 1px solid var(--grey);
     background-color: rgba($color: white, $alpha: 0.2);
-    color: white;
+    color: var(--white);
     margin: 15px;
     font-size: 1.2em;
     transition: 1s;
@@ -93,21 +93,21 @@
   }
 
   button:hover {
-    background-color: orange;
+    background-color: var(--orange);
   }
 
   button:disabled {
-    background-color: #454545;
+    background-color: var(--brown);
   }
 
   #failedToRegister {
-    color: red;
+    color: var(--error);
   }
 
   #login-button {
     border: none;
     background: none;
-    color: orange;
+    color: var(--orange);
     font-size: 15px;
     font-family: var(--font-main);
     cursor: pointer;
@@ -115,7 +115,7 @@
 
   .warning {
     padding-top: 15px;
-    color: red;
+    color: var(--error);
     text-align: center;
   }
 }

@@ -1,26 +1,31 @@
+@function getRGBfromHex($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
 /* Variables */
 :root {
   // Colors
   --black: #0a090c;
-  --grey: #222;
-  --medium-grey: hsl(0, 0%, 24%);
-  --red: #990000;
+  --grey: #222; // 1
+  --medium-grey: hsl(0, 0%, 24%); // 1
+  --red: #990000; // 1
   --darkred: #140808;
-  --brown: #63372c;
-  --blue: #2e294e;
-  --white: #eeeeee;
+  --brown2: #63372c;
+  --blue: #2e294e; // 4
+  --white: #eeeeee; // 7
   // --white: #c1c6c9;
-  --stone: #9f9484;
+  --stone: #9f9484; // 4
   // --orange: #d68742;
-  --light-blue: #42727c;
-  --crimson1: #dd3442;
-  --crimson2: #dc143c;
+  --light-blue: #42727c; // 1
+  --crimson1: #dd3442; // 1
+  --crimson2: #dc143c; // 1
+  --error: red;
 
   //Complement of Stone
-  --brown: #52493c;
-  --cream: #ebe4da;
-  --navy: #334552;
-  --greyblue: #83939e;
+  --brown: #52493c; // 7
+  --cream: #ebe4da; // 3
+  --navy: #334552; // 7
+  --greyblue: #83939e; // 4
   --orange: #e2b546;
   // We gotta figure out our colors for real
 
@@ -28,4 +33,9 @@
   --font-deco: 'Cinzel Decorative', cursive;
   --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-alt: 'Roboto', 'Tahoma', sans-serif;
+
+  --plain-light: var(--cream);
+  // --plain-light-rgb: #{getRGBfromHex(var(--cream))};
+  --plain-dark: var(--black);
+  --theme-color: var(--stone);
 }

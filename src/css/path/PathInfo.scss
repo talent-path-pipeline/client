@@ -33,8 +33,8 @@
 
   .subtitle2 {
     margin-bottom: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    font-family: var(--font-main);
+    color: var(--black);
   }
 
   .line {
@@ -54,5 +54,4 @@
   text-align: center;
   color: var(--cream);
   font-family: var(--font-deco);
-  // font-family: var(--font-main);
 }
