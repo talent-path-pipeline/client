@@ -28,6 +28,7 @@
     height: 30px;
     width: 400px;
     border-radius: 5px;
+    padding-left: 5px;
   }
   
   form input.error {
@@ -56,9 +57,12 @@
     background-color: #454545;
   }
 
+#bottomLink{
+    margin-bottom: 20px;
+  }
   p {
     font-size: 15px;
-    margin-bottom: 20px;
+    
     font-family: var(--fontfamily-alt);
   }
 
@@ -71,8 +75,8 @@
     cursor: pointer;
   }
 
-  #failedToRegister {
-    color: red;
+  .ErrorMessage{
+    color:red;
   }
   
   .warning {

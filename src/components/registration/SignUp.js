@@ -135,7 +135,7 @@ class SignUp extends Component {
           <h3 className="input-labels">Email</h3>
           <input
             className= {this.state.errors.email ? 'formError':null}
-            type="text"
+            type="email"
             value={email}
             onChange={this.handleEmailChange}
             placeholder="JaneDoe@email.com"

@@ -12,6 +12,15 @@ class LogIn extends Component {
     this.state = {
       email: '',
       password: '',
+      errors: {
+        email:false,
+        password: false,
+      },
+      ValidationErrorMessages: {
+        badEmail: 'Missing email',
+        badPassword: 'Missing password',
+      },
+      HTTPErrorMessage: ''
     };
   }
 
@@ -26,29 +35,50 @@ class LogIn extends Component {
       .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
-        // this.props.history.push("/dashboard");
         this.props.handleLogin();
       })
       .catch(error => {
-        try {
-          // Handles errors that are not HTTP specific
-          console.error(error);
-          this.setState({ showRegistrationFailure: true });
-          if (!error.status) {
-            console.error('A network error has occured.');
-          } else if (error.response.status === 400) {
-            console.error('Bad Request');
-          } else if (error.response.status === 500) {
-            console.error('Something bad happended on the server.');
-          } else {
-            console.error('An unknown error has occurred');
-          }
-        } catch (ex) {
-          Promise.reject(ex);
+        if(error.message === 'Network Error'){
+          this.setState({ HTTPErrorMessage: 'A network error has occurred while contacting our servers...' });
+        } else if (error.response.status === 400) {
+          this.setState({ HTTPErrorMessage: `${error.response.data}` });
+        } else if (error.response.status === 500) {
+          this.setState({ HTTPErrorMessage: `Something went wrong on our side. Please try again at a later time.\n Error: ${error.response.data}` });
         }
       });
   };
+  handleEmailChange = evt => {
+    this.setState({email: evt.target.value });
+  };
 
+  handlePasswordChange = evt => {
+    this.setState({  password: evt.target.value });
+  };
+  validateData = () =>{
+    const { email, password} = this.state;
+    let setErrors = {
+        email:false,
+        password: false,
+    }
+    let atLeastOneFailed = false;
+    // Validating Email
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      setErrors.email = true;
+      atLeastOneFailed = true;
+    }
+    // Validating password
+    if(password.length === 0 || password === undefined){
+      setErrors.password = true;
+      atLeastOneFailed = true;
+    }
+    // Setting error flags in state
+    if(!atLeastOneFailed){
+      this.LogInHandler();
+    }else{
+      this.setState({errors: setErrors})
+    }
+    
+  }
   render() {
     const { email, password } = this.state;
     const { changeToSignup } = this.props;
@@ -58,21 +88,31 @@ class LogIn extends Component {
         <form id="login-form">
           <h3>Email</h3>
           <input
-            type="email"
+            className= {this.state.errors.email ? 'formError':null}
+            type="text"
             value={email}
-            onChange={event => this.setState({ email: event.target.value })}
+            onChange={this.handleEmailChange}
+            placeholder=""
           />
+          {this.state.errors.email ?  <p className=
+          'ErrorMessage'>{this.state.ValidationErrorMessages.badEmail}</p> : null}
           <h3>Password</h3>
           <input
+          className= {this.state.errors.password ? 'formError':null}
             type="password"
             value={password}
-            onChange={event => this.setState({ password: event.target.value })}
+            onChange={this.handlePasswordChange}
+            placeholder=""
           />
-          <button id="submit-button" type="button" onClick={this.LogInHandler}>
+          {this.state.errors.password ?  <p className=
+          'ErrorMessage'>{this.state.ValidationErrorMessages.badPassword}</p> : null}
+          <button id="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
+          {this.state.HTTPErrorMessage ?  <p className=
+          'ErrorMessage'>{this.state.HTTPErrorMessage}</p> : null}
         </form>
-        <p>
+        <p id='bottomLink'>
           {`Don't have an account, `}
           <button id="signup-button" type="button" onClick={changeToSignup()}>
             {`Sign up!`}
