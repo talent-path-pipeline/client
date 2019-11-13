@@ -88,6 +88,8 @@ export default class App extends Component {
   };
 
   render() {
+    // TODO: implement or remove user
+    // eslint-disable-next-line no-unused-vars
     const { only_path, user, isAuthenticated } = this.state;
     const { courses } = only_path;
 
