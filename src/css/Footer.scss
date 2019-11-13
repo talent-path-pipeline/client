@@ -29,15 +29,12 @@
 
 .pageFooter div div {
   position: relative;
-  height: 2em;
+  height: 3em;
   width: 4em;
   margin: auto;
   overflow: hidden;
 
   img {
-    position: absolute;
-    width: 4em;
-    top: -40%;
-    left: 0;
+    width: 3em;
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import stonehavenLogo from '/images/SANavbarLogo.png';
 import '../css/Footer.scss';
 
 class Footer extends React.Component {
@@ -12,7 +11,7 @@ class Footer extends React.Component {
         </p>
         <div>
           <div>
-            <img src={stonehavenLogo} alt="stonehavenLogo" />
+            <img  className="footerLogo" src="/images/logo-red-stone.png" alt="stonehavenLogo" />
           </div>
           <p>© 2019 Stonehaven Academy</p>
         </div>
