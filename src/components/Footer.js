@@ -11,7 +11,7 @@ class Footer extends React.Component {
         </p>
         <div>
           <div>
-            <img  className="footerLogo" src="/images/logo-red-stone.png" alt="stonehavenLogo" />
+            <img  className="footerLogo" src="/images/SA_IconLogo-Final.png" alt="stonehavenLogo" />
           </div>
           <p>© 2019 Stonehaven Academy</p>
         </div>
