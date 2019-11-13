@@ -1,5 +1,6 @@
 import React from 'react';
 import stonehavenLogo from '/images/SANavbarLogo.png';
+import '../css/Footer.scss';
 
 class Footer extends React.Component {
   render() {
