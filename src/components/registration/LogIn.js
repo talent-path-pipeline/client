@@ -13,19 +13,20 @@ class LogIn extends Component {
       email: '',
       password: '',
       errors: {
-        email:false,
+        email: false,
         password: false,
       },
       ValidationErrorMessages: {
         badEmail: 'Missing email',
         badPassword: 'Missing password',
       },
-      HTTPErrorMessage: ''
+      HTTPErrorMessage: '',
     };
   }
 
   LogInHandler = () => {
     const { email, password } = this.state;
+    const { handleLogin } = this.props;
     const data = {
       email,
       password,
@@ -35,52 +36,56 @@ class LogIn extends Component {
       .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
-        this.props.handleLogin();
+        handleLogin();
       })
       .catch(error => {
-        if(error.message === 'Network Error'){
-          this.setState({ HTTPErrorMessage: 'A network error has occurred while contacting our servers...' });
+        if (error.message === 'Network Error') {
+          this.setState({
+            HTTPErrorMessage:
+              'A network error has occurred while contacting our servers...',
+          });
         } else if (error.response.status === 400) {
           this.setState({ HTTPErrorMessage: `${error.response.data}` });
         } else if (error.response.status === 500) {
-          this.setState({ HTTPErrorMessage: `Something went wrong on our side. Please try again at a later time.\n Error: ${error.response.data}` });
+          this.setState({
+            HTTPErrorMessage: `Something went wrong on our side. Please try again at a later time.\n Error: ${error.response.data}`,
+          });
         }
       });
   };
+
   handleEmailChange = evt => {
-    this.setState({email: evt.target.value });
+    this.setState({ email: evt.target.value });
   };
 
   handlePasswordChange = evt => {
-    this.setState({  password: evt.target.value });
+    this.setState({ password: evt.target.value });
   };
-  validateData = () =>{
-    const { email, password} = this.state;
-    let setErrors = {
-        email:false,
-        password: false,
-    }
+
+  validateData = () => {
+    const { email, password } = this.state;
+    let setErrors = { email: false, password: false };
     let atLeastOneFailed = false;
     // Validating Email
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setErrors.email = true;
       atLeastOneFailed = true;
     }
     // Validating password
-    if(password.length === 0 || password === undefined){
+    if (password.length === 0 || password === undefined) {
       setErrors.password = true;
       atLeastOneFailed = true;
     }
     // Setting error flags in state
-    if(!atLeastOneFailed){
+    if (!atLeastOneFailed) {
       this.LogInHandler();
-    }else{
-      this.setState({errors: setErrors})
+    } else {
+      this.setState({ errors: setErrors });
     }
-    
-  }
+  };
+
   render() {
-    const { email, password } = this.state;
+    const { email, password, errors, HTTPErrorMessage } = this.state;
     const { changeToSignup } = this.props;
     return (
       <div id="login-container">
@@ -88,31 +93,34 @@ class LogIn extends Component {
         <form id="login-form">
           <h3>Email</h3>
           <input
-            className= {this.state.errors.email ? 'formError':null}
+            className={errors.email ? 'formError' : null}
             type="text"
             value={email}
             onChange={this.handleEmailChange}
             placeholder=""
           />
-          {this.state.errors.email ?  <p className=
-          'ErrorMessage'>{this.state.ValidationErrorMessages.badEmail}</p> : null}
+          {errors.email ? (
+            <p className="ErrorMessage">{this.state.ValidationErrorMessages.badEmail}</p>
+          ) : null}
           <h3>Password</h3>
           <input
-          className= {this.state.errors.password ? 'formError':null}
+            className={errors.password ? 'formError' : null}
             type="password"
             value={password}
             onChange={this.handlePasswordChange}
             placeholder=""
           />
-          {this.state.errors.password ?  <p className=
-          'ErrorMessage'>{this.state.ValidationErrorMessages.badPassword}</p> : null}
+          {errors.password ? (
+            <p className="ErrorMessage">
+              {this.state.ValidationErrorMessages.badPassword}
+            </p>
+          ) : null}
           <button id="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
-          {this.state.HTTPErrorMessage ?  <p className=
-          'ErrorMessage'>{this.state.HTTPErrorMessage}</p> : null}
+          {HTTPErrorMessage ? <p className="ErrorMessage">{HTTPErrorMessage}</p> : null}
         </form>
-        <p id='bottomLink'>
+        <p id="bottomLink">
           {`Don't have an account, `}
           <button id="signup-button" type="button" onClick={changeToSignup()}>
             {`Sign up!`}
@@ -125,6 +133,7 @@ class LogIn extends Component {
 
 LogIn.propTypes = {
   handleLogin: PropTypes.func.isRequired,
+  changeToSignup: PropTypes.func.isRequired,
 };
 
 export default LogIn;
