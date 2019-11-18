@@ -10,30 +10,25 @@ class LogIn extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      data: {
+        email: '',
+        password: '',
+      },
       errors: {
         email: false,
         password: false,
-      },
-      ValidationErrorMessages: {
-        badEmail: 'Missing email',
-        badPassword: 'Missing password',
-      },
+      },  
       HTTPErrorMessage: '',
     };
+    this.VALIDATION_ERROR_MESSAGES = {
+      badEmail: 'Missing or invalid email',
+      badPassword: 'Missing password',
+    }
   }
-
+  
   LogInHandler = () => {
-    const { email, password } = this.state;
-    const { handleLogin } = this.props;
-    const data = {
-      email,
-      password,
-    };
-
     axios
-      .post(`${REACT_APP_SVR_API}/user/login`, data)
+      .post(`${REACT_APP_SVR_API}/user/login`, this.state.data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         handleLogin();
@@ -55,34 +50,34 @@ class LogIn extends Component {
   };
 
   handleEmailChange = evt => {
-    this.setState({ email: evt.target.value });
+    const email = evt.target.value;
+    this.setState(prevState => ({ 
+      data: {email,password: prevState.data.password},
+      errors: { ...prevState.errors, email: false }
+    }));
   };
 
   handlePasswordChange = evt => {
-    this.setState({ password: evt.target.value });
+    const password = evt.target.value;
+    this.setState(prevState => ({ 
+      data: {email: prevState.data.email,password},
+      errors: { ...prevState.errors, password: false }
+    }));
   };
 
-  validateData = () => {
-    const { email, password } = this.state;
-    let setErrors = { email: false, password: false };
-    let atLeastOneFailed = false;
-    // Validating Email
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setErrors.email = true;
-      atLeastOneFailed = true;
-    }
-    // Validating password
-    if (password.length === 0 || password === undefined) {
-      setErrors.password = true;
-      atLeastOneFailed = true;
-    }
-    // Setting error flags in state
-    if (!atLeastOneFailed) {
+  validateData = () =>{
+    const { email, password} = this.state.data;
+    const errors = {
+      email:!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+      password: password.length === 0 || password === undefined
+    };
+
+    if(Object.keys(errors).every((k)=>!errors[k])){
       this.LogInHandler();
-    } else {
-      this.setState({ errors: setErrors });
+    }else{
+      this.setState({errors});
     }
-  };
+  }
 
   render() {
     const { email, password, errors, HTTPErrorMessage } = this.state;
@@ -99,26 +94,23 @@ class LogIn extends Component {
             onChange={this.handleEmailChange}
             placeholder=""
           />
-          {errors.email ? (
-            <p className="ErrorMessage">{this.state.ValidationErrorMessages.badEmail}</p>
-          ) : null}
+          {this.state.errors.email ?  <p className=
+            'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badEmail}</p> : null}
           <h3>Password</h3>
           <input
-            className={errors.password ? 'formError' : null}
+            className= {this.state.errors.password ? 'formError':null}
             type="password"
             value={password}
             onChange={this.handlePasswordChange}
             placeholder=""
           />
-          {errors.password ? (
-            <p className="ErrorMessage">
-              {this.state.ValidationErrorMessages.badPassword}
-            </p>
-          ) : null}
+          {this.state.errors.password ?  <p className=
+            'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badPassword}</p> : null}
           <button id="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
-          {HTTPErrorMessage ? <p className="ErrorMessage">{HTTPErrorMessage}</p> : null}
+          {this.state.HTTPErrorMessage ?  <p className=
+            'ErrorMessage'>{this.state.HTTPErrorMessage}</p> : null}
         </form>
         <p id="bottomLink">
           {`Don't have an account, `}

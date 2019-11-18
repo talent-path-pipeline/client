@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import '../../css/registration/SignUp.scss';
+import { ETXTBSY } from 'constants';
 
 const { REACT_APP_SVR_API } = process.env;
 
@@ -10,11 +11,13 @@ class SignUp extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      confirmPassword: '',
-      location: '',
-      fullName: '',
+      data:{
+        email: '',
+        password: '',
+        confirmPassword: '',
+        location: '',
+        fullName: '',
+      },
       errors: {
         email: false,
         password: false,
@@ -22,28 +25,22 @@ class SignUp extends Component {
         location: false,
         fullName: false,
       },
-      ValidationErrorMessages: {
-        badEmail: 'Must use a valid email',
-        badPassword: 'Must use a valid password with minimum of 8 characters',
-        badConfirmedPassword: 'Passwords do not match',
-        badFullName: 'Missing full name',
-        badLocation: 'Missing location',
-      },
       HTTPErrorMessage: '',
     };
+
+    this.VALIDATION_ERROR_MESSAGES = {
+      badEmail: 'Must use a valid email',
+      badPassword: 'Must use a valid password with minimum of 8 characters',
+      badConfirmedPassword: 'Passwords do not match',
+      badFullName: 'Missing full name',
+      badLocation: 'Missing location'
+    }
   }
 
   createUserHandler = () => {
     const { handleSignup } = this.props;
-    const { email, password, location, fullName } = this.state;
-    const data = {
-      email,
-      password,
-      location,
-      fullName,
-    };
     axios
-      .post(`${REACT_APP_SVR_API}/user/`, data)
+      .post(`${REACT_APP_SVR_API}/user/`, this.state.data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         handleSignup();
@@ -66,78 +63,62 @@ class SignUp extends Component {
 
   // Handles getting values
   handleEmailChange = evt => {
-    this.setState({ email: evt.target.value });
+    this.setState(prevState => ({ 
+      ...prevState,
+      data: { ...prevState.data, email: evt.target.value },
+      errors: { ...prevState.errors, email: false }
+    }));
   };
 
   handlePasswordChange = evt => {
-    this.setState({ password: evt.target.value });
+    this.setState(prevState => ({ 
+      data: { ...prevState.data, password: evt.target.value },
+      errors: { ...prevState.errors, password: false }
+    }));
   };
 
   handleConfirmPassword = evt => {
-    this.setState({ confirmPassword: evt.target.value });
+    this.setState(prevState => ({ 
+      data: { ...prevState.data, confirmPassword: evt.target.value },
+      errors: { ...prevState.errors, confirmPassword: false }
+    }));
   };
 
   handleFullName = evt => {
-    this.setState({ fullName: evt.target.value });
+    const fullName = evt.target.value; // TODO:
+    this.setState(prevState => ({ 
+      data: { ...prevState.data, fullName},
+      errors: { ...prevState.errors, fullName: false }
+    }));
   };
 
   handleLocation = evt => {
-    this.setState({ location: evt.target.value });
+    const location = evt.target.value; // TODO:
+    this.setState(prevState => ({ 
+      data: { ...prevState.data, location},
+      errors: { ...prevState.errors, location: false }
+    }));
   };
 
-  validateData = () => {
-    const { email, password, confirmPassword, location, fullName } = this.state;
-    let setErrors = {
-      email: false,
-      password: false,
-      confirmPassword: false,
-      location: false,
-      fullName: false,
+  validateData = () =>{
+    const { email, password, confirmPassword, location, fullName } = this.state.data;
+    const errors = {
+        email:!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+        password: password === undefined || password.length < 8,
+        confirmPassword: password !== confirmPassword || confirmPassword.length < 8,
+        location: location === undefined || location.length === 0,
+        fullName: fullName.length === 0 || fullName === undefined, // TODO:
     };
-    let atLeastOneFailed = false;
-    // Validating Email
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setErrors.email = true;
-      atLeastOneFailed = true;
-    }
-    // Validating password
-    if (password.length === 0 || password === undefined || password.length < 8) {
-      setErrors.password = true;
-      atLeastOneFailed = true;
-    }
-    // Validating Confirmed Password
-    if (password !== confirmPassword || confirmPassword.length === 0) {
-      setErrors.confirmPassword = true;
-      atLeastOneFailed = true;
-    }
-    // Validating Full Name
-    if (fullName.length === 0 || fullName === undefined) {
-      setErrors.fullName = true;
-      atLeastOneFailed = true;
-    }
-    // Validating Location
-    if (location.length === 0 || location === undefined) {
-      setErrors.location = true;
-      atLeastOneFailed = true;
-    }
-    // Setting error flags in state
-    if (!atLeastOneFailed) {
+
+    if(Object.keys(errors).every((k)=>!errors[k])){ // TODO:
       this.createUserHandler();
     } else {
-      this.setState({ errors: setErrors });
-    }
-  };
+      this.setState({errors});
+    }    
+  }
 
   render() {
-    const {
-      email,
-      password,
-      confirmPassword,
-      location,
-      fullName,
-      errors,
-      HTTPErrorMessage,
-    } = this.state;
+    const { email, password, confirmPassword, location, fullName } = this.state.data;
     const { backToLogin } = this.props;
     return (
       <div id="signup-container">
@@ -151,9 +132,8 @@ class SignUp extends Component {
             onChange={this.handleEmailChange}
             placeholder="JaneDoe@email.com"
           />
-          {errors.email ? (
-            <p className="ErrorMessage">{this.state.ValidationErrorMessages.badEmail}</p>
-          ) : null}
+          {this.state.errors.email ?  <p className=
+          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badEmail}</p> : null}
           <h3 className="input-labels">Password</h3>
           <input
             className={errors.password ? 'formError' : null}
@@ -162,11 +142,8 @@ class SignUp extends Component {
             onChange={this.handlePasswordChange}
             placeholder="Minimum length 8 characters"
           />
-          {errors.password ? (
-            <p className="ErrorMessage">
-              {this.state.ValidationErrorMessages.badPassword}
-            </p>
-          ) : null}
+          {this.state.errors.password ?  <p className=
+          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badPassword}</p> : null}
 
           <h3 className="input-labels">Confirm Password</h3>
           <input
@@ -175,11 +152,8 @@ class SignUp extends Component {
             value={confirmPassword}
             onChange={this.handleConfirmPassword}
           />
-          {errors.confirmPassword ? (
-            <p className="ErrorMessage">
-              {this.state.ValidationErrorMessages.badConfirmedPassword}
-            </p>
-          ) : null}
+          {this.state.errors.confirmPassword ?  <p className=
+          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badConfirmedPassword}</p> : null}
 
           <h3 className="input-labels">Full Name</h3>
           <input
@@ -189,11 +163,8 @@ class SignUp extends Component {
             onChange={this.handleFullName}
             placeholder="Jane Doe"
           />
-          {errors.fullName ? (
-            <p className="ErrorMessage">
-              {this.state.ValidationErrorMessages.badFullName}
-            </p>
-          ) : null}
+          {this.state.errors.fullName ?  <p className=
+          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badFullName}</p> : null}
 
           <h3 className="input-labels">Location</h3>
           <input
@@ -203,11 +174,8 @@ class SignUp extends Component {
             onChange={this.handleLocation}
             placeholder="Example: Neverwinter"
           />
-          {errors.location ? (
-            <p className="ErrorMessage">
-              {this.state.ValidationErrorMessages.badLocation}
-            </p>
-          ) : null}
+         {this.state.errors.location ?  <p className=
+          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badLocation}</p> : null}
           {/* <p>
               {`By clicking "Sign Up" you are agreeing to our `} 
             <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" rel="noopener noreferrer" target="_blank">Terms and Agreement</a>
