@@ -9,7 +9,7 @@ const Footer = () => (
     </p>
     <div>
       <a href="https://github.com/talent-path-pipeline">
-        <img  className="footer-logo" src="/images/SA_IconLogo-Final.png" alt="stonehavenLogo" />
+        <img  className="footer-logo" src="/images/SA_IconLogo-Final.png" alt="stonehaven-logo" />
       </a>
       <p>
         © 2019 
