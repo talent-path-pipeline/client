@@ -164,7 +164,7 @@ export default class App extends Component {
             />
             <Route component={ErrorPage} />
           </Switch>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     );

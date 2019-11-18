@@ -1,8 +1,6 @@
-.pageFooter {
+.page-footer {
   display: grid;
   grid-template-columns: repeat(3, minmax(5rem, 13rem));
-  align-content: center;
-  justify-items: center;
   justify-content: center;
   align-items: center;
 
@@ -12,29 +10,21 @@
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
   color: var(--white);
   background-color: var(--navy);
-}
 
-.pageFooter p {
-  padding: 0;
-  margin: 0;
+  p {
+    padding: 0;
+    margin: 0;
+  
+    font-size: 13px;
+    color: var(--white);
+  }  
 
-  font-size: 13px;
-  color: var(--white);
-}
-
-.pageFooter a {
-  font-size: 13px;
-  color: var(--white);
-}
-
-.pageFooter div div {
-  position: relative;
-  height: 3em;
-  width: 4em;
-  margin: auto;
-  overflow: hidden;
-
-  img {
-    width: 3em;
+  a {
+    font-size: 13px;
+    color: var(--white);
   }
+}
+
+.footer-logo{
+  width: 4.6em;
 }
