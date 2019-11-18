@@ -17,18 +17,22 @@ class LogIn extends Component {
       errors: {
         email: false,
         password: false,
-      },  
+      },
       HTTPErrorMessage: '',
     };
+
     this.VALIDATION_ERROR_MESSAGES = {
-      badEmail: 'Missing or invalid email',
-      badPassword: 'Missing password',
-    }
+      bad_email: 'Missing or invalid email',
+      bad_password: 'Missing or invalid password',
+    };
   }
-  
+
   LogInHandler = () => {
+    const { data } = this.state;
+    const { handleLogin } = this.props;
+
     axios
-      .post(`${REACT_APP_SVR_API}/user/login`, this.state.data)
+      .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         handleLogin();
@@ -49,38 +53,35 @@ class LogIn extends Component {
       });
   };
 
-  handleEmailChange = evt => {
-    const email = evt.target.value;
-    this.setState(prevState => ({ 
-      data: {email,password: prevState.data.password},
-      errors: { ...prevState.errors, email: false }
+  // Handles getting values
+  handleDataChange = (event, type) => {
+    const new_data = event.target.data;
+    this.setState(prevState => ({
+      data: { ...prevState.data, [type]: new_data },
+      errors: { ...prevState.errors, [type]: false },
     }));
   };
 
-  handlePasswordChange = evt => {
-    const password = evt.target.value;
-    this.setState(prevState => ({ 
-      data: {email: prevState.data.email,password},
-      errors: { ...prevState.errors, password: false }
-    }));
-  };
+  handleEmailChange = event => this.handleDataChange(event, 'email');
 
-  validateData = () =>{
-    const { email, password} = this.state.data;
+  handlePasswordChange = event => this.handleDataChange(event, 'password');
+
+  validateData = () => {
+    const { data } = this.state;
     const errors = {
-      email:!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-      password: password.length === 0 || password === undefined
+      email: data.email === undefined || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email),
+      password: data.password === undefined || data.password.length < 8,
     };
 
-    if(Object.keys(errors).every((k)=>!errors[k])){
+    if (Object.keys(errors).every(err_type => !errors[err_type])) {
       this.LogInHandler();
-    }else{
-      this.setState({errors});
+    } else {
+      this.setState({ errors });
     }
-  }
+  };
 
   render() {
-    const { email, password, errors, HTTPErrorMessage } = this.state;
+    const { data, errors, HTTPErrorMessage } = this.state;
     const { changeToSignup } = this.props;
     return (
       <div id="login-container">
@@ -90,27 +91,28 @@ class LogIn extends Component {
           <input
             className={errors.email ? 'formError' : null}
             type="text"
-            value={email}
+            value={data.email}
             onChange={this.handleEmailChange}
             placeholder=""
           />
-          {this.state.errors.email ?  <p className=
-            'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badEmail}</p> : null}
+          {errors.email ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_email}</p>
+          ) : null}
           <h3>Password</h3>
           <input
-            className= {this.state.errors.password ? 'formError':null}
+            className={errors.password ? 'formError' : null}
             type="password"
-            value={password}
+            value={data.password}
             onChange={this.handlePasswordChange}
             placeholder=""
           />
-          {this.state.errors.password ?  <p className=
-            'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badPassword}</p> : null}
+          {errors.password ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_password}</p>
+          ) : null}
           <button id="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
-          {this.state.HTTPErrorMessage ?  <p className=
-            'ErrorMessage'>{this.state.HTTPErrorMessage}</p> : null}
+          {HTTPErrorMessage ? <p className="ErrorMessage">{HTTPErrorMessage}</p> : null}
         </form>
         <p id="bottomLink">
           {`Don't have an account, `}

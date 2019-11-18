@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import '../../css/registration/SignUp.scss';
-import { ETXTBSY } from 'constants';
 
 const { REACT_APP_SVR_API } = process.env;
 
@@ -11,36 +10,38 @@ class SignUp extends Component {
     super(props);
 
     this.state = {
-      data:{
+      data: {
         email: '',
         password: '',
-        confirmPassword: '',
+        confirm_password: '',
         location: '',
-        fullName: '',
+        full_name: '',
       },
       errors: {
         email: false,
         password: false,
-        confirmPassword: false,
+        confirm_password: false,
         location: false,
-        fullName: false,
+        full_name: false,
       },
       HTTPErrorMessage: '',
     };
 
     this.VALIDATION_ERROR_MESSAGES = {
-      badEmail: 'Must use a valid email',
-      badPassword: 'Must use a valid password with minimum of 8 characters',
-      badConfirmedPassword: 'Passwords do not match',
-      badFullName: 'Missing full name',
-      badLocation: 'Missing location'
-    }
+      bad_email: 'Must use a valid email',
+      bad_password: 'Must use a valid password with minimum of 8 characters',
+      bad_confirmed_password: 'Passwords do not match',
+      bad_full_name: 'Missing full name',
+      bad_location: 'Missing location',
+    };
   }
 
   createUserHandler = () => {
+    const { data } = this.state;
     const { handleSignup } = this.props;
+
     axios
-      .post(`${REACT_APP_SVR_API}/user/`, this.state.data)
+      .post(`${REACT_APP_SVR_API}/user/`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         handleSignup();
@@ -62,64 +63,46 @@ class SignUp extends Component {
   };
 
   // Handles getting values
-  handleEmailChange = evt => {
-    this.setState(prevState => ({ 
-      ...prevState,
-      data: { ...prevState.data, email: evt.target.value },
-      errors: { ...prevState.errors, email: false }
+  handleDataChange = (event, type) => {
+    const new_data = event.target.value;
+    this.setState(prevState => ({
+      data: { ...prevState.data, [type]: new_data },
+      errors: { ...prevState.errors, [type]: false },
     }));
   };
 
-  handlePasswordChange = evt => {
-    this.setState(prevState => ({ 
-      data: { ...prevState.data, password: evt.target.value },
-      errors: { ...prevState.errors, password: false }
-    }));
-  };
+  handleEmailChange = event => this.handleDataChange(event, 'email');
 
-  handleConfirmPassword = evt => {
-    this.setState(prevState => ({ 
-      data: { ...prevState.data, confirmPassword: evt.target.value },
-      errors: { ...prevState.errors, confirmPassword: false }
-    }));
-  };
+  handlePasswordChange = event => this.handleDataChange(event, 'password');
 
-  handleFullName = evt => {
-    const fullName = evt.target.value; // TODO:
-    this.setState(prevState => ({ 
-      data: { ...prevState.data, fullName},
-      errors: { ...prevState.errors, fullName: false }
-    }));
-  };
+  handleConfirmPassword = event => this.handleDataChange(event, 'confirm_password');
 
-  handleLocation = evt => {
-    const location = evt.target.value; // TODO:
-    this.setState(prevState => ({ 
-      data: { ...prevState.data, location},
-      errors: { ...prevState.errors, location: false }
-    }));
-  };
+  handleFullName = event => this.handleDataChange(event, 'full_name');
 
-  validateData = () =>{
-    const { email, password, confirmPassword, location, fullName } = this.state.data;
+  handleLocation = event => this.handleDataChange(event, 'location');
+
+  validateData = () => {
+    const { data } = this.state;
     const errors = {
-        email:!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-        password: password === undefined || password.length < 8,
-        confirmPassword: password !== confirmPassword || confirmPassword.length < 8,
-        location: location === undefined || location.length === 0,
-        fullName: fullName.length === 0 || fullName === undefined, // TODO:
+      email: data.email === undefined || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email),
+      password: data.password === undefined || data.password.length < 8,
+      confirm_password:
+        data.confirm_password === undefined || data.password !== data.confirm_password,
+      location: data.location === undefined || data.location.length === 0,
+      full_name: data.full_name === undefined || data.full_name.length === 0,
     };
 
-    if(Object.keys(errors).every((k)=>!errors[k])){ // TODO:
+    if (Object.keys(errors).every(err_type => !errors[err_type])) {
       this.createUserHandler();
     } else {
-      this.setState({errors});
-    }    
-  }
+      this.setState({ errors });
+    }
+  };
 
   render() {
-    const { email, password, confirmPassword, location, fullName } = this.state.data;
+    const { data, errors, HTTPErrorMessage } = this.state;
     const { backToLogin } = this.props;
+
     return (
       <div id="signup-container">
         <h1 id="signup-title">Register</h1>
@@ -128,58 +111,59 @@ class SignUp extends Component {
           <input
             className={errors.email ? 'formError' : null}
             type="email"
-            value={email}
+            value={data.email}
             onChange={this.handleEmailChange}
             placeholder="JaneDoe@email.com"
           />
-          {this.state.errors.email ?  <p className=
-          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badEmail}</p> : null}
+          {errors.email ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_email}</p>
+          ) : null}
           <h3 className="input-labels">Password</h3>
           <input
             className={errors.password ? 'formError' : null}
             type="password"
-            value={password}
+            value={data.password}
             onChange={this.handlePasswordChange}
             placeholder="Minimum length 8 characters"
           />
-          {this.state.errors.password ?  <p className=
-          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badPassword}</p> : null}
+          {errors.password ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_password}</p>
+          ) : null}
 
           <h3 className="input-labels">Confirm Password</h3>
           <input
-            className={errors.confirmPassword ? 'formError' : null}
+            className={errors.confirm_password ? 'formError' : null}
             type="password"
-            value={confirmPassword}
+            value={data.confirm_password}
             onChange={this.handleConfirmPassword}
           />
-          {this.state.errors.confirmPassword ?  <p className=
-          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badConfirmedPassword}</p> : null}
-
+          {errors.confirm_password ? (
+            <p className="ErrorMessage">
+              {this.VALIDATION_ERROR_MESSAGES.bad_confirmed_password}
+            </p>
+          ) : null}
           <h3 className="input-labels">Full Name</h3>
           <input
-            className={errors.fullName ? 'formError' : null}
+            className={errors.full_name ? 'formError' : null}
             type="text"
-            value={fullName}
+            value={data.full_name}
             onChange={this.handleFullName}
             placeholder="Jane Doe"
           />
-          {this.state.errors.fullName ?  <p className=
-          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badFullName}</p> : null}
-
+          {errors.full_name ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_full_name}</p>
+          ) : null}
           <h3 className="input-labels">Location</h3>
           <input
             className={errors.location ? 'formError' : null}
             type="text"
-            value={location}
+            value={data.location}
             onChange={this.handleLocation}
             placeholder="Example: Neverwinter"
           />
-         {this.state.errors.location ?  <p className=
-          'ErrorMessage'>{this.VALIDATION_ERROR_MESSAGES.badLocation}</p> : null}
-          {/* <p>
-              {`By clicking "Sign Up" you are agreeing to our `} 
-            <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" rel="noopener noreferrer" target="_blank">Terms and Agreement</a>
-          </p> */}
+          {errors.location ? (
+            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_location}</p>
+          ) : null}
           <button id="register-button" type="button" onClick={this.validateData}>
             {`Sign Up`}
           </button>
