@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { FormQuestion } from '..';
 import '../../css/registration/LogIn.scss';
 
 const { REACT_APP_SVR_API } = process.env;
@@ -22,8 +23,8 @@ class LogIn extends Component {
     };
 
     this.VALIDATION_ERROR_MESSAGES = {
-      bad_email: 'Missing or invalid email',
-      bad_password: 'Missing or invalid password',
+      email: 'Missing or invalid email',
+      password: 'Missing or invalid password',
     };
   }
 
@@ -62,10 +63,6 @@ class LogIn extends Component {
     }));
   };
 
-  handleEmailChange = event => this.handleDataChange(event, 'email');
-
-  handlePasswordChange = event => this.handleDataChange(event, 'password');
-
   validateData = () => {
     const { data } = this.state;
     const errors = {
@@ -87,28 +84,16 @@ class LogIn extends Component {
       <div id="login-container">
         <h1 id="title">Login</h1>
         <form id="login-form">
-          <h3>Email</h3>
-          <input
-            className={errors.email ? 'formError' : null}
-            type="text"
-            value={data.email}
-            onChange={this.handleEmailChange}
-            placeholder=""
-          />
-          {errors.email ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_email}</p>
-          ) : null}
-          <h3>Password</h3>
-          <input
-            className={errors.password ? 'formError' : null}
-            type="password"
-            value={data.password}
-            onChange={this.handlePasswordChange}
-            placeholder=""
-          />
-          {errors.password ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_password}</p>
-          ) : null}
+          {Object.keys(data).map(element => (
+            <FormQuestion
+              key={element}
+              data_type={element}
+              info={data[element]}
+              has_error={errors[element]}
+              err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
+              handleDataChange={this.handleDataChange}
+            />
+          ))}
           <button id="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>

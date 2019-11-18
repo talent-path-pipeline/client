@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { FormQuestion } from '..';
 import '../../css/registration/SignUp.scss';
 
 const { REACT_APP_SVR_API } = process.env;
@@ -28,11 +29,11 @@ class SignUp extends Component {
     };
 
     this.VALIDATION_ERROR_MESSAGES = {
-      bad_email: 'Must use a valid email',
-      bad_password: 'Must use a valid password with minimum of 8 characters',
-      bad_confirmed_password: 'Passwords do not match',
-      bad_full_name: 'Missing full name',
-      bad_location: 'Missing location',
+      email: 'Must use a valid email',
+      password: 'Must use a valid password with minimum of 8 characters',
+      confirm_password: 'Passwords do not match',
+      full_name: 'Missing full name',
+      location: 'Missing location',
     };
   }
 
@@ -71,16 +72,6 @@ class SignUp extends Component {
     }));
   };
 
-  handleEmailChange = event => this.handleDataChange(event, 'email');
-
-  handlePasswordChange = event => this.handleDataChange(event, 'password');
-
-  handleConfirmPassword = event => this.handleDataChange(event, 'confirm_password');
-
-  handleFullName = event => this.handleDataChange(event, 'full_name');
-
-  handleLocation = event => this.handleDataChange(event, 'location');
-
   validateData = () => {
     const { data } = this.state;
     const errors = {
@@ -107,63 +98,16 @@ class SignUp extends Component {
       <div id="signup-container">
         <h1 id="signup-title">Register</h1>
         <form id="signup-form">
-          <h3 className="input-labels">Email</h3>
-          <input
-            className={errors.email ? 'formError' : null}
-            type="email"
-            value={data.email}
-            onChange={this.handleEmailChange}
-            placeholder="JaneDoe@email.com"
-          />
-          {errors.email ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_email}</p>
-          ) : null}
-          <h3 className="input-labels">Password</h3>
-          <input
-            className={errors.password ? 'formError' : null}
-            type="password"
-            value={data.password}
-            onChange={this.handlePasswordChange}
-            placeholder="Minimum length 8 characters"
-          />
-          {errors.password ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_password}</p>
-          ) : null}
-
-          <h3 className="input-labels">Confirm Password</h3>
-          <input
-            className={errors.confirm_password ? 'formError' : null}
-            type="password"
-            value={data.confirm_password}
-            onChange={this.handleConfirmPassword}
-          />
-          {errors.confirm_password ? (
-            <p className="ErrorMessage">
-              {this.VALIDATION_ERROR_MESSAGES.bad_confirmed_password}
-            </p>
-          ) : null}
-          <h3 className="input-labels">Full Name</h3>
-          <input
-            className={errors.full_name ? 'formError' : null}
-            type="text"
-            value={data.full_name}
-            onChange={this.handleFullName}
-            placeholder="Jane Doe"
-          />
-          {errors.full_name ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_full_name}</p>
-          ) : null}
-          <h3 className="input-labels">Location</h3>
-          <input
-            className={errors.location ? 'formError' : null}
-            type="text"
-            value={data.location}
-            onChange={this.handleLocation}
-            placeholder="Example: Neverwinter"
-          />
-          {errors.location ? (
-            <p className="ErrorMessage">{this.VALIDATION_ERROR_MESSAGES.bad_location}</p>
-          ) : null}
+          {Object.keys(data).map(element => (
+            <FormQuestion
+              key={element}
+              data_type={element}
+              info={data[element]}
+              has_error={errors[element]}
+              err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
+              handleDataChange={this.handleDataChange}
+            />
+          ))}
           <button id="register-button" type="button" onClick={this.validateData}>
             {`Sign Up`}
           </button>
