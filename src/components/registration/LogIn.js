@@ -56,7 +56,7 @@ class LogIn extends Component {
 
   // Handles getting values
   handleDataChange = (event, type) => {
-    const new_data = event.target.data;
+    const new_data = event.target.value;
     this.setState(prevState => ({
       data: { ...prevState.data, [type]: new_data },
       errors: { ...prevState.errors, [type]: false },
@@ -91,7 +91,7 @@ class LogIn extends Component {
               info={data[element]}
               has_error={errors[element]}
               err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
-              handleDataChange={this.handleDataChange}
+              handleDataChange={event => this.handleDataChange(event, element)}
             />
           ))}
           <button className="submit-button" type="button" onClick={this.validateData}>
