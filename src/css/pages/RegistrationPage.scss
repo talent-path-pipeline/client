@@ -1,6 +1,6 @@
 .registration-container {
   background-image: url(/images/stone-bg.jpg);
-  background-position: center;
-  height: 100vh;
+  background-size: cover;
+  padding: 55px 50px;
+  min-height: calc(100vh - 80px);
 }
-

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { FormQuestion } from '..';
-import '../../css/registration/LogIn.scss';
+import '../../css/registration/RegisForm.scss';
 
 const { REACT_APP_SVR_API } = process.env;
 
@@ -81,9 +81,9 @@ class LogIn extends Component {
     const { data, errors, HTTPErrorMessage } = this.state;
     const { changeToSignup } = this.props;
     return (
-      <div id="login-container">
-        <h1 id="title">Login</h1>
-        <form id="login-form">
+      <div className="regis-form-container">
+        <h1 className="regis-form-title">Login</h1>
+        <form className="regis-form-form">
           {Object.keys(data).map(element => (
             <FormQuestion
               key={element}
@@ -94,14 +94,14 @@ class LogIn extends Component {
               handleDataChange={this.handleDataChange}
             />
           ))}
-          <button id="submit-button" type="button" onClick={this.validateData}>
+          <button className="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
-          {HTTPErrorMessage ? <p className="ErrorMessage">{HTTPErrorMessage}</p> : null}
+          {HTTPErrorMessage ? <p className="error-message">{HTTPErrorMessage}</p> : null}
         </form>
-        <p id="bottomLink">
+        <p className="bottom-link">
           {`Don't have an account, `}
-          <button id="signup-button" type="button" onClick={changeToSignup()}>
+          <button className="switch-button" type="button" onClick={changeToSignup()}>
             {`Sign up!`}
           </button>
         </p>

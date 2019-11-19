@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { FormQuestion } from '..';
-import '../../css/registration/SignUp.scss';
+import '../../css/registration/RegisForm.scss';
 
 const { REACT_APP_SVR_API } = process.env;
 
@@ -95,9 +95,9 @@ class SignUp extends Component {
     const { backToLogin } = this.props;
 
     return (
-      <div id="signup-container">
-        <h1 id="signup-title">Register</h1>
-        <form id="signup-form">
+      <div className="regis-form-container">
+        <h1 className="regis-form-title">Register</h1>
+        <form className="regis-form-form">
           {Object.keys(data).map(element => (
             <FormQuestion
               key={element}
@@ -108,13 +108,13 @@ class SignUp extends Component {
               handleDataChange={this.handleDataChange}
             />
           ))}
-          <button id="register-button" type="button" onClick={this.validateData}>
+          <button className="submit-button" type="button" onClick={this.validateData}>
             {`Sign Up`}
           </button>
-          {HTTPErrorMessage ? <p className="ErrorMessage">{HTTPErrorMessage}</p> : null}
-          <p id="bottomLink">
+          {HTTPErrorMessage ? <p className="error-message">{HTTPErrorMessage}</p> : null}
+          <p className="bottom-link">
             {`Go back to `}
-            <button id="login-button" type="button" onClick={backToLogin()}>
+            <button className="switch-button" type="button" onClick={backToLogin()}>
               {`Log in!`}
             </button>
           </p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/registration/FormQuestion.scss';
 
 const FormQuestion = props => {
   const { data_type, info, has_error, err_msg, handleDataChange } = props;
@@ -15,7 +16,7 @@ const FormQuestion = props => {
         onChange={event => handleDataChange(event, data_type)}
         placeholder=""
       />
-      {has_error ? <p className="ErrorMessage">{err_msg}</p> : null}
+      {has_error ? <p className="error-message">{err_msg}</p> : null}
     </div>
   );
 };
