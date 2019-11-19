@@ -105,7 +105,7 @@ class SignUp extends Component {
               info={data[element]}
               has_error={errors[element]}
               err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
-              handleDataChange={event => this.handleDataChange(event, element)}
+              handleDataChange={this.handleDataChange}
             />
           ))}
           <button className="submit-button" type="button" onClick={this.validateData}>
