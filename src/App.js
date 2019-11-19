@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Router, Route, Redirect } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 // import DUMMY_DATA from './DUMMY_DATA';
 import { contentAPI, tokenServices, ProtectedRoute } from './utils';
 import {
@@ -14,6 +16,7 @@ import {
   SupportPage,
   AboutPage,
   ErrorPage,
+  Footer,
 } from './components';
 import './css/main.scss';
 
@@ -27,7 +30,13 @@ const links = {
   dashboard: '/dashboard',
 };
 
-class App extends Component {
+const history = createBrowserHistory();
+history.listen(location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
+export default class App extends Component {
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.shape({
@@ -52,6 +61,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+
     contentAPI.getAllNestedPaths().then(contentResp => {
       if (contentResp.data[0]) {
         this.setState({ only_path: contentResp.data[0] });
@@ -82,71 +93,80 @@ class App extends Component {
     const { courses } = only_path;
 
     return (
-      <div id="start-page">
-        <NavBar
-          links={links}
-          isAuthenticated={isAuthenticated}
-          handleLogoff={this.handleLogoff}
-        />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route
-            exact
-            path={links.path}
-            render={props => <PathPage {...props} path_data={only_path} />}
-          />
-          <Route exact path={links.catalog} component={CatalogPage} />
-          {/* Login Protected Route */}
-          <ProtectedRoute
-            path={links.login}
-            isAuthenticated={!isAuthenticated}
-            redirectLink={links.dashboard}
-            component={RegistrationPage}
-            handleLogin={this.handleLogin}
-          />
-          {/* Dashboard Protected Route */}
-          <ProtectedRoute
-            path={links.dashboard}
+      <Router history={history}>
+        <div id="start-page">
+          <NavBar
+            links={links}
             isAuthenticated={isAuthenticated}
-            redirectLink={links.login}
-            component={DashboardPage}
+            handleLogoff={this.handleLogoff}
           />
-          <Route exact path={links.support} component={SupportPage} />
-          <Route exact path={links.about} component={AboutPage} />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route
+              exact
+              path={links.path}
+              render={props => <PathPage {...props} path_data={only_path} />}
+            />
+            <Route exact path={links.catalog} component={CatalogPage} />
 
-          <Redirect exact from="/courses/:course" to="/courses/:course/0" />
-          <Route
-            path="/courses/:course/:order"
-            render={props => {
-              const courseObj = courses.find(
-                course => course.slug === props.match.params.course,
-              );
-              const prevCourse = courses.find(
-                course => course.order === courseObj.order - 1,
-              );
-              const nextCourse = courses.find(
-                course => course.order === courseObj.order + 1,
-              );
-              const order = parseInt(props.match.params.order, 10);
-              if (!courseObj || order >= courseObj.lessons.length) return <ErrorPage />;
-              return (
-                <LessonPage
-                  {...props}
-                  course_title={courseObj.title}
-                  lessons={courseObj.lessons}
-                  curr_lesson_num={order}
-                  base_path={courseObj.slug}
-                  prev_slug={prevCourse ? prevCourse.slug : undefined}
-                  next_slug={nextCourse ? nextCourse.slug : undefined}
-                />
-              );
-            }}
-          />
-          <Route component={ErrorPage} />
-        </Switch>
-      </div>
+            {/* Login Protected Route */}
+            <ProtectedRoute
+              path={links.login}
+              isAuthenticated={!isAuthenticated}
+              redirectLink={links.dashboard}
+              component={RegistrationPage}
+              handleLogin={this.handleLogin}
+            />
+            {/* Dashboard Protected Route */}
+            <ProtectedRoute
+              path={links.dashboard}
+              isAuthenticated={isAuthenticated}
+              redirectLink={links.login}
+              component={DashboardPage}
+            />
+
+            <Route exact path={links.support} component={SupportPage} />
+            <Route exact path={links.about} component={AboutPage} />
+
+            <Redirect exact from="/courses/:course" to="/courses/:course/0" />
+            <Route
+              path="/courses/:course/:lesson_num"
+              render={props => {
+                const courseObj = courses.find(
+                  course => course.slug === props.match.params.course,
+                );
+                const lesson_num = parseInt(props.match.params.lesson_num, 10);
+                if (
+                  !courseObj ||
+                  lesson_num >= courseObj.lessons.length ||
+                  lesson_num < 0
+                ) {
+                  return <ErrorPage />;
+                }
+                const prevCourse = courses.find(
+                  course => course.order === courseObj.order - 1,
+                );
+                const nextCourse = courses.find(
+                  course => course.order === courseObj.order + 1,
+                );
+                return (
+                  <LessonPage
+                    {...props}
+                    course_title={courseObj.title}
+                    lessons={courseObj.lessons}
+                    curr_lesson_num={lesson_num}
+                    base_path={courseObj.slug}
+                    prev_slug={prevCourse ? prevCourse.slug : undefined}
+                    next_slug={nextCourse ? nextCourse.slug : undefined}
+                  />
+                );
+              }}
+            />
+            <Route component={ErrorPage} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
-
-export default App;
