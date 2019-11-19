@@ -16,6 +16,7 @@ import {
   SupportPage,
   AboutPage,
   ErrorPage,
+  Footer,
 } from './components';
 import './css/main.scss';
 
@@ -165,6 +166,7 @@ export default class App extends Component {
             />
             <Route component={ErrorPage} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
