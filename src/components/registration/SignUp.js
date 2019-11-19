@@ -1,221 +1,131 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import '../../css/registration/SignUp.scss';
+import { FormQuestion } from '..';
+import '../../css/registration/RegisForm.scss';
 
 const { REACT_APP_SVR_API } = process.env;
-
-/**
- * @description Validates all inputs to theses constraints
- */
-const validate = (email, password, confirmedPassword, fullName, location) => ({
-  email: email.length === 0,
-  password: password.length < 8 || password !== confirmedPassword,
-  fullName: fullName.length === 0,
-  location: location.length === 0,
-});
-
-const WarningBanner = warn_data =>
-  // eslint-disable-next-line implicit-arrow-linebreak
-  warn_data.warn ? <div className="warning">{warn_data.message}</div> : null;
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // Form information
-      email: '',
-      password: '',
-      confirmPassword: '',
-      location: '',
-      fullName: '',
-      // Might have to refactor this...
-      touched: {
+      data: {
+        email: '',
+        password: '',
+        confirm_password: '',
+        location: '',
+        full_name: '',
+      },
+      errors: {
         email: false,
         password: false,
+        confirm_password: false,
+        location: false,
+        full_name: false,
       },
+      HTTPErrorMessage: '',
+    };
+
+    this.VALIDATION_ERROR_MESSAGES = {
+      email: 'Must use a valid email',
+      password: 'Must use a valid password with minimum of 8 characters',
+      confirm_password: 'Passwords do not match',
+      full_name: 'Missing full name',
+      location: 'Missing location',
     };
   }
 
-  /**
-   * Creates a user with the server
-   */
   createUserHandler = () => {
-    const { email, password, location, fullName } = this.state;
+    const { data } = this.state;
     const { handleSignup } = this.props;
-    const data = {
-      email,
-      password,
-      location,
-      fullName,
+
+    // TODO: Fix the back-end so it actually uses the correct naming conventions so this isn't necessary
+    const no_name_convention_data = {
+      ...data,
+      fullName: data.full_name,
+      confirmPassword: data.confirm_password,
     };
+
     axios
-      .post(`${REACT_APP_SVR_API}/user/`, data)
+      .post(`${REACT_APP_SVR_API}/user/`, no_name_convention_data)
       .then(response => {
-        // console.log(response);
-        // Stores token in local storeage for the time being
         localStorage.setItem('app-token', response.data.token);
-        // Sweet Alert for successful registration
         handleSignup();
       })
       .catch(error => {
-        try {
-          // Handles errors that are not HTTP specific
-          console.error(error);
-          this.setState({ showRegistrationFailure: true });
-          if (!error.status) {
-            console.error('A network error has occured.');
-          } else if (error.response.status === 400) {
-            console.error('Bad Request');
-          } else if (error.response.status === 500) {
-            console.error('Something bad happended on the server.');
-          } else {
-            console.error('An unknown error has occurred');
-          }
-        } catch (ex) {
-          alert('Something went wrong...');
-          Promise.reject(ex);
+        if (error.message === 'Network Error') {
+          this.setState({
+            HTTPErrorMessage:
+              'A network error has occurred while contacting our servers...',
+          });
+        } else if (error.response.status === 400) {
+          this.setState({ HTTPErrorMessage: `Error: ${error.response.data}` });
+        } else if (error.response.status === 500) {
+          this.setState({
+            HTTPErrorMessage: `Something went wrong on our side. Please try again at a later time.\n Error: ${error.response.data}`,
+          });
         }
       });
   };
 
   // Handles getting values
-  handleEmailChange = evt => {
-    const email = evt.target.value;
-    this.setState({ email });
-  };
-
-  handlePasswordChange = evt => {
-    this.setState({ password: evt.target.value });
-  };
-
-  handleConfirmPassword = evt => {
-    this.setState({ confirmPassword: evt.target.value });
-  };
-
-  handleFullName = evt => {
-    this.setState({ fullName: evt.target.value });
-  };
-
-  handleLocation = evt => {
-    this.setState({ location: evt.target.value });
-  };
-
-  handleBlur = field => event => {
+  handleDataChange = (event, type) => {
+    const new_data = event.target.value;
     this.setState(prevState => ({
-      touched: { ...prevState.touched, [field]: true },
+      data: { ...prevState.data, [type]: new_data },
+      errors: { ...prevState.errors, [type]: false },
     }));
   };
 
-  /**
-   * @description Controls the submit button
-   */
-  handleSubmit = evt => {
-    if (!this.canBeSubmitted()) {
-      evt.preventDefault();
-      return;
+  validateData = () => {
+    const { data } = this.state;
+    const errors = {
+      email: data.email === undefined || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email),
+      password: data.password === undefined || data.password.length < 8,
+      confirm_password:
+        data.confirm_password === undefined || data.password !== data.confirm_password,
+      location: data.location === undefined || data.location.length === 0,
+      full_name: data.full_name === undefined || data.full_name.length === 0,
+    };
+
+    if (Object.keys(errors).every(err_type => !errors[err_type])) {
+      this.createUserHandler();
+    } else {
+      this.setState({ errors });
     }
-    const { email, password } = this.state;
-    alert(`Signed up with email: ${email} password: ${password}`);
   };
 
-  canBeSubmitted() {
-    const { email, password, confirmPassword, location, fullName } = this.state;
-    const errors = validate(
-      email,
-      password,
-      confirmPassword, // Moda
-      fullName,
-      location,
-    );
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
-    return !isDisabled;
-  }
-
   render() {
-    const { email, password, confirmPassword, location, fullName, touched } = this.state;
+    const { data, errors, HTTPErrorMessage } = this.state;
     const { backToLogin } = this.props;
-    const errors = validate(email, password, confirmPassword, fullName, location);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
 
-    const shouldMarkError = field => {
-      const hasError = errors[field];
-      const shouldShow = touched[field];
-
-      return hasError ? shouldShow : false;
-    };
     return (
-      <div id="signup-container">
-        <h1 id="signup-title">Register</h1>
-        <form id="signup-form">
-          <h3 className="input-labels">Email</h3>
-          <input
-            className={shouldMarkError('email') ? 'error' : ''}
-            type="text"
-            value={email}
-            onChange={this.handleEmailChange}
-            onBlur={this.handleBlur('email')}
-            placeholder="JaneDoe@email.com"
-          />
-          <h3 className="input-labels">Password</h3>
-          <input
-            className={shouldMarkError('password') ? 'error' : ''}
-            type="password"
-            value={password}
-            onChange={this.handlePasswordChange}
-            onBlur={this.handleBlur('password')}
-            placeholder="Minimum length 8 characters"
-          />
-          <h3 className="input-labels">Confirm Password</h3>
-          <input
-            className={shouldMarkError('confirmedPassword') ? 'error' : ''}
-            type="password"
-            value={confirmPassword}
-            onChange={this.handleConfirmPassword}
-            onBlur={this.handleBlur('confirmPassword')}
-          />
-          <h3 className="input-labels">Full Name</h3>
-          <input
-            className={shouldMarkError('fullName') ? 'error' : ''}
-            type="text"
-            value={fullName}
-            onChange={this.handleFullName}
-            onBlur={this.handleBlur('fullName')}
-            placeholder="Jane Doe"
-          />
-          <h3 className="input-labels">Location</h3>
-          <input
-            className={shouldMarkError('location') ? 'error' : ''}
-            type="text"
-            value={location}
-            onChange={this.handleLocation}
-            onBlur={this.handleBlur('location')}
-            placeholder="Example: Neverwinter"
-          />
-          {/* <p>
-              {`By clicking "Sign Up" you are agreeing to our `} 
-            <a href="https://www.termsandcondiitionssample.com/live.php?token=bYAxBa2kby8ugr9x4eWMbKKgXnxOQyNg" rel="noopener noreferrer" target="_blank">Terms and Agreement</a>
-          </p> */}
-          <button
-            id="register-button"
-            type="button"
-            onClick={this.createUserHandler}
-            disabled={isDisabled}
-          >
+      <div className="regis-form-container">
+        <h1 className="regis-form-title">Register</h1>
+        <form className="regis-form-form">
+          {Object.keys(data).map(element => (
+            <FormQuestion
+              key={element}
+              data_type={element}
+              info={data[element]}
+              has_error={errors[element]}
+              err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
+              handleDataChange={this.handleDataChange}
+            />
+          ))}
+          <button className="submit-button" type="button" onClick={this.validateData}>
             {`Sign Up`}
           </button>
-          <p>
+          {HTTPErrorMessage ? <p className="error-message">{HTTPErrorMessage}</p> : null}
+          <p className="bottom-link">
             {`Go back to `}
-            <button id="login-button" type="button" onClick={backToLogin()}>
+            <button className="switch-button" type="button" onClick={backToLogin()}>
               {`Log in!`}
             </button>
           </p>
         </form>
-        <WarningBanner
-          warn={this.state.showRegistrationFailure}
-          message="( ! ) An error has occurred while registering you. Please try again at a later time."
-        />
       </div>
     );
   }
@@ -223,6 +133,7 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   handleSignup: PropTypes.func.isRequired,
+  backToLogin: PropTypes.func.isRequired,
 };
 
 export default SignUp;

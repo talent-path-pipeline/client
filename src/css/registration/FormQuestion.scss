@@ -1,0 +1,20 @@
+.form-question {
+  padding: 10px;
+  font-family: var(--fontfamily-alt);
+
+  h3 {
+    padding-bottom: 2px;
+    font-family: var(--fontfamily);
+  }
+
+  input {
+    height: 30px;
+    width: 400px;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+
+  .form-error {
+    border: red;
+  }
+}

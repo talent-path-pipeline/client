@@ -1,0 +1,56 @@
+.regis-form-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba($color: #0a090c, $alpha: 0.7);
+  box-shadow: 3px 3px 6px rgb(37, 37, 37);
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+  padding: 20px 10px;
+
+  .regis-form-title {
+    padding-bottom: 10px;
+  }
+
+  .regis-form-form {
+    .submit-button {
+      height: 50px;
+      width: 150px;
+      border-radius: 5px;
+      border: 1px solid var(--grey);
+      background-color: rgba($color: white, $alpha: 0.2);
+      // color: var(--white);
+      color: white;
+      margin: 15px;
+      font-size: 1.2em;
+      transition: 1s;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: orange;
+    }
+
+    .submit-button:disabled {
+      background-color: #454545;
+    }
+
+    .error-message {
+      font-size: 15px;
+      color: red;
+      padding-top: 5px;
+    }
+  }
+
+  .bottom-link {
+    font-family: var(--fontfamily-alt);
+
+    .switch-button {
+      font-size: 0.9em;
+      border: none;
+      background: none;
+      color: orange;
+      cursor: pointer;
+    }
+  }
+}
