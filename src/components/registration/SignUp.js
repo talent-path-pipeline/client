@@ -41,8 +41,15 @@ class SignUp extends Component {
     const { data } = this.state;
     const { handleSignup } = this.props;
 
+    // TODO: Fix the back-end so it actually uses the correct naming conventions so this isn't necessary
+    const no_name_convention_data = {
+      ...data,
+      fullName: data.full_name,
+      confirmPassword: data.confirm_password,
+    };
+
     axios
-      .post(`${REACT_APP_SVR_API}/user/`, data)
+      .post(`${REACT_APP_SVR_API}/user/`, no_name_convention_data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
         handleSignup();
