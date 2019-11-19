@@ -79,23 +79,23 @@
     padding: 0;
     margin: 0;
     border-radius: 15px;
-    background-color: var(--brown);
-    color: var(--white);
+    background-color: var(--accent-dark-dull);
+    color: var(--plain-light);
 
-    h2{
+    h2 {
       font-size: 24px;
     }
 
-    span{
+    span {
       font-size: 18px;
     }
 
-    .role{
+    .role {
       position: absolute;
       font-size: 15px;
       bottom: 5%;
       right: 5%;
-      color: var(--white);
+      color: var(--plain-light);
     }
   }
 }
@@ -106,7 +106,7 @@
     grid-template-areas: none;
     grid-template-columns: repeat(12, 1fr);
   }
-  
+
   .teamMemberCardContainer:nth-child(-1n + 3) {
     grid-column: span 4;
   }

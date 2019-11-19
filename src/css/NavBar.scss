@@ -1,7 +1,7 @@
 #nav-main {
   display: flex;
-  color: var(--white);
-  background-color: var(--navy);
+  color: var(--plain-light);
+  background-color: var(--accent-dark-bright);
   height: 80px;
   width: 100%;
   justify-content: space-between;
@@ -45,17 +45,17 @@
   }
 
   a {
-    color: var(--white);
+    color: var(--plain-light);
     text-decoration: none;
   }
 
   a:hover {
-    color: var(--stone);
+    color: var(--theme-color);
   }
 }
 
 .bm-burger-button {
-  color: var(--white);
+  color: var(--plain-light);
   margin-top: 5px;
 }
 

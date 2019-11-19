@@ -12,13 +12,13 @@
   border-radius: 10rem;
   width: 5rem;
   height: 5rem;
-  background: var(--navy);
+  background: var(--accent-dark-bright);
   position: relative;
   top: -6rem;
   margin-bottom: 11px;
   padding: 5px;
   border-style: solid;
-  border-color: var(--white);
+  border-color: var(--plain-light);
 }
 
 .cardDescription {
@@ -30,12 +30,12 @@
 
 .card {
   text-align: center;
-  color: var(--white);
+  color: var(--plain-light);
   font-family: var(--font-alt);
   font-weight: 300;
-  background-color: var(--navy);
+  background-color: var(--accent-dark-bright);
   border-radius: 1.5rem;
-  box-shadow: 5px 5px var(--greyblue);
+  box-shadow: 5px 5px var(--accent-light-dull);
   width: 28%;
   height: 14.5rem;
   font-size: 2rem;

@@ -1,7 +1,13 @@
 .error-page {
   text-align: center;
-  // background-color: var(--stone);
-  background: linear-gradient(var(--cream), 15%, var(--stone), 85%, var(--brown));
+  // background-color: var(--theme-color);
+  background: linear-gradient(
+    var(--plain-light),
+    15%,
+    var(--theme-color),
+    85%,
+    var(--accent-dark-dull)
+  );
   height: calc(100% - 80px);
   display: flex;
   align-items: center;
@@ -20,7 +26,7 @@
 
   .error-text {
     width: 400px;
-    color: var(--black);
+    color: var(--plain-dark);
     margin-top: 75px;
     margin-bottom: 50px;
 

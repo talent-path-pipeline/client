@@ -8,7 +8,7 @@
   }
 
   .subheader {
-    color: var(--brown);
+    color: var(--accent-dark-dull);
     text-decoration: underline;
   }
 
@@ -18,7 +18,7 @@
 
   a {
     text-decoration: none;
-    color: var(--light-blue);
+    color: var(--accent-light-dull);
     font-weight: bold;
   }
 
@@ -58,8 +58,8 @@
       margin-top: 8px;
       font-family: var(--font-deco);
       font-size: 1rem;
-      background-color: var(--navy);
-      color: var(--cream);
+      background-color: var(--accent-dark-bright);
+      color: var(--plain-light);
     }
   }
 }

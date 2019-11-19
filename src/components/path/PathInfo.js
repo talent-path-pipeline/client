@@ -9,7 +9,8 @@ const PathInfo = ({ title, subtitle, image_link }) => (
       <img src={image_link} alt="Path Splash" className="path-splash" />
     </div>
     <h2 className="title">{title}</h2>
-    <img className="path-logo" src="./images/crimsond20.png" alt="Crimson D20 Dice"/>
+    {/* TODO: update d20 image to one of the right color at least */}
+    <img className="path-logo" src="./images/crimsond20.png" alt="D20" />
     <p className="subtitle">{subtitle}</p>
     <hr className="line" />
   </div>

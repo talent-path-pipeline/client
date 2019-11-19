@@ -2,64 +2,70 @@
   @return red($hex), green($hex), blue($hex);
 }
 
-// main colors
-$off-black: #0a090c;
-$cream: #ebe4da;
-$error: red;
+@function getHSfromHex($hex) {
+  @return hue($hex), saturation($hex);
+}
 
 // theme and complement colors
+$off-black: #0a090c;
+$cream: #ebe4da;
 $stone: #9f9484;
 $brown: #52493c;
 $navy: #334552;
 $grey-blue: #83939e;
 $orange: #e2b546;
 
-// extras/old
-$off-white: #eeeeee;
-$dark-red: #990000;
-$crimson1: #dd3442;
-$crimson2: #dc143c;
-$dark-blue: #2e294e;
-$light-blue: #42727c;
+// SCSS Theme Variables, used to set CSS custom properties for both colors and rgb versions
+// IF YOU WANT TO UPDATE THE THEME, CHANGE THESE ONLY
+$error: red;
+$plain-light: $cream;
+$plain-dark: $off-black;
+$theme-color: $stone;
+$accent-dark-dull: $brown;
+$accent-dark-bright: $navy;
+$accent-light-dull: $grey-blue;
+$accent-light-bright: $orange;
 
 /* Variables */
 :root {
-  // Colors
-  --black: #0a090c;
-  --grey: #222; // 1
-  --medium-grey: hsl(0, 0%, 24%); // 1
-  --red: #990000; // 1
-  --darkred: #140808;
-  --brown2: #63372c;
-  --blue: #2e294e; // 4
-  --white: #eeeeee; // 7
-  // --white: #c1c6c9;
-  --stone: #9f9484; // 4
-  // --orange: #d68742;
-  --light-blue: #42727c; // 1
-  --crimson1: #dd3442; // 1
-  --crimson2: #dc143c; // 1
-  --error: red;
-
-  //Complement of Stone
-  --brown: #52493c; // 7
-  --cream: #ebe4da; // 3
-  --navy: #334552; // 7
-  --greyblue: #83939e; // 4
-  --orange: #e2b546;
-  // We gotta figure out our colors for real
-
-  // White-label variables
+  // White-label fonts
   --font-deco: 'Cinzel Decorative', cursive;
   --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-alt: 'Roboto', 'Tahoma', sans-serif;
 
-  --plain-light: #{$cream};
-  --plain-light-rgb: #{getRGBfromHex($cream)};
-  --plain-dark: #{$off-black};
-  --plain-dark-rgb: #{getRGBfromHex($off-black)};
-  --theme-color: #{$stone};
-  --theme-color-rgb: #{getRGBfromHex($stone)};
+  // NOTE: DON'T CHANGE ANY OF THE BELOW!
+  // IF YOU WANT TO UPDATE THE COLORS, EDIT THE SCSS VARIABLES ABOVE
+  // THAT WAY BOTH THE REGULAR AND RGB VERSIONS GET UPDATED TOGETHER
+
+  // white-label main colors
+  --plain-light: #{$plain-light};
+  --plain-dark: #{$plain-dark};
+  --error: #{$error};
+  --theme-color: #{$theme-color};
+  --accent-dark-dull: #{$accent-dark-dull};
+  --accent-dark-bright: #{$accent-dark-bright};
+  --accent-light-dull: #{$accent-light-dull};
+  --accent-light-bright: #{$accent-light-bright};
+
+  // white-label rgb color variants (for use with rgba to add opacity)
+  --plain-light-rgb: #{getRGBfromHex($plain-light)};
+  --plain-dark-rgb: #{getRGBfromHex($plain-dark)};
+  --error-rgb: #{getRGBfromHex($error)};
+  --theme-color-rgb: #{getRGBfromHex($theme-color)};
+  --accent-dark-dull-rgb: #{getRGBfromHex($accent-dark-dull)};
+  --accent-dark-bright-rgb: #{getRGBfromHex($accent-dark-bright)};
+  --accent-light-dull-rgb: #{getRGBfromHex($accent-light-dull)};
+  --accent-light-bright-rgb: #{getRGBfromHex($accent-light-bright)};
+
+  // white-label hs color variants (for use with hsl to change lightness)
+  // --plain-light-hs: #{getHSfromHex($plain-light)};
+  // --plain-dark-hs: #{getHSfromHex($plain-dark)};
+  // --error-hs: #{getHSfromHex($error)};
+  // --theme-color-hs: #{getHSfromHex($theme-color)};
+  // --accent-dark-dull-hs: #{getHSfromHex($accent-dark-dull)};
+  // --accent-dark-bright-hs: #{getHSfromHex($accent-dark-bright)};
+  // --accent-light-dull-hs: #{getHSfromHex($accent-light-dull)};
+  // --accent-light-bright-hs: #{getHSfromHex($accent-light-bright)};
 }
 
 // https://github.com/ianstormtaylor/css-color-function

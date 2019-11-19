@@ -1,7 +1,7 @@
 .lesson-link {
-  border: dotted var(--blue) 0.5px;
+  border: dotted var(--accent-dark-bright) 0.5px;
   font-family: var(--font-main);
-  color: var(--black);
+  color: var(--plain-dark);
 
   .video-length {
     float: right;
@@ -18,17 +18,17 @@ p.lesson-link {
 
 a.lesson-link {
   cursor: pointer;
-  color: var(--black);
+  color: var(--plain-dark);
   text-decoration: none;
 }
 
 p.lesson-link {
-  color: var(--white);
-  background-color: var(--brown);
+  color: var(--plain-light);
+  background-color: var(--accent-dark-dull);
 }
 
 a.lesson-link:hover {
-  background-color: var(--greyblue);
-  color: var(--white);
+  background-color: var(--accent-light-dull);
+  color: var(--plain-light);
   border: none;
 }

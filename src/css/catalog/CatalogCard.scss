@@ -1,12 +1,12 @@
 .catalog-card {
   --img-split: 36%;
 
-  box-shadow: 2px 3px 0px 1px var(--stone);
+  box-shadow: 2px 3px 0px 1px var(--accent-light-dull);
   border-radius: 5px;
   margin: 10px;
   padding: 14px;
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: var(--accent-dark-bright);
+  color: var(--plain-light);
   height: 425px;
   width: 300px;
   text-decoration: none;
@@ -54,5 +54,5 @@
 }
 
 .catalog-card:hover {
-  background-color: var(--greyblue);
+  background-color: var(--accent-light-dull);
 }

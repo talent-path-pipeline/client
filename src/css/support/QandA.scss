@@ -3,7 +3,7 @@
   margin: 15px auto 30px auto;
 
   .FAQTitle {
-    color: var(--black);
+    color: var(--plain-dark);
     text-align: center;
     margin-bottom: 6px;
     font-family: var(--font-main);
@@ -23,7 +23,7 @@
 
     .tab {
       width: 100%;
-      color: var(--white);
+      color: var(--plain-light);
       overflow: hidden;
 
       &-label {
@@ -31,7 +31,7 @@
         justify-content: space-between;
         padding: 1em;
         font-family: var(--font-alt);
-        background: var(--navy);
+        background: var(--accent-dark-bright);
         cursor: pointer;
 
         /* Icon */
@@ -51,8 +51,8 @@
       &-content {
         max-height: 0;
         padding: 0 1em;
-        color: var(--black);
-        background: var(--white);
+        color: var(--plain-dark);
+        background: var(--plain-light);
         transition: all 0.35s;
         font-family: var(--font-main);
         line-height: 30px;
@@ -63,7 +63,7 @@
         justify-content: flex-end;
         padding: 1em;
         font-size: 0.75em;
-        background: var(--navy);
+        background: var(--accent-dark-bright);
         cursor: pointer;
 
         &:hover {
@@ -86,7 +86,7 @@
           padding: 1em;
           font-family: var(--font-alt);
           font-weight: 300;
-          background-color: var(--white);
+          background-color: var(--plain-light);
         }
       }
     }
