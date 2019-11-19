@@ -13,7 +13,7 @@
   .tabs {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 4px -2px rgba(var(--plain-dark-rgb), 0.5);
 
     input {
       position: absolute;
@@ -36,7 +36,7 @@
 
         /* Icon */
         &:hover {
-          background: rgba(#334552, 0.85); // TODO:
+          background: rgba(var(--accent-dark-bright-rgb), 0.85);
         }
 
         &::after {
@@ -52,9 +52,9 @@
         max-height: 0;
         padding: 0 1em;
         color: var(--plain-dark);
-        background: var(--plain-light);
+        background-color: var(--plain-light);
         transition: all 0.35s;
-        font-family: var(--font-main);
+        font-family: var(--font-alt);
         line-height: 30px;
       }
 
@@ -67,14 +67,14 @@
         cursor: pointer;
 
         &:hover {
-          background: rgba(#334552, 0.85); // TODO:
+          background: rgba(var(--accent-dark-bright-rgb), 0.85);
         }
       }
 
       // :checked
       input:checked {
         + .tab-label {
-          background: rgba(#334552, 0.85); // TODO:
+          background: rgba(var(--accent-dark-bright-rgb), 0.85);
 
           &::after {
             transform: rotate(90deg);
