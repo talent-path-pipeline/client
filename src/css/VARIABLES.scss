@@ -54,10 +54,12 @@ $light-blue: #42727c;
   --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-alt: 'Roboto', 'Tahoma', sans-serif;
 
-  --plain-light: $cream;
+  --plain-light: #{$cream};
   --plain-light-rgb: #{getRGBfromHex($cream)};
-  --plain-dark: var(--black);
-  --theme-color: var(--stone);
+  --plain-dark: #{$off-black};
+  --plain-dark-rgb: #{getRGBfromHex($off-black)};
+  --theme-color: #{$stone};
+  --theme-color-rgb: #{getRGBfromHex($stone)};
 }
 
 // https://github.com/ianstormtaylor/css-color-function

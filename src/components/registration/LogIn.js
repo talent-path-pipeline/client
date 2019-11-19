@@ -56,7 +56,7 @@ class LogIn extends Component {
 
   // Handles getting values
   handleDataChange = (event, type) => {
-    const new_data = event.target.data;
+    const new_data = event.target.value;
     this.setState(prevState => ({
       data: { ...prevState.data, [type]: new_data },
       errors: { ...prevState.errors, [type]: false },

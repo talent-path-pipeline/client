@@ -1,8 +1,8 @@
 .regis-form-container {
   border: 1px solid var(--black);
   border-radius: 10px;
-  background-color: rgba($color: #0a090c, $alpha: 0.7); // TODO:
-  box-shadow: 3px 3px 6px rgb(37, 37, 37);
+  background-color: rgba(var(--plain-dark-rgb), 0.7);
+  box-shadow: 3px 3px 6px rgba(var(--plain-dark-rgb), 0.7);
   max-width: 600px;
   text-align: center;
   margin: auto;

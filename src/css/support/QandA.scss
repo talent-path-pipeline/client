@@ -1,6 +1,3 @@
-$title-bar: #334552;
-$contentBackground: var(--white);
-
 .question-container {
   width: 900px;
   margin: 15px auto 30px auto;
@@ -26,7 +23,7 @@ $contentBackground: var(--white);
 
     .tab {
       width: 100%;
-      color: white;
+      color: var(--white);
       overflow: hidden;
 
       &-label {
@@ -34,14 +31,12 @@ $contentBackground: var(--white);
         justify-content: space-between;
         padding: 1em;
         font-family: var(--font-alt);
-        background: $title-bar;
+        background: var(--navy);
         cursor: pointer;
 
         /* Icon */
         &:hover {
-          // background: color(var(--navy) tint(+ 50%));
-          background: rgba($title-bar, 0.85);
-          // background: darken($title-bar, 10%);
+          background: rgba(#334552, 0.85); // TODO:
         }
 
         &::after {
@@ -57,7 +52,7 @@ $contentBackground: var(--white);
         max-height: 0;
         padding: 0 1em;
         color: var(--black);
-        background: $contentBackground;
+        background: var(--white);
         transition: all 0.35s;
         font-family: var(--font-main);
         line-height: 30px;
@@ -68,22 +63,18 @@ $contentBackground: var(--white);
         justify-content: flex-end;
         padding: 1em;
         font-size: 0.75em;
-        background: $title-bar;
+        background: var(--navy);
         cursor: pointer;
 
         &:hover {
-          // background: darken($title-bar, 10%);
-          background: rgba($title-bar, 0.85);
+          background: rgba(#334552, 0.85); // TODO:
         }
       }
 
       // :checked
       input:checked {
         + .tab-label {
-          // background: rgba($title-bar, 0.85);
-          background: transparentize($title-bar, 0.85);
-          // background: color(var(--navy) tint(+ 50%));
-          // background: darken($title-bar, 10%);
+          background: rgba(#334552, 0.85); // TODO:
 
           &::after {
             transform: rotate(90deg);
