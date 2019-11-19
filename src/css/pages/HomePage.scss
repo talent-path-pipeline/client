@@ -62,10 +62,9 @@
   align-content: center;
   align-items: center;
   flex-direction: column;
-  // background-image: linear-gradient(black, var(--red));
   color: var(--brown);
   font-size: 4vw;
-  // text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 2px var(--cream);
 }
 
 #company-information {

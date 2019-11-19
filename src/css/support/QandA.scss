@@ -39,6 +39,7 @@ $contentBackground: var(--white);
 
         /* Icon */
         &:hover {
+          // background: color(var(--navy) tint(+ 50%));
           background: rgba($title-bar, 0.85);
           // background: darken($title-bar, 10%);
         }
@@ -79,7 +80,9 @@ $contentBackground: var(--white);
       // :checked
       input:checked {
         + .tab-label {
-          background: rgba($title-bar, 0.85);
+          // background: rgba($title-bar, 0.85);
+          background: transparentize($title-bar, 0.85);
+          // background: color(var(--navy) tint(+ 50%));
           // background: darken($title-bar, 10%);
 
           &::after {

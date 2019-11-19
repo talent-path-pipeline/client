@@ -2,6 +2,26 @@
   @return red($hex), green($hex), blue($hex);
 }
 
+// main colors
+$off-black: #0a090c;
+$cream: #ebe4da;
+$error: red;
+
+// theme and complement colors
+$stone: #9f9484;
+$brown: #52493c;
+$navy: #334552;
+$grey-blue: #83939e;
+$orange: #e2b546;
+
+// extras/old
+$off-white: #eeeeee;
+$dark-red: #990000;
+$crimson1: #dd3442;
+$crimson2: #dc143c;
+$dark-blue: #2e294e;
+$light-blue: #42727c;
+
 /* Variables */
 :root {
   // Colors
@@ -34,8 +54,10 @@
   --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-alt: 'Roboto', 'Tahoma', sans-serif;
 
-  --plain-light: var(--cream);
-  // --plain-light-rgb: #{getRGBfromHex(var(--cream))};
+  --plain-light: $cream;
+  --plain-light-rgb: #{getRGBfromHex($cream)};
   --plain-dark: var(--black);
   --theme-color: var(--stone);
 }
+
+// https://github.com/ianstormtaylor/css-color-function
