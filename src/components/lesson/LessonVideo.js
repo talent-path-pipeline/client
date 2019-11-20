@@ -3,15 +3,34 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import '../../css/lesson/LessonVideo.scss';
 
-const handleVideoPlay = data => {
-  console.log(data);
-};
 
 class LessonVideo extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      videoHasStarted: false,
+    };
   }
 
+  handleVideoPlay = () => {
+    console.log('video started');
+
+    this.setState({
+      videoHasStarted: true,
+    });
+  };
+
+  handleVideoPause = () => {
+    console.log('video paused');
+  };
+
+  handleVideoEnd = () => {
+    console.log('video ended');
+
+    // do nothing if video is at end without ever having started
+    if (!this.state.videoHasStarted) return;
+  }
 
   render () {
     const { lessonId, title, video_id, start, end } = this.props;
@@ -30,19 +49,12 @@ class LessonVideo extends Component {
     return (
     // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
       <div className="lesson-video">
-        {/* <iframe
-        title={title}
-        width="560"
-        height="325"
-        allowFullScreen="allowfullscreen"
-        frameBorder="0"
-        src={`https://www.youtube.com/embed/${video_id}${play_segment}`}
-      /> */}
-
         <YouTube
           videoId={video_id}
           opts={opts}
-          onPlay={handleVideoPlay}
+          onPlay={this.handleVideoPlay}
+          onPause={this.handleVideoPause}
+          onEnd={this.handleVideoEnd}
         />
       </div>
     );
