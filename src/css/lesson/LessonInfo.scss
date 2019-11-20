@@ -1,28 +1,28 @@
 // TODO: clean this up
 
 .lesson-info {
-  background-color: #eeeeee;
+  background-color: var(--plain-light);
   padding: 3rem;
-  border: 2px solid var(--blue);
-  color: var(--black);
+  border: 2px solid var(--accent-dark-bright);
+  color: var(--plain-dark);
 
   h2 {
     margin: 10px 0 5px 0;
-    color: var(--brown);
-    text-shadow: 1px 0px var(--greyblue);
+    color: var(--accent-dark-dull);
+    text-shadow: 1px 0px var(--accent-light-dull);
   }
   .lesson-playing {
-    color: var(--black);
+    color: var(--plain-dark);
   }
 
   p {
-    font-family: var(--fontfamily-alt);
-    color: var(--black);
+    font-family: var(--font-main);
+    color: var(--plain-dark);
     padding: 5px 0px;
   }
 
   .title {
-    font-family: var(--fontfamily-roboto);
+    font-family: var(--font-alt);
     // font-size: 1.1em;
   }
 }

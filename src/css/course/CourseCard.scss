@@ -17,21 +17,21 @@
 
       .title {
         font-size: 30px;
-        color: var(--stone);
-        font-family: var(--fontfamily);
+        color: var(--theme-color);
+        font-family: var(--font-deco);
       }
 
       p {
-        // font-family: var(--fontfamily-alt);
-        font-family: var(--fontfamily-roboto);
+        // font-family: var(--font-main);
+        font-family: var(--font-alt);
         font-weight: 300;
-        color: var(--white);
+        color: var(--plain-light);
       }
     }
   }
 
   a:hover {
-    box-shadow: 5px 0 var(--white);
-    text-decoration: underline var(--stone);
+    box-shadow: 5px 0 var(--plain-light);
+    text-decoration: underline var(--theme-color);
   }
 }

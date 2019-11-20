@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ProgressBar } from '..';
+// import { ProgressBar } from '..';
 import '../../css/catalog/CatalogCard.scss';
 
 const CatalogCard = ({ course }) => {
   // TODO: once connected to back-end, get number of completed lessons
-  const completed = 0;
+  // const completed = 0;
   return (
     <Link to={`/courses/${course.slug}`} className="catalog-card">
       <div

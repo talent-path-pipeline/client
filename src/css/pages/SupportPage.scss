@@ -1,17 +1,16 @@
 .support-container {
-  background-color: var(--cream);
   padding: 20px;
 
   .breakline {
     width: 95%;
     max-width: 1110px;
     margin: 10px auto;
-    border: 4px solid var(--brown);
+    border: 4px solid var(--accent-dark-dull);
   }
 
   .support-title {
     text-align: center;
     margin: 5px 0px;
-    color: var(--black);
+    color: var(--plain-dark);
   }
 }

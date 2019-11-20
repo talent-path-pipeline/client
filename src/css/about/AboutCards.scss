@@ -12,13 +12,13 @@
   border-radius: 10rem;
   width: 5rem;
   height: 5rem;
-  background: var(--navy);
+  background: var(--accent-dark-bright);
   position: relative;
   top: -6rem;
   margin-bottom: 11px;
   padding: 5px;
   border-style: solid;
-  border-color: #fff;
+  border-color: var(--plain-light);
 }
 
 .cardDescription {
@@ -30,12 +30,12 @@
 
 .card {
   text-align: center;
-  color: var(--white);
-  font-family: var(--fontfamily-roboto);
+  color: var(--plain-light);
+  font-family: var(--font-alt);
   font-weight: 300;
-  background-color: var(--navy);
+  background-color: var(--accent-dark-bright);
   border-radius: 1.5rem;
-  box-shadow: 5px 5px var(--greyblue);
+  box-shadow: 5px 5px var(--accent-light-dull);
   width: 28%;
   height: 14.5rem;
   font-size: 2rem;
@@ -69,7 +69,7 @@
 
 @media (max-width: 990px) {
   .card p {
-      font-size: 15px;
+    font-size: 15px;
   }
 }
 
@@ -115,13 +115,13 @@
   }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
   .cardWrapper {
     margin-top: 0rem;
   }
   .card {
-      width: 80%;
-      margin-top: 4rem;
+    width: 80%;
+    margin-top: 4rem;
   }
 }
 

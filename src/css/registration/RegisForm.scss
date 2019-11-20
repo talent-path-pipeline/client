@@ -1,8 +1,8 @@
 .regis-form-container {
-  border: 1px solid black;
+  border: 1px solid var(--plain-dark);
   border-radius: 10px;
-  background-color: rgba($color: #0a090c, $alpha: 0.7);
-  box-shadow: 3px 3px 6px rgb(37, 37, 37);
+  background-color: rgba(var(--plain-dark-rgb), 0.7);
+  box-shadow: 3px 3px 6px rgba(var(--plain-dark-rgb), 0.7);
   max-width: 600px;
   text-align: center;
   margin: auto;
@@ -17,39 +17,44 @@
       height: 50px;
       width: 150px;
       border-radius: 5px;
-      border: 1px solid var(--grey);
-      background-color: rgba($color: white, $alpha: 0.2);
-      // color: var(--white);
-      color: white;
+      border: 1px solid var(--accent-dark-dull);
+      background-color: rgba(var(--plain-light-rgb), 0.2);
+      color: var(--plain-light);
       margin: 15px;
       font-size: 1.2em;
-      transition: 1s;
+      transition: 0.7s;
+      outline: none;
       cursor: pointer;
     }
 
     .submit-button:hover {
-      background-color: orange;
+      background-color: var(--accent-light-bright);
+      // color: var(--accent-dark-dull);
+    }
+
+    .submit-button:focus {
+      box-shadow: 0px 0px 3px 0.25px var(--accent-light-bright);
     }
 
     .submit-button:disabled {
-      background-color: #454545;
+      background-color: var(--accent-dark-dull);
     }
 
     .error-message {
       font-size: 15px;
-      color: red;
+      color: var(--error);
       padding-top: 5px;
     }
   }
 
   .bottom-link {
-    font-family: var(--fontfamily-alt);
+    font-family: var(--font-main);
 
     .switch-button {
       font-size: 0.9em;
       border: none;
       background: none;
-      color: orange;
+      color: var(--accent-light-bright);
       cursor: pointer;
     }
   }

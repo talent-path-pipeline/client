@@ -2,13 +2,13 @@
   margin: 1rem 0;
 
   .promo {
-    font-family: var(--fontfamily-alt);
+    font-family: var(--font-main);
     font-weight: normal;
     padding: 3px 0px;
   }
 
   .subheader {
-    color: var(--brown);
+    color: var(--accent-dark-dull);
     text-decoration: underline;
   }
 
@@ -18,7 +18,7 @@
 
   a {
     text-decoration: none;
-    color: var(--light-blue);
+    color: var(--accent-light-dull);
     font-weight: bold;
   }
 
@@ -56,10 +56,10 @@
       border: none;
       padding: 0.75rem;
       margin-top: 8px;
-      font-family: var(--fontfamily);
+      font-family: var(--font-deco);
       font-size: 1rem;
-      background-color: var(--navy);
-      color: var(--cream);
+      background-color: var(--accent-dark-bright);
+      color: var(--plain-light);
     }
   }
 }
