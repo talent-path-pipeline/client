@@ -44,6 +44,7 @@ export { default as PathTree } from './path/PathTree';
 // registration
 export { default as LogIn } from './registration/LogIn';
 export { default as SignUp } from './registration/SignUp';
+export { default as FormQuestion } from './registration/FormQuestion';
 
 // ========================================
 // users

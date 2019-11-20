@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import '../../css/registration/LogIn.scss';
+import { FormQuestion } from '..';
+import '../../css/registration/RegisForm.scss';
 
 const { REACT_APP_SVR_API } = process.env;
 
@@ -10,71 +11,97 @@ class LogIn extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      data: {
+        email: '',
+        password: '',
+      },
+      errors: {
+        email: false,
+        password: false,
+      },
+      HTTPErrorMessage: '',
+    };
+
+    this.VALIDATION_ERROR_MESSAGES = {
+      email: 'Missing or invalid email',
+      password: 'Missing or invalid password',
     };
   }
 
   LogInHandler = () => {
-    const { email, password } = this.state;
-    const data = {
-      email,
-      password,
-    };
+    const { data } = this.state;
+    const { handleLogin } = this.props;
 
     axios
       .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
-        // this.props.history.push("/dashboard");
-        this.props.handleLogin();
+        handleLogin();
       })
       .catch(error => {
-        try {
-          // Handles errors that are not HTTP specific
-          console.error(error);
-          this.setState({ showRegistrationFailure: true });
-          if (!error.status) {
-            console.error('A network error has occured.');
-          } else if (error.response.status === 400) {
-            console.error('Bad Request');
-          } else if (error.response.status === 500) {
-            console.error('Something bad happended on the server.');
-          } else {
-            console.error('An unknown error has occurred');
-          }
-        } catch (ex) {
-          Promise.reject(ex);
+        if (error.message === 'Network Error') {
+          this.setState({
+            HTTPErrorMessage:
+              'A network error has occurred while contacting our servers...',
+          });
+        } else if (error.response.status === 400) {
+          this.setState({ HTTPErrorMessage: `${error.response.data}` });
+        } else if (error.response.status === 500) {
+          this.setState({
+            HTTPErrorMessage: `Something went wrong on our side. Please try again at a later time.\n Error: ${error.response.data}`,
+          });
         }
       });
   };
 
+  // Handles getting values
+  handleDataChange = (event, type) => {
+    const new_data = event.target.value;
+    this.setState(prevState => ({
+      data: { ...prevState.data, [type]: new_data },
+      errors: { ...prevState.errors, [type]: false },
+    }));
+  };
+
+  validateData = () => {
+    const { data } = this.state;
+    const errors = {
+      email: data.email === undefined || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email),
+      password: data.password === undefined || data.password.length < 8,
+    };
+
+    if (Object.keys(errors).every(err_type => !errors[err_type])) {
+      this.LogInHandler();
+    } else {
+      this.setState({ errors });
+    }
+  };
+
   render() {
-    const { email, password } = this.state;
+    const { data, errors, HTTPErrorMessage } = this.state;
     const { changeToSignup } = this.props;
     return (
-      <div id="login-container">
-        <h1 id="title">Login</h1>
-        <form id="login-form">
-          <h3>Email</h3>
-          <input
-            type="email"
-            value={email}
-            onChange={event => this.setState({ email: event.target.value })}
-          />
-          <h3>Password</h3>
-          <input
-            type="password"
-            value={password}
-            onChange={event => this.setState({ password: event.target.value })}
-          />
-          <button id="submit-button" type="button" onClick={this.LogInHandler}>
+      <div className="regis-form-container">
+        <h1 className="regis-form-title">Login</h1>
+        <form className="regis-form-form">
+          {Object.keys(data).map(element => (
+            <FormQuestion
+              key={element}
+              data_type={element}
+              info={data[element]}
+              has_error={errors[element]}
+              err_msg={this.VALIDATION_ERROR_MESSAGES[element]}
+              handleDataChange={this.handleDataChange}
+            />
+          ))}
+          <button className="submit-button" type="button" onClick={this.validateData}>
             {`Submit`}
           </button>
+          {HTTPErrorMessage ? <p className="error-message">{HTTPErrorMessage}</p> : null}
         </form>
-        <p>
+        <p className="bottom-link">
           {`Don't have an account, `}
-          <button id="signup-button" type="button" onClick={changeToSignup()}>
+          <button className="switch-button" type="button" onClick={changeToSignup()}>
             {`Sign up!`}
           </button>
         </p>
@@ -85,6 +112,7 @@ class LogIn extends Component {
 
 LogIn.propTypes = {
   handleLogin: PropTypes.func.isRequired,
+  changeToSignup: PropTypes.func.isRequired,
 };
 
 export default LogIn;
