@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import '../../css/lesson/LessonVideo.scss';
 
-const LessonVideo = ({ title, video_id, start, end }) => {
-  // const valid_start = start !== undefined && start > 0;
-  // const valid_end = end !== undefined && end > start;
-  // const either = valid_start || valid_end ? '?' : '';
-  // const both = valid_start && valid_end ? '&' : '';
-  // const startStr = valid_start ? `start=${start}` : '';
-  // const endStr = valid_end ? `end=${end}` : '';
-  // const play_segment = `${either}${startStr}${both}${endStr}`;
+const handleVideoPlay = data => {
+  console.log(data);
+};
 
-  const opts = {
-    title,
-    width: '560',
-    height: '325',
-    playerVars: {
-      allowFullScreen: 'allowfullscreen',
-      frameBorder: '0',
-      start,
-      end,
-    },
-  };
+class LessonVideo extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
+
+  render () {
+    const { lessonId, title, video_id, start, end } = this.props;
+    const opts = {
+      title,
+      width: '560',
+      height: '325',
+      playerVars: {
+        allowFullScreen: 'allowfullscreen',
+        frameBorder: '0',
+        start,
+        end,
+      },
+    };
+
+    return (
     // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
-    <div className="lesson-video">
-      {/* <iframe
+      <div className="lesson-video">
+        {/* <iframe
         title={title}
         width="560"
         height="325"
@@ -36,19 +39,22 @@ const LessonVideo = ({ title, video_id, start, end }) => {
         src={`https://www.youtube.com/embed/${video_id}${play_segment}`}
       /> */}
 
-      <YouTube
-        videoId={video_id}
-        opts={opts}
-      />
-    </div>
-  );
-};
+        <YouTube
+          videoId={video_id}
+          opts={opts}
+          onPlay={handleVideoPlay}
+        />
+      </div>
+    );
+  };
+}
 
 LessonVideo.propTypes = {
   title: PropTypes.string.isRequired,
   video_id: PropTypes.string.isRequired,
   start: PropTypes.number,
   end: PropTypes.number,
+  lessonId: PropTypes.string.isRequired,
 };
 
 LessonVideo.defaultProps = {

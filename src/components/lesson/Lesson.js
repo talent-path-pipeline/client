@@ -14,6 +14,7 @@ const Lesson = ({ lesson, course_size, base_path }) =>
         video_id={lesson.video_id}
         start={lesson.start}
         end={lesson.end}
+        lessonId={lesson.uuid}
       />
       <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
     </div>
