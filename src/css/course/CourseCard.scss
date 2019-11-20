@@ -1,37 +1,95 @@
 .course-card {
+  --img-split: 36%;
+
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  // TODO: this should ideally actually scale with the timeline element, but that sizing is confusing and weird
+  height: 200px;
+  width: 600px;
+  background-color: var(--accent-dark-bright);
+  // border: 2px solid greenyellow;
 
-  a {
-    flex-grow: 1;
-    display: flex;
-    text-decoration: none;
-
-    .image {
-      height: 300px;
-      width: 300px;
-      border-radius: 5px;
-    }
-
-    .course-info {
-      margin-left: 20px;
-
-      .title {
-        font-size: 30px;
-        color: var(--theme-color);
-        font-family: var(--font-deco);
-      }
-
-      p {
-        // font-family: var(--font-main);
-        font-family: var(--font-alt);
-        font-weight: 300;
-        color: var(--plain-light);
-      }
-    }
+  .course-image {
+    height: 100%;
+    width: var(--img-split);
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    border-radius: 5px 0px 0px 5px;
   }
 
-  a:hover {
-    box-shadow: 5px 0 var(--plain-light);
-    text-decoration: underline var(--theme-color);
+  .course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: calc(100% - var(--img-split) - 10px);
+    padding: 0px 6px;
+
+    .progress-bar {
+      width: 100%;
+    }
+
+    .course-title {
+      font-size: 18px;
+      text-decoration: underline;
+      color: var(--plain-light);
+      margin-bottom: 6px;
+    }
+
+    .course-description {
+      color: var(--plain-light);
+      font-family: var(--font-alt);
+      font-weight: 300;
+      font-size: 15px;
+      height: 65%;
+      overflow: auto;
+      margin: 0px;
+    }
   }
 }
+
+.course-card:hover {
+  box-shadow: 5px 0 var(--plain-light);
+  text-decoration: underline var(--theme-color);
+}
+
+// .course-card {
+//   display: flex;
+
+//   a {
+//     flex-grow: 1;
+//     display: flex;
+//     text-decoration: none;
+
+//     .image {
+//       height: 300px;
+//       width: 300px;
+//       border-radius: 5px;
+//     }
+
+//     .course-info {
+//       margin-left: 20px;
+
+//       .title {
+//         font-size: 30px;
+//         color: var(--theme-color);
+//         font-family: var(--font-deco);
+//       }
+
+//       p {
+//         // font-family: var(--font-main);
+//         font-family: var(--font-alt);
+//         font-weight: 300;
+//         color: var(--plain-light);
+//       }
+//     }
+//   }
+
+//   a:hover {
+//     box-shadow: 5px 0 var(--plain-light);
+//     text-decoration: underline var(--theme-color);
+//   }
+// }

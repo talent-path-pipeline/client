@@ -151,15 +151,16 @@
 .vertical-timeline-element-content h2 {
   color: #303e49;
 }
-.vertical-timeline-element-content p,
+// .vertical-timeline-element-content p,
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   font-size: 13px;
+//   font-size: 0.8125rem;
+//   font-weight: 500;
+//   color: #333;
+// }
 .vertical-timeline-element-content .vertical-timeline-element-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #333;
-}
-.vertical-timeline-element-content .vertical-timeline-element-date {
-  display: inline-block;
+  // display: inline-block;
+  display: none;
 }
 .vertical-timeline-element-content p {
   margin: 1em 0 0;

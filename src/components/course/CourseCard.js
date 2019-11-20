@@ -1,25 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ProgressBar } from '..';
 
 import '../../css/course/CourseCard.scss';
 
-const CourseCard = ({ course }) => (
-  <div className="course-card">
-    <Link to={`/courses/${course.slug}`}>
-      <img
-        className="image"
-        src={`./images/${course.image_name}`}
-        alt="Course Thumbnail"
+const CourseCard = ({ course }) => {
+  // TODO: actually get this from the back end
+  const completed = 0;
+  return (
+    <Link to={`/courses/${course.slug}`} className="course-card">
+      <div
+        className="course-image"
+        style={{ backgroundImage: `url(./images/${course.image_name})` }}
+        alt={course.title}
       />
       <div className="course-info">
-        <h4 className="title">{course.title}</h4>
-        <p className="description">{course.description}</p>
-        {/* TODO: <ProgressBar value={completed} max={course.lessons.length} label="Lessons" /> */}
+        <h4 className="course-title">{course.title}</h4>
+        <p className="course-description">{course.description}</p>
+        <ProgressBar value={completed} max={course.lessons.length} label="Lessons" />
       </div>
     </Link>
-  </div>
-);
+  );
+};
 
 CourseCard.propTypes = {
   course: PropTypes.shape({
