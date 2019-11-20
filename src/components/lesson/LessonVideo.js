@@ -4,12 +4,12 @@ import YouTube from 'react-youtube';
 import '../../css/lesson/LessonVideo.scss';
 
 const LessonVideo = ({ title, video_id, start, end }) => {
-  const valid_start = start !== undefined && start > 0;
-  const valid_end = end !== undefined && end > start;
-  const either = valid_start || valid_end ? '?' : '';
-  const both = valid_start && valid_end ? '&' : '';
-  const startStr = valid_start ? `start=${start}` : '';
-  const endStr = valid_end ? `end=${end}` : '';
+  // const valid_start = start !== undefined && start > 0;
+  // const valid_end = end !== undefined && end > start;
+  // const either = valid_start || valid_end ? '?' : '';
+  // const both = valid_start && valid_end ? '&' : '';
+  // const startStr = valid_start ? `start=${start}` : '';
+  // const endStr = valid_end ? `end=${end}` : '';
   // const play_segment = `${either}${startStr}${both}${endStr}`;
 
   const opts = {
