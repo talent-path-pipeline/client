@@ -10,7 +10,8 @@ const FormQuestion = props => {
     <div className="form-question">
       <h3>{data_type.replace('_', ' ')}</h3>
       <input
-        className={has_error ? 'formError' : null}
+        className={has_error ? 'form-error' : null}
+        type={data_type.search(/password/i) >= 0 ? 'password' : 'text'}
         value={info}
         onChange={event => handleDataChange(event, data_type)}
         placeholder=""
