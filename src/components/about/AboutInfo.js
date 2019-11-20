@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../css/about/AboutInfo.scss';
 import AboutCards from './AboutCards';
 import AboutTeam from './AboutTeam';
+import QandA from '../support/QandA';
 
 const AboutInfo = ({ title, subtitle, image_link }) => (
   <div className="about-info">
@@ -17,8 +18,37 @@ const AboutInfo = ({ title, subtitle, image_link }) => (
     <p className="subtitle">Meet The Team</p>
     <hr className="line" />
     <AboutTeam/>
+    <p className="subtitle">Specials Thanks To</p>
+    <hr className="line" />
+    <QandA
+      questions_answers={special_thanks_list}
+    />
   </div>
 );
+
+const special_thanks_list = [
+  {
+    key: 1,
+    question: 'YouTube',
+    answer: `Thank you for giving us videos!`,
+  },
+  {
+    key: 2,
+    question: `Sam's Girlfriend`,
+    answer: `Thank you for putting your time into helping build the curriculum!`,
+  },
+  {
+    key: 3,
+    question: 'Stranger Things',
+    answer: `Thank you for bringing DnD back to the mainstream and inspiring a new generation of DnD players!`,
+  },
+  {
+    key: 4,
+    question:
+      'Kanye West',
+    answer: `Thank you for blessing this world with dope shoes!  Yeezy... please sponsor us.`,
+  },
+];
 
 AboutInfo.propTypes = {
   title: PropTypes.string,
