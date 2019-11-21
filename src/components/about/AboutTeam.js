@@ -1,15 +1,12 @@
 import React from 'react';
 // components
 import AboutTeamCard from './AboutTeamCard';
-// helpers
-import memberObj from '../../data/memberInfo';
 // scss
 import '../../css/about/AboutTeam.scss';
 
-class AboutTeam extends React.Component {
-  render() {
-    const memberInfo = Object.values(memberObj);
-    return (
+const AboutTeam = ({ memberObject }) => {
+  const memberInfo = Object.values(memberObject);
+  return(
       <section className="teamMemberGrid">
         {memberInfo.map(member => (
           <AboutTeamCard
@@ -23,7 +20,6 @@ class AboutTeam extends React.Component {
         ))}
       </section>
     );
-  }
 }
 
 export default AboutTeam;
