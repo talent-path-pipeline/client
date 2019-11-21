@@ -5,14 +5,17 @@
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  // TODO: this should ideally actually scale with the timeline element, but that sizing is confusing and weird
-  height: 200px;
-  width: 600px;
+  // TODO: the height of the timeline element is set weirdly so this doesn't actually get set sensically
+  height: 100%;
+  width: 100%;
   background-color: var(--accent-dark-bright);
   // border: 2px solid greenyellow;
 
   .course-image {
+    // because of cascading stuff, since the timeline has weird/unset height this doesn't actually
+    // set to anything (100% of 0 is still 0), so it just stays on the min-height and doesn't scale
     height: 100%;
+    min-height: 200px;
     width: var(--img-split);
     background-size: cover;
     background-position: center;
@@ -24,6 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 200px;
     height: 100%;
     width: calc(100% - var(--img-split) - 10px);
     padding: 0px 6px;
@@ -46,7 +50,7 @@
       font-size: 15px;
       height: 65%;
       overflow: auto;
-      margin: 0px;
+      margin: 0px 0px 15px 0px;
     }
   }
 }

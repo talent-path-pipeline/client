@@ -16,8 +16,10 @@ const CourseCard = ({ course }) => {
         alt={course.title}
       />
       <div className="course-info">
-        <h4 className="course-title">{course.title}</h4>
-        <p className="course-description">{course.description}</p>
+        <div className="course-text">
+          <h4 className="course-title">{course.title}</h4>
+          <p className="course-description">{course.description}</p>
+        </div>
         <ProgressBar value={completed} max={course.lessons.length} label="Lessons" />
       </div>
     </Link>
