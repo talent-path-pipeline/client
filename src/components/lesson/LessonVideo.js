@@ -27,12 +27,22 @@ class LessonVideo extends Component {
     }
   }
 
+  componentWillUnmount() {
+    const timestamp = this.player.getCurrentTime();
+    console.log(`Leaving page with video at ${timestamp}`);
+    if (timestamp > 0 && this.state.videoHasStarted) {
+      console.log(`Updating UserLesson.timestamp to ${timestamp}`);
+    // TODO: update UserLesson.timestamp to current video time
+    }
+  }
+
   loadVideo = () => {
     const { video_id } = this.props;
     this.player = new window.YT.Player(`player`, {
       videoId: video_id,
       events: {
         onReady: this.onPlayerReady,
+        onStateChange: this.onStateChange,
       },
     });
   }
@@ -41,38 +51,53 @@ class LessonVideo extends Component {
     console.log(event.target);
   };
 
-  handleVideoPlay = () => {
-    console.log('video started');
+  onStateChange = event => {
+    console.log(event.data);
 
-    this.setState({
-      videoHasStarted: true,
-    });
+    // state = PLAYING
+    if (event.data === 1) {
+      console.log(`Video started at ${event.target.getCurrentTime()}`);
+
+      this.setState({
+        videoHasStarted: true,
+      });
+
+      // TODO: add UserLesson entry if not exist
+    }
+
+    // state = PAUSED
+    if (event.data === 2) {
+      console.log(`Video paused at ${event.target.getCurrentTime()}`);
+    }
+
+    // state = ENDED
+    if (event.data === 0) {
+      console.log(`Video ended at ${event.target.getCurrentTime()}`);
+
+
+      if (this.state.videoHasStarted) {
+        // TODO: set UserLesson.completed to TRUE
+      }
+    }
   };
 
   handleVideoPause = () => {
-    console.log('video paused');
+    console.log('player: ', this.player);
   };
-
-  handleVideoEnd = () => {
-    console.log('video ended');
-
-    // do nothing if video is at end without ever having started
-    if (!this.state.videoHasStarted) return;
-  }
 
   render () {
     const { lessonId, title, video_id, start, end } = this.props;
-    const opts = {
-      title,
-      width: '560',
-      height: '325',
-      playerVars: {
-        allowFullScreen: 'allowfullscreen',
-        frameBorder: '0',
-        start,
-        end,
-      },
-    };
+    // const opts = {
+    //   title,
+    //   width: '560',
+    //   height: '325',
+    //   playerVars: {
+    //     allowFullScreen: 'allowfullscreen',
+    //     frameBorder: '0',
+    //     start,
+    //     end,
+    //   },
+    // };
 
     return (
     // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
