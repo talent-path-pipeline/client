@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
 import '../../css/lesson/LessonVideo.scss';
 
 
@@ -12,6 +12,34 @@ class LessonVideo extends Component {
       videoHasStarted: false,
     };
   }
+
+  componentDidMount() {
+    if (!window.YT) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+
+      window.onYouTubeIframeAPIReady = this.loadVideo;
+
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    } else {
+      this.loadVideo();
+    }
+  }
+
+  loadVideo = () => {
+    const { video_id } = this.props;
+    this.player = new window.YT.Player(`player`, {
+      videoId: video_id,
+      events: {
+        onReady: this.onPlayerReady,
+      },
+    });
+  }
+
+  onPlayerReady = event => {
+    console.log(event.target);
+  };
 
   handleVideoPlay = () => {
     console.log('video started');
@@ -48,14 +76,14 @@ class LessonVideo extends Component {
 
     return (
     // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
-      <div className="lesson-video">
-        <YouTube
+      <div className="lesson-video" id="player">
+        {/* <YouTube
           videoId={video_id}
           opts={opts}
           onPlay={this.handleVideoPlay}
           onPause={this.handleVideoPause}
           onEnd={this.handleVideoEnd}
-        />
+        /> */}
       </div>
     );
   };
