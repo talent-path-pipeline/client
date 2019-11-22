@@ -37,9 +37,13 @@ class LessonVideo extends Component {
   }
 
   loadVideo = () => {
-    const { video_id } = this.props;
+    const { video_id, start, end } = this.props;
     this.player = new window.YT.Player(`player`, {
       videoId: video_id,
+      playerVars: {
+        start,
+        end,
+      },
       events: {
         onReady: this.onPlayerReady,
         onStateChange: this.onStateChange,
@@ -73,7 +77,6 @@ class LessonVideo extends Component {
     // state = ENDED
     if (event.data === 0) {
       console.log(`Video ended at ${event.target.getCurrentTime()}`);
-
 
       if (this.state.videoHasStarted) {
         // TODO: set UserLesson.completed to TRUE
