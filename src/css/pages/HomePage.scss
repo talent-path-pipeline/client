@@ -64,17 +64,18 @@
   flex-direction: column;
   color: var(--accent-dark-dull);
   font-size: 4vw;
-  text-shadow: 1px 1px 2px var(--plain-light);
+  text-shadow: 2px 1px 1px var(--plain-dark);
 }
 
 #company-information {
   // background-color: var(--theme-color);
   height: 100%;
+  margin: 30px;
 
   #company-grid {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    max-width: 70%;
     margin: 1em auto;
 
     .company-box {
@@ -85,10 +86,11 @@
       display: flex;
       align-items: center;
       justify-content: flex-start; 
-      font-size: 23px;
+      font-size: calc(15px + .5vw);
+      padding: 20px;
 
       img {
-        height: 40px;
+        height: calc(25px + 1.5vh + 1.5vw);
       }
     }
 
