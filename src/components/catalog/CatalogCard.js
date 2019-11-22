@@ -6,7 +6,7 @@ import '../../css/catalog/CatalogCard.scss';
 
 const CatalogCard = ({ course }) => {
   // TODO: once connected to back-end, get number of completed lessons
-  const completed = 0;
+  const completed = 3;
   return (
     <Link to={`/courses/${course.slug}`} className="catalog-card">
       <div
