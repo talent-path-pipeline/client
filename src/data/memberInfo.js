@@ -1,6 +1,7 @@
 /**
  * Each team member and their related information
  */
+// DISCLAIMER:  Because of the current CSS this info should include EXACTLY 5 objects
 const memberInfo = {
   kevin: {
     fullName: 'Kevin Baktiar',
