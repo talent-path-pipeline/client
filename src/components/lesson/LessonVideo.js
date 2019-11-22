@@ -6,6 +6,9 @@ class LessonVideo extends Component {
   constructor(props) {
     super(props);
 
+    const { start } = props;
+    this.start = start || 0;
+
     this.state = {
       videoHasStarted: false,
     };
@@ -25,6 +28,7 @@ class LessonVideo extends Component {
     }
   }
 
+  // TODO: fix YT iframe dimensions
   loadVideo = () => {
     const { video_id, start, end } = this.props;
     this.player = new window.YT.Player(`player`, {
@@ -36,42 +40,40 @@ class LessonVideo extends Component {
         end,
       },
       events: {
-        onReady: this.onPlayerReady,
         onStateChange: this.onStateChange,
       },
     });
   }
 
-  onPlayerReady = event => {
-    console.log(event.target);
-  };
-
-  onStateChange = event => {
+  onStateChange = async event => {
+    const { user_id, lesson_id } = this.props;
+    const timestamp = Math.floor(event.target.getCurrentTime());
     console.log(event.data);
 
     // state = PLAYING
     if (event.data === 1) {
-      console.log(`Video started at ${event.target.getCurrentTime()}`);
+      console.log(`Video started at ${timestamp}`);
 
       this.setState({
         videoHasStarted: true,
       });
 
-      // TODO: add UserLesson entry if not exist
+      if (user_id !== null && timestamp === this.start) {
+        // TODO: add UserLesson entry if not exist
+        console.log('create userlesson entry');
+        console.log(`userId: ${user_id}`);
+        console.log(`lessonId: ${lesson_id}`);
+      }
     }
 
     // state = ENDED
     if (event.data === 0) {
-      console.log(`Video ended at ${event.target.getCurrentTime()}`);
+      console.log(`Video ended at ${timestamp}`);
 
       if (this.state.videoHasStarted) {
         // TODO: set UserLesson.completed to TRUE
       }
     }
-  };
-
-  handleVideoPause = () => {
-    console.log('player: ', this.player);
   };
 
   render () {
@@ -87,7 +89,8 @@ LessonVideo.propTypes = {
   video_id: PropTypes.string.isRequired,
   start: PropTypes.number,
   end: PropTypes.number,
-  lessonId: PropTypes.string.isRequired,
+  lesson_id: PropTypes.string.isRequired,
+  user_id: PropTypes.string.isRequired,
 };
 
 LessonVideo.defaultProps = {
