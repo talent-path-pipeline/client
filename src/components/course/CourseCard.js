@@ -7,7 +7,7 @@ import '../../css/course/CourseCard.scss';
 
 const CourseCard = ({ course }) => {
   // TODO: actually get this from the back end
-  const completed = 0;
+  const completed = 3;
   return (
     <Link to={`/courses/${course.slug}`} className="course-card">
       <div
