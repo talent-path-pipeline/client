@@ -1,42 +1,42 @@
 /**
  * Each team member and their related information
  */
-const memberInfo = {
-  kevin: {
-    fullName: 'Kevin Baktiar',
-    src: `${process.env.PUBLIC_URL}/images/team/Kevin_Baktiar.jpg`,
-    role: 'Product Owner',
-    character: 'Art of Shadows',
-    link: 'https://github.com/afterafx',
+const thanksInfo = {
+  strangerThings: {
+    fullName: 'Stranger Things',
+    src: `${process.env.PUBLIC_URL}/images/thanks/stranger-things.jpg`,
+    role: 'Watch here',
+    character: 'Inspiring the youth',
+    link: 'https://www.netflix.com/title/80057281',
   },
-  sam: {
-    fullName: 'Sam Saks Fithian',
-    src: `${process.env.PUBLIC_URL}/images/team/Sam_Saks_Fithian.jpg`,
-    role: 'Software Engineer',
-    character: 'THE Dungeon Master',
+  gary: {
+    fullName: 'Gary Gygax',
+    src: `${process.env.PUBLIC_URL}/images/thanks/gary.jpeg`,
+    role: 'About Gary',
+    character: 'Founder of DnD',
+    link: 'https://www.wired.com/2008/03/dungeon-master-life-legacy-gary-gygax/',
+  },
+  gAndS: {
+    fullName: 'Critical Role',
+    src: `${process.env.PUBLIC_URL}/images/thanks/critical-role.png`,
+    role: 'Watch here',
+    character: 'Quality DnD Content',
+    link: 'https://critrole.com/',
+  },
+  cat: {
+    fullName: `Sam's Cat`,
+    src: `${process.env.PUBLIC_URL}/images/thanks/sams-cat.jpg`,
+    role: `Cat Daddy`,
+    character: 'Being Cute',
     link: 'https://github.com/samsaksfithian',
   },
-  emily: {
-    fullName: 'Emily Yang',
-    src: `${process.env.PUBLIC_URL}/images/team/Emily_Yang.png`,
-    role: 'Software Engineer',
-    character: 'Nyxa',
-    link: 'https://github.com/emily-yang',
-  },
-  roberto: {
-    fullName: 'Roberto Sanchez',
-    src: `${process.env.PUBLIC_URL}/images/team/Roberto_Sanchez.jpg`,
-    role: 'Software Engineer',
-    character: 'The Birthday Boy',
-    link: 'https://github.com/Zyxel-1',
-  },
-  devon: {
-    fullName: 'Devon Marantz',
-    src: `${process.env.PUBLIC_URL}/images/team/Devon_Marantz.jpg`,
-    role: 'Software Engineer',
-    character: 'Lord Honu',
-    link: 'https://github.com/devmarantz',
+  pickles: {
+    fullName: 'Pickles',
+    src: `${process.env.PUBLIC_URL}/images/thanks/pickles.jpg`,
+    role: 'Homemade recipe',
+    character: 'Being delicious',
+    link: 'https://www.delish.com/cooking/recipe-ideas/a25101333/how-to-make-pickles-recipe/',
   },
 };
 
-export default memberInfo;
+export default thanksInfo;
