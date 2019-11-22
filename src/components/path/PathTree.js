@@ -9,20 +9,17 @@ import { CourseCard } from '..';
 // import 'react-vertical-timeline-component/style.min.css';
 import '../../css/path/VerticalTimeline.scss';
 import '../../css/path/VerticalTimelineElement.scss';
-import '../../css/path/PathTree.scss';
 
 const PathTree = ({ courses }) => (
   // TODO: sort courses by order
 
-  <div className="path-tree">
-    <VerticalTimeline layout="1-column">
-      {courses.map(course => (
-        <VerticalTimelineElement key={course.slug}>
-          <CourseCard course={course} key={course.slug} />
-        </VerticalTimelineElement>
-      ))}
-    </VerticalTimeline>
-  </div>
+  <VerticalTimeline layout="1-column" className="path-tree">
+    {courses.map(course => (
+      <VerticalTimelineElement key={course.slug}>
+        <CourseCard course={course} key={course.slug} />
+      </VerticalTimelineElement>
+    ))}
+  </VerticalTimeline>
 );
 
 PathTree.propTypes = {
