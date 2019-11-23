@@ -2,25 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Lesson, LessonsPane } from '..';
 import '../../css/pages/LessonPage.scss';
-import TokenServices from '../../utils/tokenServices';
 import axios from 'axios';
+import TokenServices from '../../utils/tokenServices';
 const { REACT_APP_SVR_API } = process.env;
 
 function LessonPage(props) {
   const { curr_lesson_num, lessons, base_path } = props;
   const lesson = lessons[curr_lesson_num];
   const total = lessons.length;
-const trackVideo = () =>{
-  const token = TokenServices.getToken();
-  const userID = token? token.id: null
-  
-  if(userID !== null){
-    const data = {videoID: lesson.video_id, userID}
-  //-------------------------------------------------------------
-  // For development purposes
-  console.log(`Video being watched: ${lesson.video_id} from ${props.course_title} by ${userID}`)
-  //-------------------------------------------------------------
-    /*
+  let userID;
+  const trackVideo = () =>{
+    const token = TokenServices.getToken();
+    userID = token? token.id: null;
+
+    if(userID !== null){
+      const data = {videoID: lesson.video_id, userID};
+      //-------------------------------------------------------------
+      // For development purposes
+      console.log(`Video being watched: ${lesson.video_id} from ${props.course_title} by ${userID}`);
+      //-------------------------------------------------------------
+      /*
     axios
     .post(`${REACT_APP_SVR_API}/lesson/`, data)
     .then(response => {
@@ -43,22 +44,19 @@ const trackVideo = () =>{
         alert('Something went wrong...');
         Promise.reject(ex);
       }
-    });   
+    });
      */
-    
-  }else{
+    }else{
     //-------------------------------------------------------------
-  // For development purposes
-  console.log(`Video being watched: ${lesson.video_id} by unregistered user`)
-  //-------------------------------------------------------------
-  }
-  
-
-}
+      // For development purposes
+      console.log(`Video being watched: ${lesson.video_id} by unregistered user`);
+      //-------------------------------------------------------------
+    }
+  };
   return (
     <div className="lesson-page">
       {trackVideo()}
-      <Lesson lesson={lesson} course_size={total} base_path={base_path} />
+      <Lesson lesson={lesson} course_size={total} base_path={base_path} user_id={userID}/>
       <LessonsPane {...props} />
     </div>
   );
