@@ -92,9 +92,14 @@ class LessonVideo extends Component {
     if (event.data === 0) {
       console.log(`Video ended at ${timestamp}`);
 
+      // TODO: check if user is still logged in and userLessonUuid exists?
       if (this.state.videoHasStarted) {
+        console.log('setting completed as true');
         // TODO: set UserLesson.completed to TRUE
-        // const patchedLesson = await axios.patch(`${route}/${}, )
+        const patchedLesson = await axios.patch(`${route}/${this.state.userLessonUuid}`, {
+          completed: true,
+        });
+        console.log(patchedLesson);
       }
     }
   };
