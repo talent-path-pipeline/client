@@ -32,7 +32,7 @@ class LessonVideo extends Component {
     }
   }
 
-  // TODO: fix YT iframe dimensions
+  // FIXME: fix YT iframe dimensions
   loadVideo = () => {
     const { video_id, start, end } = this.props;
     this.player = new window.YT.Player(`player`, {
@@ -62,12 +62,12 @@ class LessonVideo extends Component {
         videoHasStarted: true,
       });
 
-      if (user_id !== null && timestamp === this.start) {
-        console.log('create userlesson entry');
-        console.log(`userId: ${user_id}`);
-        console.log(`lessonId: ${lesson_id}`);
-
+      // TODO: User currently only gets credit for completing a lesson if they play the video from the lesson beginning all the way to the end in a single page session. To remove this restriction, take out `timestamp === this.start`.
+      if (user_id !== null && userLessonUuid !== '' && timestamp === this.start) {
         try {
+          console.log('creating userlesson entry');
+          console.log(`userId: ${user_id}`);
+          console.log(`lessonId: ${lesson_id}`);
           const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
 
           if (existingUserLesson.data[0]) {
@@ -97,7 +97,6 @@ class LessonVideo extends Component {
     if (event.data === 0) {
       console.log(`Video ended at ${timestamp}`);
 
-      // TODO: check if user is still logged in and userLessonUuid exists?
       if (videoHasStarted && userLessonUuid) {
         try {
           console.log('setting completed as true');
@@ -122,7 +121,6 @@ class LessonVideo extends Component {
 }
 
 LessonVideo.propTypes = {
-  title: PropTypes.string.isRequired,
   video_id: PropTypes.string.isRequired,
   start: PropTypes.number,
   end: PropTypes.number,
