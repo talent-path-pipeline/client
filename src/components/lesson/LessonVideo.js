@@ -63,7 +63,7 @@ class LessonVideo extends Component {
       });
 
       // TODO: User currently only gets credit for completing a lesson if they play the video from the lesson beginning all the way to the end in a single page session. To remove this restriction, take out `timestamp === this.start`.
-      if (user_id !== null && userLessonUuid !== '' && timestamp === this.start) {
+      if (user_id !== null && userLessonUuid === '' && timestamp === this.start) {
         try {
           console.log('creating userlesson entry');
           console.log(`userId: ${user_id}`);
