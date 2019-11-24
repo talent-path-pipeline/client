@@ -51,6 +51,7 @@ class LessonVideo extends Component {
 
   onStateChange = async event => {
     const { user_id, lesson_id } = this.props;
+    const { userLessonUuid, videoHasStarted } = this.state;
     const timestamp = Math.floor(event.target.getCurrentTime());
 
     // state = PLAYING
@@ -62,29 +63,33 @@ class LessonVideo extends Component {
       });
 
       if (user_id !== null && timestamp === this.start) {
-        // TODO: add UserLesson entry if not exist
         console.log('create userlesson entry');
         console.log(`userId: ${user_id}`);
         console.log(`lessonId: ${lesson_id}`);
 
-        const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
+        try {
+          const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
 
-        if (existingUserLesson.data[0]) {
-          console.log('existing entry: ', existingUserLesson);
-          this.setState({
-            userLessonUuid: existingUserLesson.data[0].uuid,
-          });
-        } else {
-          const newUserLesson = await axios.post(route, {
-            userUuid: user_id,
-            lessonUuid: lesson_id,
-          });
-          console.log('new entry: ', newUserLesson);
-          this.setState({
-            userLessonUuid: newUserLesson.data.uuid,
-          });
+          if (existingUserLesson.data[0]) {
+            console.log('existing entry: ', existingUserLesson);
+            this.setState({
+              userLessonUuid: existingUserLesson.data[0].uuid,
+            });
+          } else {
+            const newUserLesson = await axios.post(route, {
+              userUuid: user_id,
+              lessonUuid: lesson_id,
+            });
+            console.log('new entry: ', newUserLesson);
+            this.setState({
+              userLessonUuid: newUserLesson.data.uuid,
+            });
+          }
+          console.log('state userLessonUuid: ', userLessonUuid);
+        } catch(err) {
+          // TODO: handle error
+          console.error(err);
         }
-        console.log('state userLessonUuid: ', this.state.userLessonUuid);
       }
     }
 
@@ -93,13 +98,17 @@ class LessonVideo extends Component {
       console.log(`Video ended at ${timestamp}`);
 
       // TODO: check if user is still logged in and userLessonUuid exists?
-      if (this.state.videoHasStarted) {
-        console.log('setting completed as true');
-        // TODO: set UserLesson.completed to TRUE
-        const patchedLesson = await axios.patch(`${route}/${this.state.userLessonUuid}`, {
-          completed: true,
-        });
-        console.log(patchedLesson);
+      if (videoHasStarted && userLessonUuid) {
+        try {
+          console.log('setting completed as true');
+          const patchedLesson = await axios.patch(`${route}/${userLessonUuid}`, {
+            completed: true,
+          });
+          console.log(patchedLesson);
+        } catch(err) {
+          // TODO: handle error
+          console.error(err);
+        }
       }
     }
   };
