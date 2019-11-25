@@ -25,7 +25,7 @@
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
     "arrow-body-style": ["error", "as-needed"],
     "implicit-arrow-linebreak": ["error", "beside"],
-    "operator-linebreak": ["error", "before"],
+    // "operator-linebreak": ["error", "before"],
     "arrow-parens": ["error", "as-needed"],
     "padded-blocks": ["error", "never"],
     "lines-between-class-members": ["error", "always"],
