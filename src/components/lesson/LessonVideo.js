@@ -50,7 +50,7 @@ class LessonVideo extends Component {
   }
 
   onStateChange = async event => {
-    const { user_id, lesson_id } = this.props;
+    const { user_id, lesson_id, course_id } = this.props;
     const { userLessonUuid, videoHasStarted } = this.state;
     const timestamp = Math.floor(event.target.getCurrentTime());
 
@@ -79,13 +79,13 @@ class LessonVideo extends Component {
             const newUserLesson = await axios.post(route, {
               userUuid: user_id,
               lessonUuid: lesson_id,
+              courseUuid: course_id,
             });
             console.log('new entry: ', newUserLesson);
             this.setState({
               userLessonUuid: newUserLesson.data.uuid,
             });
           }
-          console.log('state userLessonUuid: ', userLessonUuid);
         } catch(err) {
           // TODO: handle error
           console.error(err);
@@ -126,6 +126,7 @@ LessonVideo.propTypes = {
   end: PropTypes.number,
   lesson_id: PropTypes.string.isRequired,
   user_id: PropTypes.string.isRequired,
+  course_id: PropTypes.string.isRequired,
 };
 
 LessonVideo.defaultProps = {

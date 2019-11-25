@@ -16,6 +16,7 @@ const Lesson = ({ lesson, course_size, base_path, user_id }) =>
         end={lesson.end}
         lesson_id={lesson.uuid}
         user_id={user_id}
+        course_id={lesson.courseUuid}
       />
       <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
     </div>
