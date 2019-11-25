@@ -11,7 +11,6 @@ const getUserID = () => {
   return userID;
 };
 
-// TODO: once connected to back-end, get number of completed lessons
 const CatalogCard = ({ course, num_completed }) => (<Link to={`/courses/${course.slug}`} className="catalog-card">
   <div
     className="course-image"
@@ -36,6 +35,7 @@ CatalogCard.propTypes = {
     order: PropTypes.number,
     lessons: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
+  num_completed: PropTypes.number.isRequired,
 };
 
 export default CatalogCard;

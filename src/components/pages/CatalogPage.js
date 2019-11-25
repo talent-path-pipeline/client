@@ -42,8 +42,6 @@ class CatalogPage extends Component {
         this.all_courses = contentResp.data;
         this.setState({ curr_courses: contentResp.data });
       }
-    }).then(() => {
-      console.log(`state.curr_courses: `, this.state.curr_courses);
     });
   }
 
@@ -54,8 +52,6 @@ class CatalogPage extends Component {
         .then(response => {
           const completedLessons = response.data.filter(lesson => lesson.completed);
           this.setState( { completed_lessons: completedLessons });
-        }).then(() => {
-          console.log('state.completedLessons: ', this.state.completed_lessons);
         });
     }
   }

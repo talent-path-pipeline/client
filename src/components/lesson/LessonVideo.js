@@ -56,8 +56,6 @@ class LessonVideo extends Component {
 
     // state = PLAYING
     if (event.data === 1) {
-      console.log(`Video started at ${timestamp}`);
-
       this.setState({
         videoHasStarted: true,
       });
@@ -65,14 +63,9 @@ class LessonVideo extends Component {
       // TODO: User currently only gets credit for completing a lesson if they play the video from the lesson beginning all the way to the end in a single page session. To remove this restriction, take out `timestamp === this.start`.
       if (user_id !== null && userLessonUuid === '' && timestamp === this.start) {
         try {
-          console.log('creating userlesson entry');
-          console.log(`userId: ${user_id}`);
-          console.log(`lessonId: ${lesson_id}`);
-          console.log(`courseId: ${course_id}`);
           const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
 
           if (existingUserLesson.data[0]) {
-            console.log('existing entry: ', existingUserLesson);
             this.setState({
               userLessonUuid: existingUserLesson.data[0].uuid,
             });
@@ -82,7 +75,6 @@ class LessonVideo extends Component {
               lessonUuid: lesson_id,
               courseUuid: course_id,
             });
-            console.log('new entry: ', newUserLesson);
             this.setState({
               userLessonUuid: newUserLesson.data.uuid,
             });
@@ -95,20 +87,15 @@ class LessonVideo extends Component {
     }
 
     // state = ENDED
-    if (event.data === 0) {
-      console.log(`Video ended at ${timestamp}`);
 
-      if (videoHasStarted && userLessonUuid) {
-        try {
-          console.log('setting completed as true');
-          const patchedLesson = await axios.patch(`${route}/${userLessonUuid}`, {
-            completed: true,
-          });
-          console.log(patchedLesson);
-        } catch(err) {
-          // TODO: handle error
-          console.error(err);
-        }
+    if (event.data === 0 && videoHasStarted && userLessonUuid) {
+      try {
+        await axios.patch(`${route}/${userLessonUuid}`, {
+          completed: true,
+        });
+      } catch(err) {
+        // TODO: handle error
+        console.error(err);
       }
     }
   };
