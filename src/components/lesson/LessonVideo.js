@@ -68,6 +68,7 @@ class LessonVideo extends Component {
           console.log('creating userlesson entry');
           console.log(`userId: ${user_id}`);
           console.log(`lessonId: ${lesson_id}`);
+          console.log(`courseId: ${course_id}`);
           const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
 
           if (existingUserLesson.data[0]) {

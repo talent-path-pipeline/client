@@ -19,6 +19,7 @@ class CatalogPage extends Component {
 
     this.state = {
       curr_courses: [],
+      completed_lessons: [],
     };
     this.all_courses = [];
   }
@@ -48,13 +49,15 @@ class CatalogPage extends Component {
 
   getCompletedLessons = () => {
     const userID = getUserID();
-    axios.get(`${REACT_APP_SVR_API}/userlessons/user/${userID}`)
-      .then(response => {
-        const completedLessons = response.data.filter(lesson => lesson.completed);
-        this.setState( { completed_lessons: completedLessons });
-      }).then(() => {
-        console.log('state.completedLessons: ', this.state.completed_lessons);
-      });
+    if (userID) {
+      axios.get(`${REACT_APP_SVR_API}/userlessons/user/${userID}`)
+        .then(response => {
+          const completedLessons = response.data.filter(lesson => lesson.completed);
+          this.setState( { completed_lessons: completedLessons });
+        }).then(() => {
+          console.log('state.completedLessons: ', this.state.completed_lessons);
+        });
+    }
   }
 
   resetCourses = () => {
@@ -62,7 +65,7 @@ class CatalogPage extends Component {
   };
 
   render() {
-    const { curr_courses } = this.state;
+    const { curr_courses, completed_lessons } = this.state;
 
     return (
       <div className="catalog-page">
@@ -74,7 +77,7 @@ class CatalogPage extends Component {
         <hr className="catalog-line" />
         {/* TODO: <CatalogFilter /> */}
         {curr_courses && curr_courses.length > 0 && (
-          <CatalogList courses={curr_courses} />
+          <CatalogList courses={curr_courses} completed_lessons={completed_lessons} />
         )}
       </div>
     );

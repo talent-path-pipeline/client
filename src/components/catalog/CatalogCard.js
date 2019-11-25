@@ -5,8 +5,7 @@ import { ProgressBar } from '..';
 import '../../css/catalog/CatalogCard.scss';
 
 // TODO: once connected to back-end, get number of completed lessons
-const completed = 0;
-const CatalogCard = ({ course }) => (<Link to={`/courses/${course.slug}`} className="catalog-card">
+const CatalogCard = ({ course, num_completed }) => (<Link to={`/courses/${course.slug}`} className="catalog-card">
   <div
     className="course-image"
     alt={course.title}
@@ -15,7 +14,7 @@ const CatalogCard = ({ course }) => (<Link to={`/courses/${course.slug}`} classN
   <div className="course-info">
     <h4 className="course-title">{course.title}</h4>
     <p className="course-description">{course.description}</p>
-    <ProgressBar value={completed} max={course.lessons.length} label="Lessons" />
+    <ProgressBar value={num_completed} max={course.lessons.length} label="Lessons" />
   </div>
 </Link>
 )
