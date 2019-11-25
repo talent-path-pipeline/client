@@ -8,8 +8,16 @@ const CatalogList = ({ courses, completed_lessons }) => (
   <div className="list-all-courses">
     {courses ? (
       courses.map(course => {
-        const numCompleted = completed_lessons.filter(lesson => lesson.courseUuid === course.uuid);
-        return <CatalogCard course={course} key={course.slug} num_completed={numCompleted.length} />;
+        const completed_in_course = completed_lessons.filter(
+          lesson => lesson.courseUuid === course.uuid,
+        );
+        return (
+          <CatalogCard
+            course={course}
+            key={course.slug}
+            num_completed={completed_in_course.length}
+          />
+        );
       })
     ) : (
       <div className="no-courses" />
@@ -28,9 +36,7 @@ CatalogList.propTypes = {
       lessons: PropTypes.arrayOf(PropTypes.object),
     }),
   ).isRequired,
-  completed_lessons: PropTypes.arrayOf(
-    PropTypes.object
-  ).isRequired,
+  completed_lessons: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CatalogList;

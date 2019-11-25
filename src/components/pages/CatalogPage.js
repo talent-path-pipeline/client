@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { contentAPI, tokenServices } from '../../utils';
+import { userLessonAPI, contentAPI, tokenServices } from '../../utils';
 import { CatalogList } from '..';
 import '../../css/pages/CatalogPage.scss';
-
-const { REACT_APP_SVR_API } = process.env;
 
 const getUserID = () => {
   const token = tokenServices.getToken();
@@ -24,14 +21,14 @@ class CatalogPage extends Component {
   }
 
   componentDidMount() {
-    const promises = [
-      new Promise(resolve => resolve(this.getCourses())),
-      new Promise(resolve => resolve(this.getCompletedLessons())),
-    ];
-
-    Promise.all(promises).then(() => {
-      console.log('loaded data');
-    });
+    // Promise.all([
+    //   new Promise(resolve => resolve(this.getCourses())),
+    //   new Promise(resolve => resolve(this.getCompletedLessons())),
+    // ]).then(() => {
+    //   console.log('loaded data');
+    // });
+    this.getCourses();
+    this.getCompletedLessons();
   }
 
   getCourses = () => {
@@ -44,11 +41,11 @@ class CatalogPage extends Component {
   };
 
   getCompletedLessons = () => {
-    const userID = getUserID();
-    if (userID) {
-      axios.get(`${REACT_APP_SVR_API}/userlessons/user/${userID}`).then(response => {
-        const completedLessons = response.data.filter(lesson => lesson.completed);
-        this.setState({ completed_lessons: completedLessons });
+    const user_id = getUserID();
+    if (user_id) {
+      userLessonAPI.getUserLessonsByUser(user_id).then(response => {
+        const completed_lessons = response.data.filter(lesson => lesson.completed);
+        this.setState({ completed_lessons });
       });
     }
   };
