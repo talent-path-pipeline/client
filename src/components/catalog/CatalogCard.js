@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ProgressBar } from '..';
 import '../../css/catalog/CatalogCard.scss';
+import TokenServices from '../../utils/tokenServices';
+
+const getUserID = () => {
+  const token = TokenServices.getToken();
+  const userID = token ? token.id : null;
+  return userID;
+};
 
 // TODO: once connected to back-end, get number of completed lessons
 const CatalogCard = ({ course, num_completed }) => (<Link to={`/courses/${course.slug}`} className="catalog-card">
@@ -14,7 +21,7 @@ const CatalogCard = ({ course, num_completed }) => (<Link to={`/courses/${course
   <div className="course-info">
     <h4 className="course-title">{course.title}</h4>
     <p className="course-description">{course.description}</p>
-    <ProgressBar value={num_completed} max={course.lessons.length} label="Lessons" />
+    { getUserID() ? <ProgressBar value={num_completed} max={course.lessons.length} label="Lessons" /> : ''}
   </div>
 </Link>
 )
