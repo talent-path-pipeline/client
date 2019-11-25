@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Switch, Router, Route, Redirect } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
-// import DUMMY_DATA from './DUMMY_DATA';
 import { contentAPI, tokenServices, ProtectedRoute } from './utils';
 import {
   NavBar,
@@ -160,6 +159,7 @@ export default class App extends Component {
                     base_path={courseObj.slug}
                     prev_slug={prevCourse ? prevCourse.slug : undefined}
                     next_slug={nextCourse ? nextCourse.slug : undefined}
+                    user={user}
                   />
                 );
               }}

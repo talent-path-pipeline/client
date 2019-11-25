@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { userInfo } from 'os';
+import { tokenServices, userAPI } from '../../utils';
 import '../../css/lesson/LessonVideo.scss';
 
 const { REACT_APP_SVR_API } = process.env;
 const route = `${REACT_APP_SVR_API}/userlessons`;
+
 class LessonVideo extends Component {
   constructor(props) {
     super(props);
@@ -19,12 +22,18 @@ class LessonVideo extends Component {
   }
 
   componentDidMount() {
+    // const user = tokenServices.getToken();
+    // if (user !== null) {
+    //   console.log(
+    //     `Video being watched: ${this.props.video_id} from ${this.props.course_id} by ${user.id}`,
+    //   );
+    // } else {
+    //   console.log(`Video being watched: ${this.props.video_id} by unregistered user`);
+    // }
     if (!window.YT) {
       const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
-
       window.onYouTubeIframeAPIReady = this.loadVideo;
-
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     } else {
@@ -47,10 +56,11 @@ class LessonVideo extends Component {
         onStateChange: this.onStateChange,
       },
     });
-  }
+  };
 
   onStateChange = async event => {
-    const { user_id, lesson_id, course_id } = this.props;
+    const { id: user_id } = tokenServices.getToken();
+    const { lesson_id, course_id } = this.props;
     const { userLessonUuid, videoHasStarted } = this.state;
     const timestamp = Math.floor(event.target.getCurrentTime());
 
@@ -63,7 +73,9 @@ class LessonVideo extends Component {
       // TODO: User currently only gets credit for completing a lesson if they play the video from the lesson beginning all the way to the end in a single page session. To remove this restriction, take out `timestamp === this.start`.
       if (user_id !== null && userLessonUuid === '' && timestamp === this.start) {
         try {
-          const existingUserLesson = await axios.get(`${route}/lesson/${lesson_id}/user/${user_id}`);
+          const existingUserLesson = await axios.get(
+            `${route}/lesson/${lesson_id}/user/${user_id}`,
+          );
 
           if (existingUserLesson.data[0]) {
             this.setState({
@@ -79,7 +91,7 @@ class LessonVideo extends Component {
               userLessonUuid: newUserLesson.data.uuid,
             });
           }
-        } catch(err) {
+        } catch (err) {
           // TODO: handle error
           console.error(err);
         }
@@ -93,19 +105,16 @@ class LessonVideo extends Component {
         await axios.patch(`${route}/${userLessonUuid}`, {
           completed: true,
         });
-      } catch(err) {
+      } catch (err) {
         // TODO: handle error
         console.error(err);
       }
     }
   };
 
-  render () {
-    return (
-    // TODO: maybe specify specific size for iframe player so it's not bigger/smaller for different videos?
-      <div className="lesson-video" id="player" />
-    );
-  };
+  render() {
+    return <div className="lesson-video" id="player" />;
+  }
 }
 
 LessonVideo.propTypes = {
@@ -113,7 +122,6 @@ LessonVideo.propTypes = {
   start: PropTypes.number,
   end: PropTypes.number,
   lesson_id: PropTypes.string.isRequired,
-  user_id: PropTypes.string.isRequired,
   course_id: PropTypes.string.isRequired,
 };
 
@@ -123,3 +131,48 @@ LessonVideo.defaultProps = {
 };
 
 export default LessonVideo;
+
+// const trackVideo = () => {
+//   const token = tokenServices.getToken();
+//   userID = token ? token.id : null;
+
+//   if (userID !== null) {
+//     const data = { videoID: lesson.video_id, userID };
+//     //-------------------------------------------------------------
+//     // For development purposes
+//     console.log(
+//       `Video being watched: ${lesson.video_id} from ${props.course_title} by ${userID}`,
+//     );
+//     //-------------------------------------------------------------
+//     /*
+//     axios
+//     .post(`${REACT_APP_SVR_API}/lesson/`, data)
+//     .then(response => {
+//       console.log(`This is the response: ${response}`)
+//     })
+//     .catch(error => {
+//       try {
+//         // Handles errors that are not HTTP specific
+//         console.error(error);
+//         if (!error.status) {
+//           console.error('A network error has occured.');
+//         } else if (error.response.status === 400) {
+//           console.error('Bad Request');
+//         } else if (error.response.status === 500) {
+//           console.error('Something bad happended on the server.');
+//         } else {
+//           console.error('An unknown error has occurred');
+//         }
+//       } catch (ex) {
+//         alert('Something went wrong...');
+//         Promise.reject(ex);
+//       }
+//     });
+//      */
+//   } else {
+//     //-------------------------------------------------------------
+//     // For development purposes
+//     console.log(`Video being watched: ${lesson.video_id} by unregistered user`);
+//     //-------------------------------------------------------------
+//   }
+// };

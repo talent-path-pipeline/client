@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
-const Lesson = ({ lesson, course_size, base_path, user_id }) =>
+const Lesson = ({ lesson, course_size, base_path }) =>
   // eslint-disable-next-line implicit-arrow-linebreak
   lesson ? (
     <div className="lesson" key={lesson.order}>
@@ -15,7 +15,6 @@ const Lesson = ({ lesson, course_size, base_path, user_id }) =>
         start={lesson.start}
         end={lesson.end}
         lesson_id={lesson.uuid}
-        user_id={user_id}
         course_id={lesson.courseUuid}
       />
       <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
@@ -41,7 +40,6 @@ Lesson.propTypes = {
   }).isRequired,
   course_size: PropTypes.number.isRequired,
   base_path: PropTypes.string.isRequired,
-  user_id: PropTypes.string.isRequired,
 };
 
 export default Lesson;
