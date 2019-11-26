@@ -1,119 +1,137 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { userInfo } from 'os';
-import { tokenServices, userAPI } from '../../utils';
+import YouTube from 'react-youtube';
+import { tokenServices, userLessonAPI } from '../../utils';
 import '../../css/lesson/LessonVideo.scss';
-
-const { REACT_APP_SVR_API } = process.env;
-const route = `${REACT_APP_SVR_API}/userlessons`;
 
 class LessonVideo extends Component {
   constructor(props) {
     super(props);
 
-    const { start } = props;
-    this.start = start || 0;
-
     this.state = {
-      videoHasStarted: false,
-      userLessonUuid: '',
+      userlesson_id: '',
+      video_has_started: false,
+      timestamp: 0,
     };
+
+    this.video_player_ref = React.createRef();
   }
 
   componentDidMount() {
-    // const user = tokenServices.getToken();
-    // if (user !== null) {
-    //   console.log(
-    //     `Video being watched: ${this.props.video_id} from ${this.props.course_id} by ${user.id}`,
-    //   );
-    // } else {
-    //   console.log(`Video being watched: ${this.props.video_id} by unregistered user`);
-    // }
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      window.onYouTubeIframeAPIReady = this.loadVideo;
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    } else {
-      this.loadVideo();
+    // NOTE: for some reason video doesn't re-mount when switching between courses
+    // and keeping same lesson # (so currently only possible with first lesson)
+    const user = tokenServices.getToken();
+    if (user !== null) {
+      const { lesson_id: lessonUuid, course_id: courseUuid } = this.props;
+      const { id: userUuid } = user;
+      userLessonAPI
+        .getUserLessonByLessonAndUser(userUuid, lessonUuid)
+        .then(async ({ data }) => {
+          let userlesson = data;
+          // check if userlesson already exists
+          if (!data) {
+            // if not, make new userlesson table entry
+            const newlycreated = await userLessonAPI.createUserLesson({
+              userUuid,
+              lessonUuid,
+              courseUuid,
+            });
+            userlesson = newlycreated.data;
+          }
+          // track userlesson
+          this.setState({
+            userlesson_id: userlesson.uuid,
+            timestamp: userlesson.timestamp,
+          });
+        });
     }
   }
 
-  // FIXME: fix YT iframe dimensions
-  loadVideo = () => {
-    const { video_id, start, end } = this.props;
-    this.player = new window.YT.Player(`player`, {
-      videoId: video_id,
-      width: '560',
-      height: '325',
-      playerVars: {
-        start,
-        end,
-      },
-      events: {
-        onStateChange: this.onStateChange,
-      },
+  componentWillUnmount() {
+    const { video_has_started } = this.state;
+    if (video_has_started) {
+      this.video_player_ref.current.internalPlayer.getCurrentTime().then(timestamp => {
+        this.handleTimeUpdate(timestamp);
+      });
+    }
+  }
+
+  /**
+   * TODO:
+   */
+  handleTimeUpdate = timestamp => {
+    this.setState({ timestamp }, () => {
+      if (this.videoCompleted()) {
+        this.markVideoCompleted();
+      } else {
+        this.updateBackendTimestamp();
+      }
     });
   };
 
-  onStateChange = async event => {
-    const { id: user_id } = tokenServices.getToken();
-    const { lesson_id, course_id } = this.props;
-    const { userLessonUuid, videoHasStarted } = this.state;
-    const timestamp = Math.floor(event.target.getCurrentTime());
+  /**
+   * TODO:
+   */
+  videoCompleted = timestamp => {
+    let { timestamp: curr_time } = this.state;
+    curr_time = timestamp || curr_time;
+    const { length } = this.props;
+    // TODO:
 
-    // state = PLAYING
-    if (event.data === 1) {
-      this.setState({
-        videoHasStarted: true,
-      });
+    return false;
+  };
 
-      // TODO: User currently only gets credit for completing a lesson if they play the video from the lesson beginning all the way to the end in a single page session. To remove this restriction, take out `timestamp === this.start`.
-      if (user_id !== null && userLessonUuid === '' && timestamp === this.start) {
-        try {
-          const existingUserLesson = await axios.get(
-            `${route}/lesson/${lesson_id}/user/${user_id}`,
-          );
-
-          if (existingUserLesson.data[0]) {
-            this.setState({
-              userLessonUuid: existingUserLesson.data[0].uuid,
-            });
-          } else {
-            const newUserLesson = await axios.post(route, {
-              userUuid: user_id,
-              lessonUuid: lesson_id,
-              courseUuid: course_id,
-            });
-            this.setState({
-              userLessonUuid: newUserLesson.data.uuid,
-            });
-          }
-        } catch (err) {
-          // TODO: handle error
-          console.error(err);
-        }
-      }
+  /**
+   * TODO:
+   */
+  markVideoCompleted = () => {
+    const user = tokenServices.getToken();
+    if (user !== null) {
+      const { userlesson_id } = this.state;
+      userLessonAPI.updateUserLesson(userlesson_id, { completed: true });
+      console.log(`completed video ${this.props.video_id}`);
     }
+  };
 
-    // state = ENDED
+  /**
+   * TODO:
+   */
+  updateBackendTimestamp = () => {
+    const user = tokenServices.getToken();
+    if (user !== null) {
+      const { timestamp, userlesson_id } = this.state;
+      userLessonAPI.updateUserLesson(userlesson_id, { timestamp: Math.floor(timestamp) });
+    }
+  };
 
-    if (event.data === 0 && videoHasStarted && userLessonUuid) {
-      try {
-        await axios.patch(`${route}/${userLessonUuid}`, {
-          completed: true,
-        });
-      } catch (err) {
-        // TODO: handle error
-        console.error(err);
-      }
+  /**
+   * TODO:
+   */
+  onVideoPlay = event => {
+    const { video_has_started, timestamp } = this.state;
+    if (!video_has_started) {
+      event.target.seekTo(timestamp);
+      this.setState({ video_has_started: true });
+    } else {
+      this.setState({ timestamp: event.target.getCurrentTime() });
     }
   };
 
   render() {
-    return <div className="lesson-video" id="player" />;
+    const { video_id, start, end } = this.props;
+    // console.log(window.location.href);
+
+    return (
+      <YouTube
+        videoId={video_id}
+        opts={{ playerVars: { start, end } }}
+        onEnd={this.markVideoCompleted}
+        onPlay={this.onVideoPlay}
+        onPause={event => this.handleTimeUpdate(event.target.getCurrentTime())}
+        className="lesson-video"
+        ref={this.video_player_ref}
+      />
+    );
   }
 }
 
@@ -121,6 +139,7 @@ LessonVideo.propTypes = {
   video_id: PropTypes.string.isRequired,
   start: PropTypes.number,
   end: PropTypes.number,
+  length: PropTypes.number.isRequired,
   lesson_id: PropTypes.string.isRequired,
   course_id: PropTypes.string.isRequired,
 };
@@ -131,48 +150,3 @@ LessonVideo.defaultProps = {
 };
 
 export default LessonVideo;
-
-// const trackVideo = () => {
-//   const token = tokenServices.getToken();
-//   userID = token ? token.id : null;
-
-//   if (userID !== null) {
-//     const data = { videoID: lesson.video_id, userID };
-//     //-------------------------------------------------------------
-//     // For development purposes
-//     console.log(
-//       `Video being watched: ${lesson.video_id} from ${props.course_title} by ${userID}`,
-//     );
-//     //-------------------------------------------------------------
-//     /*
-//     axios
-//     .post(`${REACT_APP_SVR_API}/lesson/`, data)
-//     .then(response => {
-//       console.log(`This is the response: ${response}`)
-//     })
-//     .catch(error => {
-//       try {
-//         // Handles errors that are not HTTP specific
-//         console.error(error);
-//         if (!error.status) {
-//           console.error('A network error has occured.');
-//         } else if (error.response.status === 400) {
-//           console.error('Bad Request');
-//         } else if (error.response.status === 500) {
-//           console.error('Something bad happended on the server.');
-//         } else {
-//           console.error('An unknown error has occurred');
-//         }
-//       } catch (ex) {
-//         alert('Something went wrong...');
-//         Promise.reject(ex);
-//       }
-//     });
-//      */
-//   } else {
-//     //-------------------------------------------------------------
-//     // For development purposes
-//     console.log(`Video being watched: ${lesson.video_id} by unregistered user`);
-//     //-------------------------------------------------------------
-//   }
-// };

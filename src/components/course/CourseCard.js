@@ -35,7 +35,7 @@ class CourseCard extends Component {
     const { course } = this.props;
     const user = tokenServices.getToken();
     if (user) {
-      userLessonAPI.getUserLessonsByCourse(user.id, course.uuid).then(response => {
+      userLessonAPI.getUserLessonsByCourseAndUser(user.id, course.uuid).then(response => {
         const completed_lessons = response.data.filter(lesson => lesson.completed);
         this.setState({ completed: completed_lessons.length });
       });

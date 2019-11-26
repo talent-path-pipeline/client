@@ -14,6 +14,7 @@ const Lesson = ({ lesson, course_size, base_path }) =>
         video_id={lesson.video_id}
         start={lesson.start}
         end={lesson.end}
+        length={lesson.length}
         lesson_id={lesson.uuid}
         course_id={lesson.courseUuid}
       />
