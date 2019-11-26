@@ -159,7 +159,6 @@ export default class App extends Component {
                     base_path={courseObj.slug}
                     prev_slug={prevCourse ? prevCourse.slug : undefined}
                     next_slug={nextCourse ? nextCourse.slug : undefined}
-                    user={user}
                   />
                 );
               }}
