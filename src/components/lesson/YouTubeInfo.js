@@ -83,7 +83,13 @@ export default class YouTubeInfo extends Component {
       });
     }
     return (
-      <p className="yt-desc-line" key={line.slice(0, 20)}>
+      <p
+        className="yt-desc-line"
+        key={line.slice(
+          Math.floor(line.length / 2 - line.length / 5),
+          Math.floor(line.length / 2 + line.length / 3),
+        )}
+      >
         {print_line}
       </p>
     );

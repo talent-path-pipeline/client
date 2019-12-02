@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Switch, Router, Route, Redirect } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
-// import DUMMY_DATA from './DUMMY_DATA';
 import { contentAPI, tokenServices, ProtectedRoute } from './utils';
 import {
   NavBar,
