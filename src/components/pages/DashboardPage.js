@@ -1,68 +1,71 @@
-import React from 'react';
-import tokenService from '../../utils/tokenServices';
-import DashboardMenu from '../dashboard/DashboardMenu';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { tokenServices } from '../../utils';
+import { AccountSettings, DashboardMenu, ProgressOverview } from '..';
 import '../../css/pages/DashboardPage.scss';
 
+class DashboardPage extends Component {
+  static propTypes = {
+    history: PropTypes.shape(PropTypes.object).isRequired,
+    handleLogOut: PropTypes.func.isRequired,
+  };
 
-class DashboardPage extends React.Component{
-  state = {
-    userName: '',
-    userID: '',
-    userPersona: '',
-    active: 'overview',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {
+        id: 'No ID',
+        fullName: 'Anon',
+      },
+      active: 'overview',
+    };
   }
 
-  componentDidMount(){
-    const token = tokenService.getToken();
-    if(!token){
+  componentDidMount() {
+    const user = tokenServices.getToken();
+    if (!user) {
       // Redirect to HTTP ErrorCode 500 page, this is a placeholder, replace with real
-      this.props.history.push('/login');
+      const { history } = this.props;
+      history.push('/login');
     } else {
-      this.setState({userID: token.id});
-      this.setState({userPersona: token.persona});
-      this.setState({userName: token.fullName});
+      this.setState({ user });
     }
   }
 
-  goToOverview = () => {
-    this.setState({ active: 'overview' });
+  goToSection = section => {
+    this.setState({ active: section });
   };
 
-  goToSettings = () => {
-    this.setState({ active: 'settings' });
+  getBodySection = () => {
+    const { active, user } = this.state;
+
+    if (active === 'overview') {
+      return <ProgressOverview username={user.fullName} />;
+    }
+    if (active === 'settings') {
+      return <AccountSettings username={user.fullName} user_id={user.id} />;
+    }
+    return <div className="dashboard-body">No Body</div>;
   };
 
-  render(){
+  render() {
+    const { handleLogOut } = this.props;
+    const { user, active } = this.state;
+
     return (
       <main className="dashboard">
         <DashboardMenu
-          activeView={this.state.active}
-          showOverview={this.goToOverview}
-          showSettings={this.goToSettings}
-          logout={this.logout}
+          username={user.fullName}
+          active={active}
+          section_list={{
+            overview: 'Progress Overview',
+            settings: 'Account Settings',
+          }}
+          goToSection={this.goToSection}
+          handleLogOut={handleLogOut}
         />
-        {this.state.active === 'overview' ? (
-          <div className="dashboardBody">
-            <h1 className="dashboardHeader">
-              {`Welcome, ${this.state.userName || 'Anon'}`}
-            </h1>
-          </div>
-        ) : (
-          ''
-        )}
-        {this.state.active === 'settings' ? (
-          <div className="dashboardBody">
-            <h1 className="dashboardHeader">
-              {this.state.userName}
-'s Account
-            </h1>
-            <p className="dashboardText">
-              {`User ID: ${this.state.userID}`}
-            </p>
-          </div>
-        ) : (
-          ''
-        )}
+        {this.getBodySection()}
       </main>
     );
   }

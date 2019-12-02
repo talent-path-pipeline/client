@@ -73,7 +73,7 @@ export default class App extends Component {
     }
   }
 
-  handleLogin = () => {
+  handleLogIn = () => {
     const user = tokenServices.getToken();
     if (user) {
       this.setState({ isAuthenticated: true, user });
@@ -82,7 +82,7 @@ export default class App extends Component {
     }
   };
 
-  handleLogoff = () => {
+  handleLogOut = () => {
     tokenServices.removeToken();
     this.setState({ isAuthenticated: false, user: null });
   };
@@ -99,7 +99,7 @@ export default class App extends Component {
           <NavBar
             links={links}
             isAuthenticated={isAuthenticated}
-            handleLogoff={this.handleLogoff}
+            handleLogOut={this.handleLogOut}
           />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -116,7 +116,7 @@ export default class App extends Component {
               isAuthenticated={!isAuthenticated}
               redirectLink={links.dashboard}
               component={RegistrationPage}
-              handleLogin={this.handleLogin}
+              handleLogIn={this.handleLogIn}
             />
             {/* Dashboard Protected Route */}
             <ProtectedRoute
@@ -124,6 +124,7 @@ export default class App extends Component {
               isAuthenticated={isAuthenticated}
               redirectLink={links.login}
               component={DashboardPage}
+              handleLogOut={this.handleLogOut}
             />
 
             <Route exact path={links.support} component={SupportPage} />

@@ -1,50 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/dashboard/DashboardMenu.scss';
 
-/**
- * Dashboard navigation menu
- * @param {Object} props Passed props
- * @param {string} activeView Active navigation text
- * @param {Function} showOverview Display function handler
- * @param {Function} showSettings Display function handler
- * @param {Function} logout Logout function handler
- */
-const DashboardMenu = ({ activeView, showOverview, showSettings, logout }) => (
-  <div className="accountMenu">
-    <h1 className="menuHeader">My Dashboard</h1> 
+const DashboardMenu = ({ username, active, section_list, goToSection, handleLogOut }) => (
+  <div className="account-menu">
+    <h1 className="menu-header">{`${username}'s Dashboard`}</h1>
     <ul>
+      {Object.keys(section_list).map(section => (
+        <li key={section}>
+          {active === section ? (
+            <span className="active-view">{section_list[section]}</span>
+          ) : (
+            <button type="button" onClick={() => goToSection(section)}>
+              {section_list[section]}
+            </button>
+          )}
+        </li>
+      ))}
       <li>
-        {activeView === 'overview' ? (
-          <span className="activeView">Overview</span>
-        ) : (
-          <button type="button" className="linkButton" onClick={() => showOverview()}>
-            Overview
-          </button>
-        )}
-      </li>
-      <li>
-        {activeView === 'settings' ? (
-          <span className="activeView">Account Settings</span>
-        ) : (
-          <button type="button" className="linkButton" onClick={() => showSettings()}>
-            Account Settings
-          </button>
-        )}
-      </li>
-      {/* <li>
-        <button type="button" className="linkButton" onClick={() => logout()}>
-          Logout
+        <button type="button" onClick={handleLogOut}>
+          Log Out
         </button>
-      </li> */}
+      </li>
     </ul>
   </div>
 );
 
 DashboardMenu.propTypes = {
-  activeView: PropTypes.string.isRequired,
-  showOverview: PropTypes.func.isRequired,
-  showSettings: PropTypes.func.isRequired,
-  logout: PropTypes.func,
+  username: PropTypes.string,
+  active: PropTypes.string.isRequired,
+  section_list: PropTypes.shape(PropTypes.object).isRequired,
+  goToSection: PropTypes.func.isRequired,
+  handleLogOut: PropTypes.func.isRequired,
+};
+
+DashboardMenu.defaultProps = {
+  username: 'Anon',
 };
 
 export default DashboardMenu;
