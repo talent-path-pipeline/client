@@ -10,10 +10,15 @@
     padding: 40px;
     width: calc(100% - var(--sidebar-width));
 
+    .dashboard-line {
+      width: 99.5%;
+      margin: 12px auto;
+      border: 2px solid var(--accent-dark-dull);
+    }
+
     .dashboard-header {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-family: var(--font-deco);
-      text-decoration: underline;
     }
 
     .dashboard-text {

@@ -10,6 +10,7 @@ const AccountSettings = () => {
   return (
     <div className="dashboard-body">
       <h1 className="dashboard-header">{`${user.fullName}'s Account`}</h1>
+      <hr className="dashboard-line" />
       <p className="dashboard-text">{`User ID: ${user.id}`}</p>
     </div>
   );

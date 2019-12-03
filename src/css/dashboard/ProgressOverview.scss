@@ -1,0 +1,24 @@
+.dashboard-body {
+  .dashboard-chunk {
+    // &.courses {
+    //   display: none;
+    // }
+
+    .catalog-card {
+      height: 300px;
+      width: 250px;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        background-color: var(--accent-dark-bright);
+        transform: scale(1.03);
+      }
+
+      .progress-bar {
+        margin-top: 14px;
+        font-family: var(--font-deco);
+      }
+    }
+  }
+}

@@ -24,12 +24,6 @@ class DashboardPage extends Component {
     this.getUserLessons();
   }
 
-  /*
-  NEED:
-  List of lessons started by user with actual lesson data
-  List of courses started by/relevant to user with actual nested course data
-  */
-
   /**
    * TODO:
    */
@@ -60,11 +54,15 @@ class DashboardPage extends Component {
         lessons.forEach(lesson => {
           const curr_ul = userlessons.find(ul => ul.lessonUuid === lesson.uuid);
           if (curr_ul) {
+            const { slug: course_slug } = courses.find(
+              crs => crs.uuid === curr_ul.courseUuid,
+            );
             started_lessons.push({
               ...lesson,
-              // add the timestamp and completion status
+              // add the timestamp, completion status, and course_slug
               timestamp: curr_ul.timestamp,
               completed: curr_ul.completed,
+              course_slug,
             });
           }
         });

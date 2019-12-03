@@ -17,6 +17,8 @@ export { default as CourseInfo } from './course/CourseInfo';
 // dashboard
 export { default as AccountSettings } from './dashboard/AccountSettings';
 export { default as DashboardMenu } from './dashboard/DashboardMenu';
+export { default as LessonCard } from './dashboard/LessonCard';
+export { default as LessonList } from './dashboard/LessonList';
 export { default as ProgressOverview } from './dashboard/ProgressOverview';
 
 // ========================================

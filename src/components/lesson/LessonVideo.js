@@ -141,9 +141,12 @@ class LessonVideo extends Component {
    * @param {Event} event the onPlay event
    */
   onVideoPlay = event => {
+    const { start } = this.props;
     const { video_has_started, timestamp } = this.state;
     if (!video_has_started) {
-      event.target.seekTo(timestamp);
+      if (start && timestamp > start) {
+        event.target.seekTo(timestamp);
+      }
       this.setState({ video_has_started: true });
     } else {
       this.setState({ timestamp: event.target.getCurrentTime() });
