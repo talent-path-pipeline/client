@@ -1,7 +1,8 @@
-.account-menu {
+.dashboard-menu {
   padding: 30px;
   background-color: var(--accent-light-dull);
   width: var(--sidebar-width);
+  overflow: hidden;
 
   .menu-header {
     font-size: 1.5rem;
@@ -18,14 +19,15 @@
       .active-view {
         font-weight: bolder;
         color: var(--accent-light-bright);
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
       button {
         cursor: pointer;
         background-color: transparent;
         border: none;
-        font-size: 1rem;
+        text-align: left;
+        font-size: 1.1rem;
         color: var(--font-alt);
       }
 

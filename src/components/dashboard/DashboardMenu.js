@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../../css/dashboard/DashboardMenu.scss';
 
 const DashboardMenu = ({ username, active, section_list, goToSection, handleLogOut }) => (
-  <div className="account-menu">
+  <div className="dashboard-menu">
     <h1 className="menu-header">{`${username}'s Dashboard`}</h1>
     <ul>
       {Object.keys(section_list).map(section => (
@@ -29,7 +29,10 @@ const DashboardMenu = ({ username, active, section_list, goToSection, handleLogO
 DashboardMenu.propTypes = {
   username: PropTypes.string,
   active: PropTypes.string.isRequired,
-  section_list: PropTypes.shape(PropTypes.object).isRequired,
+  section_list: PropTypes.shape({
+    overview: PropTypes.string,
+    settings: PropTypes.string,
+  }).isRequired,
   goToSection: PropTypes.func.isRequired,
   handleLogOut: PropTypes.func.isRequired,
 };

@@ -39,7 +39,7 @@ class SignUp extends Component {
 
   createUserHandler = () => {
     const { data } = this.state;
-    const { handleSignup } = this.props;
+    const { handleSignUp } = this.props;
 
     // TODO: Fix the back-end so it actually uses the correct naming conventions so this isn't necessary
     const no_name_convention_data = {
@@ -52,7 +52,7 @@ class SignUp extends Component {
       .post(`${REACT_APP_SVR_API}/user/`, no_name_convention_data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
-        handleSignup();
+        handleSignUp();
       })
       .catch(error => {
         if (error.message === 'Network Error') {
@@ -99,7 +99,7 @@ class SignUp extends Component {
 
   render() {
     const { data, errors, HTTPErrorMessage } = this.state;
-    const { backToLogin } = this.props;
+    const { backToLogIn } = this.props;
 
     return (
       <div className="regis-form-container">
@@ -121,7 +121,7 @@ class SignUp extends Component {
           {HTTPErrorMessage ? <p className="error-message">{HTTPErrorMessage}</p> : null}
           <p className="bottom-link">
             {`Go back to `}
-            <button className="switch-button" type="button" onClick={backToLogin()}>
+            <button className="switch-button" type="button" onClick={backToLogIn}>
               {`Log in!`}
             </button>
           </p>
@@ -132,8 +132,8 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-  handleSignup: PropTypes.func.isRequired,
-  backToLogin: PropTypes.func.isRequired,
+  handleSignUp: PropTypes.func.isRequired,
+  backToLogIn: PropTypes.func.isRequired,
 };
 
 export default SignUp;

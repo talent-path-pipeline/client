@@ -30,13 +30,13 @@ class LogIn extends Component {
 
   LogInHandler = () => {
     const { data } = this.state;
-    const { handleLogin } = this.props;
+    const { handleLogIn } = this.props;
 
     axios
       .post(`${REACT_APP_SVR_API}/user/login`, data)
       .then(response => {
         localStorage.setItem('app-token', response.data.token);
-        handleLogin();
+        handleLogIn();
       })
       .catch(error => {
         if (error.message === 'Network Error') {
@@ -79,7 +79,7 @@ class LogIn extends Component {
 
   render() {
     const { data, errors, HTTPErrorMessage } = this.state;
-    const { changeToSignup } = this.props;
+    const { changeToSignUp } = this.props;
     return (
       <div className="regis-form-container">
         <h1 className="regis-form-title">Login</h1>
@@ -101,7 +101,7 @@ class LogIn extends Component {
         </form>
         <p className="bottom-link">
           {`Don't have an account, `}
-          <button className="switch-button" type="button" onClick={changeToSignup()}>
+          <button className="switch-button" type="button" onClick={changeToSignUp}>
             {`Sign up!`}
           </button>
         </p>
@@ -111,8 +111,8 @@ class LogIn extends Component {
 }
 
 LogIn.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-  changeToSignup: PropTypes.func.isRequired,
+  handleLogIn: PropTypes.func.isRequired,
+  changeToSignUp: PropTypes.func.isRequired,
 };
 
 export default LogIn;
