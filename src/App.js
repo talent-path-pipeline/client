@@ -130,6 +130,7 @@ export default class App extends Component {
             <Route exact path={links.support} component={SupportPage} />
             <Route exact path={links.about} component={AboutPage} />
 
+            {/* TODO: calculate lesson_num if logged in */}
             <Redirect exact from="/courses/:course" to="/courses/:course/0" />
             <Route
               path="/courses/:course/:lesson_num"

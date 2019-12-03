@@ -5,7 +5,7 @@ import '../../css/catalog/CatalogList.scss';
 
 const CatalogList = ({ courses, completed_lessons }) => (
   <div className="list-all-courses">
-    {courses ? (
+    {courses && courses.length > 0 ? (
       courses.map(course => {
         const completed_in_course = completed_lessons.filter(
           lesson => lesson.courseUuid === course.uuid,
@@ -19,7 +19,7 @@ const CatalogList = ({ courses, completed_lessons }) => (
         );
       })
     ) : (
-      <div className="no-courses" />
+      <div className="no-courses">No Courses!</div>
     )}
   </div>
 );

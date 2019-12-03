@@ -17,16 +17,16 @@ class LessonVideo extends Component {
     this.video_player_ref = React.createRef();
   }
 
-  componentDidMount() {
-    this.getAndSetData();
-  }
+  // componentDidMount() {
+  //   this.getAndSetData();
+  // }
 
-  componentDidUpdate(prevProps) {
-    const { lesson_id } = this.props;
-    if (prevProps.lesson_id !== lesson_id) {
-      this.getAndSetData();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   const { lesson_id } = this.props;
+  //   if (prevProps.lesson_id !== lesson_id) {
+  //     this.getAndSetData();
+  //   }
+  // }
 
   componentWillUnmount() {
     const { video_has_started } = this.state;
@@ -128,6 +128,7 @@ class LessonVideo extends Component {
    * update call to set the timestamp of the current UserLesson row to the current timestamp
    */
   updateBackendTimestamp = () => {
+    // TODO: don't update if before start or outside end?
     const user = tokenServices.getToken();
     if (user !== null) {
       const { timestamp, userlesson_id } = this.state;
@@ -141,12 +142,15 @@ class LessonVideo extends Component {
    * @param {Event} event the onPlay event
    */
   onVideoPlay = event => {
-    const { start } = this.props;
-    const { video_has_started, timestamp } = this.state;
+    const { video_has_started } = this.state;
     if (!video_has_started) {
-      if (start && timestamp > start) {
-        event.target.seekTo(timestamp);
-      }
+      this.getAndSetData();
+      // TODO: set up seeking again
+      // const { start } = this.props;
+      // const { timestamp } = this.state;
+      // if (start && timestamp > start) {
+      //   event.target.seekTo(timestamp);
+      // }
       this.setState({ video_has_started: true });
     } else {
       this.setState({ timestamp: event.target.getCurrentTime() });
