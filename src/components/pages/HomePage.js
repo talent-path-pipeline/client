@@ -73,7 +73,7 @@ class HomePage extends React.Component {
             <section className="company-box">
               <img
                 alt="About Stonehaven 3"
-                src="https://img.icons8.com/ios-filled/64/000000/icosahedron.png"
+                src="/images/crimsond20-black.png"
               />
               <div className="company-info">
                 <p>
