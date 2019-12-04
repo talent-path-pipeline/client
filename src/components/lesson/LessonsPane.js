@@ -16,8 +16,8 @@ const LessonsPane = ({
     <h2>
       <LessonNavBar
         className="course-nav"
-        prev_path={prev_slug ? `/courses/${prev_slug}/0` : ''}
-        next_path={next_slug ? `/courses/${next_slug}/0` : ''}
+        prev_path={prev_slug ? `/courses/${prev_slug}` : ''}
+        next_path={next_slug ? `/courses/${next_slug}` : ''}
       />
       {course_title}
     </h2>

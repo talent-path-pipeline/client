@@ -158,7 +158,7 @@ export default class App extends Component {
                     course_title={courseObj.title}
                     lessons={courseObj.lessons}
                     curr_lesson_num={lesson_num}
-                    base_path={courseObj.slug}
+                    course_slug={courseObj.slug}
                     prev_slug={prevCourse ? prevCourse.slug : undefined}
                     next_slug={nextCourse ? nextCourse.slug : undefined}
                   />
