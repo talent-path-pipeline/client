@@ -47,19 +47,8 @@ export { default as SignUp } from './registration/SignUp';
 export { default as FormQuestion } from './registration/FormQuestion';
 
 // ========================================
-// users
-
-// admin
-export { default as AdminDashboard } from './users/admin/AdminDashboard';
-
-// candidate
-export { default as CandidateDashboard } from './users/candidate/CandidateDashboard';
-
-// instructor
-export { default as InstructorDashboard } from './users/instructor/InstructorDashboard';
-
-// recruiter
-export { default as RecruiterDashboard } from './users/recruiter/RecruiterDashboard';
+// support
+export { default as QandA } from './support/QandA';
 
 // ========================================
 // other

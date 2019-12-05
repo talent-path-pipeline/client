@@ -2,7 +2,7 @@ import React from 'react';
 // components
 import AboutTeamCard from './AboutTeamCard';
 // helpers
-import memberObj from '../../data/memberInfo';
+import memberObj from '../../data/MEMBER_INFO';
 // scss
 import '../../css/about/AboutTeam.scss';
 

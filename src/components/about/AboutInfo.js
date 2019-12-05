@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/about/AboutInfo.scss';
-import AboutCards from './AboutCards';
+import InfoCard from './InfoCard';
 import AboutTeam from './AboutTeam';
+import { INFO_CARDS } from '../../data';
 
 const AboutInfo = ({ title, subtitle, image_link }) => (
   <div className="about-info">
@@ -13,10 +14,14 @@ const AboutInfo = ({ title, subtitle, image_link }) => (
     <h2 className="title">{title}</h2>
     <p className="subtitle">{subtitle}</p>
     <hr className="line" />
-    <AboutCards/>
+    <section className="info-card-section">
+      {INFO_CARDS.map(card_info => (
+        <InfoCard card_info={card_info} key={card_info.img_alt} />
+      ))}
+    </section>
     <p className="subtitle">Meet The Team</p>
     <hr className="line" />
-    <AboutTeam/>
+    <AboutTeam />
   </div>
 );
 

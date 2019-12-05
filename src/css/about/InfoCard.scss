@@ -1,0 +1,44 @@
+.info-card {
+  --icon-size: 80px;
+  --top-pad: 5px;
+  --buffer: calc(var(--icon-size) / 2 + var(--top-pad));
+
+  position: relative;
+  text-align: center;
+  padding-top: var(--buffer);
+  width: 28%;
+  height: calc(200px + var(--buffer));
+
+  .icon {
+    position: absolute;
+    top: var(--top-pad);
+    margin-left: calc(-0.5 * var(--icon-size));
+    background-color: var(--accent-dark-bright);
+    height: var(--icon-size);
+    padding: 4px;
+    border-radius: 50%;
+    border: 2px solid var(--plain-light);
+  }
+
+  .card-body {
+    background-color: var(--accent-dark-bright);
+    height: 100%;
+    border-radius: 30px;
+    padding: 30px;
+    padding-top: calc(var(--icon-size) / 2 + 15px);
+    font-family: var(--font-alt);
+    font-size: 0.9em;
+    font-weight: 300;
+
+    .card-description {
+      height: 100%;
+      overflow: auto;
+    }
+  }
+}
+
+.info-card-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
