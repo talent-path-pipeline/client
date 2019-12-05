@@ -8,7 +8,7 @@ const LessonsPane = ({
   course_title,
   lessons,
   curr_lesson_num,
-  base_path,
+  course_slug,
   prev_slug,
   next_slug,
 }) => (
@@ -27,7 +27,7 @@ const LessonsPane = ({
         order={order}
         title={title}
         length={length}
-        base_path={base_path}
+        course_slug={course_slug}
         active={order === curr_lesson_num}
       />
     ))}
@@ -44,7 +44,7 @@ LessonsPane.propTypes = {
       length: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
   prev_slug: PropTypes.string,
   next_slug: PropTypes.string,
 };

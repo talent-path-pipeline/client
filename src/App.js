@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Switch, Router, Route, Redirect } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
@@ -36,15 +35,6 @@ history.listen(location => {
 });
 
 export default class App extends Component {
-  static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        order: PropTypes.string,
-        course: PropTypes.string,
-      }),
-    }).isRequired,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +44,6 @@ export default class App extends Component {
         image_name: 'path-image-main.jpg',
         courses: [],
       },
-      user: null,
       isAuthenticated: false,
     };
   }
@@ -69,28 +58,26 @@ export default class App extends Component {
     });
     const user = tokenServices.getToken();
     if (user) {
-      this.setState({ isAuthenticated: true, user });
+      this.setState({ isAuthenticated: true });
     }
   }
 
   handleLogIn = () => {
     const user = tokenServices.getToken();
     if (user) {
-      this.setState({ isAuthenticated: true, user });
+      this.setState({ isAuthenticated: true });
     } else {
-      this.setState({ isAuthenticated: null, user: null });
+      this.setState({ isAuthenticated: null });
     }
   };
 
   handleLogOut = () => {
     tokenServices.removeToken();
-    this.setState({ isAuthenticated: false, user: null });
+    this.setState({ isAuthenticated: false });
   };
 
   render() {
-    // TODO: implement or remove user
-    // eslint-disable-next-line no-unused-vars
-    const { only_path, user, isAuthenticated } = this.state;
+    const { only_path, isAuthenticated } = this.state;
     const { courses } = only_path;
 
     return (
@@ -130,8 +117,25 @@ export default class App extends Component {
             <Route exact path={links.support} component={SupportPage} />
             <Route exact path={links.about} component={AboutPage} />
 
-            {/* TODO: calculate lesson_num if logged in */}
             <Redirect exact from="/courses/:course" to="/courses/:course/0" />
+            {/* <Route
+              exact
+              path="/courses/:course"
+              render={props => {
+                // TODO: calculate lesson_num if logged in
+                // const courseObj = courses.find(
+                //   course => course.slug === props.match.params.course,
+                // );
+                // if (!courseObj) {
+                //   return <ErrorPage />;
+                // }
+                let lesson_num = 0;
+                if (isAuthenticated) {
+                  // do stuff
+                }
+                props.history.push(`${props.match.url}/${lesson_num}`);
+              }}
+            /> */}
             <Route
               path="/courses/:course/:lesson_num"
               render={props => {
