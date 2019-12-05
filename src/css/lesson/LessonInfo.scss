@@ -1,5 +1,3 @@
-// TODO: clean this up
-
 .lesson-info {
   background-color: var(--plain-light);
   padding: 3rem;
@@ -11,6 +9,7 @@
     color: var(--accent-dark-dull);
     text-shadow: 1px 0px var(--accent-light-dull);
   }
+
   .lesson-playing {
     color: var(--plain-dark);
   }
@@ -24,5 +23,10 @@
   .title {
     font-family: var(--font-alt);
     // font-size: 1.1em;
+  }
+
+  .breakline {
+    width: 100%;
+    border-width: 1px;
   }
 }

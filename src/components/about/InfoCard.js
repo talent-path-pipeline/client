@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/about/InfoCard.scss';
 
-const test = 'hello <br /> world';
-
 const InfoCard = ({ card_info }) => {
   const { img_src, img_alt, description } = card_info;
   return (

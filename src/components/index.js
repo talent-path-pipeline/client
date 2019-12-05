@@ -1,6 +1,8 @@
 // ========================================
 // about
-// TODO: add all About components (ideally after consolidation/refactor)
+export { default as AboutTeam } from './about/AboutTeam';
+export { default as AboutTeamCard } from './about/AboutTeamCard';
+export { default as InfoCard } from './about/InfoCard';
 
 // ========================================
 // course

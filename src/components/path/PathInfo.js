@@ -7,13 +7,13 @@ const PathInfo = ({ title, subtitle, subtitle2, image_link }) => (
     <section className="header-container">
       <div className="image-overlay" />
       <div
-        className="path-splash"
+        className="header-splash"
         alt="Path Splash"
         style={{ backgroundImage: `url(${image_link})` }}
       />
       <div className="header-text">
-        <h1 className="path-title">{title}</h1>
-        <h3 className="path-subtitle">{subtitle}</h3>
+        <h1 className="header-title">{title}</h1>
+        <h3 className="header-subtitle">{subtitle}</h3>
       </div>
     </section>
     <img className="path-logo" src="./images/crimsond20.png" alt="D20" />

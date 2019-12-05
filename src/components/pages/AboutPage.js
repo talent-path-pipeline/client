@@ -1,33 +1,34 @@
-import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import AboutInfo from '../about/AboutInfo';
+import React from 'react';
+import { AboutTeam, InfoCard } from '..';
+import { INFO_CARDS } from '../../data';
 import '../../css/pages/AboutPage.scss';
 
-export default class AboutPage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: 'How do we make you an expert Dungeon Master?',
-      subtitle: 'About Stonehaven Academy',
-      image_link: './images/path-image-main.jpg',
-    };
-  }
-
-  // ===============================================================
-  // Handlers
-
-  // ===============================================================
-  // Render
-
-  // TODO: this entire componenet is redundant and unnecessary and has no reason to have a state
-
-  render() {
-    const { title, subtitle, image_link } = this.state;
-    return (
-      <div className="about-page">
-        <AboutInfo title={title} subtitle={subtitle} image_link={image_link} />
+const AboutPage = () => (
+  <div className="about-page">
+    <section className="header-container">
+      <div className="image-overlay" />
+      <div
+        className="header-splash"
+        alt="About Splash"
+        style={{ backgroundImage: `url(/images/path-image-main.jpg)` }}
+      />
+      <div className="header-text">
+        <h1 className="header-title">About Stonehaven Academy</h1>
+        <h3 className="header-subtitle">How do we make you an expert Dungeon Master?</h3>
       </div>
-    );
-  }
-}
+    </section>
+    <section className="info-card-section">
+      {INFO_CARDS.map(card_info => (
+        <InfoCard card_info={card_info} key={card_info.img_alt} />
+      ))}
+    </section>
+    <hr className="breakline" />
+    <h1 className="about-subtitle">Meet The Team</h1>
+    <AboutTeam />
+    {/* <hr className="breakline" />
+    <h1 className="about-subtitle">Special Thanks To</h1>
+    <AboutTeam /> */}
+  </div>
+);
+
+export default AboutPage;
