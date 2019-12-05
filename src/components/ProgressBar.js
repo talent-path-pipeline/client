@@ -11,7 +11,7 @@ const ProgressBar = ({ label, value, max, showLabel }) => {
         className="progress-fill"
         style={{ width: `${percent > 99.9 ? 99.9 : percent}%` }}
       />
-      {showLabel && <p className="progress-label">{label_text}</p>}
+      {showLabel && <span className="progress-label">{label_text}</span>}
     </div>
   );
 };

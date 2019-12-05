@@ -16,10 +16,17 @@ const formatTime = time => {
   return `${hStr}${mStr}${sStr}`;
 };
 
-const LessonLink = ({ title, length, order, active, base_path }) => {
+const LessonLink = ({ title, length, order, active, course_slug }) => {
   const TagType = active ? 'p' : Link;
   return (
-    <TagType to={`/courses/${base_path}/${order}`} className="lesson-link" onClick={ReactGA.event({ category: "Navigation", action: "User clicked on a lesson link"})}>
+    <TagType
+      to={`/courses/${course_slug}/${order}`}
+      className="lesson-link"
+      onClick={ReactGA.event({
+        category: 'Navigation',
+        action: 'User clicked on a lesson link',
+      })}
+    >
       {title}
       <span className="video-length">{formatTime(length)}</span>
     </TagType>
@@ -31,7 +38,7 @@ LessonLink.propTypes = {
   order: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
   active: PropTypes.bool.isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
 };
 
 export default LessonLink;

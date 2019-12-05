@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import YouTube from 'react-youtube';
-// https://www.npmjs.com/package/react-youtube
 import { LessonVideo, LessonInfo } from '..';
 import '../../css/lesson/Lesson.scss';
 
-const Lesson = ({ lesson, course_size, base_path }) =>
+const Lesson = ({ lesson, course_size, course_slug }) =>
   // eslint-disable-next-line implicit-arrow-linebreak
   lesson ? (
     <div className="lesson" key={lesson.order}>
@@ -18,7 +16,7 @@ const Lesson = ({ lesson, course_size, base_path }) =>
         lesson_id={lesson.uuid}
         course_id={lesson.courseUuid}
       />
-      <LessonInfo lesson={lesson} course_size={course_size} base_path={base_path} />
+      <LessonInfo lesson={lesson} course_size={course_size} course_slug={course_slug} />
     </div>
   ) : (
     <div className="no-lesson" />
@@ -40,7 +38,7 @@ Lesson.propTypes = {
     channel_name: PropTypes.string.isRequired,
   }).isRequired,
   course_size: PropTypes.number.isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
 };
 
 export default Lesson;

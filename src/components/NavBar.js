@@ -35,7 +35,7 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
-    const { links, handleLogoff, isAuthenticated } = this.props;
+    const { links, handleLogOut, isAuthenticated } = this.props;
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
@@ -83,8 +83,8 @@ class NavBar extends React.Component {
           ) : null}
           {isAuthenticated ? (
             <li>
-              <NavLink onClick={handleLogoff} to="/">
-                Log Off
+              <NavLink onClick={handleLogOut} to="/">
+                Log Out
               </NavLink>
             </li>
           ) : (
@@ -129,8 +129,8 @@ class NavBar extends React.Component {
               </NavLink>
             ) : null}
             {isAuthenticated ? (
-              <NavLink onClick={handleLogoff} to="/">
-                Log Off
+              <NavLink onClick={handleLogOut} to="/">
+                Log Out
               </NavLink>
             ) : (
               <NavLink to={links.login}>Login</NavLink>
@@ -147,7 +147,7 @@ NavBar.propTypes = {
     home: PropTypes.string,
   }).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  handleLogoff: PropTypes.func.isRequired,
+  handleLogOut: PropTypes.func.isRequired,
 };
 
 export default NavBar;

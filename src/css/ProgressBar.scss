@@ -1,7 +1,9 @@
 .progress-bar {
   position: relative;
   height: 24px;
-  width: 350px;
+  min-height: 24px;
+  // width: 350px;
+  width: 100%;
   background-color: var(--theme-color);
   border-radius: 30px;
   border: 1px solid var(--accent-dark-dull);
