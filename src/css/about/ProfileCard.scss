@@ -1,0 +1,132 @@
+.profile-card {
+  --flip-transition: rotateY(180deg);
+  --transition-time-style: 0.8s ease-in-out;
+
+  cursor: pointer;
+  outline: none;
+  margin: 1em;
+  width: 230px;
+  height: 230px;
+  perspective: 600px;
+  background-color: transparent;
+  border-radius: 15px;
+  transition: transform 0.12s ease-in-out;
+
+  &:hover {
+    // NOTE: to reviewer, switch between scale and shadow to see what you think is better
+    // transform: scale(1.04);
+
+    .flip-card-inner {
+      box-shadow: 0px 0px 3px 3px var(--theme-color);
+    }
+  }
+
+  .image-overlay {
+    z-index: -1;
+    opacity: 0.45;
+  }
+
+  .flip-check {
+    position: absolute;
+    display: none;
+  }
+
+  .flip-check:checked + .flip-card-inner {
+    transform: var(--flip-transition);
+
+    .front .profile-name,
+    .front .profile-role {
+      opacity: 0;
+    }
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-time-style);
+    border-radius: inherit;
+
+    .front,
+    .back {
+      --card-padding: 1rem;
+
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      padding: calc(var(--card-padding) + 1em) var(--card-padding);
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      border-radius: inherit;
+      overflow: hidden;
+      font-family: var(--font-main);
+
+      .profile-name {
+        transition: opacity var(--transition-time-style);
+        font-family: var(--font-deco);
+        text-shadow: 2px 1px 1px var(--accent-dark-dull);
+      }
+
+      .profile-role {
+        transition: opacity var(--transition-time-style);
+        color: rgba(var(--plain-light-rgb), 0.9);
+      }
+    }
+
+    .front {
+      background: {
+        color: var(--theme-color);
+        size: cover;
+        position: center;
+      }
+
+      .profile-role {
+        transition: opacity var(--transition-time-style);
+        color: rgba(var(--plain-light-rgb), 0.85);
+      }
+    }
+
+    .back {
+      background-color: rgba(var(--accent-dark-dull-rgb), 0.88);
+      transform: var(--flip-transition);
+
+      .profile-name {
+        text-decoration: underline;
+      }
+
+      .profile-role {
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .profile-details {
+        font-size: 1rem;
+        margin-top: 12px;
+        max-height: 50%;
+        overflow: {
+          x: hidden;
+          y: auto;
+        }
+      }
+
+      .contact-link {
+        color: rgba(var(--plain-light-rgb), 0.8);
+        font-size: 0.85em;
+        position: absolute;
+        bottom: calc(var(--card-padding) - 3px);
+        right: var(--card-padding);
+      }
+    }
+  }
+}

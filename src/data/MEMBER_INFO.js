@@ -1,42 +1,52 @@
 /**
  * Each team member and their related information
  */
-const memberInfo = {
-  kevin: {
-    fullName: 'Kevin Baktiar',
-    src: `${process.env.PUBLIC_URL}/images/team/Kevin_Baktiar.jpg`,
-    role: 'Product Owner',
-    character: 'Art of Shadows',
-    link: 'https://github.com/afterafx',
+const team_members = [
+  {
+    img_src: `/images/team/Kevin_Baktiar.jpg`,
+    name: 'Kevin Baktiar',
+    roles: ['Product Owner', 'Software Engineer'],
+    nickname: 'Vasili Black',
+    nickname_link: 'https://ddb.ac/characters/12173935',
+    contact_link: 'https://github.com/afterafx',
+    details: '',
   },
-  sam: {
-    fullName: 'Sam Saks Fithian',
-    src: `${process.env.PUBLIC_URL}/images/team/Sam_Saks_Fithian.jpg`,
-    role: 'Software Engineer',
-    character: 'THE Dungeon Master',
-    link: 'https://github.com/samsaksfithian',
+  {
+    img_src: `/images/team/Sam_Saks_Fithian.jpg`,
+    name: 'Sam Saks-Fithian',
+    roles: ['Github Guardian', 'Software Engineer'],
+    nickname: 'Paik-with-golden-eyes',
+    nickname_link: 'https://ddb.ac/characters/13579587',
+    contact_link: 'https://github.com/samsaksfithian',
+    details: '',
   },
-  emily: {
-    fullName: 'Emily Yang',
-    src: `${process.env.PUBLIC_URL}/images/team/Emily_Yang.png`,
-    role: 'Software Engineer',
-    character: 'Nyxa',
-    link: 'https://github.com/emily-yang',
+  {
+    img_src: `/images/team/Emily_Yang.png`,
+    name: 'Emily Yang',
+    roles: ['Full-Stack Wizard', 'Software Engineer'],
+    nickname: 'Gimli Siannodel',
+    nickname_link: 'https://ddb.ac/characters/13578794',
+    contact_link: 'https://github.com/emily-yang',
+    details: '',
   },
-  roberto: {
-    fullName: 'Roberto Sanchez',
-    src: `${process.env.PUBLIC_URL}/images/team/Roberto_Sanchez.jpg`,
-    role: 'Software Engineer',
-    character: 'The Birthday Boy',
-    link: 'https://github.com/Zyxel-1',
+  {
+    img_src: `/images/team/Roberto_Sanchez.jpg`,
+    name: 'Roberto Sanchez',
+    roles: ['Back-End Architect', 'Software Engineer'],
+    nickname: 'The Birthday Boy',
+    nickname_link: '',
+    contact_link: 'https://github.com/Zyxel-1',
+    details: '',
   },
-  devon: {
-    fullName: 'Devon Marantz',
-    src: `${process.env.PUBLIC_URL}/images/team/Devon_Marantz.jpg`,
-    role: 'Software Engineer',
-    character: 'Lord Honu',
-    link: 'https://github.com/devmarantz',
+  {
+    img_src: `/images/team/Devon_Marantz.jpg`,
+    name: 'Devon Marantz',
+    roles: ['The Face of the Party', 'Software Engineer'],
+    nickname: 'Lord Honu of the Pacific Isles',
+    nickname_link: 'https://ddb.ac/characters/12174353',
+    contact_link: 'https://github.com/devmarantz',
+    details: 'Now a Project Manager at Mercury Insurance',
   },
-};
+];
 
-export default memberInfo;
+export default team_members;

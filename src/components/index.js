@@ -1,8 +1,8 @@
 // ========================================
 // about
-export { default as AboutTeam } from './about/AboutTeam';
-export { default as AboutTeamCard } from './about/AboutTeamCard';
 export { default as InfoCard } from './about/InfoCard';
+export { default as ProfileCard } from './about/ProfileCard';
+export { default as ProfileCardList } from './about/ProfileCardList';
 
 // ========================================
 // course

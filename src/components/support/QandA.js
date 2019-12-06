@@ -5,9 +5,8 @@ import '../../css/support/QandA.scss';
 
 const checkValue = event => {
   if (event.target.checked)
-    ReactGA.event({ category: 'Info', action: 'User opened a QandA question'});
-  else
-    ReactGA.event({ category: 'Info', action: 'User closed a profile'});
+    ReactGA.event({ category: 'Info', action: 'User opened a QandA question' });
+  else ReactGA.event({ category: 'Info', action: 'User closed a QandA question' });
 };
 
 const QandA = ({ title, questions_answers }) => (

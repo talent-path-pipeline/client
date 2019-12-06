@@ -1,6 +1,6 @@
 import React from 'react';
-import { AboutTeam, InfoCard } from '..';
-import { INFO_CARDS } from '../../data';
+import { InfoCard, ProfileCardList } from '..';
+import { INFO_CARDS, MEMBER_INFO, THANKS_INFO } from '../../data';
 import '../../css/pages/AboutPage.scss';
 
 const AboutPage = () => (
@@ -24,10 +24,16 @@ const AboutPage = () => (
     </section>
     <hr className="breakline" />
     <h1 className="about-subtitle">Meet The Team</h1>
-    <AboutTeam />
-    {/* <hr className="breakline" />
-    <h1 className="about-subtitle">Special Thanks To</h1>
-    <AboutTeam /> */}
+    <ProfileCardList profile_list={MEMBER_INFO} />
+    {THANKS_INFO.length > 0 ? (
+      <>
+        <hr className="breakline" />
+        <h1 className="about-subtitle">Special Thanks To</h1>
+        <ProfileCardList profile_list={THANKS_INFO} />
+      </>
+    ) : (
+      ''
+    )}
   </div>
 );
 
