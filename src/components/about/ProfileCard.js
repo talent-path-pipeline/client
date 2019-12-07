@@ -46,14 +46,19 @@ const ProfileCard = ({ profile }) => (
         ) : (
           ''
         )}
-        <p className="profile-details">{profile.details}</p>
+        <p
+          className="profile-details"
+          style={profile.nickname ? {} : { maxHeight: '80%' }}
+        >
+          {profile.details}
+        </p>
         {profile.contact_link ? (
           <a
             href={profile.contact_link}
             target="_blank noopener noreferrer"
             className="contact-link"
           >
-            {`See More Work >`}
+            {`See More >`}
           </a>
         ) : (
           ''

@@ -70,11 +70,13 @@
         transition: opacity var(--transition-time-style);
         font-family: var(--font-deco);
         text-shadow: 2px 1px 1px var(--accent-dark-dull);
+        margin-bottom: 5px;
       }
 
       .profile-role {
         transition: opacity var(--transition-time-style);
         color: rgba(var(--plain-light-rgb), 0.9);
+        margin-bottom: 4px;
       }
     }
 
@@ -92,8 +94,9 @@
     }
 
     .back {
-      background-color: rgba(var(--accent-dark-dull-rgb), 0.88);
+      background-color: rgba(var(--accent-dark-dull-rgb), 0.85);
       transform: var(--flip-transition);
+      z-index: -1;
 
       .profile-name {
         text-decoration: underline;
@@ -112,7 +115,8 @@
 
       .profile-details {
         font-size: 1rem;
-        margin-top: 12px;
+        margin-top: 8px;
+
         max-height: 50%;
         overflow: {
           x: hidden;
