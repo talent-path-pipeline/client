@@ -6,7 +6,7 @@ import '../../css/about/ProfileCardList.scss';
 const ProfileCardList = ({ profile_list }) => (
   <section className="profile-list">
     {profile_list.map(profile => (
-      <ProfileCard profile={profile} />
+      <ProfileCard profile={profile} key={profile.name} />
     ))}
   </section>
 );
@@ -16,9 +16,12 @@ ProfileCardList.propTypes = {
     PropTypes.shape({
       img_src: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      character: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+      roles: PropTypes.arrayOf(PropTypes.string).isRequired,
+
+      nickname: PropTypes.string,
+      nickname_link: PropTypes.string,
+      contact_link: PropTypes.string,
+      details: PropTypes.string,
     }),
   ).isRequired,
 };
