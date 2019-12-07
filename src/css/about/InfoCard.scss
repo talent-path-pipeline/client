@@ -1,13 +1,14 @@
 .info-card {
   --icon-size: 80px;
   --top-pad: 5px;
+  --base-height: 200px;
   --buffer: calc(var(--icon-size) / 2 + var(--top-pad));
 
   position: relative;
   text-align: center;
   padding-top: var(--buffer);
   width: 28%;
-  height: calc(200px + var(--buffer));
+  height: calc(var(--base-height) + var(--buffer));
 
   .icon {
     position: absolute;

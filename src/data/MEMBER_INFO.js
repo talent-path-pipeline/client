@@ -5,7 +5,7 @@ const team_members = [
   {
     img_src: 'https://www.dmsguild.com/images/8957/170777.jpg',
     name: 'Kevin Baktiar',
-    roles: ['Product Owner', 'Software Engineer'],
+    roles: ['Dungeon Owner', 'Software Engineer'],
     nickname: 'Vasili Black',
     nickname_link: 'https://ddb.ac/characters/12173935',
     contact_link: 'https://github.com/afterafx',

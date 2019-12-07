@@ -14,3 +14,27 @@
     margin-top: 20px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .info-card-section {
+    flex-direction: column;
+    align-items: center;
+
+    .info-card {
+      margin: 10px 0px;
+      width: 90%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 381px) {
+  .info-card {
+    --base-height: 150px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .info-card {
+    --base-height: 200px;
+  }
+}
