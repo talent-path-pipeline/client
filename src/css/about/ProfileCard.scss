@@ -107,6 +107,7 @@
       background-color: rgba(var(--accent-dark-dull-rgb), 0.85);
       transform: var(--flip-transition);
       z-index: -1;
+      transition: z-index var(--transition-time-style);
 
       * {
         opacity: 0;
@@ -141,6 +142,7 @@
           width: 3px;
         }
       }
+
       .contact-link {
         color: rgba(var(--plain-light-rgb), 0.8);
         font-size: 0.85em;
