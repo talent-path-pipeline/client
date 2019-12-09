@@ -64,7 +64,7 @@ const thanks = [
   },
   {
     img_src:
-      'https://ksr-ugc.imgix.net/assets/021/819/868/99f47e171a602c8c46eaaae6b677e1b2_original.png?ixlib=rb-2.1.0&w=700&fit=max&v=1530910872&auto=format&frame=1&q=92&s=c095313a391ae0bba6816dae8f9327dd',
+      'https://mlpnk72yciwc.i.optimole.com/w:600/h:600/q:auto/https://www.bleedingcool.com/wp-content/uploads/2019/02/Critical-Role-logo.jpg',
     name: 'Critical Role',
     roles: ['Actual-Play Stream', 'Great Voices', 'Actual Game Rule Knowledge'],
     nickname: '',
