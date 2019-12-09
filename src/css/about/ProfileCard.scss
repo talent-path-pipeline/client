@@ -39,6 +39,10 @@
     .front .profile-role {
       opacity: 0;
     }
+
+    .back * {
+      opacity: 1;
+    }
   }
 
   .flip-card-inner {
@@ -67,15 +71,17 @@
       overflow: hidden;
       font-family: var(--font-main);
 
-      .profile-name {
+      * {
         transition: opacity var(--transition-time-style);
+      }
+
+      .profile-name {
         font-family: var(--font-deco);
         text-shadow: 2px 1px 1px var(--accent-dark-dull);
         margin-bottom: 5px;
       }
 
       .profile-role {
-        transition: opacity var(--transition-time-style);
         color: rgba(var(--plain-light-rgb), 0.92);
         margin-bottom: 4px;
       }
@@ -89,7 +95,6 @@
       }
 
       .profile-role {
-        transition: opacity var(--transition-time-style);
         text-shadow: 1px 1px 1px var(--accent-dark-dull);
       }
     }
@@ -97,7 +102,10 @@
     .back {
       background-color: rgba(var(--accent-dark-dull-rgb), 0.85);
       transform: var(--flip-transition);
-      z-index: -1;
+
+      * {
+        opacity: 0;
+      }
 
       .profile-name {
         text-decoration: underline;
