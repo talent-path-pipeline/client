@@ -17,6 +17,24 @@ body {
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent-dark-dull);
+  // background: var(--plain-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-light-dull);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light-bright);
+}
+
 .breakline {
   width: 95%;
   max-width: 1110px;

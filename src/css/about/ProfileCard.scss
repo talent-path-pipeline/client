@@ -12,7 +12,8 @@
   border-radius: 15px;
   transition: transform 0.12s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     // NOTE: to reviewer, switch between scale and shadow to see what you think is better
     // transform: scale(1.04);
 
@@ -75,21 +76,21 @@
 
       .profile-role {
         transition: opacity var(--transition-time-style);
-        color: rgba(var(--plain-light-rgb), 0.9);
+        color: rgba(var(--plain-light-rgb), 0.92);
         margin-bottom: 4px;
       }
     }
 
     .front {
       background: {
-        color: var(--theme-color);
+        color: var(--accent-dark-bright);
         size: cover;
         position: center;
       }
 
       .profile-role {
         transition: opacity var(--transition-time-style);
-        color: rgba(var(--plain-light-rgb), 0.85);
+        text-shadow: 1px 1px 1px var(--accent-dark-dull);
       }
     }
 
@@ -122,8 +123,11 @@
           x: hidden;
           y: auto;
         }
-      }
 
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+      }
       .contact-link {
         color: rgba(var(--plain-light-rgb), 0.8);
         font-size: 0.85em;
