@@ -13,9 +13,9 @@ const LessonInfo = ({ lesson, course_slug, course_size }) => {
       <LessonNavBar className="lesson-nav" prev_path={prev_path} next_path={next_path} />
       <h4 className="lesson-playing">Now Playing:</h4>
       <h2>{title || 'Lesson'}</h2>
-      <hr />
+      <hr className="breakline" />
       <p className="lesson-description">{description || 'No description provided'}</p>
-      <hr />
+      <hr className="breakline" />
       <YouTubeInfo lesson={lesson} />
     </div>
   );

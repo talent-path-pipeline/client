@@ -1,6 +1,8 @@
 // ========================================
 // about
-// TODO: add all About components (ideally after consolidation/refactor)
+export { default as InfoCard } from './about/InfoCard';
+export { default as ProfileCard } from './about/ProfileCard';
+export { default as ProfileCardList } from './about/ProfileCardList';
 
 // ========================================
 // catalog

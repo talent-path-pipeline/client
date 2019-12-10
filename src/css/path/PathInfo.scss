@@ -4,57 +4,12 @@
   text-align: center;
   font-family: var(--font-deco);
 
-  .header-container {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-
-    .image-overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-    }
-
-    .path-splash {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .header-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10px;
-      color: var(--plain-light);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-    }
-  }
-
   .path-logo {
     height: calc(100px + 15vw + 10vh);
     margin: 10px auto;
   }
 
-  .path-title {
-    font-size: 2em;
-    margin-bottom: 4px;
-  }
-
-  .path-subtitle {
-    font-weight: normal;
-    font-family: var(--font-main);
-  }
-
   .breakline {
-    width: 95%;
-    max-width: 1110px;
-    margin: 10px auto;
-    border: 2.5px solid var(--accent-dark-dull);
+    border-width: 2.5px;
   }
 }

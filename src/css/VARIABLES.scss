@@ -41,11 +41,11 @@ $accent-light-bright: $orange;
 /* Variables */
 :root {
   // White-label fonts
-  --font-deco: 'Cinzel Decorative', cursive;
+  --font-deco: 'Cinzel Decorative', Georgia, cursive;
   --font-main: 'Open Sans', 'Trebuchet MS', sans-serif;
   --font-alt: 'Roboto', 'Tahoma', sans-serif;
 
-  // NOTE: DON'T CHANGE ANY OF THE BELOW!
+  // WARN: DON'T CHANGE ANY OF THE BELOW!
   // IF YOU WANT TO UPDATE THE COLORS, EDIT THE SCSS VARIABLES ABOVE
   // THAT WAY BOTH THE REGULAR AND RGB VERSIONS GET UPDATED TOGETHER
 
