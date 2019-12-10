@@ -6,9 +6,9 @@ import '../../css/pages/PathPage.scss';
 const PathPage = ({ path_data }) => (
   <div className="path-page">
     <PathInfo
-      title={path_data.title}
-      subtitle={path_data.subtitle}
-      subtitle2={path_data.subtitle2}
+      // title={path_data.title}
+      // subtitle={path_data.subtitle}
+      // subtitle2={path_data.subtitle2}
       image_link={`./images/${path_data.image_name}`}
     />
     {path_data.courses && path_data.courses.length > 0 && (

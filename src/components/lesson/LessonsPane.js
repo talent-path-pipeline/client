@@ -8,7 +8,7 @@ const LessonsPane = ({
   course_title,
   lessons,
   curr_lesson_num,
-  base_path,
+  course_slug,
   prev_slug,
   next_slug,
 }) => (
@@ -16,8 +16,8 @@ const LessonsPane = ({
     <h2>
       <LessonNavBar
         className="course-nav"
-        prev_path={prev_slug ? `/courses/${prev_slug}/0` : ''}
-        next_path={next_slug ? `/courses/${next_slug}/0` : ''}
+        prev_path={prev_slug ? `/courses/${prev_slug}` : ''}
+        next_path={next_slug ? `/courses/${next_slug}` : ''}
       />
       {course_title}
     </h2>
@@ -27,7 +27,7 @@ const LessonsPane = ({
         order={order}
         title={title}
         length={length}
-        base_path={base_path}
+        course_slug={course_slug}
         active={order === curr_lesson_num}
       />
     ))}
@@ -44,7 +44,7 @@ LessonsPane.propTypes = {
       length: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
   prev_slug: PropTypes.string,
   next_slug: PropTypes.string,
 };

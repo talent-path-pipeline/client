@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LogIn from '../registration/LogIn';
-import SignUp from '../registration/SignUp';
-import TokenServices from '../../utils/tokenServices'
+import { LogIn, SignUp } from '..';
+import { tokenServices } from '../../utils';
 import '../../css/pages/RegistrationPage.scss';
 
 class RegistrationPage extends Component {
@@ -11,52 +10,54 @@ class RegistrationPage extends Component {
 
     this.state = {
       hideSignUp: true,
-    }
+    };
   }
 
   /**
    * Checks wether or not the user is already logged in
    */
   componentDidMount() {
-    if(TokenServices.getToken()){
+    if (tokenServices.getToken()) {
       // console.log("You are logged in redirecting")
       // this.props.history.push("/dashboard");
-      this.handleLogin()
-    }else{
+      this.handleLogIn();
+    } else {
       // console.log("You are not logged in doing nothing")
     }
   }
 
-  handleLogin = event => {
+  handleLogIn = event => {
     // event.preventDefault();
     // this.props.history.push("/dashboard");
-    this.props.handleLogin();
-  }
+    this.props.handleLogIn();
+  };
 
-  changeToSignup = event => {
-    event.preventDefault();
+  changeToSignUp = event => {
+    // event.preventDefault();
     this.setState({ hideSignUp: false });
-  }
+  };
 
-  backToLogin = event => {
-    event.preventDefault();
+  backToLogIn = event => {
+    // event.preventDefault();
     this.setState({ hideSignUp: true });
-  }
+  };
 
   render() {
     const { hideSignUp } = this.state;
     return (
       <div className="registration-container">
-        {hideSignUp
-          ? <LogIn changeToSignup={() => this.changeToSignup} handleLogin={this.handleLogin}/>
-          : <SignUp backToLogin={() => this.backToLogin} handleSignup={this.handleLogin}/> }
+        {hideSignUp ? (
+          <LogIn changeToSignUp={this.changeToSignUp} handleLogIn={this.handleLogIn} />
+        ) : (
+          <SignUp backToLogIn={this.backToLogIn} handleSignUp={this.handleLogIn} />
+        )}
       </div>
-    )
+    );
   }
 }
 
 RegistrationPage.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
+  handleLogIn: PropTypes.func.isRequired,
 };
 
 export default RegistrationPage;

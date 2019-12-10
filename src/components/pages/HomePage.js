@@ -41,6 +41,7 @@ class HomePage extends React.Component {
           <h2>Stonehaven Academy</h2>
           {/* <img id="path-image" src="./images/home-path-image.jpg" alt="Web Development Image" /> */}
         </div>
+        <hr className="homepage-line" />
         <div id="company-information">
           <div id="company-grid">
             <section className="company-box">
@@ -72,7 +73,7 @@ class HomePage extends React.Component {
             <section className="company-box">
               <img
                 alt="About Stonehaven 3"
-                src="https://img.icons8.com/ios-filled/64/000000/icosahedron.png"
+                src="/images/crimsond20-black.png"
               />
               <div className="company-info">
                 <p>

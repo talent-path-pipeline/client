@@ -16,14 +16,14 @@ class NavBar extends React.Component {
 
   // This keeps your state in sync with the opening/closing of the menu
   // via the default means, e.g. clicking the X, pressing the ESC key etc.
-  handleStateChange(state) {
+  handleStateChange = state => {
     this.setState({ menuOpen: state.isOpen });
-  }
+  };
 
   // This can be used to close the menu, e.g. when a user clicks a menu item
-  closeMenu() {
+  closeMenu = () => {
     this.setState({ menuOpen: false });
-  }
+  };
 
   // This can be used to toggle the menu, e.g. when using a custom icon
   // Tip: You probably want to hide either/both default icons if using a custom icon
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
-    const { links, handleLogoff, isAuthenticated } = this.props;
+    const { links, handleLogOut, isAuthenticated } = this.props;
     // TODO: fill the link list more programmatically so it's easier to update both mobile and desktop
 
     return (
@@ -43,12 +43,12 @@ class NavBar extends React.Component {
         <NavLink className="nav-home" to={links.home}>
           <img
             className="desktop-logo"
-            src="/images/SANavbarLogo.png"
+            src="/images/SA_LongLogo-Final.png"
             alt="Stonehaven Academy Logo"
           />
           <img
             className="mobile-logo"
-            src="/images/logo-red-stone.png"
+            src="/images/SA_IconLogo-Final.png"
             alt="Stonehaven Academy Logo"
           />
         </NavLink>
@@ -83,8 +83,8 @@ class NavBar extends React.Component {
           ) : null}
           {isAuthenticated ? (
             <li>
-              <NavLink onClick={handleLogoff} to="/">
-                Log Off
+              <NavLink onClick={handleLogOut} to="/">
+                Log Out
               </NavLink>
             </li>
           ) : (
@@ -129,8 +129,8 @@ class NavBar extends React.Component {
               </NavLink>
             ) : null}
             {isAuthenticated ? (
-              <NavLink onClick={handleLogoff} to="/">
-                Log Off
+              <NavLink onClick={handleLogOut} to="/">
+                Log Out
               </NavLink>
             ) : (
               <NavLink to={links.login}>Login</NavLink>
@@ -147,7 +147,7 @@ NavBar.propTypes = {
     home: PropTypes.string,
   }).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  handleLogoff: PropTypes.func.isRequired,
+  handleLogOut: PropTypes.func.isRequired,
 };
 
 export default NavBar;

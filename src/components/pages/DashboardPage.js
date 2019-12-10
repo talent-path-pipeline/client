@@ -1,68 +1,136 @@
-import React from 'react';
-import tokenService from '../../utils/tokenServices';
-import DashboardMenu from '../dashboard/DashboardMenu';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { contentAPI, userLessonAPI, tokenServices } from '../../utils';
+import { AccountSettings, DashboardMenu, ProgressOverview } from '..';
 import '../../css/pages/DashboardPage.scss';
 
+class DashboardPage extends Component {
+  static propTypes = {
+    handleLogOut: PropTypes.func.isRequired,
+  };
 
-class DashboardPage extends React.Component{
-  state = {
-    userName: '',
-    userID: '',
-    userPersona: '',
-    active: 'overview',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      active: 'overview',
+      started_lessons: [],
+      started_courses: [],
+      completed_lessons: [],
+    };
   }
 
-  componentDidMount(){
-    const token = tokenService.getToken();
-    if(!token){
-      // Redirect to HTTP ErrorCode 500 page, this is a placeholder, replace with real
-      this.props.history.push('/login');
-    } else {
-      this.setState({userID: token.id});
-      this.setState({userPersona: token.persona});
-      this.setState({userName: token.fullName});
+  componentDidMount() {
+    this.getUserLessons();
+  }
+
+  /**
+   * TODO:
+   */
+  getUserLessons = () => {
+    const user = tokenServices.getToken();
+    userLessonAPI.getUserLessonsByUser(user.id).then(response => {
+      const userlessons = response.data;
+      const completed_lessons = userlessons.filter(lesson => lesson.completed);
+      this.setState({ completed_lessons });
+      this.getStartedContentData(userlessons);
+    });
+  };
+
+  /**
+   * TODO:
+   */
+  getStartedContentData = userlessons => {
+    const course_ids = this.getUniqueValues(userlessons, 'courseUuid');
+    Promise.all([contentAPI.getAllNestedCourses(), contentAPI.getAllLessons()]).then(
+      ([courseResp, lessonResp]) => {
+        // pick out only the courses that have been started
+        const courses = courseResp.data;
+        const started_courses = courses.filter(crs => course_ids.includes(crs.uuid));
+
+        // pick out only the lessons that have been started
+        const lessons = lessonResp.data;
+        const started_lessons = [];
+        lessons.forEach(lesson => {
+          const curr_ul = userlessons.find(ul => ul.lessonUuid === lesson.uuid);
+          if (curr_ul) {
+            const { slug: course_slug } = courses.find(
+              crs => crs.uuid === curr_ul.courseUuid,
+            );
+            started_lessons.push({
+              ...lesson,
+              // add the timestamp, completion status, and course_slug
+              timestamp: curr_ul.timestamp,
+              completed: curr_ul.completed,
+              course_slug,
+            });
+          }
+        });
+
+        this.setState({ started_courses, started_lessons });
+      },
+    );
+  };
+
+  /**
+   * Takes an array of objects, and returns the unique values for a given key from all the
+   * objects in the array.
+   * @param {Array<Object>} data the array of objects to be reduced
+   * @param {string} key the key to get values from for each of the objects
+   * @returns {any[]} an array of the unique values for the given key from the original objects
+   */
+  getUniqueValues = (data, key) => {
+    const all_ids = data.map(element => element[key]);
+    const no_duplicates = new Set(all_ids);
+    return [...no_duplicates];
+  };
+
+  /**
+   * TODO:
+   */
+  goToSection = section => {
+    this.setState({ active: section });
+  };
+
+  /**
+   * TODO:
+   */
+  getBodySection = () => {
+    const { active, started_courses, started_lessons, completed_lessons } = this.state;
+
+    if (active === 'overview') {
+      return (
+        <ProgressOverview
+          started_lessons={started_lessons}
+          completed_lessons={completed_lessons}
+          started_courses={started_courses}
+        />
+      );
     }
-  }
-
-  goToOverview = () => {
-    this.setState({ active: 'overview' });
+    if (active === 'settings') {
+      return <AccountSettings />;
+    }
+    return <div className="dashboard-body">No Body</div>;
   };
 
-  goToSettings = () => {
-    this.setState({ active: 'settings' });
-  };
+  render() {
+    const { handleLogOut } = this.props;
+    const { active } = this.state;
+    const user = tokenServices.getToken();
 
-  render(){
     return (
       <main className="dashboard">
         <DashboardMenu
-          activeView={this.state.active}
-          showOverview={this.goToOverview}
-          showSettings={this.goToSettings}
-          logout={this.logout}
+          username={user.fullName}
+          active={active}
+          section_list={{
+            overview: 'Progress Overview',
+            settings: 'Account Settings',
+          }}
+          goToSection={this.goToSection}
+          handleLogOut={handleLogOut}
         />
-        {this.state.active === 'overview' ? (
-          <div className="dashboardBody">
-            <h1 className="dashboardHeader">
-              {`Welcome, ${this.state.userName || 'Anon'}`}
-            </h1>
-          </div>
-        ) : (
-          ''
-        )}
-        {this.state.active === 'settings' ? (
-          <div className="dashboardBody">
-            <h1 className="dashboardHeader">
-              {this.state.userName}
-'s Account
-            </h1>
-            <p className="dashboardText">
-              {`User ID: ${this.state.userID}`}
-            </p>
-          </div>
-        ) : (
-          ''
-        )}
+        {this.getBodySection()}
       </main>
     );
   }

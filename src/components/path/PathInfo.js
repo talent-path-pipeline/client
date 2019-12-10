@@ -2,28 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/path/PathInfo.scss';
 
-const PathInfo = ({ title, subtitle, image_link }) => (
+const PathInfo = ({ title, subtitle, subtitle2, image_link }) => (
   <div className="path-info">
-    <div className="image-container">
+    <section className="header-container">
       <div className="image-overlay" />
-      <img src={image_link} alt="Path Splash" className="path-splash" />
-    </div>
-    <h2 className="title">{title}</h2>
-    <img className="path-logo" src="./images/crimsond20.png" alt="Crimson D20 Dice"/>
-    <p className="subtitle">{subtitle}</p>
-    <hr className="line" />
+      <div
+        className="header-splash"
+        alt="Path Splash"
+        style={{ backgroundImage: `url(${image_link})` }}
+      />
+      <div className="header-text">
+        <h1 className="header-title">{title}</h1>
+        <h3 className="header-subtitle">{subtitle}</h3>
+      </div>
+    </section>
+    <img className="path-logo" src="./images/crimsond20.png" alt="D20" />
+    <h3 className="path-subtitle2">{subtitle2}</h3>
+    <hr className="breakline" />
   </div>
 );
 
 PathInfo.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  subtitle2: PropTypes.string,
   image_link: PropTypes.string,
 };
 
 PathInfo.defaultProps = {
-  title: 'Dungeon Master Path',
-  subtitle: 'Your path to becoming a successfull DM!',
+  title: 'The DM Path',
+  subtitle: 'Your path to becoming a successfull Dungeon Master!',
+  subtitle2: 'Core Coursework',
   image_link: '',
 };
 

@@ -6,7 +6,7 @@
   min-height: 1px;
 }
 .vertical-timeline-element:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -35,7 +35,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px var(--brown), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 5px var(--accent-dark-dull), inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .vertical-timeline-element-icon svg {
   display: block;
@@ -133,31 +134,33 @@
 .vertical-timeline-element-content {
   position: relative;
   margin-left: 60px;
-  background: var(--navy);
+  background: var(--accent-dark-bright);
   border-radius: 0.25em;
   padding: 1em;
-  box-shadow: 0 3px 0 var(--greyblue);
+  box-shadow: 0 3px 0 var(--accent-light-dull);
 }
 .vertical-timeline-element--no-children .vertical-timeline-element-content {
   background: transparent;
   box-shadow: none;
 }
 .vertical-timeline-element-content:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
 .vertical-timeline-element-content h2 {
   color: #303e49;
 }
-.vertical-timeline-element-content p, .vertical-timeline-element-content .vertical-timeline-element-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #333;
-}
+// .vertical-timeline-element-content p,
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   font-size: 13px;
+//   font-size: 0.8125rem;
+//   font-weight: 500;
+//   color: #333;
+// }
 .vertical-timeline-element-content .vertical-timeline-element-date {
-  display: inline-block;
+  // display: inline-block;
+  display: none;
 }
 .vertical-timeline-element-content p {
   margin: 1em 0 0;
@@ -174,8 +177,8 @@
 
 .vertical-timeline-element-content .vertical-timeline-element-date {
   float: left;
-  padding: .8em 0;
-  opacity: .7;
+  padding: 0.8em 0;
+  opacity: 0.7;
 }
 .vertical-timeline-element-content::before {
   content: '';
@@ -185,7 +188,7 @@
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid var(--navy);
+  border-right: 7px solid var(--accent-dark-bright);
 }
 .vertical-timeline-element--no-children .vertical-timeline-element-content::before {
   display: none;
@@ -214,10 +217,12 @@
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: var(--black);
+    border-left-color: var(--plain-dark);
   }
 
-  .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+  .vertical-timeline--two-columns
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
     position: absolute;
     width: 100%;
     left: 124%;
@@ -226,21 +231,35 @@
     font-size: 1rem;
   }
 
-  .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content,
-  .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content {
+  .vertical-timeline--two-columns
+    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+    .vertical-timeline-element-content,
+  .vertical-timeline--two-columns
+    .vertical-timeline-element.vertical-timeline-element--right
+    .vertical-timeline-element-content {
     float: right;
   }
-  .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content::before,
-  .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content::before {
+  .vertical-timeline--two-columns
+    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+    .vertical-timeline-element-content::before,
+  .vertical-timeline--two-columns
+    .vertical-timeline-element.vertical-timeline-element--right
+    .vertical-timeline-element-content::before {
     top: 24px;
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: var(--black);
+    border-right-color: var(--plain-dark);
   }
 
-  .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date,
-  .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date {
+  .vertical-timeline--two-columns
+    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date,
+  .vertical-timeline--two-columns
+    .vertical-timeline-element.vertical-timeline-element--right
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
     left: auto;
     right: 124%;
     text-align: right;
@@ -260,8 +279,12 @@
 
 @media only screen and (min-width: 1170px) {
   /* inverse bounce effect on even content blocks */
-  .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content.bounce-in,
-  .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content.bounce-in {
+  .vertical-timeline--two-columns.vertical-timeline--animate
+    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+    .vertical-timeline-element-content.bounce-in,
+  .vertical-timeline--two-columns.vertical-timeline--animate
+    .vertical-timeline-element.vertical-timeline-element--right
+    .vertical-timeline-element-content.bounce-in {
     -webkit-animation: cd-bounce-2-inverse 0.6s;
     -moz-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s;

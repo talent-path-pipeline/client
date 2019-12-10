@@ -1,8 +1,8 @@
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
 
 #splash-container {
-  background-color: var(--black);
+  background-color: var(--plain-dark);
   position: relative;
   height: auto;
 
@@ -19,27 +19,29 @@
 
     h3 {
       font-size: calc(2vw + 1rem);
-      color: var(--white);
-      text-shadow: 2px 2px 4px var(--blue);
+      color: var(--plain-light);
+      text-shadow: 2px 2px 4px var(--accent-dark-bright);
       text-align: center;
     }
 
     button {
       width: 200px;
-      background-color: var(--red);
+      background-color: var(--accent-dark-mid);
+      color: var(--plain-light);
       padding: 10px 5px;
       border: none;
       border-radius: 5px;
+      box-shadow: 0px 1px 3px var(--accent-dark-bright);
       font-size: 15px;
-      font-family: var(--fontfamily-roboto);
-      font-weight: 300;
+      font-family: var(--font-deco);
+      font-weight: bold;
       margin-top: 20px;
-      color: var(--white);
+      cursor: pointer;
     }
 
     #clipPolygon {
       z-index: 3;
-      background-color: var(--blue);
+      background-color: var(--accent-dark-bright);
     }
   }
 
@@ -60,52 +62,51 @@
   align-content: center;
   align-items: center;
   flex-direction: column;
-  // background-image: linear-gradient(black, var(--red));
-  color: var(--brown);
+  color: var(--accent-dark-dull);
   font-size: 4vw;
-  // text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 1px 1px var(--plain-dark);
 }
 
 #company-information {
-  // background-color: var(--red);
+  // background-color: var(--theme-color);
   height: 100%;
-  
-  
+  margin: 30px;
+
   #company-grid {
-    height: auto;
-    width: auto;
-    margin: auto;
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-column-gap: 15px;
-    grid-row-gap: 10px; 
-    padding: 30px;
-  
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin: 1em auto;
+
     .company-box {
-      background-color: var(--navy);
-      padding:20px;
       max-height: 500px;
-      border-radius:10px;
-      color: var(--white);
-      font-family: var(--fontfamily-roboto);
+      color: var(--plain-dark);
+      font-family: var(--font-alt);
       font-weight: 300;
-      display:flex;
-      flex-direction: column;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      box-shadow: 5px 5px var(--greyblue);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; 
+      font-size: calc(15px + .5vw);
+      padding: 20px;
+
+      img {
+        height: calc(25px + 1.5vh + 1.5vw);
+      }
     }
 
     .company-info {
       padding: 2em;
     }
-
   }
-
 }
 
 #testimonials {
   height: 400px;
-  background-color: var(--red);
+  background-color: var(--theme-color);
+}
+
+.homepage-line {
+  border: 2px solid var(--accent-dark-dull);
+  width: 80%;
+  margin: 1em auto;
 }

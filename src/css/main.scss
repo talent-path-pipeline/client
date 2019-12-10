@@ -10,11 +10,82 @@
 /* =========================== MAIN =========================== */
 
 body {
-  background-color: var(--cream);
-  color: var(--white);
-  font-family: var(--fontfamily);
+  background-color: var(--plain-light);
+  color: var(--plain-light);
+  font-family: var(--font-deco);
   font-size: 20px;
   height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent-dark-dull);
+  // background: var(--plain-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-light-dull);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light-bright);
+}
+
+.breakline {
+  width: 95%;
+  max-width: 1110px;
+  margin: 10px auto;
+  border: 4px solid var(--accent-dark-dull);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.35;
+}
+
+.header-container {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 50vh;
+
+  .header-splash {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    color: var(--plain-light);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    .header-title {
+      font-size: 2em;
+      margin-bottom: 4px;
+    }
+
+    .header-subtitle {
+      font-weight: normal;
+      font-family: var(--font-main);
+    }
+  }
 }
 
 #start-page {

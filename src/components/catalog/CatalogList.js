@@ -1,15 +1,25 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CatalogCard } from '..';
 import '../../css/catalog/CatalogList.scss';
 
-const CatalogList = ({ courses }) => (
+const CatalogList = ({ courses, completed_lessons }) => (
   <div className="list-all-courses">
-    {courses ? (
-      courses.map(course => <CatalogCard course={course} key={course.slug} />)
+    {courses && courses.length > 0 ? (
+      courses.map(course => {
+        const completed_in_course = completed_lessons.filter(
+          lesson => lesson.courseUuid === course.uuid,
+        );
+        return (
+          <CatalogCard
+            course={course}
+            key={course.slug}
+            num_completed={completed_in_course.length}
+          />
+        );
+      })
     ) : (
-      <div className="no-courses" />
+      <div className="no-courses">No Courses!</div>
     )}
   </div>
 );
@@ -25,6 +35,7 @@ CatalogList.propTypes = {
       lessons: PropTypes.arrayOf(PropTypes.object),
     }),
   ).isRequired,
+  completed_lessons: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CatalogList;

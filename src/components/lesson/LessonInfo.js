@@ -3,26 +3,19 @@ import { LessonNavBar, YouTubeInfo } from '..';
 import PropTypes from 'prop-types';
 import '../../css/lesson/LessonInfo.scss';
 
-const LessonInfo = ({ lesson, base_path, course_size }) => {
+const LessonInfo = ({ lesson, course_slug, course_size }) => {
   const { title, description, order } = lesson;
-  const base_link = `/courses/${base_path}/`;
-  const prevPath = order > 0 ? `${base_link}${order - 1}` : undefined;
-  const nextPath = order < course_size - 1 ? `${base_link}${order + 1}` : undefined;
+  const base_link = `/courses/${course_slug}/`;
+  const prev_path = order > 0 ? `${base_link}${order - 1}` : undefined;
+  const next_path = order < course_size - 1 ? `${base_link}${order + 1}` : undefined;
   return (
     <div className="lesson-info">
-      <LessonNavBar
-        className="lesson-nav"
-        order={order}
-        base_path={base_path}
-        course_size={course_size}
-        prev_path={prevPath}
-        next_path={nextPath}
-      />
+      <LessonNavBar className="lesson-nav" prev_path={prev_path} next_path={next_path} />
       <h4 className="lesson-playing">Now Playing:</h4>
       <h2>{title || 'Lesson'}</h2>
-      <hr />
+      <hr className="breakline" />
       <p className="lesson-description">{description || 'No description provided'}</p>
-      <hr />
+      <hr className="breakline" />
       <YouTubeInfo lesson={lesson} />
     </div>
   );
@@ -43,7 +36,7 @@ LessonInfo.propTypes = {
     channel_id: PropTypes.string.isRequired,
     channel_name: PropTypes.string.isRequired,
   }).isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
   course_size: PropTypes.number.isRequired,
 };
 

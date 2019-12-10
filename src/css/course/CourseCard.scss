@@ -1,37 +1,73 @@
 .course-card {
+  --img-split: 36%;
+
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  // TODO: the height of the timeline element is set weirdly so this doesn't actually get set sensically
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-dark-bright);
+  // border: 2px solid greenyellow;
 
-  a {
-    flex-grow: 1;
-    display: flex;
-    text-decoration: none;
-
-    .image {
-      height: 300px;
-      width: 300px;
-      border-radius: 5px;
-    }
-
-    .course-info {
-      margin-left: 20px;
-
-      .title {
-        font-size: 30px;
-        color: var(--stone);
-        font-family: var(--fontfamily);
-      }
-
-      p {
-        // font-family: var(--fontfamily-alt);
-        font-family: var(--fontfamily-roboto);
-        font-weight: 300;
-        color: var(--white);
-      }
-    }
+  .course-image {
+    // because of cascading stuff, since the timeline has weird/unset height this doesn't actually
+    // set to anything (100% of 0 is still 0), so it just stays on the min-height and doesn't scale
+    height: 100%;
+    min-height: 200px;
+    width: var(--img-split);
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    border-radius: 5px 0px 0px 5px;
   }
 
-  a:hover {
-    box-shadow: 5px 0 var(--white);
-    text-decoration: underline var(--stone);
+  .course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    height: 100%;
+    width: calc(100% - var(--img-split) - 10px);
+    padding: 0px 6px;
+
+    .progress-bar {
+      width: 100%;
+    }
+
+    .course-title {
+      font-size: 18px;
+      text-decoration: underline;
+      color: var(--plain-light);
+      margin-bottom: 6px;
+    }
+
+    .course-description {
+      color: var(--plain-light);
+      font-family: var(--font-alt);
+      font-weight: 300;
+      font-size: 15px;
+      height: 65%;
+      overflow: auto;
+      margin: 0px 0px 15px 0px;
+    }
+  }
+}
+
+.course-card:hover {
+  box-shadow: 5px 0 var(--plain-light);
+  text-decoration: underline var(--theme-color);
+}
+
+@media only screen and (max-width: 600px) {
+  .course-card {
+    .course-info {
+      width: 100%;
+    }
+
+    .course-image {
+      display: none;
+    }
   }
 }

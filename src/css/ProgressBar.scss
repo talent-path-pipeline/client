@@ -1,13 +1,15 @@
 .progress-bar {
   position: relative;
   height: 24px;
-  width: 350px;
-  background-color: var(--stone);
+  min-height: 24px;
+  // width: 350px;
+  width: 100%;
+  background-color: var(--theme-color);
   border-radius: 30px;
-  border: 1px solid var(--medium-grey);
+  border: 1px solid var(--accent-dark-dull);
 
   .progress-fill {
-    background-color: var(--crimson2);
+    background-color: var(--accent-light-bright);
     height: 99%;
     border-radius: inherit;
     transition: width 0.2s ease-in;
@@ -19,6 +21,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 13px;
-    color: var(--white);
+    font-weight: bold;
+    color: var(--accent-dark-dull);
+    margin: 0px;
+    width: 100%;
+    text-align: center;
   }
 }

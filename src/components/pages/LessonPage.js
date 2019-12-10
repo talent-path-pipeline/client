@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import { Lesson, LessonsPane } from '..';
 import '../../css/pages/LessonPage.scss';
 
-function LessonPage(props) {
-  const { curr_lesson_num, lessons, base_path } = props;
+const LessonPage = props => {
+  const { curr_lesson_num, lessons, course_slug } = props;
   const lesson = lessons[curr_lesson_num];
-  const total = lessons.length;
 
   return (
     <div className="lesson-page">
-      <Lesson lesson={lesson} course_size={total} base_path={base_path} />
+      <Lesson lesson={lesson} course_size={lessons.length} course_slug={course_slug} />
       <LessonsPane {...props} />
     </div>
   );
-}
+};
 
 LessonPage.propTypes = {
   course_title: PropTypes.string.isRequired,
@@ -35,7 +34,7 @@ LessonPage.propTypes = {
       channel_name: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  base_path: PropTypes.string.isRequired,
+  course_slug: PropTypes.string.isRequired,
   prev_slug: PropTypes.string,
   next_slug: PropTypes.string,
 };
